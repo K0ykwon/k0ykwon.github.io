@@ -26,8 +26,8 @@ I am interested in
 <br/>
 
 # Skills
-* Cheingra Highschool (*2019.03~2022.01*)
-* Chung-ang University (*2022.03~2022.12*) 
-    * majoring in Media Communication
-* Yonsei University (*2023.03~*) 
-    * majoring in Artificial Intelligence
+* Computer Languages
+	* C/C++, Java, Python, Kotlin, Web programming languages (HTTP, Javascript)
+* Languages
+	* Korean(Native)
+	* English
