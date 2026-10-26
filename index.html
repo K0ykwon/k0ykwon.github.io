@@ -11,7 +11,7 @@
   <meta property="og:image" content="https://k0ykwon.github.io/assets/desk-reference.webp">
   <meta property="og:url" content="https://k0ykwon.github.io/">
   <link rel="canonical" href="https://k0ykwon.github.io/">
-  <link rel="icon" type="image/svg+xml" href="assets/tomato.svg">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="stylesheet" href="styles.css">
   <title>Youngkwon Ko — A desk of ideas</title>
   <script type="module" src="app.js"></script>
@@ -19,11 +19,11 @@
 <body>
   <a class="skip-link" href="#selected-work">Skip to projects</a>
   <header class="site-header">
-    <a class="brand" href="#" aria-label="Youngkwon Ko, home"><img src="assets/tomato.svg" width="27" height="27" alt=""><span>Youngkwon Ko<span class="brand-dot">.</span></span></a>
+    <a class="brand" href="#" aria-label="Youngkwon Ko, home"><span>Youngkwon Ko</span></a>
     <nav class="main-nav" aria-label="Main navigation">
       <a href="#about" data-section="about">About</a><a href="#research" data-section="research">Research</a><a href="#software" data-section="software">Software</a><a href="#blog" data-section="blog">Blog</a><a href="#experience" data-section="experience">Experience</a><a href="#contact" data-section="contact">Contact</a>
     </nav>
-    <button class="theme-button" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☼</span><span class="theme-label">Light</span></button>
+    <button class="theme-button" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☼</span><span class="theme-label sr-only">Light</span></button>
   </header>
   <main>
     <section class="desk-section" aria-label="An illustrated workspace. Choose an object to explore.">
@@ -31,8 +31,6 @@
         <svg class="desk-art" viewBox="0 0 744 312" aria-hidden="true" focusable="false">
           <defs>
             <clipPath id="window-mask"><path d="M180 0H609L598 91 195 64Z"/></clipPath>
-            <radialGradient id="lamp-glow"><stop stop-color="#ffd08a" stop-opacity=".6"/><stop offset="1" stop-color="#ffd08a" stop-opacity="0"/></radialGradient>
-            <linearGradient id="screen-glow" x2="0" y2="1"><stop stop-color="#253c48"/><stop offset="1" stop-color="#111d24"/></linearGradient>
           </defs>
           <image class="room-day" href="assets/desk-reference.webp" x="-13" y="-58" width="1536" height="1024"/>
           <image class="room-night" href="assets/desk-reference.webp" x="-781" y="-574" width="1536" height="1024"/>
@@ -41,47 +39,26 @@
             <image class="outside-sunset" href="assets/desk-reference.webp" x="-781" y="-58" width="1536" height="1024"/>
             <image class="outside-rain" href="assets/desk-reference.webp" x="-13" y="-574" width="1536" height="1024"/>
             <image class="outside-night" href="assets/desk-reference.webp" x="-781" y="-574" width="1536" height="1024"/>
-            <g class="snow-layer"><circle cx="240" cy="15" r="1.1"/><circle cx="302" cy="39" r="1"/><circle cx="415" cy="16" r="1.2"/><circle cx="471" cy="61" r=".9"/><circle cx="548" cy="42" r="1.2"/></g>
           </g>
-          <ellipse class="lamp-pool" cx="571" cy="143" rx="175" ry="110" fill="url(#lamp-glow)"/>
-          <g class="screen-lit">
-            <path d="m323 85 124 13-10 73-124-14Z" fill="url(#screen-glow)"/>
-            <g transform="translate(333 98) rotate(6)" fill="none" stroke-width="1.2" stroke-linecap="round"><path d="M0 0h9M0 5h15M0 10h12M0 15h20M0 20h8M0 25h16M0 30h11" stroke="#92ac94"/><path d="M14 0h11M20 5h14M17 10h16M25 15h10M13 20h17M21 25h15" stroke="#d3bd8c"/><path d="m51 42 11-9 8 4 12-20 14 25Z" stroke="#a4b6be"/></g>
-            <circle class="screen-led" cx="374" cy="168" r="1.2" fill="#a5c5ad"/>
-          </g>
-          <path class="paper-trace object-response" d="m565 162 9-11 8 3 9-18 9 9 10-14 10 8"/>
-          <path class="bookmark object-response" d="m105 94 9-2 3 21-5-3-4 5Z"/>
-          <path class="folder-trace object-response" d="m476 226 57 9-10 49-58-12Z"/>
-          <path class="letter-trace object-response" d="m611 267 34 23 41-9"/>
-          <path class="notebook-paper" d="m49 207 96-13 23 91-97 17Z"/>
-          <g class="notebook-copy" transform="translate(68 222) rotate(-8)">
-            <image href="assets/tomato.svg" x="0" y="-11" width="17" height="17"/>
-            <text class="notebook-name" x="0" y="20">Youngkwon Ko</text>
-            <text x="0" y="34">AI · Quantum · Optimization</text>
-            <text x="0" y="49">Researching ideas.</text>
-            <text x="0" y="60">Building systems.</text>
-          </g>
-          <path class="pen-stroke object-response" d="m193 267q15-10 20-3t14-2q3-7 9-3"/>
         </svg>
-        <div class="weather-widget" role="status" aria-live="polite">
+        <div class="weather-widget sr-only" role="status" aria-live="polite">
           <span class="weather-first"><span class="live-dot"></span> Seoul <span id="weather-icon" aria-hidden="true">◌</span><strong id="temperature">—°</strong></span>
           <span id="seoul-clock">Seoul local time</span><span class="weather-detail" id="weather-detail">Connecting to the sky…</span>
         </div>
-        <a class="hotspot hotspot-blog" href="#blog" data-section="blog" data-object="blog" aria-label="Books: explore Blog"><span class="object-label">Blog<svg class="underline-mark" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 24Q31 20 92 24M8 28Q50 25 86 27"/></svg></span></a>
-        <a class="hotspot hotspot-software" href="#software" data-section="software" data-object="software" aria-label="Laptop: explore Software"><span class="object-label">Software<svg class="underline-mark" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 24Q31 20 92 24M8 28Q50 25 86 27"/></svg></span></a>
-        <a class="hotspot hotspot-research" href="#research" data-section="research" data-object="research" aria-label="Paper stack: explore Research"><span class="object-label">Research<svg class="underline-mark" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 24Q31 20 92 24M8 28Q50 25 86 27"/></svg></span></a>
-        <a class="hotspot hotspot-about" href="#about" data-section="about" data-object="about" aria-label="Open notebook: About Youngkwon Ko"><span class="object-label">About me<svg class="underline-mark" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 24Q31 20 92 24M8 28Q50 25 86 27"/></svg></span></a>
-        <a class="hotspot hotspot-experience" href="#experience" data-section="experience" data-object="experience" aria-label="Folder: explore Experience"><span class="object-label">Experience<svg class="underline-mark" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 24Q31 20 92 24M8 28Q50 25 86 27"/></svg></span></a>
-        <a class="hotspot hotspot-contact" href="#contact" data-section="contact" data-object="contact" aria-label="Envelope: open Contact"><span class="object-label">Contact<svg class="circle-mark" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M8 30C-6 16 9 2 48 3S98 12 91 24 37 41 8 30"/></svg></span></a>
-        <button class="hotspot hotspot-lamp" id="lamp-toggle" data-object="lamp" aria-label="Desk lamp: switch to dark mode" aria-pressed="false"><span class="object-label">Light / Dark<svg class="underline-mark" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 24Q31 20 92 24M8 28Q50 25 86 27"/></svg></span></button>
-        <div class="desk-caption"><span class="caption-rule"></span> A desk of ideas. Explore an object ↓</div>
+        <a class="hotspot hotspot-blog" href="#blog" data-section="blog" data-object="blog" aria-label="Books: explore Blog"><svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></a>
+        <a class="hotspot hotspot-software" href="#software" data-section="software" data-object="software" aria-label="Laptop: explore Software"><svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></a>
+        <a class="hotspot hotspot-research" href="#research" data-section="research" data-object="research" aria-label="Paper stack: explore Research"><svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></a>
+        <a class="hotspot hotspot-about" href="#about" data-section="about" data-object="about" aria-label="Open notebook: About Youngkwon Ko"><svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></a>
+        <a class="hotspot hotspot-experience" href="#experience" data-section="experience" data-object="experience" aria-label="Folder: explore Experience"><svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></a>
+        <a class="hotspot hotspot-contact" href="#contact" data-section="contact" data-object="contact" aria-label="Envelope: open Contact"><svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></a>
+        <button class="hotspot hotspot-lamp" id="lamp-toggle" data-object="lamp" aria-label="Desk lamp: switch to dark mode" aria-pressed="false"><svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></button>
       </div>
       <nav class="mobile-objects" aria-label="Explore the desk"><a href="#about" data-section="about">Notebook / About</a><a href="#research" data-section="research">Papers / Research</a><a href="#software" data-section="software">Laptop / Software</a><a href="#blog" data-section="blog">Books / Blog</a><a href="#experience" data-section="experience">Folder / Experience</a><a href="#contact" data-section="contact">Letter / Contact</a></nav>
     </section>
     <section id="page-view" class="page-view" aria-labelledby="page-title" hidden>
       <div class="page-toolbar"><nav aria-label="Selected section"><a href="#about" data-section="about">About</a><a href="#research" data-section="research">Research</a><a href="#software" data-section="software">Software</a><a href="#blog" data-section="blog">Blog</a><a href="#experience" data-section="experience">Experience</a><a href="#contact" data-section="contact">Contact</a></nav><button class="back-to-desk" data-home>Back to the desk ↑</button></div>
       <div class="page-layout"><header class="page-heading"><span id="page-kicker" class="entry-meta"></span><span id="page-index" class="page-index"></span><h1 id="page-title" tabindex="-1"></h1><p id="page-intro" class="page-intro"></p></header><div id="page-content" class="page-content"></div></div>
-      <div class="page-bottom"><span>A desk of ideas, a little further down the page.</span><button class="back-to-desk" data-home><img src="assets/tomato.svg" width="22" height="22" alt=""> Back to the desk ↑</button></div>
+      <div class="page-bottom"><span>A desk of ideas, a little further down the page.</span><button class="back-to-desk" data-home>Back to the desk ↑</button></div>
     </section>
     <section class="shelf" id="selected-work" aria-label="Selected work, research, and notes">
       <div class="shelf-column work-column">
@@ -108,7 +85,7 @@
       </div>
     </section>
   </main>
-  <footer class="site-footer"><span>© <span id="year">2026</span> Youngkwon Ko</span><span>Made of curiosity, a little code, and a tomato.</span><a href="https://github.com/K0ykwon" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer>
+  <footer class="site-footer"><span>© <span id="year">2026</span> Youngkwon Ko</span><a href="https://github.com/K0ykwon" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer>
   <noscript><div class="no-script">Explore my projects at <a href="https://github.com/K0ykwon">github.com/K0ykwon</a> or write to <a href="mailto:yko081524@yonsei.ac.kr">yko081524@yonsei.ac.kr</a>. Interactive desk navigation needs JavaScript.</div></noscript>
 </body>
 </html>

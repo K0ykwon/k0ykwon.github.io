@@ -20,7 +20,7 @@ Open http://localhost:3000. Serve the repository root using GitHub Pages from `m
 - `weather.js`: independently tested time and weather handling.
 - `styles.css`: responsive layout and the room/window visual states.
 - `assets/desk-reference.webp`: owner-provided four-scene illustration, framed with SVG to remove the reference browser chrome and sample footer. Room theme and the window scene are independent layers.
-- `assets/tomato.svg`: portfolio identity and favicon.
+- `assets/favicon.svg`: a plain YK favicon.
 
 Only public project repositories are linked. Research manuscripts are labeled in progress. Blog posts and a CV are not fabricated.
 
@@ -28,4 +28,4 @@ Weather uses Open-Meteo's public current-weather endpoint for Seoul. The clock a
 
 The new site starts with a new root commit. The prior repository was backed up separately before replacement.
 
-Object interactions use a softly illuminated laptop screen, small ink strokes, and handwritten underlines/circles. They support keyboard focus and reduced-motion preferences. Section URLs are bookmarkable (`#research`, `#software`, etc.), including browser back/forward navigation.
+Object navigation uses only a thin hand-drawn circle on hover, keyboard focus, or selection. The illustration is shown without added text, icons, screen effects, or notebook graphics. They support keyboard focus and reduced-motion preferences. Section URLs are bookmarkable (`#research`, `#software`, etc.), including browser back/forward navigation.
