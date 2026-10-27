@@ -19,7 +19,7 @@ Open http://localhost:3000. Serve the repository root using GitHub Pages from `m
 - `app.js`: section contents, inline section navigation, theme persistence, Seoul clock and weather.
 - `weather.js`: independently tested time and weather handling.
 - `styles.css`: responsive layout and the room/window visual states.
-- `assets/desk-reference.webp`: owner-provided four-scene illustration, framed with SVG to remove the reference browser chrome and sample footer. Room theme and the window scene are independent layers.
+- `assets/desk-reference.webp`: original design reference only; the live desk uses individual inline SVG elements.
 - `assets/favicon.svg`: a plain YK favicon.
 
 Only public project repositories are linked. Research manuscripts are labeled in progress. Blog posts and a CV are not fabricated.
@@ -28,4 +28,6 @@ Weather uses Open-Meteo's public current-weather endpoint for Seoul. The clock a
 
 The new site starts with a new root commit. The prior repository was backed up separately before replacement.
 
-Object navigation uses only a thin hand-drawn circle on hover, keyboard focus, or selection. The illustration is shown without added text, icons, screen effects, or notebook graphics. They support keyboard focus and reduced-motion preferences. Section URLs are bookmarkable (`#research`, `#software`, etc.), including browser back/forward navigation.
+Desk objects and the Seoul window are individual SVG geometry, not screenshot crops. Always-visible handwritten labels receive the hover, focus and selection circle. The lamp controls the room theme and its separate warm light pool without changing the sky. Below-desk section navigation and reduced-motion support are retained.
+
+Window light falls across the desk: clear daylight and window shadows, warm sunset, diffuse cool rain/cloud light, bright snow reflection and subdued moonlight. Precipitation suppresses direct sun even at sunset. Manual theme selection never changes the weather or time of day.

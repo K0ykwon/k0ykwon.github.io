@@ -28,30 +28,462 @@
   <main>
     <section class="desk-section" aria-label="An illustrated workspace. Choose an object to explore.">
       <div class="desk" id="desk">
-        <svg class="desk-art" viewBox="0 0 744 312" aria-hidden="true" focusable="false">
-          <defs>
-            <clipPath id="window-mask"><path d="M180 0H609L598 91 195 64Z"/></clipPath>
-          </defs>
-          <image class="room-day" href="assets/desk-reference.webp" x="-13" y="-58" width="1536" height="1024"/>
-          <image class="room-night" href="assets/desk-reference.webp" x="-781" y="-574" width="1536" height="1024"/>
-          <g clip-path="url(#window-mask)" class="outside-scene">
-            <image class="outside-day" href="assets/desk-reference.webp" x="-13" y="-58" width="1536" height="1024"/>
-            <image class="outside-sunset" href="assets/desk-reference.webp" x="-781" y="-58" width="1536" height="1024"/>
-            <image class="outside-rain" href="assets/desk-reference.webp" x="-13" y="-574" width="1536" height="1024"/>
-            <image class="outside-night" href="assets/desk-reference.webp" x="-781" y="-574" width="1536" height="1024"/>
-          </g>
-        </svg>
+        <svg class="desk-art" viewBox="0 0 1200 550" aria-hidden="true" focusable="false">
+<defs>
+ <linearGradient id="sky" x2="0" y2="1"><stop class="sky-top"/><stop offset="1" class="sky-bottom"/></linearGradient>
+ <radialGradient id="pool"><stop stop-color="#ffd68a" stop-opacity=".62"/><stop offset="1" stop-color="#ffc465" stop-opacity="0"/></radialGradient>
+ <linearGradient id="beam" x2="0" y2="1"><stop stop-color="#ffd68a" stop-opacity=".32"/><stop offset="1" stop-color="#ffd68a" stop-opacity="0"/></linearGradient>
+ <clipPath id="window-glass"><path d="M265 0H976L958 184 285 155Z"/></clipPath>
+ <linearGradient id="daylight-wash" x1=".5" y1="0" x2=".5" y2="1"><stop class="daylight-color" stop-opacity=".35"/><stop offset="1" class="daylight-color" stop-opacity="0"/></linearGradient>
+ <linearGradient id="window-beam" x1=".5" y1="0" x2=".4" y2="1"><stop class="daylight-color" stop-opacity=".3"/><stop offset="1" class="daylight-color" stop-opacity=".04"/></linearGradient>
+ <clipPath id="room-surface"><path d="M0 370 247 198 999 231 1200 347V550H0Z"/></clipPath>
+ <pattern id="paper-grain" width="7" height="9" patternUnits="userSpaceOnUse"><path d="m1 2 1 .3m3 4 1 .4" stroke="currentColor" opacity=".08" stroke-width=".5"/></pattern>
+ <pattern id="rain-lines" width="23" height="33" patternUnits="userSpaceOnUse"><path d="m5 4-3 12m17 7-2 7" stroke="#d6e4e8" opacity=".65" stroke-width="1"/></pattern>
+ <pattern id="snow-dots" width="31" height="27" patternUnits="userSpaceOnUse"><circle cx="5" cy="4" r="1.4" fill="#fff"/><circle cx="23" cy="21" r="1" fill="#fff"/></pattern>
+</defs>
+<path class="wall" d="M0 0H1200V550H0Z"/>
+<g id="window-view" clip-path="url(#window-glass)">
+ <path fill="url(#sky)" d="M245 0H990V200H245Z"/>
+ <circle class="sun" cx="800" cy="65" r="19" fill="#ffedb2"/>
+ <g class="clouds" fill="#fff" opacity=".65"><path d="M330 42q8-13 19-6 8-24 25-8 18-7 21 12h18q9 12-6 13h-77q-10-3 0-11M650 26q11-19 24-9 13-15 25 3 20-4 25 12h-77Z"/></g>
+ <path class="mountains" d="M240 127 300 99 330 108 385 78 430 105 470 98 530 118 610 82 680 111 760 80 805 58 846 78 905 95 984 69V176H240Z"/>
+ <g class="city" stroke-width=".65">
+<path d="M267 155V105h9v50Z"/>
+<path class="city-windows" d="M269 110h2m2 0h2"/>
+<path class="city-windows" d="M269 117h2m2 0h2"/>
+<path class="city-windows" d="M269 124h2m2 0h2"/>
+<path class="city-windows" d="M269 131h2m2 0h2"/>
+<path class="city-windows" d="M269 138h2m2 0h2"/>
+<path d="M280 155V102h9v53Z"/>
+<path class="city-windows" d="M282 107h2m2 0h2"/>
+<path class="city-windows" d="M282 114h2m2 0h2"/>
+<path class="city-windows" d="M282 121h2m2 0h2"/>
+<path class="city-windows" d="M282 128h2m2 0h2"/>
+<path class="city-windows" d="M282 135h2m2 0h2"/>
+<path class="city-windows" d="M282 142h2m2 0h2"/>
+<path d="M293 155V126h10v29Z"/>
+<path class="city-windows" d="M295 131h2m2 0h2"/>
+<path class="city-windows" d="M295 138h2m2 0h2"/>
+<path d="M306 155V135h9v20Z"/>
+<path class="city-windows" d="M308 140h2m2 0h2"/>
+<path d="M319 155V105h9v50Z"/>
+<path class="city-windows" d="M321 110h2m2 0h2"/>
+<path class="city-windows" d="M321 117h2m2 0h2"/>
+<path class="city-windows" d="M321 124h2m2 0h2"/>
+<path class="city-windows" d="M321 131h2m2 0h2"/>
+<path class="city-windows" d="M321 138h2m2 0h2"/>
+<path d="M332 155V106h11v49Z"/>
+<path class="city-windows" d="M334 111h2m2 0h2"/>
+<path class="city-windows" d="M334 118h2m2 0h2"/>
+<path class="city-windows" d="M334 125h2m2 0h2"/>
+<path class="city-windows" d="M334 132h2m2 0h2"/>
+<path class="city-windows" d="M334 139h2m2 0h2"/>
+<path d="M345 155V121h11v34Z"/>
+<path class="city-windows" d="M347 126h2m2 0h2"/>
+<path class="city-windows" d="M347 133h2m2 0h2"/>
+<path class="city-windows" d="M347 140h2m2 0h2"/>
+<path d="M358 155V135h11v20Z"/>
+<path class="city-windows" d="M360 140h2m2 0h2"/>
+<path d="M371 155V126h10v29Z"/>
+<path class="city-windows" d="M373 131h2m2 0h2"/>
+<path class="city-windows" d="M373 138h2m2 0h2"/>
+<path d="M384 155V112h8v43Z"/>
+<path class="city-windows" d="M386 117h2m2 0h2"/>
+<path class="city-windows" d="M386 124h2m2 0h2"/>
+<path class="city-windows" d="M386 131h2m2 0h2"/>
+<path class="city-windows" d="M386 138h2m2 0h2"/>
+<path d="M397 155V114h8v41Z"/>
+<path class="city-windows" d="M399 119h2m2 0h2"/>
+<path class="city-windows" d="M399 126h2m2 0h2"/>
+<path class="city-windows" d="M399 133h2m2 0h2"/>
+<path class="city-windows" d="M399 140h2m2 0h2"/>
+<path d="M410 155V132h11v23Z"/>
+<path class="city-windows" d="M412 137h2m2 0h2"/>
+<path class="city-windows" d="M412 144h2m2 0h2"/>
+<path d="M423 155V123h7v32Z"/>
+<path class="city-windows" d="M425 128h2m2 0h2"/>
+<path class="city-windows" d="M425 135h2m2 0h2"/>
+<path class="city-windows" d="M425 142h2m2 0h2"/>
+<path d="M436 155V103h9v52Z"/>
+<path class="city-windows" d="M438 108h2m2 0h2"/>
+<path class="city-windows" d="M438 115h2m2 0h2"/>
+<path class="city-windows" d="M438 122h2m2 0h2"/>
+<path class="city-windows" d="M438 129h2m2 0h2"/>
+<path class="city-windows" d="M438 136h2m2 0h2"/>
+<path class="city-windows" d="M438 143h2m2 0h2"/>
+<path d="M449 155V110h7v45Z"/>
+<path class="city-windows" d="M451 115h2m2 0h2"/>
+<path class="city-windows" d="M451 122h2m2 0h2"/>
+<path class="city-windows" d="M451 129h2m2 0h2"/>
+<path class="city-windows" d="M451 136h2m2 0h2"/>
+<path class="city-windows" d="M451 143h2m2 0h2"/>
+<path d="M462 155V134h7v21Z"/>
+<path class="city-windows" d="M464 139h2m2 0h2"/>
+<path d="M475 155V103h8v52Z"/>
+<path class="city-windows" d="M477 108h2m2 0h2"/>
+<path class="city-windows" d="M477 115h2m2 0h2"/>
+<path class="city-windows" d="M477 122h2m2 0h2"/>
+<path class="city-windows" d="M477 129h2m2 0h2"/>
+<path class="city-windows" d="M477 136h2m2 0h2"/>
+<path class="city-windows" d="M477 143h2m2 0h2"/>
+<path d="M488 155V130h10v25Z"/>
+<path class="city-windows" d="M490 135h2m2 0h2"/>
+<path class="city-windows" d="M490 142h2m2 0h2"/>
+<path d="M501 155V107h7v48Z"/>
+<path class="city-windows" d="M503 112h2m2 0h2"/>
+<path class="city-windows" d="M503 119h2m2 0h2"/>
+<path class="city-windows" d="M503 126h2m2 0h2"/>
+<path class="city-windows" d="M503 133h2m2 0h2"/>
+<path class="city-windows" d="M503 140h2m2 0h2"/>
+<path d="M514 155V108h8v47Z"/>
+<path class="city-windows" d="M516 113h2m2 0h2"/>
+<path class="city-windows" d="M516 120h2m2 0h2"/>
+<path class="city-windows" d="M516 127h2m2 0h2"/>
+<path class="city-windows" d="M516 134h2m2 0h2"/>
+<path class="city-windows" d="M516 141h2m2 0h2"/>
+<path d="M527 155V101h9v54Z"/>
+<path class="city-windows" d="M529 106h2m2 0h2"/>
+<path class="city-windows" d="M529 113h2m2 0h2"/>
+<path class="city-windows" d="M529 120h2m2 0h2"/>
+<path class="city-windows" d="M529 127h2m2 0h2"/>
+<path class="city-windows" d="M529 134h2m2 0h2"/>
+<path class="city-windows" d="M529 141h2m2 0h2"/>
+<path d="M540 155V100h8v55Z"/>
+<path class="city-windows" d="M542 105h2m2 0h2"/>
+<path class="city-windows" d="M542 112h2m2 0h2"/>
+<path class="city-windows" d="M542 119h2m2 0h2"/>
+<path class="city-windows" d="M542 126h2m2 0h2"/>
+<path class="city-windows" d="M542 133h2m2 0h2"/>
+<path class="city-windows" d="M542 140h2m2 0h2"/>
+<path d="M553 155V132h11v23Z"/>
+<path class="city-windows" d="M555 137h2m2 0h2"/>
+<path class="city-windows" d="M555 144h2m2 0h2"/>
+<path d="M566 155V125h11v30Z"/>
+<path class="city-windows" d="M568 130h2m2 0h2"/>
+<path class="city-windows" d="M568 137h2m2 0h2"/>
+<path class="city-windows" d="M568 144h2m2 0h2"/>
+<path d="M579 155V130h10v25Z"/>
+<path class="city-windows" d="M581 135h2m2 0h2"/>
+<path class="city-windows" d="M581 142h2m2 0h2"/>
+<path d="M592 155V109h11v46Z"/>
+<path class="city-windows" d="M594 114h2m2 0h2"/>
+<path class="city-windows" d="M594 121h2m2 0h2"/>
+<path class="city-windows" d="M594 128h2m2 0h2"/>
+<path class="city-windows" d="M594 135h2m2 0h2"/>
+<path class="city-windows" d="M594 142h2m2 0h2"/>
+<path d="M605 155V105h10v50Z"/>
+<path class="city-windows" d="M607 110h2m2 0h2"/>
+<path class="city-windows" d="M607 117h2m2 0h2"/>
+<path class="city-windows" d="M607 124h2m2 0h2"/>
+<path class="city-windows" d="M607 131h2m2 0h2"/>
+<path class="city-windows" d="M607 138h2m2 0h2"/>
+<path d="M618 155V111h11v44Z"/>
+<path class="city-windows" d="M620 116h2m2 0h2"/>
+<path class="city-windows" d="M620 123h2m2 0h2"/>
+<path class="city-windows" d="M620 130h2m2 0h2"/>
+<path class="city-windows" d="M620 137h2m2 0h2"/>
+<path class="city-windows" d="M620 144h2m2 0h2"/>
+<path d="M631 155V134h7v21Z"/>
+<path class="city-windows" d="M633 139h2m2 0h2"/>
+<path d="M644 155V123h9v32Z"/>
+<path class="city-windows" d="M646 128h2m2 0h2"/>
+<path class="city-windows" d="M646 135h2m2 0h2"/>
+<path class="city-windows" d="M646 142h2m2 0h2"/>
+<path d="M657 155V113h9v42Z"/>
+<path class="city-windows" d="M659 118h2m2 0h2"/>
+<path class="city-windows" d="M659 125h2m2 0h2"/>
+<path class="city-windows" d="M659 132h2m2 0h2"/>
+<path class="city-windows" d="M659 139h2m2 0h2"/>
+<path d="M670 155V111h9v44Z"/>
+<path class="city-windows" d="M672 116h2m2 0h2"/>
+<path class="city-windows" d="M672 123h2m2 0h2"/>
+<path class="city-windows" d="M672 130h2m2 0h2"/>
+<path class="city-windows" d="M672 137h2m2 0h2"/>
+<path class="city-windows" d="M672 144h2m2 0h2"/>
+<path d="M683 155V128h9v27Z"/>
+<path class="city-windows" d="M685 133h2m2 0h2"/>
+<path class="city-windows" d="M685 140h2m2 0h2"/>
+<path d="M696 155V120h9v35Z"/>
+<path class="city-windows" d="M698 125h2m2 0h2"/>
+<path class="city-windows" d="M698 132h2m2 0h2"/>
+<path class="city-windows" d="M698 139h2m2 0h2"/>
+<path d="M709 155V112h9v43Z"/>
+<path class="city-windows" d="M711 117h2m2 0h2"/>
+<path class="city-windows" d="M711 124h2m2 0h2"/>
+<path class="city-windows" d="M711 131h2m2 0h2"/>
+<path class="city-windows" d="M711 138h2m2 0h2"/>
+<path d="M722 155V103h11v52Z"/>
+<path class="city-windows" d="M724 108h2m2 0h2"/>
+<path class="city-windows" d="M724 115h2m2 0h2"/>
+<path class="city-windows" d="M724 122h2m2 0h2"/>
+<path class="city-windows" d="M724 129h2m2 0h2"/>
+<path class="city-windows" d="M724 136h2m2 0h2"/>
+<path class="city-windows" d="M724 143h2m2 0h2"/>
+<path d="M735 155V103h8v52Z"/>
+<path class="city-windows" d="M737 108h2m2 0h2"/>
+<path class="city-windows" d="M737 115h2m2 0h2"/>
+<path class="city-windows" d="M737 122h2m2 0h2"/>
+<path class="city-windows" d="M737 129h2m2 0h2"/>
+<path class="city-windows" d="M737 136h2m2 0h2"/>
+<path class="city-windows" d="M737 143h2m2 0h2"/>
+<path d="M748 155V134h10v21Z"/>
+<path class="city-windows" d="M750 139h2m2 0h2"/>
+<path d="M761 155V108h7v47Z"/>
+<path class="city-windows" d="M763 113h2m2 0h2"/>
+<path class="city-windows" d="M763 120h2m2 0h2"/>
+<path class="city-windows" d="M763 127h2m2 0h2"/>
+<path class="city-windows" d="M763 134h2m2 0h2"/>
+<path class="city-windows" d="M763 141h2m2 0h2"/>
+<path d="M774 155V102h7v53Z"/>
+<path class="city-windows" d="M776 107h2m2 0h2"/>
+<path class="city-windows" d="M776 114h2m2 0h2"/>
+<path class="city-windows" d="M776 121h2m2 0h2"/>
+<path class="city-windows" d="M776 128h2m2 0h2"/>
+<path class="city-windows" d="M776 135h2m2 0h2"/>
+<path class="city-windows" d="M776 142h2m2 0h2"/>
+<path d="M787 155V121h10v34Z"/>
+<path class="city-windows" d="M789 126h2m2 0h2"/>
+<path class="city-windows" d="M789 133h2m2 0h2"/>
+<path class="city-windows" d="M789 140h2m2 0h2"/>
+<path d="M800 155V133h10v22Z"/>
+<path class="city-windows" d="M802 138h2m2 0h2"/>
+<path d="M813 155V122h11v33Z"/>
+<path class="city-windows" d="M815 127h2m2 0h2"/>
+<path class="city-windows" d="M815 134h2m2 0h2"/>
+<path class="city-windows" d="M815 141h2m2 0h2"/>
+<path d="M826 155V129h11v26Z"/>
+<path class="city-windows" d="M828 134h2m2 0h2"/>
+<path class="city-windows" d="M828 141h2m2 0h2"/>
+<path d="M839 155V121h8v34Z"/>
+<path class="city-windows" d="M841 126h2m2 0h2"/>
+<path class="city-windows" d="M841 133h2m2 0h2"/>
+<path class="city-windows" d="M841 140h2m2 0h2"/>
+<path d="M852 155V131h9v24Z"/>
+<path class="city-windows" d="M854 136h2m2 0h2"/>
+<path class="city-windows" d="M854 143h2m2 0h2"/>
+<path d="M865 155V133h10v22Z"/>
+<path class="city-windows" d="M867 138h2m2 0h2"/>
+<path d="M878 155V118h10v37Z"/>
+<path class="city-windows" d="M880 123h2m2 0h2"/>
+<path class="city-windows" d="M880 130h2m2 0h2"/>
+<path class="city-windows" d="M880 137h2m2 0h2"/>
+<path class="city-windows" d="M880 144h2m2 0h2"/>
+<path d="M891 155V113h11v42Z"/>
+<path class="city-windows" d="M893 118h2m2 0h2"/>
+<path class="city-windows" d="M893 125h2m2 0h2"/>
+<path class="city-windows" d="M893 132h2m2 0h2"/>
+<path class="city-windows" d="M893 139h2m2 0h2"/>
+<path d="M904 155V132h11v23Z"/>
+<path class="city-windows" d="M906 137h2m2 0h2"/>
+<path class="city-windows" d="M906 144h2m2 0h2"/>
+<path d="M917 155V106h9v49Z"/>
+<path class="city-windows" d="M919 111h2m2 0h2"/>
+<path class="city-windows" d="M919 118h2m2 0h2"/>
+<path class="city-windows" d="M919 125h2m2 0h2"/>
+<path class="city-windows" d="M919 132h2m2 0h2"/>
+<path class="city-windows" d="M919 139h2m2 0h2"/>
+<path d="M930 155V122h9v33Z"/>
+<path class="city-windows" d="M932 127h2m2 0h2"/>
+<path class="city-windows" d="M932 134h2m2 0h2"/>
+<path class="city-windows" d="M932 141h2m2 0h2"/>
+<path d="M943 155V117h10v38Z"/>
+<path class="city-windows" d="M945 122h2m2 0h2"/>
+<path class="city-windows" d="M945 129h2m2 0h2"/>
+<path class="city-windows" d="M945 136h2m2 0h2"/>
+<path class="city-windows" d="M945 143h2m2 0h2"/>
+<path d="M956 155V105h10v50Z"/>
+<path class="city-windows" d="M958 110h2m2 0h2"/>
+<path class="city-windows" d="M958 117h2m2 0h2"/>
+<path class="city-windows" d="M958 124h2m2 0h2"/>
+<path class="city-windows" d="M958 131h2m2 0h2"/>
+<path class="city-windows" d="M958 138h2m2 0h2"/>
+<path d="M969 155V120h8v35Z"/>
+<path class="city-windows" d="M971 125h2m2 0h2"/>
+<path class="city-windows" d="M971 132h2m2 0h2"/>
+<path class="city-windows" d="M971 139h2m2 0h2"/>
+</g><g stroke="#516775" stroke-width="1.3" fill="none"><path d="M805 94V27m-5 14h10m-8 0v10h6V41m-4-14v-9"/></g>
+<path class="river" d="M260 151H990V201H260Z"/><path d="m270 165 704 5m-695 7 680 5" stroke="#d7e4df" opacity=".6" fill="none"/>
+<g fill="none" stroke="#6f7770" stroke-width="2"><path d="m265 157 710 8m-710-4 710 8"/>
+<path d="M280 162v16"/>
+<path d="M310 162v16"/>
+<path d="M340 162v16"/>
+<path d="M370 162v16"/>
+<path d="M400 162v16"/>
+<path d="M430 162v16"/>
+<path d="M460 162v16"/>
+<path d="M490 162v16"/>
+<path d="M520 162v16"/>
+<path d="M550 162v16"/>
+<path d="M580 162v16"/>
+<path d="M610 162v16"/>
+<path d="M640 162v16"/>
+<path d="M670 162v16"/>
+<path d="M700 162v16"/>
+<path d="M730 162v16"/>
+<path d="M760 162v16"/>
+<path d="M790 162v16"/>
+<path d="M820 162v16"/>
+<path d="M850 162v16"/>
+<path d="M880 162v16"/>
+<path d="M910 162v16"/>
+<path d="M940 162v16"/>
+<path d="M970 162v16"/>
+</g><path class="rain" fill="url(#rain-lines)" d="M245 0H990V200H245Z"/><path class="snow" fill="url(#snow-dots)" d="M245 0H990V200H245Z"/></g>
+<g class="sketch" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">
+<g class="frame"><path d="M236 0h29l20 155 673 29L976 0h26l-14 213-727-30Z"/><path fill="none" d="m247 0 23 170 702 29 18-199M255 181l-10 17 754 33-11-18"/></g>
+<path class="desk-top" d="m0 370 247-172 752 33 201 116v203H0Z"/>
+<g fill="none" opacity=".2" stroke-width=".7"><path d="m0 405 260-188m-260 223 272-202m-272 248 278-213m-129 277 236-245m27 245 123-239m99 239 34-233m194 233-55-222m249 222-149-211m215 168-135-150"/></g>
+<!-- Books -->
+<g class="paper"><path d="m93 290 170-13 7 20-173 17Z"/><path d="m90 270 169-13 4 20-170 13Z"/><path d="m87 251 169-12 4 18-169 14Z"/><path d="m83 167 148-18 25 91-169 13Z"/></g>
+<g fill="none"><path d="m92 176 130-15 19 70-143 12Z"/><path d="m105 227 14-13 17 4 15-23 14 13 21-9 22 18 17-6M99 260l151-13M103 282l149-12M106 301l152-13"/></g>
+<g class="ink-text" font-size="9" transform="rotate(-5 150 270)"><text x="113" y="267">Design</text><text x="116" y="287">Technology</text><text x="119" y="308">Life, in notes</text></g>
+<!-- Laptop with actual keyboard and screen -->
+<path class="device" d="m489 164 231 21-25 170-235-27Z"/><path class="screen" d="m498 174 211 20-22 147-215-24Z"/>
+<path class="paper" d="m460 328 235 27 33 58-286-32Z"/><path fill="none" d="m442 381 4 7 279 31 3-6m-176-51 70 8 8 23-83-9Z"/>
+<g stroke="#9ba6a8" stroke-width="1.3" opacity=".65">
+<path d="m509 190 84 4"/>
+<path d="m509 197 48 3"/>
+<path d="m509 204 53 2"/>
+<path d="m509 211 59 4"/>
+<path d="m509 218 47 3"/>
+<path d="m509 225 26 2"/>
+<path d="m509 232 56 2"/>
+<path d="m509 239 71 3"/>
+<path d="m509 246 28 4"/>
+<path d="m509 253 60 2"/>
+<path d="m509 260 54 5"/>
+<path d="m509 267 87 4"/>
+<path d="m509 274 58 5"/>
+<path d="m509 281 45 5"/>
+<path d="m509 288 62 2"/>
+</g><g fill="#30383b" stroke-width=".6">
+<path d="m475 338.0 12 1.3 2 5-13-1.4Z"/>
+<path d="m491 339.8 12 1.3 2 5-13-1.4Z"/>
+<path d="m507 341.6 12 1.3 2 5-13-1.4Z"/>
+<path d="m523 343.4 12 1.3 2 5-13-1.4Z"/>
+<path d="m539 345.2 12 1.3 2 5-13-1.4Z"/>
+<path d="m555 347.0 12 1.3 2 5-13-1.4Z"/>
+<path d="m571 348.8 12 1.3 2 5-13-1.4Z"/>
+<path d="m587 350.6 12 1.3 2 5-13-1.4Z"/>
+<path d="m603 352.4 12 1.3 2 5-13-1.4Z"/>
+<path d="m619 354.2 12 1.3 2 5-13-1.4Z"/>
+<path d="m635 356.0 12 1.3 2 5-13-1.4Z"/>
+<path d="m651 357.8 12 1.3 2 5-13-1.4Z"/>
+<path d="m667 359.6 12 1.3 2 5-13-1.4Z"/>
+<path d="m472 345.0 12 1.3 2 5-13-1.4Z"/>
+<path d="m488 346.8 12 1.3 2 5-13-1.4Z"/>
+<path d="m504 348.6 12 1.3 2 5-13-1.4Z"/>
+<path d="m520 350.4 12 1.3 2 5-13-1.4Z"/>
+<path d="m536 352.2 12 1.3 2 5-13-1.4Z"/>
+<path d="m552 354.0 12 1.3 2 5-13-1.4Z"/>
+<path d="m568 355.8 12 1.3 2 5-13-1.4Z"/>
+<path d="m584 357.6 12 1.3 2 5-13-1.4Z"/>
+<path d="m600 359.4 12 1.3 2 5-13-1.4Z"/>
+<path d="m616 361.2 12 1.3 2 5-13-1.4Z"/>
+<path d="m632 363.0 12 1.3 2 5-13-1.4Z"/>
+<path d="m648 364.8 12 1.3 2 5-13-1.4Z"/>
+<path d="m664 366.6 12 1.3 2 5-13-1.4Z"/>
+<path d="m469 352.0 12 1.3 2 5-13-1.4Z"/>
+<path d="m485 353.8 12 1.3 2 5-13-1.4Z"/>
+<path d="m501 355.6 12 1.3 2 5-13-1.4Z"/>
+<path d="m517 357.4 12 1.3 2 5-13-1.4Z"/>
+<path d="m533 359.2 12 1.3 2 5-13-1.4Z"/>
+<path d="m549 361.0 12 1.3 2 5-13-1.4Z"/>
+<path d="m565 362.8 12 1.3 2 5-13-1.4Z"/>
+<path d="m581 364.6 12 1.3 2 5-13-1.4Z"/>
+<path d="m597 366.4 12 1.3 2 5-13-1.4Z"/>
+<path d="m613 368.2 12 1.3 2 5-13-1.4Z"/>
+<path d="m629 370.0 12 1.3 2 5-13-1.4Z"/>
+<path d="m645 371.8 12 1.3 2 5-13-1.4Z"/>
+<path d="m661 373.6 12 1.3 2 5-13-1.4Z"/>
+<path d="m466 359.0 12 1.3 2 5-13-1.4Z"/>
+<path d="m482 360.8 12 1.3 2 5-13-1.4Z"/>
+<path d="m498 362.6 12 1.3 2 5-13-1.4Z"/>
+<path d="m514 364.4 12 1.3 2 5-13-1.4Z"/>
+<path d="m530 366.2 12 1.3 2 5-13-1.4Z"/>
+<path d="m546 368.0 12 1.3 2 5-13-1.4Z"/>
+<path d="m562 369.8 12 1.3 2 5-13-1.4Z"/>
+<path d="m578 371.6 12 1.3 2 5-13-1.4Z"/>
+<path d="m594 373.4 12 1.3 2 5-13-1.4Z"/>
+<path d="m610 375.2 12 1.3 2 5-13-1.4Z"/>
+<path d="m626 377.0 12 1.3 2 5-13-1.4Z"/>
+<path d="m642 378.8 12 1.3 2 5-13-1.4Z"/>
+<path d="m658 380.6 12 1.3 2 5-13-1.4Z"/>
+</g><path fill="none" d="M470 306q-35-15-37 18t-32 43"/>
+<!-- Notebook -->
+<path class="device" d="m101 376 157-24 159 22 20 127-164 28-159-24Z"/>
+<path class="paper" d="m105 368 155-23 14 173-151-22Zm155-23 143 22 21 125-150 26Z"/>
+<path fill="none" d="m260 345 14 173 5 12m-157-31 147 23 158-27"/>
+<g class="ink-text"><text x="132" y="404" font-size="16" transform="rotate(-8 132 404)">Youngkwon Ko</text><text x="138" y="433" font-size="10">Research. Build. Learn.</text><text x="142" y="454" font-size="10">Based in Seoul.</text></g>
+<g fill="none" opacity=".5"><path d="m285 389 103 14m-100-5 101 14m-98-5 63 8m-60 63 14-12 13 5 16-25 13 13 13-5 34 17m-103 12 108 15"/></g>
+<!-- Papers -->
+<g class="paper"><path d="m879 271 182 37-36 123-187-43Z"/><path d="m872 259 181 37-34 125-188-44Z"/><path d="m864 244 180 38-33 124-189-44Z"/></g>
+<g fill="none"><path d="m873 264 147 30m-150-22 135 28m-138-20 93 19m-99 4 145 31m-149-22 113 24m-122 14 145 31m-149-22 134 29"/><path d="m862 333 5-20 8 2-5 20m13 3 8-35 7 2-8 35m12 3 7-27 9 2-8 27m11 2 10-40 9 2-10 41"/><path d="m943 267 6-26q1-9 6-7t4 9l-7 27q-4 9-8 3"/></g>
+<!-- Folder -->
+<path class="folder" d="m751 390 126 24 17 15 48 9-40 109-207-40Z"/><path class="paper" d="m756 402 166 36-34 99-174-40Z"/><path fill="none" d="m765 420 52 11-16 48-52-11Zm75 15 65 14m-68-5 65 14m-67-5 54 12"/>
+<!-- Letter -->
+<path class="paper" d="m1013 456 152 23-26 66-158-27Z"/><path fill="none" d="m1013 456 56 51 96-28m-184 39 58-36m100 63-44-43"/><path class="folder" d="m1134 486 17 3-4 13-17-3Z"/>
+<!-- Drawing tablet and pen -->
+<path class="device" d="m468 418 188 24-15 93-190-28Z"/><path class="paper" d="m484 429 159 21-11 72-160-22Z"/><path d="m536 448 56 46 6 12-13-6-53-48Z" fill="#474b46"/>
+<!-- Coffee -->
+<path class="paper" d="M754 284q50-17 58 9l-7 55q-21 20-45-3Zm57 13q40-10 23 22l-24 9"/><ellipse class="paper" cx="782" cy="288" rx="28" ry="12"/><ellipse fill="#403831" cx="782" cy="290" rx="22" ry="7"/>
+<!-- Pen cup -->
+<path class="paper" d="m362 260 6 53q19 14 38 1l7-52Z"/><ellipse class="paper" cx="387" cy="261" rx="25" ry="8"/><path fill="none" stroke-width="3" d="m378 279-10-55m18 53 3-60m5 62 11-53m-11 62-4-48"/>
+
+<g transform="translate(65 122) scale(1.1)"><path class="paper" d="M-30 0h60L23 51q-25 10-46 0Z"/><ellipse class="paper" rx="30" ry="9"/><g class="leaves">
+<path fill="none" d="M0 0Q-27 -27 -27 -67"/><path d="M-27 -67q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+<path fill="none" d="M0 0Q58 -95 58 -135"/><path d="M58 -135q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+<path fill="none" d="M0 0Q3 -66 3 -106"/><path d="M3 -106q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+<path fill="none" d="M0 0Q27 -41 27 -81"/><path d="M27 -81q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+<path fill="none" d="M0 0Q28 -86 28 -126"/><path d="M28 -126q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+<path fill="none" d="M0 0Q-35 -78 -35 -118"/><path d="M-35 -118q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+<path fill="none" d="M0 0Q-26 -51 -26 -91"/><path d="M-26 -91q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+<path fill="none" d="M0 0Q-30 12 -30 -28"/><path d="M-30 -28q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+<path fill="none" d="M0 0Q25 15 25 -25"/><path d="M25 -25q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+</g></g>
+<g transform="translate(1149 315) scale(0.63)"><path class="paper" d="M-30 0h60L23 51q-25 10-46 0Z"/><ellipse class="paper" rx="30" ry="9"/><g class="leaves">
+<path fill="none" d="M0 0Q26 12 26 -28"/><path d="M26 -28q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+<path fill="none" d="M0 0Q-46 -56 -46 -96"/><path d="M-46 -96q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+<path fill="none" d="M0 0Q51 -19 51 -59"/><path d="M51 -59q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+<path fill="none" d="M0 0Q-9 -2 -9 -42"/><path d="M-9 -42q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+<path fill="none" d="M0 0Q-32 -10 -32 -50"/><path d="M-32 -50q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+<path fill="none" d="M0 0Q-7 -45 -7 -85"/><path d="M-7 -85q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+<path fill="none" d="M0 0Q63 8 63 -32"/><path d="M63 -32q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+<path fill="none" d="M0 0Q9 -57 9 -97"/><path d="M9 -97q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+<path fill="none" d="M0 0Q17 -77 17 -117"/><path d="M17 -117q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+</g></g>
+<g transform="translate(304 244) scale(0.5)"><path class="paper" d="M-30 0h60L23 51q-25 10-46 0Z"/><ellipse class="paper" rx="30" ry="9"/><g class="leaves">
+<path fill="none" d="M0 0Q55 -104 55 -144"/><path d="M55 -144q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+<path fill="none" d="M0 0Q61 -18 61 -58"/><path d="M61 -58q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+<path fill="none" d="M0 0Q35 10 35 -30"/><path d="M35 -30q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+<path fill="none" d="M0 0Q-9 -40 -9 -80"/><path d="M-9 -80q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+<path fill="none" d="M0 0Q13 4 13 -36"/><path d="M13 -36q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+<path fill="none" d="M0 0Q53 -36 53 -76"/><path d="M53 -76q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+<path fill="none" d="M0 0Q39 -10 39 -50"/><path d="M39 -50q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+<path fill="none" d="M0 0Q12 -56 12 -96"/><path d="M12 -96q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+<path fill="none" d="M0 0Q-18 -32 -18 -72"/><path d="M-18 -72q-27-28-30-5t30 5q26-29 29-5t-29 5Z"/>
+</g></g>
+<!-- Lamp arm, shade and light are separate from the scene -->
+<g class="lamp-body"><path fill="none" stroke-width="6" d="m1181 192-54-105 68-48"/><path fill="none" stroke-width="1" d="m1189 190-55-100 66-39"/><circle class="device" cx="1127" cy="87" r="9"/><circle class="device" cx="1181" cy="192" r="8"/><path class="paper" d="m1126 81-31-18-25 18q-45 5-69 47l101 43q22-40-6-73Z"/><path class="bulb" d="M1001 128q62 0 101 43-58 5-101-43Z"/></g>
+</g>
+<g class="window-light" clip-path="url(#room-surface)" pointer-events="none">
+ <path class="ambient-wash" fill="url(#daylight-wash)" d="M0 195h1200v355H0Z"/>
+ <g class="direct-sunlight"><path fill="url(#window-beam)" d="M285 155 958 184 1200 550H140Z"/><g class="window-shadows" fill="#424c60" opacity=".12"><path d="m285 155 14 1-144 394h-23ZM610 168l15 1 112 381h-21ZM944 184l14 1 242 349v16h-16Z"/><path d="m212 354 870 29 10 14-885-29Z"/></g></g>
+ </g>
+<g class="lamp-light" pointer-events="none"><path fill="url(#beam)" d="m1003 133 99 37 98 294-515-108Z"/><ellipse fill="url(#pool)" cx="925" cy="368" rx="280" ry="153" transform="rotate(10 925 368)"/></g>
+<path fill="url(#paper-grain)" d="M0 0h1200v550H0Z" pointer-events="none"/>
+</svg>
         <div class="weather-widget sr-only" role="status" aria-live="polite">
           <span class="weather-first"><span class="live-dot"></span> Seoul <span id="weather-icon" aria-hidden="true">◌</span><strong id="temperature">—°</strong></span>
           <span id="seoul-clock">Seoul local time</span><span class="weather-detail" id="weather-detail">Connecting to the sky…</span>
         </div>
-        <a class="hotspot hotspot-blog" href="#blog" data-section="blog" data-object="blog" aria-label="Books: explore Blog"><svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></a>
-        <a class="hotspot hotspot-software" href="#software" data-section="software" data-object="software" aria-label="Laptop: explore Software"><svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></a>
-        <a class="hotspot hotspot-research" href="#research" data-section="research" data-object="research" aria-label="Paper stack: explore Research"><svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></a>
-        <a class="hotspot hotspot-about" href="#about" data-section="about" data-object="about" aria-label="Open notebook: About Youngkwon Ko"><svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></a>
-        <a class="hotspot hotspot-experience" href="#experience" data-section="experience" data-object="experience" aria-label="Folder: explore Experience"><svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></a>
-        <a class="hotspot hotspot-contact" href="#contact" data-section="contact" data-object="contact" aria-label="Envelope: open Contact"><svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></a>
-        <button class="hotspot hotspot-lamp" id="lamp-toggle" data-object="lamp" aria-label="Desk lamp: switch to dark mode" aria-pressed="false"><svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></button>
+        <a class="hotspot hotspot-blog" href="#blog" data-section="blog" data-object="blog" aria-label="Books: explore Blog"><span class="object-label">Blog<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></span></a>
+        <a class="hotspot hotspot-software" href="#software" data-section="software" data-object="software" aria-label="Laptop: explore Software"><span class="object-label">Software<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></span></a>
+        <a class="hotspot hotspot-research" href="#research" data-section="research" data-object="research" aria-label="Paper stack: explore Research"><span class="object-label">Research<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></span></a>
+        <a class="hotspot hotspot-about" href="#about" data-section="about" data-object="about" aria-label="Open notebook: About Youngkwon Ko"><span class="object-label">About<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></span></a>
+        <a class="hotspot hotspot-experience" href="#experience" data-section="experience" data-object="experience" aria-label="Folder: explore Experience"><span class="object-label">Experience<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></span></a>
+        <a class="hotspot hotspot-contact" href="#contact" data-section="contact" data-object="contact" aria-label="Envelope: open Contact"><span class="object-label">Contact<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></span></a>
+        <button class="hotspot hotspot-lamp" id="lamp-toggle" data-object="lamp" aria-label="Desk lamp: switch to dark mode" aria-pressed="false"><span class="object-label">Light / Dark<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></span></button>
       </div>
       <nav class="mobile-objects" aria-label="Explore the desk"><a href="#about" data-section="about">Notebook / About</a><a href="#research" data-section="research">Papers / Research</a><a href="#software" data-section="software">Laptop / Software</a><a href="#blog" data-section="blog">Books / Blog</a><a href="#experience" data-section="experience">Folder / Experience</a><a href="#contact" data-section="contact">Letter / Contact</a></nav>
     </section>
