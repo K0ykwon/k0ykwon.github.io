@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <meta name="site-version" content="20261027-0035">
+  <meta name="site-version" content="20261027-0042">
   <meta name="theme-color" content="#f8f7f3">
   <meta name="description" content="Youngkwon Ko — AI, quantum algorithms, and software. Explore a desk of research, projects, and ideas, with a window onto Seoul.">
   <meta property="og:title" content="Youngkwon Ko — A desk of ideas">
@@ -13,7 +13,7 @@
   <meta property="og:url" content="https://k0ykwon.github.io/">
   <link rel="canonical" href="https://k0ykwon.github.io/">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=20261027-0035">
+  <link rel="stylesheet" href="styles.css?v=20261027-0042">
   <title>Youngkwon Ko — A desk of ideas</title>
   <script type="module" src="app.js?v=20261027-0035"></script>
 </head>
@@ -41,7 +41,7 @@
   <linearGradient id="seoul-sky" x2="0" y2="1"><stop class="sky-zenith"/><stop class="sky-horizon" offset="1"/></linearGradient>
   <linearGradient id="city-fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="black"/><stop offset=".18" stop-color="white"/></linearGradient>
   <mask id="city-matte" maskUnits="userSpaceOnUse" x="176" y="0" width="431" height="98"><path fill="url(#city-fade)" d="M176 34H607V98H176Z"/><path fill="white" d="M486 18h4v23h-4Z"/></mask>
-  <filter id="room-dark" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values=".30 0 0 0 .025 0 .32 0 0 .03 0 0 .34 0 .025 0 0 0 1 0"/></filter>
+  <filter id="room-sunset" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="1 0 0 0 .015 0 .86 0 0 .015 0 0 .68 0 .025 0 0 0 1 0"/></filter><filter id="room-overcast" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values=".87 0 0 0 .025 0 .90 0 0 .025 0 0 .94 0 .025 0 0 0 1 0"/></filter>
   <filter id="sky-evening" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values=".65 .18 .12 0 .10 .12 .48 .10 0 .02 .08 .12 .35 0 .01 0 0 0 1 0"/></filter>
   <filter id="sky-overcast" color-interpolation-filters="sRGB"><feColorMatrix type="saturate" values=".22"/><feComponentTransfer><feFuncR type="linear" slope=".77"/><feFuncG type="linear" slope=".80"/><feFuncB type="linear" slope=".85"/></feComponentTransfer></filter>
   <filter id="sky-night" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values=".08 .05 0 0 .015 .02 .14 .01 0 .025 .02 .08 .20 0 .045 0 0 0 1 0"/></filter>
@@ -69,20 +69,19 @@
  <g class="sketch-frame" mask="url(#open-window)"><use class="room-art" href="#reference-desk"/>
   <path class="ambient-light" mask="url(#daylight-reach)" d="M0 0H744V312H0Z" fill="url(#window-illumination)"/>
   <g mask="url(#daylight-reach)" class="sun-shadows" fill="#535a62" opacity=".09" filter="url(#shadow-softness)"><path d="M184 68 192 68 91 312H80ZM399 82l7 1 71 229h-10ZM596 96l6 1 142 203v12h-6Z"/><path d="m134 197 546 30 6 8-555-31Z"/></g>
-  <ellipse class="lamp-glow" cx="594" cy="195" rx="155" ry="115" fill="url(#lamp-pool)"/>
  </g>
 </svg>
         <div class="weather-widget sr-only" role="status" aria-live="polite">
           <span class="weather-first"><span class="live-dot"></span> Seoul <span id="weather-icon" aria-hidden="true">◌</span><strong id="temperature">—°</strong></span>
           <span id="seoul-clock">Seoul local time</span><span class="weather-detail" id="weather-detail">Connecting to the sky…</span>
         </div>
-        <a class="hotspot hotspot-blog" href="#blog" data-section="blog" data-object="blog" aria-label="Books: explore Blog"><span class="object-label">Blog ↗<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg><svg class="label-pointer" viewBox="0 0 44 30" aria-hidden="true"><path d="M39 3Q25 2 9 22m0-7v7h7"/></svg></span></a>
-        <a class="hotspot hotspot-software" href="#software" data-section="software" data-object="software" aria-label="Laptop: explore Software"><span class="object-label">Software ↗<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg><svg class="label-pointer" viewBox="0 0 44 30" aria-hidden="true"><path d="M39 3Q25 2 9 22m0-7v7h7"/></svg></span></a>
-        <a class="hotspot hotspot-research" href="#research" data-section="research" data-object="research" aria-label="Paper stack: explore Research"><span class="object-label">Research ↗<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg><svg class="label-pointer" viewBox="0 0 44 30" aria-hidden="true"><path d="M39 3Q25 2 9 22m0-7v7h7"/></svg></span></a>
-        <a class="hotspot hotspot-about" href="#about" data-section="about" data-object="about" aria-label="Open notebook: About Youngkwon Ko"><span class="object-label">About me ↗<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg><svg class="label-pointer" viewBox="0 0 44 30" aria-hidden="true"><path d="M39 3Q25 2 9 22m0-7v7h7"/></svg></span></a>
+        <a class="hotspot hotspot-blog" href="#blog" data-section="blog" data-object="blog" aria-label="Books: explore Blog"><span class="object-label">Blog ↗<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg><svg class="label-pointer" viewBox="0 0 44 30" aria-hidden="true"><path d="M28 2Q27 16 8 23m0-6v6h7"/></svg></span></a>
+        <a class="hotspot hotspot-software" href="#software" data-section="software" data-object="software" aria-label="Laptop: explore Software"><span class="object-label">Software ↗<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg><svg class="label-pointer" viewBox="0 0 44 30" aria-hidden="true"><path d="M29 3Q10 2 5 21m-3-6 3 6 6-4"/></svg></span></a>
+        <a class="hotspot hotspot-research" href="#research" data-section="research" data-object="research" aria-label="Paper stack: explore Research"><span class="object-label">Research ↗<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg><svg class="label-pointer" viewBox="0 0 44 30" aria-hidden="true"><path d="M26 2Q25 17 8 24m0-7v7h7"/></svg></span></a>
+        <a class="hotspot hotspot-about" href="#about" data-section="about" data-object="about" aria-label="Open notebook: About Youngkwon Ko"><span class="object-label">About me ↗<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg><svg class="label-pointer" viewBox="0 0 44 30" aria-hidden="true"><path d="M8 26Q1 9 24 3m-7-1 7 1-3 6"/></svg></span></a>
         <a class="hotspot hotspot-experience" href="#experience" data-section="experience" data-object="experience" aria-label="Folder: explore Experience"><span class="object-label">Experience ↗<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></span></a>
-        <a class="hotspot hotspot-contact" href="#contact" data-section="contact" data-object="contact" aria-label="Envelope: open Contact"><span class="object-label">Contact ↗<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg><svg class="label-pointer" viewBox="0 0 44 30" aria-hidden="true"><path d="M39 3Q25 2 9 22m0-7v7h7"/></svg></span></a>
-        <button class="hotspot hotspot-lamp" id="lamp-toggle" data-object="lamp" aria-label="Desk lamp: switch to dark mode" aria-pressed="false"><span class="object-label">Light / Dark ↔<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg><svg class="label-pointer" viewBox="0 0 44 30" aria-hidden="true"><path d="M39 3Q25 2 9 22m0-7v7h7"/></svg></span></button>
+        <a class="hotspot hotspot-contact" href="#contact" data-section="contact" data-object="contact" aria-label="Envelope: open Contact"><span class="object-label">Contact ↗<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg><svg class="label-pointer" viewBox="0 0 44 30" aria-hidden="true"><path d="M29 2Q21 22 3 23m5-5-5 5 7 1"/></svg></span></a>
+        <button class="hotspot hotspot-lamp" id="lamp-toggle" data-object="lamp" aria-label="Desk lamp: switch to dark mode" aria-pressed="false"><span class="object-label">Light / Dark ↔<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg><svg class="label-pointer" viewBox="0 0 44 30" aria-hidden="true"><path d="M5 25Q26 20 25 2m-4 6 4-6 4 6"/></svg></span></button>
       </div>
       <nav class="mobile-objects" aria-label="Explore the desk"><a href="#about" data-section="about">Notebook / About</a><a href="#research" data-section="research">Papers / Research</a><a href="#software" data-section="software">Laptop / Software</a><a href="#blog" data-section="blog">Books / Blog</a><a href="#experience" data-section="experience">Folder / Experience</a><a href="#contact" data-section="contact">Letter / Contact</a></nav>
     </section>
