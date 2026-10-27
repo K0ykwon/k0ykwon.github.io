@@ -33,3 +33,5 @@ The desk retains the supplied detailed illustration. The sketch has a transparen
 Always-visible handwritten labels receive the hover, keyboard focus and selected-section circle. No object movement or laptop animation is used. Sections still open below the desk and scroll into view.
 
 `assets/desk-frame.svg` is the transparent-window version of the sketch. The page inlines its mask for reliable browser rendering. Cloud motion, rain and snow stay inside the glass and respect reduced-motion preferences.
+
+The glass clip and foreground knockout share a single aperture path. Incoming light is feathered through a dedicated daylight-reach mask, independently of the manual theme. Reference-style annotations use small handwritten text and curved pointers.

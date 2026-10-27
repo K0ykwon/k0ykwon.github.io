@@ -38,3 +38,12 @@
 @media(prefers-reduced-motion:reduce){.cloud-track,.falling-rain,.falling-snow{animation:none}}
 
 .cloud-track{filter:url(#cloud-softness)}
+
+/* Reference lettering: restrained handwritten annotations in nearby whitespace. */
+.object-label{font-size:clamp(7px,1.38cqw,22px);font-weight:400;padding:1px 3px;text-shadow:none;transform:rotate(-5deg);line-height:1.2;color:#242922}
+[data-theme=dark] .object-label{color:#e9e4d6;text-shadow:none}
+.hotspot-blog .object-label{left:78%;bottom:91%}.hotspot-software .object-label{left:34%;bottom:96%;transform:rotate(5deg)}.hotspot-research .object-label{left:78%;bottom:91%;transform:rotate(5deg)}.hotspot-about .object-label{left:24%;bottom:0}.hotspot-experience .object-label{left:45%;bottom:15%;transform:rotate(-4deg)}.hotspot-contact .object-label{left:76%;bottom:16%;transform:rotate(-6deg)}.hotspot-lamp .object-label{left:45%;bottom:-10%;font-size:clamp(7px,1.25cqw,20px);transform:rotate(4deg)}
+.label-pointer{position:absolute;width:24px;height:18px;left:-18px;top:7px;fill:none;stroke:currentColor;stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}.hotspot-blog .label-pointer{left:0;top:15px}.hotspot-research .label-pointer{left:5px;top:15px}.hotspot-contact .label-pointer{left:-12px;top:15px}.hotspot-about .label-pointer{top:-20px;left:-16px;transform:rotate(125deg)}.hotspot-lamp .label-pointer{left:auto;right:-23px;top:-10px;transform:rotate(155deg)}
+.object-circle{inset:-24% -9%;width:118%;height:148%;stroke-width:1;overflow:visible}
+.ambient-light{mix-blend-mode:screen;opacity:.75}[data-outside=sunset] .ambient-light{opacity:1}[data-outside=night] .ambient-light{opacity:.24}[data-weather=cloud] .ambient-light,[data-weather=rain] .ambient-light{opacity:.6}
+.hotspot-contact .object-label{left:48%}.hotspot-lamp .object-label{left:12%}

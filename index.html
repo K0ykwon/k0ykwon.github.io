@@ -32,9 +32,11 @@
  <defs>
   <image id="reference-desk" href="assets/desk-reference.webp" x="-13" y="-58" width="1536" height="1024"/>
   <!-- Both regions use the same drawing and coordinates. No replacement skyline. -->
-  <clipPath id="glass"><path d="M176 0H607L602 97 184 68Z"/></clipPath>
-  <mask id="open-window" maskUnits="userSpaceOnUse" x="0" y="0" width="744" height="312"><path fill="white" d="M0 0H744V312H0Z"/><path fill="black" d="M176 0H607L602 97 184 68Z"/></mask>
-  <clipPath id="interior"><path d="M0 0H176L184 68 602 97 607 0H744V312H0Z"/></clipPath>
+  <path id="glass-aperture" d="M177.4 0H608.1L604.5 43.2Q601.8 47.1 601.9 51.8L602.4 94.6Q397 80.7 184.7 66.8Z"/>
+  <clipPath id="glass"><use href="#glass-aperture"/></clipPath>
+  <mask id="open-window" maskUnits="userSpaceOnUse" x="0" y="0" width="744" height="312"><path fill="white" d="M0 0H744V312H0Z"/><use href="#glass-aperture" fill="black"/></mask>
+  <filter id="light-feather"><feGaussianBlur stdDeviation="9"/></filter>
+  <mask id="daylight-reach" maskUnits="userSpaceOnUse" x="0" y="0" width="744" height="312"><path fill="black" d="M0 0H744V312H0Z"/><g fill="white" filter="url(#light-feather)"><path d="M184 70 602 96 744 277 650 312H76Z"/><ellipse cx="419" cy="147" rx="270" ry="61" opacity=".55"/></g></mask>
   <linearGradient id="seoul-sky" x2="0" y2="1"><stop class="sky-zenith"/><stop class="sky-horizon" offset="1"/></linearGradient>
   <linearGradient id="city-fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="black"/><stop offset=".18" stop-color="white"/></linearGradient>
   <mask id="city-matte" maskUnits="userSpaceOnUse" x="176" y="0" width="431" height="98"><path fill="url(#city-fade)" d="M176 34H607V98H176Z"/><path fill="white" d="M486 18h4v23h-4Z"/></mask>
@@ -42,7 +44,7 @@
   <filter id="sky-evening" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values=".65 .18 .12 0 .10 .12 .48 .10 0 .02 .08 .12 .35 0 .01 0 0 0 1 0"/></filter>
   <filter id="sky-overcast" color-interpolation-filters="sRGB"><feColorMatrix type="saturate" values=".22"/><feComponentTransfer><feFuncR type="linear" slope=".77"/><feFuncG type="linear" slope=".80"/><feFuncB type="linear" slope=".85"/></feComponentTransfer></filter>
   <filter id="sky-night" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values=".08 .05 0 0 .015 .02 .14 .01 0 .025 .02 .08 .20 0 .045 0 0 0 1 0"/></filter>
-  <linearGradient id="window-illumination" x1=".5" y1="0" x2=".55" y2="1"><stop class="light-color" stop-opacity=".27"/><stop class="light-color" offset=".65" stop-opacity=".1"/><stop class="light-color" offset="1" stop-opacity="0"/></linearGradient>
+  <linearGradient id="window-illumination" x1=".5" y1="0" x2=".55" y2="1"><stop class="light-color" stop-opacity=".46"/><stop class="light-color" offset=".65" stop-opacity=".23"/><stop class="light-color" offset="1" stop-opacity="0"/></linearGradient>
   <radialGradient id="lamp-pool"><stop stop-color="#ffd690" stop-opacity=".36"/><stop offset="1" stop-color="#ffd690" stop-opacity="0"/></radialGradient>
   <radialGradient id="sun-glow"><stop stop-color="#ffd19c" stop-opacity=".52"/><stop offset="1" stop-color="#ffd19c" stop-opacity="0"/></radialGradient>
   <filter id="cloud-softness" x="-10%" y="-50%" width="120%" height="200%"><feGaussianBlur stdDeviation=".6"/></filter>
@@ -64,8 +66,8 @@
   <g class="snow-glass"><path class="falling-snow" d="M150 -27H635V125H150Z" fill="url(#snow-flakes)"/></g>
  </g>
  <g class="sketch-frame" mask="url(#open-window)"><use class="room-art" href="#reference-desk"/>
-  <path class="ambient-light" d="M0 0H744V312H0Z" fill="url(#window-illumination)"/>
-  <g class="sun-shadows" fill="#535a62" opacity=".09" filter="url(#shadow-softness)"><path d="M184 68 192 68 91 312H80ZM399 82l7 1 71 229h-10ZM596 96l6 1 142 203v12h-6Z"/><path d="m134 197 546 30 6 8-555-31Z"/></g>
+  <path class="ambient-light" mask="url(#daylight-reach)" d="M0 0H744V312H0Z" fill="url(#window-illumination)"/>
+  <g mask="url(#daylight-reach)" class="sun-shadows" fill="#535a62" opacity=".09" filter="url(#shadow-softness)"><path d="M184 68 192 68 91 312H80ZM399 82l7 1 71 229h-10ZM596 96l6 1 142 203v12h-6Z"/><path d="m134 197 546 30 6 8-555-31Z"/></g>
   <ellipse class="lamp-glow" cx="594" cy="195" rx="155" ry="115" fill="url(#lamp-pool)"/>
  </g>
 </svg>
@@ -73,13 +75,13 @@
           <span class="weather-first"><span class="live-dot"></span> Seoul <span id="weather-icon" aria-hidden="true">◌</span><strong id="temperature">—°</strong></span>
           <span id="seoul-clock">Seoul local time</span><span class="weather-detail" id="weather-detail">Connecting to the sky…</span>
         </div>
-        <a class="hotspot hotspot-blog" href="#blog" data-section="blog" data-object="blog" aria-label="Books: explore Blog"><span class="object-label">Blog<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></span></a>
-        <a class="hotspot hotspot-software" href="#software" data-section="software" data-object="software" aria-label="Laptop: explore Software"><span class="object-label">Software<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></span></a>
-        <a class="hotspot hotspot-research" href="#research" data-section="research" data-object="research" aria-label="Paper stack: explore Research"><span class="object-label">Research<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></span></a>
-        <a class="hotspot hotspot-about" href="#about" data-section="about" data-object="about" aria-label="Open notebook: About Youngkwon Ko"><span class="object-label">About<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></span></a>
-        <a class="hotspot hotspot-experience" href="#experience" data-section="experience" data-object="experience" aria-label="Folder: explore Experience"><span class="object-label">Experience<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></span></a>
-        <a class="hotspot hotspot-contact" href="#contact" data-section="contact" data-object="contact" aria-label="Envelope: open Contact"><span class="object-label">Contact<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></span></a>
-        <button class="hotspot hotspot-lamp" id="lamp-toggle" data-object="lamp" aria-label="Desk lamp: switch to dark mode" aria-pressed="false"><span class="object-label">Light / Dark<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></span></button>
+        <a class="hotspot hotspot-blog" href="#blog" data-section="blog" data-object="blog" aria-label="Books: explore Blog"><span class="object-label">Blog ↗<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg><svg class="label-pointer" viewBox="0 0 44 30" aria-hidden="true"><path d="M39 3Q25 2 9 22m0-7v7h7"/></svg></span></a>
+        <a class="hotspot hotspot-software" href="#software" data-section="software" data-object="software" aria-label="Laptop: explore Software"><span class="object-label">Software ↗<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg><svg class="label-pointer" viewBox="0 0 44 30" aria-hidden="true"><path d="M39 3Q25 2 9 22m0-7v7h7"/></svg></span></a>
+        <a class="hotspot hotspot-research" href="#research" data-section="research" data-object="research" aria-label="Paper stack: explore Research"><span class="object-label">Research ↗<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg><svg class="label-pointer" viewBox="0 0 44 30" aria-hidden="true"><path d="M39 3Q25 2 9 22m0-7v7h7"/></svg></span></a>
+        <a class="hotspot hotspot-about" href="#about" data-section="about" data-object="about" aria-label="Open notebook: About Youngkwon Ko"><span class="object-label">About me ↗<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg><svg class="label-pointer" viewBox="0 0 44 30" aria-hidden="true"><path d="M39 3Q25 2 9 22m0-7v7h7"/></svg></span></a>
+        <a class="hotspot hotspot-experience" href="#experience" data-section="experience" data-object="experience" aria-label="Folder: explore Experience"><span class="object-label">Experience ↗<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg></span></a>
+        <a class="hotspot hotspot-contact" href="#contact" data-section="contact" data-object="contact" aria-label="Envelope: open Contact"><span class="object-label">Contact ↗<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg><svg class="label-pointer" viewBox="0 0 44 30" aria-hidden="true"><path d="M39 3Q25 2 9 22m0-7v7h7"/></svg></span></a>
+        <button class="hotspot hotspot-lamp" id="lamp-toggle" data-object="lamp" aria-label="Desk lamp: switch to dark mode" aria-pressed="false"><span class="object-label">Light / Dark ↔<svg class="object-circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 55C1 28 13 5 49 5S96 22 94 53 79 95 47 94 4 79 8 55Z"/></svg><svg class="label-pointer" viewBox="0 0 44 30" aria-hidden="true"><path d="M39 3Q25 2 9 22m0-7v7h7"/></svg></span></button>
       </div>
       <nav class="mobile-objects" aria-label="Explore the desk"><a href="#about" data-section="about">Notebook / About</a><a href="#research" data-section="research">Papers / Research</a><a href="#software" data-section="software">Laptop / Software</a><a href="#blog" data-section="blog">Books / Blog</a><a href="#experience" data-section="experience">Folder / Experience</a><a href="#contact" data-section="contact">Letter / Contact</a></nav>
     </section>
