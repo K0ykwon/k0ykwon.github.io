@@ -45,7 +45,7 @@ html.theme-ready, .theme-ready body, .theme-ready body *{transition-property:bac
 
 /* Independent light sources, both masked to the opaque interior. */
 .window-landscape{isolation:isolate}.window-landscape .scene-image{position:absolute;inset:0;width:100%;height:100%;filter:none!important;opacity:0;transition:opacity 4s ease!important}.window-landscape .scene-image[data-scene=day]{opacity:1}
-.scene-illumination{position:absolute;inset:0;z-index:2;pointer-events:none;mask-image:url('assets/desk-wide-v5.webp');mask-size:100% 100%;mask-mode:alpha;mask-repeat:no-repeat;transition:background 4s ease,opacity 4s ease!important}
+.scene-illumination{position:absolute;inset:0;z-index:2;pointer-events:none;mask-image:url('assets/desk-wide-v6.webp');mask-size:100% 100%;mask-mode:alpha;mask-repeat:no-repeat;transition:background 4s ease,opacity 4s ease!important}
 .room-shade{background:radial-gradient(ellipse var(--lamp-radius,28%) var(--lamp-radius-y,48%) at 25% 65%,rgb(8 12 20 / var(--lamp-shade,.1)) 0%,rgb(8 12 20 / var(--room-darkness,.15)) 100%)}
 .window-pool{background:radial-gradient(ellipse at 64% 24%,var(--spill-color,#fff4e0),transparent 72%);opacity:var(--spill-opacity,.1);mix-blend-mode:soft-light}
 .lamp-pool{background:radial-gradient(ellipse var(--lamp-radius,28%) var(--lamp-radius-y,48%) at 25% 65%,#ffb85c 0%,#ffd18a 25%,transparent 74%);opacity:var(--lamp-tint,0);mix-blend-mode:multiply}
@@ -66,7 +66,7 @@ html.theme-ready{transition:background-color .6s ease-in-out,color .6s ease-in-o
 
 /* Screen light lifts the right desk locally, with the glass alpha still excluded. */
 @property --screen-power{syntax:'<number>';inherits:true;initial-value:.15}
-.room-shade{mask-image:radial-gradient(ellipse 36% 65% at 83% 57%,rgb(0 0 0 / calc(1 - .82 * var(--screen-power,.15))) 0%,rgb(0 0 0 / calc(1 - .5 * var(--screen-power,.15))) 42%,#000 100%),url('assets/desk-wide-v5.webp');mask-composite:intersect}
+.room-shade{mask-image:radial-gradient(ellipse 36% 65% at 83% 57%,rgb(0 0 0 / calc(1 - .82 * var(--screen-power,.15))) 0%,rgb(0 0 0 / calc(1 - .5 * var(--screen-power,.15))) 42%,#000 100%),url('assets/desk-wide-v6.webp');mask-composite:intersect}
 .screen-pool{background:radial-gradient(ellipse 31% 53% at 80% 66%,#d4e7ff 0%,#c6ddfa 18%,transparent 76%);opacity:calc(.18 * var(--screen-power,.15));mix-blend-mode:screen}
 .screen-emitter{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none;opacity:calc(.24 * var(--screen-power,.15));mix-blend-mode:screen;transition:opacity 4s ease!important}.screen-emitter polygon{fill:#dcecff}
 @media(prefers-reduced-motion:reduce){.screen-emitter{transition:none!important}}
