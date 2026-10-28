@@ -38,11 +38,28 @@
 /* Fit the entire panoramic canvas without cropping or stretching. */
 .desk-section{max-width:1800px;background:#eeeae2}.desk{aspect-ratio:1895/830;width:min(100%,calc((100svh - 112px)*2.28313253));margin-inline:auto}.desk-art{object-fit:contain}.window-landscape{left:36%;top:0;width:62%;height:46%}.window-landscape img{object-position:center 58%}.weather-widget{left:auto;right:4%;top:3%;font-size:clamp(7px,1cqw,15px)}
 @media(max-width:800px){.desk{width:100%}.weather-widget{transform:none;left:auto;right:3%;top:3%}}
-@media(max-width:520px){.weather-widget{font-size:6px;gap:3px}.weather-first{gap:6px}}
-
-/* Soft, theme-independent light: no projected image, hard edge or stepped time state. */
-.window-spill{opacity:var(--spill-opacity,.08);mix-blend-mode:soft-light;transition:opacity 8s ease}.spill-color{stop-color:var(--spill-color,#fff4e0);transition:stop-color 8s ease}.window-landscape img{filter:brightness(var(--sky-brightness,1)) saturate(var(--sky-saturation,1)) sepia(var(--sky-warmth,0));transition:filter 8s ease}.hotspot:focus-visible{outline:1px dashed #4a5145;outline-offset:-5px}
+@media(max-width:520px){.weather-widget{font-size:6px;gap:3px}.weather-first{gap:6px}}.window-landscape img{filter:brightness(var(--sky-brightness,1)) saturate(var(--sky-saturation,1)) sepia(var(--sky-warmth,0));transition:filter 8s ease}.hotspot:focus-visible{outline:1px dashed #4a5145;outline-offset:-5px}
 /* Enable after restoring the saved theme, so first paint never flashes. */
-html.theme-ready, .theme-ready body, .theme-ready body *{transition-property:background-color,color,border-color,fill,stroke;transition-duration:.6s;transition-timing-function:ease-in-out}
-.theme-ready .window-spill{transition:opacity 8s ease}.theme-ready .spill-color{transition:stop-color 8s ease}.theme-ready .window-landscape img{transition:filter 8s ease}
+html.theme-ready, .theme-ready body, .theme-ready body *{transition-property:background-color,color,border-color,fill,stroke;transition-duration:.6s;transition-timing-function:ease-in-out}.theme-ready .window-landscape img{transition:filter 8s ease}
 @media(prefers-reduced-motion:reduce){html.theme-ready,.theme-ready body,.theme-ready body *{transition:none!important}}
+
+/* Two independent light sources, both masked to the opaque interior. */
+.window-landscape{isolation:isolate}.window-landscape .scene-image{position:absolute;inset:0;width:100%;height:100%;filter:none!important;opacity:0;transition:opacity 4s ease!important}.window-landscape .scene-image[data-scene=day]{opacity:1}
+.scene-illumination{position:absolute;inset:0;z-index:2;pointer-events:none;mask-image:url('assets/desk-wide-v5.webp');mask-size:100% 100%;mask-mode:alpha;mask-repeat:no-repeat;transition:background 4s ease,opacity 4s ease!important}
+.room-shade{background:radial-gradient(ellipse var(--lamp-radius,28%) var(--lamp-radius-y,48%) at 25% 65%,rgb(8 12 20 / var(--lamp-shade,.1)) 0%,rgb(8 12 20 / var(--room-darkness,.15)) 100%)}
+.window-pool{background:radial-gradient(ellipse at 64% 24%,var(--spill-color,#fff4e0),transparent 72%);opacity:var(--spill-opacity,.1);mix-blend-mode:soft-light}
+.lamp-pool{background:radial-gradient(ellipse var(--lamp-radius,28%) var(--lamp-radius-y,48%) at 25% 65%,#ffb85c 0%,#ffd18a 25%,transparent 74%);opacity:var(--lamp-tint,0);mix-blend-mode:multiply}
+.lamp-emitter{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none;opacity:var(--lamp-power,0);transition:opacity 4s ease!important}.lamp-emitter ellipse{fill:#ffe6a5;filter:drop-shadow(0 0 6px #ffcf75)}
+@media(prefers-reduced-motion:reduce){.window-landscape .scene-image,.scene-illumination,.lamp-emitter{transition:none!important}}
+@property --room-darkness{syntax:'<number>';inherits:true;initial-value:.1}
+@property --lamp-shade{syntax:'<number>';inherits:true;initial-value:.1}
+@property --lamp-tint{syntax:'<number>';inherits:true;initial-value:0}
+@property --lamp-power{syntax:'<number>';inherits:true;initial-value:0}
+@property --lamp-radius{syntax:'<percentage>';inherits:true;initial-value:28%}
+@property --lamp-radius-y{syntax:'<percentage>';inherits:true;initial-value:48%}
+@property --spill-color{syntax:'<color>';inherits:true;initial-value:#fff4e0}
+@property --spill-opacity{syntax:'<number>';inherits:true;initial-value:.1}
+html.theme-ready{transition:background-color .6s ease-in-out,color .6s ease-in-out,--room-darkness 4s ease,--lamp-shade 4s ease,--lamp-tint 4s ease,--lamp-power 4s ease,--lamp-radius 4s ease,--lamp-radius-y 4s ease,--spill-color 4s ease,--spill-opacity 4s ease}
+@media(prefers-reduced-motion:reduce){html.theme-ready{transition:none!important}}
+
+.weather-widget{color:var(--weather-ink,#202421)}
