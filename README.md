@@ -27,3 +27,5 @@ Theme stability: removed the universal descendant colour transitions that repeat
 Laptop glare correction: screen emission now has zero baseline in daylight (including daytime overcast/rain), follows solar darkness, and is capped at 8% for both the screen overlay and local spill. The nighttime room-shade relief stays so the right desk remains legible. Initial CSS power is zero to avoid startup glow.
 
 Live updates: Seoul clock shows seconds and ticks at wall-clock second boundaries, independently from the 30-second lighting updates. Visibility, focus, pageshow/BFCache and online events resync immediately. Weather refreshes every five minutes while visible, retries failed requests after one minute, bypasses HTTP cache, refreshes solar data on a Seoul date change, and deduplicates in-flight requests. Seconds are excluded from live announcements.
+
+Clock display uses hours and minutes only; the wall-clock timer and resume synchronization remain active, and unchanged display text is not rewritten.
