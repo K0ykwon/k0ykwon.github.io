@@ -34,3 +34,15 @@ test('Solar phases and weather image weights are bounded and normalised',()=>{
  assert.equal(lightingAt(720).weights.day,1);assert.equal(lightingAt(1320).weights.night,1);
  assert.ok(lightingAt(380).weights.dawn>.9);assert.ok(lightingAt(1080).weights.sunset>.5);
 });
+
+test('Laptop emission is off in daylight, including morning and daytime weather',()=>{
+ for(const weather of ['clear','cloud','rain','snow']){
+  assert.equal(lightingAt(480,{sunrise:412,sunset:1058,weather}).screenPower,0);
+  assert.equal(lightingAt(720,{sunrise:412,sunset:1058,weather}).screenPower,0);
+ }
+ assert.equal(lightingAt(1320).screenPower,1);
+ for(let m=0;m<1440;m++){
+  const a=lightingAt(m).screenPower,b=lightingAt(m+.01).screenPower;
+  assert.ok(a>=0&&a<=1);assert.ok(Math.abs(a-b)<.001);
+ }
+});
