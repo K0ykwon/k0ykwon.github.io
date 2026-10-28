@@ -1,4 +1,4 @@
-import {lightingAt,solarMinute} from './lighting.js?v=20261028-desk-notes';
+import {lightingAt,solarMinute} from './lighting.js?v=20261028-theme-stable';
 import {seoulParts,seasonFor,outsideFor,parseWeather} from './weather.js';
 const root=document.documentElement;
 const pageView=document.getElementById('page-view');

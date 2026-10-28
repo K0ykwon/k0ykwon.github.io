@@ -40,7 +40,17 @@
 @media(max-width:800px){.desk{width:100%}.weather-widget{transform:none;left:auto;right:3%;top:3%}}
 @media(max-width:520px){.weather-widget{font-size:6px;gap:3px}.weather-first{gap:6px}}.window-landscape img{filter:brightness(var(--sky-brightness,1)) saturate(var(--sky-saturation,1)) sepia(var(--sky-warmth,0));transition:filter 8s ease}.hotspot:focus-visible{outline:1px dashed #4a5145;outline-offset:-5px}
 /* Enable after restoring the saved theme, so first paint never flashes. */
-html.theme-ready, .theme-ready body, .theme-ready body *{transition-property:background-color,color,border-color,fill,stroke;transition-duration:.6s;transition-timing-function:ease-in-out}.theme-ready .window-landscape img{transition:filter 8s ease}
+/* Animate the shared palette once; descendants inherit the same frame without retargeting. */
+@property --paper{syntax:'<color>';inherits:true;initial-value:#f8f7f3}
+@property --surface{syntax:'<color>';inherits:true;initial-value:#fffefa}
+@property --ink{syntax:'<color>';inherits:true;initial-value:#252721}
+@property --muted{syntax:'<color>';inherits:true;initial-value:#7b7e74}
+@property --line{syntax:'<color>';inherits:true;initial-value:#d9d9cf}
+@property --accent{syntax:'<color>';inherits:true;initial-value:#ad503e}
+@property --soft{syntax:'<color>';inherits:true;initial-value:#eeeae0}
+.theme-ready .project-art{transition:background-color .6s ease-in-out}
+.theme-ready .project-art svg{transition:stroke .3s steps(1,end)}
+.theme-ready .project-art>span{transition:color .3s steps(1,end)}
 @media(prefers-reduced-motion:reduce){html.theme-ready,.theme-ready body,.theme-ready body *{transition:none!important}}
 
 /* Independent light sources, both masked to the opaque interior. */
@@ -59,7 +69,8 @@ html.theme-ready, .theme-ready body, .theme-ready body *{transition-property:bac
 @property --lamp-radius-y{syntax:'<percentage>';inherits:true;initial-value:48%}
 @property --spill-color{syntax:'<color>';inherits:true;initial-value:#fff4e0}
 @property --spill-opacity{syntax:'<number>';inherits:true;initial-value:.1}
-html.theme-ready{transition:background-color .6s ease-in-out,color .6s ease-in-out,--room-darkness 4s ease,--lamp-shade 4s ease,--lamp-tint 4s ease,--lamp-power 4s ease,--screen-power 4s ease,--lamp-radius 4s ease,--lamp-radius-y 4s ease,--spill-color 4s ease,--spill-opacity 4s ease}
+/* Switch foreground at the midpoint so it never fades through the background colour. */
+html.theme-ready{transition:--paper .6s ease-in-out,--surface .6s ease-in-out,--line .6s ease-in-out,--soft .6s ease-in-out,--ink .3s steps(1,end),--muted .3s steps(1,end),--accent .3s steps(1,end),--room-darkness 4s ease,--lamp-shade 4s ease,--lamp-tint 4s ease,--lamp-power 4s ease,--screen-power 4s ease,--lamp-radius 4s ease,--lamp-radius-y 4s ease,--spill-color 4s ease,--spill-opacity 4s ease}
 @media(prefers-reduced-motion:reduce){html.theme-ready{transition:none!important}}
 
 .weather-widget{color:var(--weather-ink,#202421)}
