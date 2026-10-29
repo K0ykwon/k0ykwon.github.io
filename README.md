@@ -33,3 +33,5 @@ Clock display uses hours and minutes only; the wall-clock timer and resume synch
 2026-10-29: removed the laptop screen emitter, spill, shade-relief mask, power calculation and screen-only regression test. Window and desk-lamp lighting remain. About now includes a short bio, undergraduate education, interests, working approach, and Email/GitHub/LinkedIn links; Contact also includes LinkedIn. Sources and the remaining content plan are in ABOUT_CONTENT_PLAN.md.
 
 2026-10-29 CV update: used the user-supplied CV to fill education/leave status, five experience entries, two publication citations, two awards, technical skills and ORCID. Future Navy completion is explicitly expected. Research work in progress stays separate from publications.
+
+2026-10-29: Experience uses a full-width header and five chronological vertical timeline entries, with a separate awards rail on desktop and awards section below on narrow screens. All CV content is retained. Window light is stronger and moved onto the desk; the lamp's warm pool is wider with less shadow at its center, preserving darkness elsewhere. Laptop lighting remains removed.

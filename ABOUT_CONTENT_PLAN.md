@@ -32,3 +32,7 @@ The CV LaTeX supplied by Youngkwon Ko in this conversation is the source for edu
 - Add publication URLs/DOIs when provided.
 - Add a CV download once a complete PDF or compilable source including resume.cls is available. Current request link remains an email action.
 - Add one personal interest if the user wants a more personal About section.
+
+## Experience layout update
+
+Career entries are now a vertical timeline sorted by starting date (latest first); ongoing roles have a Current label. Awards sit in a separate desktop rail, followed by a CV contact action; at narrow widths the awards section follows the timeline vertically.

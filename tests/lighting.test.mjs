@@ -17,7 +17,7 @@ test('Solar timestamps parse in Seoul local time, invalid metadata uses fallback
  assert.equal(solarMinute('2026-10-28T06:53'),413);
  assert.equal(solarMinute(null),undefined);
  for(let m=0;m<1440;m++){
- const l=lightingAt(m);assert.ok(Number.isFinite(l.opacity));assert.ok(l.opacity>=0&&l.opacity<.31);assert.ok(l.brightness>=.66&&l.brightness<=1);
+ const l=lightingAt(m);assert.ok(Number.isFinite(l.opacity));assert.ok(l.opacity>=0&&l.opacity<.45);assert.ok(l.brightness>=.66&&l.brightness<=1);
  }
 });
 
