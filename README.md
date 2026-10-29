@@ -43,3 +43,8 @@ Research now prioritizes two full-width publication entries with separate metada
 Added the user-supplied multi-CCTV fire/smoke early-warning paper as the third Publication. Title and all five authors follow the PDF; unspecified publication year and venue are omitted.
 
 Sixteen standalone window scenes now cover night/dawn/day/sunset × clear/cloud/rain/snow, all separately edited with built-in image generation from the same daytime panorama. Final assets are `assets/scenes/<time>-<weather>.webp`, 1536×512. Exact generation prompts and asset hashes are in `assets/scenes/manifest.json`. The solar API still controls continuous phase weights, but every phase now selects its own image for the current weather; daytime weather art is never blended into a nighttime scene. At phase boundaries only matching-weather neighbors blend. Images load/decode on demand before fading in; out-of-order loads cannot replace newer weather. Interface theme and interior masks remain independent.
+
+
+Desk object hover images use five transparent watercolor patches in `assets/hover/`, aligned to the original 1895×830 desk. Object-shaped hit regions and paint masks are recorded in `regions.json`; `generation.json` contains the built-in imagegen prompt and source atlas. Patches appear only on hover (fine pointers) or keyboard focus, below the existing dynamic lighting layers.
+
+Hover example: [software screen preview](hover-preview.jpg).

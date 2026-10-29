@@ -127,3 +127,25 @@ html.theme-ready{transition:--paper .6s ease-in-out,--surface .6s ease-in-out,--
 .ongoing-section{margin-top:44px}.ongoing-section .research-section-heading{border-color:var(--line)}.ongoing-section h2{font-size:26px}
 .ongoing-entry{display:grid;grid-template-columns:160px minmax(0,1fr);gap:25px;padding:18px 0;border-top:1px solid var(--line)}.ongoing-entry h3{font-size:17px;font-weight:500;margin:0}.ongoing-entry p{font-size:13px;line-height:1.8;color:var(--muted);margin:0;max-width:760px}
 @media(max-width:520px){.page-view[data-section=research] .page-heading{display:block;margin-bottom:30px}.page-view[data-section=research] .page-intro{margin-top:18px}.publication{grid-template-columns:1fr;gap:14px;padding:24px 0}.publication-index{flex-direction:row;align-items:center;gap:14px}.publication-index>span{font-size:20px}.publication h3{font-size:21px}.publication .publication-summary{font-size:13px}.research-section-heading h2{font-size:29px}.ongoing-entry{grid-template-columns:1fr;gap:7px}.ongoing-section{margin-top:30px}}
+
+/* Generated watercolor patches share the original desk coordinate system. */
+.desk .hotspot{inset:0;width:100%;height:100%}
+.object-hover{position:absolute;z-index:1;pointer-events:none;mix-blend-mode:multiply;opacity:0;transition:opacity .18s ease!important}
+.desk .hotspot-lamp{clip-path:polygon(3.43008% 57.22892%,3.43008% 51.80723%,7.91557% 47.95181%,5.54090% 22.28916%,6.06860% 17.46988%,18.20580% 6.02410%,20.05277% 1.44578%,22.42744% 3.01205%,24.53826% 11.44578%,27.96834% 15.66265%,29.81530% 21.68675%,28.49604% 25.30120%,17.41425% 30.12048%,17.15040% 21.08434%,18.73351% 13.25301%,8.44327% 23.49398%,10.55409% 48.19277%,14.51187% 50.24096%,13.98417% 56.62651%)}
+.desk:has(.hotspot-lamp:focus-visible) .hover-lamp{opacity:1}
+.desk .hotspot-blog{clip-path:polygon(0.94987% 69.63855%,14.08971% 50.36145%,26.75462% 52.16867%,26.91293% 57.59036%,30.60686% 60.00000%,29.81530% 67.46988%,21.53034% 86.50602%,1.05541% 78.31325%)}
+.desk:has(.hotspot-blog:focus-visible) .hover-blog{opacity:1}
+.desk .hotspot-about{clip-path:polygon(23.06069% 89.87952%,30.18470% 61.32530%,45.11873% 60.36145%,64.22164% 62.65060%,69.65699% 93.85542%,45.38259% 94.81928%)}
+.desk:has(.hotspot-about:focus-visible) .hover-about{opacity:1}
+.desk .hotspot-software{clip-path:polygon(64.90765% 66.26506%,72.40106% 55.30120%,74.93404% 25.78313%,97.62533% 31.08434%,95.51451% 64.09639%,91.45119% 78.79518%,65.32982% 69.15663%)}
+.desk:has(.hotspot-software:focus-visible) .hover-software{opacity:1}
+.desk .hotspot-contact{clip-path:polygon(72.29551% 90.72289%,76.09499% 74.09639%,89.07652% 79.03614%,87.07124% 99.27711%,72.29551% 94.33735%)}
+.desk:has(.hotspot-contact:focus-visible) .hover-contact{opacity:1}
+@media(hover:hover) and (pointer:fine){
+.desk:has(.hotspot-lamp:hover) .hover-lamp{opacity:1}
+.desk:has(.hotspot-blog:hover) .hover-blog{opacity:1}
+.desk:has(.hotspot-about:hover) .hover-about{opacity:1}
+.desk:has(.hotspot-software:hover) .hover-software{opacity:1}
+.desk:has(.hotspot-contact:hover) .hover-contact{opacity:1}
+}
+@media(prefers-reduced-motion:reduce){.object-hover{transition:none!important}}
