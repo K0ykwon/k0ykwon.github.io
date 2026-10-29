@@ -1,4 +1,4 @@
-import {lightingAt,solarMinute} from './lighting.js?v=20261029-first-author';
+import {lightingAt,solarMinute} from './lighting.js?v=20261029-scenes-16';
 import {seoulParts,seasonFor,outsideFor,parseWeather} from './weather.js';
 const root=document.documentElement;
 const pageView=document.getElementById('page-view');
@@ -51,7 +51,24 @@ let weatherIsDay;let weatherFetchedAt=0;let solarTimes={};let weatherPending=fal
 const weatherInterval=5*60*1000;
 const clockFormat=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Seoul',weekday:'short',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:true});
 const seoulDate=now=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);
-function updateLighting(now){const parts=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Seoul',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(now);const t=Object.fromEntries(parts.filter(p=>p.type!=='literal').map(p=>[p.type,Number(p.value)]));const l=lightingAt(t.hour*60+t.minute+t.second/60,{...solarTimes,weather:root.dataset.weather});for(const [key,value] of Object.entries({'--spill-color':l.color,'--spill-opacity':l.opacity,'--sky-brightness':l.brightness,'--sky-saturation':l.saturation,'--sky-warmth':l.warmth,'--room-darkness':l.roomDarkness,'--lamp-power':l.lamp,'--lamp-shade':l.lampShade,'--lamp-radius':`${l.lampRadius}%`,'--lamp-radius-y':`${l.lampRadiusY}%`,'--lamp-tint':l.lampTint,'--weather-ink':l.weatherInk}))root.style.setProperty(key,String(value));document.querySelectorAll('.scene-image').forEach(img=>img.style.opacity=String(l.weights[img.dataset.scene]||0));}
+// Decode only the active time/weather combination before crossfading; keep the last image on load failure.
+const sceneLayers=[...document.querySelectorAll('.scene-image')];
+let sceneRevision=0;let sceneSignature='';
+async function updateScenery(weights){
+ const signature=JSON.stringify(weights);if(signature===sceneSignature)return;
+ sceneSignature=signature;const revision=++sceneRevision;
+ const active=sceneLayers.filter(img=>weights[img.dataset.scene]>0);
+ try{
+  await Promise.all(active.map(async img=>{
+   if(!img.getAttribute('src'))img.src=img.dataset.src;
+   await img.decode();
+  }));
+  if(revision!==sceneRevision)return;
+  sceneLayers.forEach(img=>img.style.opacity=String(weights[img.dataset.scene]||0));
+  document.querySelector('.window-landscape').dataset.scene=active.reduce((a,b)=>weights[a.dataset.scene]>=weights[b.dataset.scene]?a:b).dataset.scene;
+ }catch{if(revision===sceneRevision)sceneSignature='';}
+}
+function updateLighting(now){const parts=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Seoul',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(now);const t=Object.fromEntries(parts.filter(p=>p.type!=='literal').map(p=>[p.type,Number(p.value)]));const l=lightingAt(t.hour*60+t.minute+t.second/60,{...solarTimes,weather:root.dataset.weather});for(const [key,value] of Object.entries({'--spill-color':l.color,'--spill-opacity':l.opacity,'--sky-brightness':l.brightness,'--sky-saturation':l.saturation,'--sky-warmth':l.warmth,'--room-darkness':l.roomDarkness,'--lamp-power':l.lamp,'--lamp-shade':l.lampShade,'--lamp-radius':`${l.lampRadius}%`,'--lamp-radius-y':`${l.lampRadiusY}%`,'--lamp-tint':l.lampTint,'--weather-ink':l.weatherInk}))root.style.setProperty(key,String(value));updateScenery(l.scenes);}
 function updateClock(now=new Date()){
  const clock=document.getElementById('seoul-clock');const label=`${clockFormat.format(now)} KST`;
  if(clock.textContent!==label)clock.textContent=label;

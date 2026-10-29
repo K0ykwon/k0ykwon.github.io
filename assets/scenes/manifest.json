@@ -1,0 +1,152 @@
+{
+  "generator": "built-in imagegen",
+  "reference": "assets/seoul-window-v3.webp",
+  "width": 1536,
+  "height": 512,
+  "scenes": [
+    {
+      "key": "night-clear",
+      "time": "night",
+      "weather": "clear",
+      "file": "assets/scenes/night-clear.webp",
+      "prompt": "Use case: lighting-weather. Asset type: standalone website window landscape panorama, ONE image, 3:1 aspect ratio. Edit target: attached Seoul/Han River panorama. Preserve the EXACT viewpoint, horizon, left bridge structure, all skyline placement, mountain ridgeline and N Seoul Tower location right of center. Keep the same watercolor/gouache and fine pencil illustration style. Change only time of day and weather. No interior, no window frame, no plant, no objects in front, no text, no labels, no borders, no collage or contact sheet. Fill the entire rectangular image; opaque background. Keep a coherent single exposure, not a blend of two mismatched scenes. TIME: Night. Deep nighttime blue/navy sky, no daylight band. Warm lit windows and bridge lights reflect on the dark river. Calm dark readable silhouettes. WEATHER: Clear. Clear, dry weather, open sky with only a few light clouds. Night only: a subtle crescent and sparse stars; daytime no moon/stars.",
+      "bytes": 220316,
+      "sha256": "4afcc0a54f76aa9a3607bea1dc9fa1a9cde1087e0a7da9261467f2ad8747c9ea"
+    },
+    {
+      "key": "night-cloud",
+      "time": "night",
+      "weather": "cloud",
+      "file": "assets/scenes/night-cloud.webp",
+      "prompt": "Use case: lighting-weather. Asset type: standalone website window landscape panorama, ONE image, 3:1 aspect ratio. Edit target: attached Seoul/Han River panorama. Preserve the EXACT viewpoint, horizon, left bridge structure, all skyline placement, mountain ridgeline and N Seoul Tower location right of center. Keep the same watercolor/gouache and fine pencil illustration style. Change only time of day and weather. No interior, no window frame, no plant, no objects in front, no text, no labels, no borders, no collage or contact sheet. Fill the entire rectangular image; opaque background. Keep a coherent single exposure, not a blend of two mismatched scenes. TIME: Night. Deep nighttime blue/navy sky, no daylight band. Warm lit windows and bridge lights reflect on the dark river. Calm dark readable silhouettes. WEATHER: Cloudy. Overcast, thick layered cloud cover and softened contrast appropriate to the requested time. Dry ground, NO rain, NO snow, NO visible moon, stars or direct sun.",
+      "bytes": 214884,
+      "sha256": "3dc09a0a548e022d0d5eba7ddc09062fa43e5bbfcaa50f0d64a0bc2f71365e07"
+    },
+    {
+      "key": "night-rain",
+      "time": "night",
+      "weather": "rain",
+      "file": "assets/scenes/night-rain.webp",
+      "prompt": "Use case: lighting-weather. Asset type: standalone website window landscape panorama, ONE image, 3:1 aspect ratio. Edit target: attached Seoul/Han River panorama. Preserve the EXACT viewpoint, horizon, left bridge structure, all skyline placement, mountain ridgeline and N Seoul Tower location right of center. Keep the same watercolor/gouache and fine pencil illustration style. Change only time of day and weather. No interior, no window frame, no plant, no objects in front, no text, no labels, no borders, no collage or contact sheet. Fill the entire rectangular image; opaque background. Keep a coherent single exposure, not a blend of two mismatched scenes. TIME: Night. Deep nighttime blue/navy sky, no daylight band. Warm lit windows and bridge lights reflect on the dark river. Calm dark readable silhouettes. WEATHER: Rain. Visibly rainy conditions: layered rainclouds, atmospheric rain haze and fine oblique rain streaks across the outdoor scene, rippled wet river, softly blurred distant skyline. Keep buildings recognizable. No snow, no moon, no stars, no direct sunlight.",
+      "bytes": 217664,
+      "sha256": "1afd5d63fe9faf2720ee61705e10bb3223dad6c164c55b4f63db6b5686903e5f"
+    },
+    {
+      "key": "night-snow",
+      "time": "night",
+      "weather": "snow",
+      "file": "assets/scenes/night-snow.webp",
+      "prompt": "Use case: lighting-weather. Asset type: standalone website window landscape panorama, ONE image, 3:1 aspect ratio. Edit target: attached Seoul/Han River panorama. Preserve the EXACT viewpoint, horizon, left bridge structure, all skyline placement, mountain ridgeline and N Seoul Tower location right of center. Keep the same watercolor/gouache and fine pencil illustration style. Change only time of day and weather. No interior, no window frame, no plant, no objects in front, no text, no labels, no borders, no collage or contact sheet. Fill the entire rectangular image; opaque background. Keep a coherent single exposure, not a blend of two mismatched scenes. TIME: Night. Deep nighttime blue/navy sky, no daylight band. Warm lit windows and bridge lights reflect on the dark river. Calm dark readable silhouettes. WEATHER: Snow. Visibly snowy conditions: natural small falling snowflakes in depth, restrained white snow on rooftops, bridge edges and mountains, overcast wintry sky suited to the requested time. River remains liquid. No rain, moon, stars or direct sunlight.",
+      "bytes": 287664,
+      "sha256": "5a4f7881641153e26479c956372b162ef335ee9e1629854e47f2dc2ae482cc2b"
+    },
+    {
+      "key": "dawn-clear",
+      "time": "dawn",
+      "weather": "clear",
+      "file": "assets/scenes/dawn-clear.webp",
+      "prompt": "Use case: lighting-weather. Asset type: standalone website window landscape panorama, ONE image, 3:1 aspect ratio. Edit target: attached Seoul/Han River panorama. Preserve the EXACT viewpoint, horizon, left bridge structure, all skyline placement, mountain ridgeline and N Seoul Tower location right of center. Keep the same watercolor/gouache and fine pencil illustration style. Change only time of day and weather. No interior, no window frame, no plant, no objects in front, no text, no labels, no borders, no collage or contact sheet. Fill the entire rectangular image; opaque background. Keep a coherent single exposure, not a blend of two mismatched scenes. TIME: Dawn. Early dawn immediately before sunrise, pale lavender and dusty peach at the horizon transitioning to cool blue above; a few city lights still on. Soft subdued light, no bright sun. WEATHER: Clear. Clear, dry weather, open sky with only a few light clouds. Night only: a subtle crescent and sparse stars; daytime no moon/stars.",
+      "bytes": 194074,
+      "sha256": "49cfefb37dc674ef55df3e986f5a21901ad6c7a8384cc653f0762a6309fb99e4"
+    },
+    {
+      "key": "dawn-cloud",
+      "time": "dawn",
+      "weather": "cloud",
+      "file": "assets/scenes/dawn-cloud.webp",
+      "prompt": "Use case: lighting-weather. Asset type: standalone website window landscape panorama, ONE image, 3:1 aspect ratio. Edit target: attached Seoul/Han River panorama. Preserve the EXACT viewpoint, horizon, left bridge structure, all skyline placement, mountain ridgeline and N Seoul Tower location right of center. Keep the same watercolor/gouache and fine pencil illustration style. Change only time of day and weather. No interior, no window frame, no plant, no objects in front, no text, no labels, no borders, no collage or contact sheet. Fill the entire rectangular image; opaque background. Keep a coherent single exposure, not a blend of two mismatched scenes. TIME: Dawn. Early dawn immediately before sunrise, pale lavender and dusty peach at the horizon transitioning to cool blue above; a few city lights still on. Soft subdued light, no bright sun. WEATHER: Cloudy. Overcast, thick layered cloud cover and softened contrast appropriate to the requested time. Dry ground, NO rain, NO snow, NO visible moon, stars or direct sun.",
+      "bytes": 191902,
+      "sha256": "684c183a23525b6522d0ffa67b1a35516b05676b22af39b79608c14e40cd6ec5"
+    },
+    {
+      "key": "dawn-rain",
+      "time": "dawn",
+      "weather": "rain",
+      "file": "assets/scenes/dawn-rain.webp",
+      "prompt": "Use case: lighting-weather. Asset type: standalone website window landscape panorama, ONE image, 3:1 aspect ratio. Edit target: attached Seoul/Han River panorama. Preserve the EXACT viewpoint, horizon, left bridge structure, all skyline placement, mountain ridgeline and N Seoul Tower location right of center. Keep the same watercolor/gouache and fine pencil illustration style. Change only time of day and weather. No interior, no window frame, no plant, no objects in front, no text, no labels, no borders, no collage or contact sheet. Fill the entire rectangular image; opaque background. Keep a coherent single exposure, not a blend of two mismatched scenes. TIME: Dawn. Early dawn immediately before sunrise, pale lavender and dusty peach at the horizon transitioning to cool blue above; a few city lights still on. Soft subdued light, no bright sun. WEATHER: Rain. Visibly rainy conditions: layered rainclouds, atmospheric rain haze and fine oblique rain streaks across the outdoor scene, rippled wet river, softly blurred distant skyline. Keep buildings recognizable. No snow, no moon, no stars, no direct sunlight.",
+      "bytes": 219250,
+      "sha256": "940414ba1300113bd7bf17a3c21afe63a545d13c25888f24022b778b61fdd5f0"
+    },
+    {
+      "key": "dawn-snow",
+      "time": "dawn",
+      "weather": "snow",
+      "file": "assets/scenes/dawn-snow.webp",
+      "prompt": "Use case: lighting-weather. Asset type: standalone website window landscape panorama, ONE image, 3:1 aspect ratio. Edit target: attached Seoul/Han River panorama. Preserve the EXACT viewpoint, horizon, left bridge structure, all skyline placement, mountain ridgeline and N Seoul Tower location right of center. Keep the same watercolor/gouache and fine pencil illustration style. Change only time of day and weather. No interior, no window frame, no plant, no objects in front, no text, no labels, no borders, no collage or contact sheet. Fill the entire rectangular image; opaque background. Keep a coherent single exposure, not a blend of two mismatched scenes. TIME: Dawn. Early dawn immediately before sunrise, pale lavender and dusty peach at the horizon transitioning to cool blue above; a few city lights still on. Soft subdued light, no bright sun. WEATHER: Snow. Visibly snowy conditions: natural small falling snowflakes in depth, restrained white snow on rooftops, bridge edges and mountains, overcast wintry sky suited to the requested time. River remains liquid. No rain, moon, stars or direct sunlight.",
+      "bytes": 241716,
+      "sha256": "2207d77b9cb4cc092768afd2eee0e6953515250643acb4f1a16d17198919cdb4"
+    },
+    {
+      "key": "day-clear",
+      "time": "day",
+      "weather": "clear",
+      "file": "assets/scenes/day-clear.webp",
+      "prompt": "Use case: lighting-weather. Asset type: standalone website window landscape panorama, ONE image, 3:1 aspect ratio. Edit target: attached Seoul/Han River panorama. Preserve the EXACT viewpoint, horizon, left bridge structure, all skyline placement, mountain ridgeline and N Seoul Tower location right of center. Keep the same watercolor/gouache and fine pencil illustration style. Change only time of day and weather. No interior, no window frame, no plant, no objects in front, no text, no labels, no borders, no collage or contact sheet. Fill the entire rectangular image; opaque background. Keep a coherent single exposure, not a blend of two mismatched scenes. TIME: Day. Natural mid-morning daylight, pale blue sky, crisp yet painterly buildings, blue river, softly sunlit green mountains. No sunset colors or night lights. WEATHER: Clear. Clear, dry weather, open sky with only a few light clouds. Night only: a subtle crescent and sparse stars; daytime no moon/stars.",
+      "bytes": 194078,
+      "sha256": "8e39746ca279e18621227e6a4fb788965ebfe760d7e5446c078cfd2adc3b3bd6"
+    },
+    {
+      "key": "day-cloud",
+      "time": "day",
+      "weather": "cloud",
+      "file": "assets/scenes/day-cloud.webp",
+      "prompt": "Use case: lighting-weather. Asset type: standalone website window landscape panorama, ONE image, 3:1 aspect ratio. Edit target: attached Seoul/Han River panorama. Preserve the EXACT viewpoint, horizon, left bridge structure, all skyline placement, mountain ridgeline and N Seoul Tower location right of center. Keep the same watercolor/gouache and fine pencil illustration style. Change only time of day and weather. No interior, no window frame, no plant, no objects in front, no text, no labels, no borders, no collage or contact sheet. Fill the entire rectangular image; opaque background. Keep a coherent single exposure, not a blend of two mismatched scenes. TIME: Day. Natural mid-morning daylight, pale blue sky, crisp yet painterly buildings, blue river, softly sunlit green mountains. No sunset colors or night lights. WEATHER: Cloudy. Overcast, thick layered cloud cover and softened contrast appropriate to the requested time. Dry ground, NO rain, NO snow, NO visible moon, stars or direct sun.",
+      "bytes": 167146,
+      "sha256": "fe78c9eb493dcbd40c46b69fe46ae8647ba2ceb3fef7d73d263648750248d70e"
+    },
+    {
+      "key": "day-rain",
+      "time": "day",
+      "weather": "rain",
+      "file": "assets/scenes/day-rain.webp",
+      "prompt": "Use case: lighting-weather. Asset type: standalone website window landscape panorama, ONE image, 3:1 aspect ratio. Edit target: attached Seoul/Han River panorama. Preserve the EXACT viewpoint, horizon, left bridge structure, all skyline placement, mountain ridgeline and N Seoul Tower location right of center. Keep the same watercolor/gouache and fine pencil illustration style. Change only time of day and weather. No interior, no window frame, no plant, no objects in front, no text, no labels, no borders, no collage or contact sheet. Fill the entire rectangular image; opaque background. Keep a coherent single exposure, not a blend of two mismatched scenes. TIME: Day. Natural mid-morning daylight, pale blue sky, crisp yet painterly buildings, blue river, softly sunlit green mountains. No sunset colors or night lights. WEATHER: Rain. Visibly rainy conditions: layered rainclouds, atmospheric rain haze and fine oblique rain streaks across the outdoor scene, rippled wet river, softly blurred distant skyline. Keep buildings recognizable. No snow, no moon, no stars, no direct sunlight.",
+      "bytes": 217348,
+      "sha256": "68417afd92972f84cacf69c2f8dd07909912c41a10442b7dd8c5418ec9dfa727"
+    },
+    {
+      "key": "day-snow",
+      "time": "day",
+      "weather": "snow",
+      "file": "assets/scenes/day-snow.webp",
+      "prompt": "Use case: lighting-weather. Asset type: standalone website window landscape panorama, ONE image, 3:1 aspect ratio. Edit target: attached Seoul/Han River panorama. Preserve the EXACT viewpoint, horizon, left bridge structure, all skyline placement, mountain ridgeline and N Seoul Tower location right of center. Keep the same watercolor/gouache and fine pencil illustration style. Change only time of day and weather. No interior, no window frame, no plant, no objects in front, no text, no labels, no borders, no collage or contact sheet. Fill the entire rectangular image; opaque background. Keep a coherent single exposure, not a blend of two mismatched scenes. TIME: Day. Natural mid-morning daylight, pale blue sky, crisp yet painterly buildings, blue river, softly sunlit green mountains. No sunset colors or night lights. WEATHER: Snow. Visibly snowy conditions: natural small falling snowflakes in depth, restrained white snow on rooftops, bridge edges and mountains, overcast wintry sky suited to the requested time. River remains liquid. No rain, moon, stars or direct sunlight.",
+      "bytes": 230516,
+      "sha256": "25a6a2134632f9f6476f4612fb13c4f84282a3eb3cbaa44d4b4eea38451ce34b"
+    },
+    {
+      "key": "sunset-clear",
+      "time": "sunset",
+      "weather": "clear",
+      "file": "assets/scenes/sunset-clear.webp",
+      "prompt": "Use case: lighting-weather. Asset type: standalone website window landscape panorama, ONE image, 3:1 aspect ratio. Edit target: attached Seoul/Han River panorama. Preserve the EXACT viewpoint, horizon, left bridge structure, all skyline placement, mountain ridgeline and N Seoul Tower location right of center. Keep the same watercolor/gouache and fine pencil illustration style. Change only time of day and weather. No interior, no window frame, no plant, no objects in front, no text, no labels, no borders, no collage or contact sheet. Fill the entire rectangular image; opaque background. Keep a coherent single exposure, not a blend of two mismatched scenes. TIME: Evening. Evening sunset/blue-hour transition, muted gold and apricot near the horizon with mauve-blue above, warm city lights beginning to appear, sunset colors reflected in the river. WEATHER: Clear. Clear, dry weather, open sky with only a few light clouds. Night only: a subtle crescent and sparse stars; daytime no moon/stars.",
+      "bytes": 221752,
+      "sha256": "a597c581ab00dca39ed900e2edac91867873d8b36eec32bcee14fee3d248f8e9"
+    },
+    {
+      "key": "sunset-cloud",
+      "time": "sunset",
+      "weather": "cloud",
+      "file": "assets/scenes/sunset-cloud.webp",
+      "prompt": "Use case: lighting-weather. Asset type: standalone website window landscape panorama, ONE image, 3:1 aspect ratio. Edit target: attached Seoul/Han River panorama. Preserve the EXACT viewpoint, horizon, left bridge structure, all skyline placement, mountain ridgeline and N Seoul Tower location right of center. Keep the same watercolor/gouache and fine pencil illustration style. Change only time of day and weather. No interior, no window frame, no plant, no objects in front, no text, no labels, no borders, no collage or contact sheet. Fill the entire rectangular image; opaque background. Keep a coherent single exposure, not a blend of two mismatched scenes. TIME: Evening. Evening sunset/blue-hour transition, muted gold and apricot near the horizon with mauve-blue above, warm city lights beginning to appear, sunset colors reflected in the river. WEATHER: Cloudy. Overcast, thick layered cloud cover and softened contrast appropriate to the requested time. Dry ground, NO rain, NO snow, NO visible moon, stars or direct sun.",
+      "bytes": 222590,
+      "sha256": "2d9e495e7fc4d35acefa9d1ee262787d0a0131e9c37d4e178c2b0d833aff0f05"
+    },
+    {
+      "key": "sunset-rain",
+      "time": "sunset",
+      "weather": "rain",
+      "file": "assets/scenes/sunset-rain.webp",
+      "prompt": "Use case: lighting-weather. Asset type: standalone website window landscape panorama, ONE image, 3:1 aspect ratio. Edit target: attached Seoul/Han River panorama. Preserve the EXACT viewpoint, horizon, left bridge structure, all skyline placement, mountain ridgeline and N Seoul Tower location right of center. Keep the same watercolor/gouache and fine pencil illustration style. Change only time of day and weather. No interior, no window frame, no plant, no objects in front, no text, no labels, no borders, no collage or contact sheet. Fill the entire rectangular image; opaque background. Keep a coherent single exposure, not a blend of two mismatched scenes. TIME: Evening. Evening sunset/blue-hour transition, muted gold and apricot near the horizon with mauve-blue above, warm city lights beginning to appear, sunset colors reflected in the river. WEATHER: Rain. Visibly rainy conditions: layered rainclouds, atmospheric rain haze and fine oblique rain streaks across the outdoor scene, rippled wet river, softly blurred distant skyline. Keep buildings recognizable. No snow, no moon, no stars, no direct sunlight.",
+      "bytes": 248070,
+      "sha256": "1c69c79870419ca805be977efbcafed45688218196ff8739b67af4b114ec6f00"
+    },
+    {
+      "key": "sunset-snow",
+      "time": "sunset",
+      "weather": "snow",
+      "file": "assets/scenes/sunset-snow.webp",
+      "prompt": "Use case: lighting-weather. Asset type: standalone website window landscape panorama, ONE image, 3:1 aspect ratio. Edit target: attached Seoul/Han River panorama. Preserve the EXACT viewpoint, horizon, left bridge structure, all skyline placement, mountain ridgeline and N Seoul Tower location right of center. Keep the same watercolor/gouache and fine pencil illustration style. Change only time of day and weather. No interior, no window frame, no plant, no objects in front, no text, no labels, no borders, no collage or contact sheet. Fill the entire rectangular image; opaque background. Keep a coherent single exposure, not a blend of two mismatched scenes. TIME: Evening. Evening sunset/blue-hour transition, muted gold and apricot near the horizon with mauve-blue above, warm city lights beginning to appear, sunset colors reflected in the river. WEATHER: Snow. Visibly snowy conditions: natural small falling snowflakes in depth, restrained white snow on rooftops, bridge edges and mountains, overcast wintry sky suited to the requested time. River remains liquid. No rain, moon, stars or direct sunlight.",
+      "bytes": 258458,
+      "sha256": "459f6145ab3e3fc1b09eeb971e8758f3c5386630b0a7ca87d50f6bf6c9261e53"
+    }
+  ]
+}

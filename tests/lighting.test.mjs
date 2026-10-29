@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {lightingAt,solarMinute} from '../lighting.js';
+import {lightingAt,solarMinute,SCENE_TIMES,SCENE_WEATHERS} from '../lighting.js';
 test('Light is continuous at hour and dawn/dusk boundaries',()=>{
  for(const minute of [375,420,465,1020,1080,1125,1140]){
  const a=lightingAt(minute-.01),b=lightingAt(minute+.01);
@@ -33,4 +33,26 @@ test('Solar phases and weather image weights are bounded and normalised',()=>{
  }
  assert.equal(lightingAt(720).weights.day,1);assert.equal(lightingAt(1320).weights.night,1);
  assert.ok(lightingAt(380).weights.dawn>.9);assert.ok(lightingAt(1080).weights.sunset>.5);
+});
+
+test('All sixteen scene combinations resolve to a distinct, matching-weather asset',async()=>{
+ const {readFile,stat}=await import('node:fs/promises');
+ const manifest=JSON.parse(await readFile(new URL('../assets/scenes/manifest.json',import.meta.url),'utf8'));
+ assert.equal(manifest.scenes.length,16);assert.equal(new Set(manifest.scenes.map(s=>s.sha256)).size,16);
+ const minutes={night:1320,dawn:380,day:720,sunset:1080};
+ for(const time of SCENE_TIMES)for(const weather of SCENE_WEATHERS){
+  const key=`${time}-${weather}`,l=lightingAt(minutes[time],{weather});
+  const active=Object.entries(l.scenes).filter(([,weight])=>weight>0);
+  assert.equal(active.length,1);assert.equal(active[0][0],key);assert.equal(active[0][1],1);
+  const asset=manifest.scenes.find(s=>s.key===key);assert.ok(asset);
+  assert.ok((await stat(new URL('../'+asset.file,import.meta.url))).size>10000);
+ }
+});
+test('Solar transitions blend only adjacent phases of the current weather',()=>{
+ for(const weather of SCENE_WEATHERS)for(let m=0;m<1440;m++){
+  const l=lightingAt(m,{weather}),entries=Object.entries(l.scenes);
+  assert.ok(Math.abs(entries.reduce((sum,[,v])=>sum+v,0)-1)<1e-8);
+  assert.ok(entries.filter(([,v])=>v>0).every(([key])=>key.endsWith('-'+weather)));
+  assert.ok(entries.filter(([,v])=>v>0).length<=2);
+ }
 });
