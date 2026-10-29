@@ -1,5 +1,5 @@
 import {lightingAt,solarMinute} from './lighting.js?v=20261029-scenes-16';
-import {seoulParts,seasonFor,outsideFor,parseWeather} from './weather.js';
+import {seoulParts,seasonFor,outsideFor,parseWeather,cachedScene} from './weather.js?v=20261029-scene-start';
 const root=document.documentElement;
 const pageView=document.getElementById('page-view');
 const content=document.getElementById('page-content');
@@ -49,6 +49,8 @@ let savedTheme;try{savedTheme=localStorage.getItem('desk-theme');}catch{}setThem
 document.addEventListener('click',async e=>{if(e.target.id!=='copy-email')return;const el=e.target;try{await navigator.clipboard.writeText('yko081524@yonsei.ac.kr');el.textContent='Copied ✓';document.getElementById('copy-status').textContent='Email address copied';}catch{el.textContent='Select the email address above to copy';}});
 let weatherIsDay;let weatherFetchedAt=0;let solarTimes={};let weatherPending=false;let weatherAttemptedAt=0;let weatherDate='';
 const weatherInterval=5*60*1000;
+try{const cached=cachedScene(localStorage.getItem('desk-weather'),new Date());if(cached){root.dataset.weather=cached.kind;solarTimes=cached.solarTimes;}}catch{}
+
 const clockFormat=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Seoul',weekday:'short',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:true});
 const seoulDate=now=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);
 // Decode only the active time/weather combination before crossfading; keep the last image on load failure.
@@ -65,7 +67,9 @@ async function updateScenery(weights){
   }));
   if(revision!==sceneRevision)return;
   sceneLayers.forEach(img=>img.style.opacity=String(weights[img.dataset.scene]||0));
-  document.querySelector('.window-landscape').dataset.scene=active.reduce((a,b)=>weights[a.dataset.scene]>=weights[b.dataset.scene]?a:b).dataset.scene;
+  const landscape=document.querySelector('.window-landscape');
+  if(!landscape.hasAttribute('data-ready'))requestAnimationFrame(()=>requestAnimationFrame(()=>landscape.setAttribute('data-ready','')));
+  landscape.dataset.scene=active.reduce((a,b)=>weights[a.dataset.scene]>=weights[b.dataset.scene]?a:b).dataset.scene;
  }catch{if(revision===sceneRevision)sceneSignature='';}
 }
 function updateLighting(now){const parts=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Seoul',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(now);const t=Object.fromEntries(parts.filter(p=>p.type!=='literal').map(p=>[p.type,Number(p.value)]));const l=lightingAt(t.hour*60+t.minute+t.second/60,{...solarTimes,weather:root.dataset.weather});for(const [key,value] of Object.entries({'--spill-color':l.color,'--spill-opacity':l.opacity,'--sky-brightness':l.brightness,'--sky-saturation':l.saturation,'--sky-warmth':l.warmth,'--room-darkness':l.roomDarkness,'--lamp-power':l.lamp,'--lamp-shade':l.lampShade,'--lamp-radius':`${l.lampRadius}%`,'--lamp-radius-y':`${l.lampRadiusY}%`,'--lamp-tint':l.lampTint,'--weather-ink':l.weatherInk}))root.style.setProperty(key,String(value));updateScenery(l.scenes);}
@@ -80,7 +84,7 @@ function updateScene(now=new Date()){
  root.dataset.outside=outsideFor(p.hour,fresh?weatherIsDay:undefined);
  updateLighting(now);
 }
-async function updateWeather(){if(weatherPending)return;weatherPending=true;weatherAttemptedAt=Date.now();const requestedDate=seoulDate(new Date());const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),8000);try{const response=await fetch('https://api.open-meteo.com/v1/forecast?latitude=37.5665&longitude=126.9780&current=temperature_2m,weather_code,is_day&daily=sunrise,sunset&forecast_days=1&timezone=Asia%2FSeoul',{signal:controller.signal,cache:'no-store'});if(!response.ok)throw new Error('Weather unavailable');const data=await response.json();const w=parseWeather(data);solarTimes={sunrise:solarMinute(data.daily?.sunrise?.[0]),sunset:solarMinute(data.daily?.sunset?.[0])};solarTimes=Object.fromEntries(Object.entries(solarTimes).filter(([,v])=>Number.isFinite(v)));root.dataset.weather=w.kind;weatherIsDay=w.isDay;weatherFetchedAt=Date.now();weatherDate=requestedDate;document.getElementById('temperature').textContent=`${w.temperature}°C`;document.getElementById('weather-icon').textContent=w.isDay?w.icon:(w.kind==='clear'?'☾':w.icon);document.getElementById('weather-detail').textContent=`${w.label} · Live weather`;document.querySelector('.live-dot').classList.remove('offline');updateScene();}catch{root.dataset.weather='clear';weatherIsDay=undefined;weatherFetchedAt=0;document.getElementById('temperature').textContent='—°';document.getElementById('weather-detail').textContent='Weather unavailable · Seoul local time';document.getElementById('weather-icon').textContent='◌';document.querySelector('.live-dot').classList.add('offline');updateScene();}finally{clearTimeout(timeout);weatherPending=false;}}
+async function updateWeather(){if(weatherPending)return;weatherPending=true;weatherAttemptedAt=Date.now();const requestedDate=seoulDate(new Date());const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),8000);try{const response=await fetch('https://api.open-meteo.com/v1/forecast?latitude=37.5665&longitude=126.9780&current=temperature_2m,weather_code,is_day&daily=sunrise,sunset&forecast_days=1&timezone=Asia%2FSeoul',{signal:controller.signal,cache:'no-store'});if(!response.ok)throw new Error('Weather unavailable');const data=await response.json();const w=parseWeather(data);solarTimes={sunrise:solarMinute(data.daily?.sunrise?.[0]),sunset:solarMinute(data.daily?.sunset?.[0])};solarTimes=Object.fromEntries(Object.entries(solarTimes).filter(([,v])=>Number.isFinite(v)));root.dataset.weather=w.kind;weatherIsDay=w.isDay;weatherFetchedAt=Date.now();weatherDate=requestedDate;try{localStorage.setItem('desk-weather',JSON.stringify({kind:w.kind,fetchedAt:weatherFetchedAt,date:weatherDate,solarTimes}));}catch{}document.getElementById('temperature').textContent=`${w.temperature}°C`;document.getElementById('weather-icon').textContent=w.isDay?w.icon:(w.kind==='clear'?'☾':w.icon);document.getElementById('weather-detail').textContent=`${w.label} · Live weather`;document.querySelector('.live-dot').classList.remove('offline');updateScene();}catch{weatherIsDay=undefined;weatherFetchedAt=0;document.getElementById('temperature').textContent='—°';document.getElementById('weather-detail').textContent='Weather unavailable · Seoul local time';document.getElementById('weather-icon').textContent='◌';document.querySelector('.live-dot').classList.add('offline');updateScene();}finally{clearTimeout(timeout);weatherPending=false;}}
 // Wall-clock based ticks recover immediately after browser timer throttling.
 let clockTimer;let sceneUpdatedAt=0;
 function refreshLive({forceWeather=false}={}){

@@ -9,7 +9,7 @@
 .theme-button{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:0;padding:6px;background:none}.theme-icon{font-size:20px;line-height:1}
 
 [hidden]{display:none!important}
-.desk-section{max-width:1660px;margin:auto}.desk{position:relative;isolation:isolate;overflow:hidden;aspect-ratio:3/2;background:#eee9df;container-type:inline-size}.desk-art{position:relative;z-index:1;width:100%;height:100%;display:block;pointer-events:none}.window-landscape{position:absolute;left:39%;top:0;width:56%;height:30%;z-index:0;background:#9cb4c1;overflow:hidden}.window-landscape img{width:100%;height:100%;object-fit:cover;object-position:center 55%;display:block}.daylight-overlay{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
+.desk-section{max-width:1660px;margin:auto}.desk{position:relative;isolation:isolate;overflow:hidden;aspect-ratio:3/2;background:#eee9df;container-type:inline-size}.desk-art{position:relative;z-index:1;width:100%;height:100%;display:block;pointer-events:none}.window-landscape{position:absolute;left:39%;top:0;width:56%;height:30%;z-index:0;background:#38424a;overflow:hidden}.window-landscape img{width:100%;height:100%;object-fit:cover;object-position:center 55%;display:block}.daylight-overlay{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
 .weather-widget{position:absolute;left:4%;top:4%;z-index:3;color:#202421;display:flex;flex-direction:column;gap:9px;font-size:clamp(7px,1.15cqw,16px)}.weather-first{display:flex;align-items:center;gap:14px}.weather-first strong{font-weight:400}#weather-icon{font-size:1.4em}#seoul-clock{font-size:.9em;font-variant-numeric:tabular-nums}
 .hotspot{position:absolute;z-index:4;border:0;background:none;padding:0;cursor:pointer}.hotspot:focus-visible{outline:none}
 .hotspot-blog{left:1%;top:51%;width:28%;height:37%}.hotspot-software{left:65%;top:25%;width:33%;height:54%}.hotspot-about{left:29%;top:64%;width:17%;height:20%}.hotspot-contact{left:73%;top:75%;width:18%;height:23%}.hotspot-lamp{left:0;top:2%;width:29%;height:54%}
@@ -54,7 +54,7 @@
 @media(prefers-reduced-motion:reduce){html.theme-ready,.theme-ready body,.theme-ready body *{transition:none!important}}
 
 /* Independent light sources, both masked to the opaque interior. */
-.window-landscape{isolation:isolate}.window-landscape .scene-image{position:absolute;inset:0;width:100%;height:100%;filter:none!important;opacity:0;transition:opacity 4s ease!important}.window-landscape .scene-image[data-scene=day-clear]{opacity:1}
+.window-landscape{isolation:isolate}.window-landscape .scene-image{position:absolute;inset:0;width:100%;height:100%;filter:none!important;opacity:0;transition:none!important}.window-landscape[data-ready] .scene-image{transition:opacity 4s ease!important}
 .scene-illumination{position:absolute;inset:0;z-index:2;pointer-events:none;mask-image:url('assets/desk-wide-v6.webp');mask-size:100% 100%;mask-mode:alpha;mask-repeat:no-repeat;transition:background 4s ease,opacity 4s ease!important}
 .room-shade{background:radial-gradient(ellipse var(--lamp-radius,28%) var(--lamp-radius-y,48%) at 25% 65%,rgb(8 12 20 / var(--lamp-shade,.1)) 0%,rgb(8 12 20 / var(--lamp-shade,.1)) 12%,rgb(8 12 20 / var(--room-darkness,.15)) 100%)}
 .window-pool{background:radial-gradient(ellipse at 62% 53%,var(--spill-color,#fff4e0) 0%,transparent 80%);opacity:var(--spill-opacity,.1);mix-blend-mode:soft-light}
