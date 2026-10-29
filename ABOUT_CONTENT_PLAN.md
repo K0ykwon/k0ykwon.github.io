@@ -50,3 +50,7 @@ Title: Design and Preliminary Validation of a Public-Data-Based Ship-Like Multi-
 Authors in source order: Yunbo Shim; Youngkwon Ko; Doun Lee; Seayul Choi; Muhyeon Park.
 
 Summary covers the public-data three-layer strategy, detector/verifier/alert pipeline and four-stream MP4 emulator (240 sampled frames; 27.80 analyzed FPS). No real ship deployment claim is made. Publication year and official venue were not stated in the PDF body, so they are omitted; PDF creation metadata is not treated as a publication date. The PDF itself is not uploaded publicly.
+
+## Publication ordering
+
+Always place papers where Youngkwon Ko is the first author before all other papers. Preserve the relative order within each group. The hyperspectral transmission paper is currently first; the historical battle records and multi-CCTV papers follow.
