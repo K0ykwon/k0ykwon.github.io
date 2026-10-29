@@ -1,4 +1,4 @@
-import {lightingAt,solarMinute} from './lighting.js?v=20261029-timeline-light';
+import {lightingAt,solarMinute} from './lighting.js?v=20261029-screen-on';
 import {seoulParts,seasonFor,outsideFor,parseWeather} from './weather.js';
 const root=document.documentElement;
 const pageView=document.getElementById('page-view');
