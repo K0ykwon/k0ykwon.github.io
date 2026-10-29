@@ -130,7 +130,7 @@ html.theme-ready{transition:--paper .6s ease-in-out,--surface .6s ease-in-out,--
 
 /* Generated watercolor patches share the original desk coordinate system. */
 .desk .hotspot{inset:0;width:100%;height:100%}
-.object-hover{position:absolute;z-index:1;pointer-events:none;mix-blend-mode:multiply;opacity:0;transition:opacity .18s ease!important}
+.object-hover{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;mix-blend-mode:multiply;opacity:0;transition:opacity .18s ease!important}
 .desk .hotspot-lamp{clip-path:polygon(3.43008% 57.22892%,3.43008% 51.80723%,7.91557% 47.95181%,5.54090% 22.28916%,6.06860% 17.46988%,18.20580% 6.02410%,20.05277% 1.44578%,22.42744% 3.01205%,24.53826% 11.44578%,27.96834% 15.66265%,29.81530% 21.68675%,28.49604% 25.30120%,17.41425% 30.12048%,17.15040% 21.08434%,18.73351% 13.25301%,8.44327% 23.49398%,10.55409% 48.19277%,14.51187% 50.24096%,13.98417% 56.62651%)}
 .desk:has(.hotspot-lamp:focus-visible) .hover-lamp{opacity:1}
 .desk .hotspot-blog{clip-path:polygon(0.94987% 69.63855%,14.08971% 50.36145%,26.75462% 52.16867%,26.91293% 57.59036%,30.60686% 60.00000%,29.81530% 67.46988%,21.53034% 86.50602%,1.05541% 78.31325%)}
@@ -149,3 +149,6 @@ html.theme-ready{transition:--paper .6s ease-in-out,--surface .6s ease-in-out,--
 .desk:has(.hotspot-contact:hover) .hover-contact{opacity:1}
 }
 @media(prefers-reduced-motion:reduce){.object-hover{transition:none!important}}
+
+/* Retain the original mountain geometry; the generated screen adds chroma only. */
+.hover-software{mix-blend-mode:color}

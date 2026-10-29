@@ -48,3 +48,7 @@ Sixteen standalone window scenes now cover night/dawn/day/sunset × clear/cloud/
 Desk object hover images use five transparent watercolor patches in `assets/hover/`, aligned to the original 1895×830 desk. Object-shaped hit regions and paint masks are recorded in `regions.json`; `generation.json` contains the built-in imagegen prompt and source atlas. Patches appear only on hover (fine pointers) or keyboard focus, below the existing dynamic lighting layers.
 
 Hover example: [software screen preview](hover-preview.jpg).
+
+Hover alignment v2 uses original-contour SVG masks and affine registration of the generated atlas; notebook pages are registered separately. The laptop uses color blending to retain the original mountain luminance and outlines. Registration data: `assets/hover/registration-v2.json`.
+
+Aligned hover preview: [v2](hover-alignment-preview.jpg).
