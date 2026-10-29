@@ -16,7 +16,7 @@ The CV LaTeX supplied by Youngkwon Ko in this conversation is the source for edu
 
 - B.S. studies are marked in progress; no completed degree is implied.
 - Navy: December 2025–present; August 2027 is expected service completion, not a completed past role.
-- Creai+it: September 2024–present, as supplied.
+- Creai+it: September 2024–December 2025, corrected by the user.
 - Publications retain the venue and year supplied by the user. No DOI, issue/pages, extra coauthors or publication URL is invented.
 - PACT and Lineage remain ongoing work; they are not moved into the supplied publication list.
 
