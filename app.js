@@ -32,8 +32,7 @@ function renderSection(key,{scroll=true}={}) {
   if(scroll){document.getElementById('page-title').focus({preventScroll:true});requestAnimationFrame(()=>pageView.scrollIntoView({behavior:reducedMotion()?'instant':'smooth',block:'start'}));}
 }
 function home({scroll=true}={}) {
-  pageView.hidden=true;shelf.hidden=false;
-  document.querySelectorAll('[data-section][aria-current]').forEach(el=>el.removeAttribute('aria-current'));
+  renderSection('about',{scroll:false});
   if(scroll){document.querySelector('.brand').focus({preventScroll:true});window.scrollTo({top:0,behavior:reducedMotion()?'instant':'smooth'});}
 }
 function syncHash({initial=false}={}){const key=location.hash.slice(1);if(sections[key])renderSection(key);else home({scroll:!initial&&!location.hash});}
