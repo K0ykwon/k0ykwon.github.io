@@ -39,3 +39,5 @@ Clock display uses hours and minutes only; the wall-clock timer and resume synch
 2026-10-29: laptop screen is on by default again, with a 2.5% daytime emission and 7% nighttime cap. Local spill ranges 1.5–7%; a darkness-dependent shade mask keeps the nighttime screen readable. It uses the existing interpolated external-darkness property, independently from manual theme selection.
 
 Research now prioritizes two full-width publication entries with separate metadata and summaries. PACT and Lineage are brief entries in an independent Ongoing work section. The standalone medical image-quality item was removed from Research.
+
+Added the user-supplied multi-CCTV fire/smoke early-warning paper as the third Publication. Title and all five authors follow the PDF; unspecified publication year and venue are omitted.

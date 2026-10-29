@@ -7,7 +7,7 @@ The CV LaTeX supplied by Youngkwon Ko in this conversation is the source for edu
 ## Implemented distribution
 
 - **About:** short introduction; Yonsei AI undergraduate studies beginning March 2023; currently on leave; current Navy AI Specialist role; interests and working approach; three skill groups; Email/GitHub/LinkedIn/ORCID links.
-- **Research:** two full publication citations as supplied, with complete titles and supplied author lists; hyperspectral results explicitly described as latent-payload reductions; ongoing PACT and Lineage work kept separate from publications.
+- **Research:** three full publication entries as supplied, with complete titles and supplied author lists; hyperspectral results explicitly described as latent-payload reductions; ongoing PACT and Lineage work kept separate from publications.
 - **Experience:** ROK Navy, Creai+it, Root Education, Little Samo, Yonsei Medisys Lab; roles, dates and responsibilities from the CV; two awards.
 - **Software:** retain current projects and repository links; clarify Miney as legal document analysis and case retrieval. Somni appears in the Creai+it experience, without inventing a repository URL.
 - **Contact:** Email, GitHub, LinkedIn and ORCID.
@@ -39,4 +39,14 @@ Career entries are now a vertical timeline sorted by starting date (latest first
 
 ## Research layout update
 
-Publications are the main full-width, detailed list (two papers with authors, venue, year, short summary and topics). Ongoing work is a separate compact section containing PACT and Lineage only. The low-dose CT research item is removed from Research; the Medisys employment entry remains in Experience.
+Publications are the main full-width, detailed list (three papers with authors, available bibliographic metadata, short summaries and topics). Ongoing work is a separate compact section containing PACT and Lineage only. The low-dose CT research item is removed from Research; the Medisys employment entry remains in Experience.
+
+## Added publication: public-data multi-CCTV early warning
+
+Source: user-uploaded six-page PDF, read and first-page title/authors visually verified.
+
+Title: Design and Preliminary Validation of a Public-Data-Based Ship-Like Multi-CCTV Fire and Smoke Early Warning System
+
+Authors in source order: Yunbo Shim; Youngkwon Ko; Doun Lee; Seayul Choi; Muhyeon Park.
+
+Summary covers the public-data three-layer strategy, detector/verifier/alert pipeline and four-stream MP4 emulator (240 sampled frames; 27.80 analyzed FPS). No real ship deployment claim is made. Publication year and official venue were not stated in the PDF body, so they are omitted; PDF creation metadata is not treated as a publication date. The PDF itself is not uploaded publicly.
