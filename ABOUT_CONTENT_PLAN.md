@@ -7,7 +7,7 @@ The CV LaTeX supplied by Youngkwon Ko in this conversation is the source for edu
 ## Implemented distribution
 
 - **About:** short introduction; Yonsei AI undergraduate studies beginning March 2023; currently on leave; current Navy AI Specialist role; interests and working approach; three skill groups; Email/GitHub/LinkedIn/ORCID links.
-- **Research:** two full publication citations as supplied, with complete titles and supplied author lists; hyperspectral results explicitly described as latent-payload reductions; ongoing PACT and Lineage work kept separate from publications; medical image quality research summary.
+- **Research:** two full publication citations as supplied, with complete titles and supplied author lists; hyperspectral results explicitly described as latent-payload reductions; ongoing PACT and Lineage work kept separate from publications.
 - **Experience:** ROK Navy, Creai+it, Root Education, Little Samo, Yonsei Medisys Lab; roles, dates and responsibilities from the CV; two awards.
 - **Software:** retain current projects and repository links; clarify Miney as legal document analysis and case retrieval. Somni appears in the Creai+it experience, without inventing a repository URL.
 - **Contact:** Email, GitHub, LinkedIn and ORCID.
@@ -36,3 +36,7 @@ The CV LaTeX supplied by Youngkwon Ko in this conversation is the source for edu
 ## Experience layout update
 
 Career entries are now a vertical timeline sorted by starting date (latest first); ongoing roles have a Current label. Awards sit in a separate desktop rail, followed by a CV contact action; at narrow widths the awards section follows the timeline vertically.
+
+## Research layout update
+
+Publications are the main full-width, detailed list (two papers with authors, venue, year, short summary and topics). Ongoing work is a separate compact section containing PACT and Lineage only. The low-dose CT research item is removed from Research; the Medisys employment entry remains in Experience.

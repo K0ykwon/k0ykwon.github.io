@@ -37,3 +37,5 @@ Clock display uses hours and minutes only; the wall-clock timer and resume synch
 2026-10-29: Experience uses a full-width header and five chronological vertical timeline entries, with a separate awards rail on desktop and awards section below on narrow screens. All CV content is retained. Window light is stronger and moved onto the desk; the lamp's warm pool is wider with less shadow at its center, preserving darkness elsewhere. Laptop lighting remains removed.
 
 2026-10-29: laptop screen is on by default again, with a 2.5% daytime emission and 7% nighttime cap. Local spill ranges 1.5–7%; a darkness-dependent shade mask keeps the nighttime screen readable. It uses the existing interpolated external-darkness property, independently from manual theme selection.
+
+Research now prioritizes two full-width publication entries with separate metadata and summaries. PACT and Lineage are brief entries in an independent Ongoing work section. The standalone medical image-quality item was removed from Research.
