@@ -29,3 +29,5 @@ Laptop glare correction: screen emission now has zero baseline in daylight (incl
 Live updates: Seoul clock shows seconds and ticks at wall-clock second boundaries, independently from the 30-second lighting updates. Visibility, focus, pageshow/BFCache and online events resync immediately. Weather refreshes every five minutes while visible, retries failed requests after one minute, bypasses HTTP cache, refreshes solar data on a Seoul date change, and deduplicates in-flight requests. Seconds are excluded from live announcements.
 
 Clock display uses hours and minutes only; the wall-clock timer and resume synchronization remain active, and unchanged display text is not rewritten.
+
+2026-10-29: removed the laptop screen emitter, spill, shade-relief mask, power calculation and screen-only regression test. Window and desk-lamp lighting remain. About now includes a short bio, undergraduate education, interests, working approach, and Email/GitHub/LinkedIn links; Contact also includes LinkedIn. Sources and the remaining content plan are in ABOUT_CONTENT_PLAN.md.
