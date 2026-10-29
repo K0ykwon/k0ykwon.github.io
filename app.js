@@ -1,4 +1,4 @@
-import {lightingAt,solarMinute} from './lighting.js?v=20261029-screen-on';
+import {lightingAt,solarMinute} from './lighting.js?v=20261029-creai-dates';
 import {seoulParts,seasonFor,outsideFor,parseWeather} from './weather.js';
 const root=document.documentElement;
 const pageView=document.getElementById('page-view');
