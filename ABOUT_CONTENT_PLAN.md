@@ -1,32 +1,34 @@
-# About content plan — 2026-10-29
+# Portfolio content plan — 2026-10-29
 
-## Structure and filled content
+## Authoritative source
 
-1. Intro: Youngkwon Ko, AI undergraduate at Yonsei; interest in turning machine-learning ideas into useful systems.
-2. Contact links directly below name: Email, GitHub, LinkedIn.
-3. Education: Yonsei University, Department of Artificial Intelligence; undergraduate; 2023–present.
-4. Interests: representation learning, computer vision, efficient AI, quantum optimization.
-5. Working approach: ask questions, test ideas in code, build useful tools; Python/PyTorch and accompanying software.
-6. Invitation: research conversations, software and collaboration.
+The CV LaTeX supplied by Youngkwon Ko in this conversation is the source for education, publications, professional experience, awards, skills and ORCID. LinkedIn body access remains unavailable behind its authentication wall. Do not present the CV contents as extracted from LinkedIn.
 
-The site is in English, so the published copy follows its current language and typography. Research and Software retain project details; About introduces the person. The previous “Around this desk” usage instructions are removed.
+## Implemented distribution
 
-## Sources and verification
+- **About:** short introduction; Yonsei AI undergraduate studies beginning March 2023; currently on leave; current Navy AI Specialist role; interests and working approach; three skill groups; Email/GitHub/LinkedIn/ORCID links.
+- **Research:** two full publication citations as supplied, with complete titles and supplied author lists; hyperspectral results explicitly described as latent-payload reductions; ongoing PACT and Lineage work kept separate from publications; medical image quality research summary.
+- **Experience:** ROK Navy, Creai+it, Root Education, Little Samo, Yonsei Medisys Lab; roles, dates and responsibilities from the CV; two awards.
+- **Software:** retain current projects and repository links; clarify Miney as legal document analysis and case retrieval. Somni appears in the Creai+it experience, without inventing a repository URL.
+- **Contact:** Email, GitHub, LinkedIn and ORCID.
 
-- Own GitHub profile README: https://github.com/K0ykwon/K0ykwon/blob/main/README.md
-  - Confirms Yonsei Dept of AI, undergraduate, 2023–current.
-  - Confirms public email and exact LinkedIn URL.
-  - Lists Python, PyTorch and software tools.
+## Date and status choices
+
+- B.S. studies are marked in progress; no completed degree is implied.
+- Navy: December 2025–present; August 2027 is expected service completion, not a completed past role.
+- Creai+it: September 2024–present, as supplied.
+- Publications retain the venue and year supplied by the user. No DOI, issue/pages, extra coauthors or publication URL is invented.
+- PACT and Lineage remain ongoing work; they are not moved into the supplied publication list.
+
+## Public links
+
 - Email: mailto:yko081524@yonsei.ac.kr
 - GitHub: https://github.com/K0ykwon
-- LinkedIn: https://www.linkedin.com/in/youngkwon-ko-355984390/
-  - Identity/link verified from the user's own GitHub profile.
-  - Profile body was not readable: web lookup did not retrieve it and the browser redirected to LinkedIn's authentication wall. Do not describe the drafted copy as extracted from LinkedIn.
-- Interests and work direction: already shared in this portfolio conversation. The bio and working-approach text are original draft copy, not LinkedIn quotations.
+- LinkedIn: https://www.linkedin.com/in/youngkwon-ko-355984390/ (linked from the user's GitHub profile README)
+- ORCID: https://orcid.org/0009-0002-2721-1329 (supplied CV)
 
-## Optional additions once the source is available
+## Remaining optional items
 
-- Read LinkedIn headline and About to align the short bio with the user's exact wording.
-- Add selected roles, dates, and awards only after checking the user's profile; do not infer them from namesake profiles or teammates' posts.
-- Add one personal interest when supplied by the user.
-- Add a CV link when a public CV exists; do not link an invented file.
+- Add publication URLs/DOIs when provided.
+- Add a CV download once a complete PDF or compilable source including resume.cls is available. Current request link remains an email action.
+- Add one personal interest if the user wants a more personal About section.
