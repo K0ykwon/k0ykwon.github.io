@@ -1,4 +1,5 @@
 import {attentionExample,sparseDistribution,chunkBudget,memorySchedule} from './review-models.js?v=20261030-reviews';
+import {EXTRA_REVIEW_DEMOS} from './extra-review-demos.js?v=20261030-multiple-demos';
 const numbers=values=>values.map(v=>Number.isFinite(v)?v.toFixed(3):'−∞').join(', ');
 function attention(root,signal){
  root.innerHTML=`<p>Q = K = [[1, 0], [0, 1], [1, 1]]인 2차원 예다. 학습된 언어 모델의 attention이 아니다. 행을 고르면 가중합 계산이 표시된다.</p><div class="demo-controls"><label>Query <select data-query><option value="0">위치 1</option><option value="1">위치 2</option><option value="2">위치 3</option></select></label><label><input type="checkbox" data-causal> Causal mask</label><label class="demo-range">점수 배율 <input type="range" data-scale min="0.5" max="3" step="0.5" value="1"><output data-scale-label></output></label></div><div data-example></div>`;
@@ -18,4 +19,4 @@ function memory(root,signal){
  root.innerHTML=`<p>1·4·16 입력마다 갱신하는 세 모듈의 예시 일정이다. 각 칸은 입력 하나이며, 채워진 칸은 업데이트 시점이다. 메모리의 내용이나 기억 정확도를 시뮬레이션하지 않는다.</p><label class="demo-range">입력 진행 <input type="range" data-step min="0" max="32" value="16" step="1"><output data-step-label></output></label><div data-example></div>`;
  const render=()=>{const step=+root.querySelector('[data-step]').value,schedule=memorySchedule(step);root.querySelector('[data-step-label]').textContent=`${step} / 32`;root.querySelector('[data-example]').innerHTML=`<div class="review-memory">${schedule.map(({period,count,updates})=>`<div class="review-memory-row"><div><strong>주기 ${period}</strong><small>${count}회 갱신</small></div><div class="review-memory-track" aria-label="주기 ${period}, ${count}회 갱신">${updates.map((updated,i)=>`<span class="${updated?'is-update':i<step?'is-past':''}" title="입력 ${i+1}${updated?': 갱신':''}"></span>`).join('')}</div></div>`).join('')}</div><p class="demo-caption">동일한 ${step}개 입력이 들어와도 모듈마다 갱신 횟수가 다르다. 실제 CMS는 이 일정에 각 모듈의 학습 목적과 업데이트 규칙을 결합한다.</p>`;};root.addEventListener('input',render,{signal});render();
 }
-export function mountReviewDemo(root,type,signal){({'review-attention':attention,'review-distillation':distillation,'review-calm':calm,'review-memory':memory}[type])(root,signal);}
+export function mountReviewDemo(root,type,signal){({'review-attention':attention,'review-distillation':distillation,'review-calm':calm,'review-memory':memory,...EXTRA_REVIEW_DEMOS}[type])(root,signal);}

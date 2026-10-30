@@ -2,7 +2,6 @@ export const ENGLISH_POSTS = {
   "attention-is-all-you-need": {
     "title": "Attention Is All You Need",
     "summary": "Work through Q, K, V and causal masking to separate parallel training from sequential generation in the Transformer.",
-    "demoTitle": "Q, K, V and causal masking",
     "sections": [
       {
         "id": "abstract",
@@ -65,12 +64,24 @@ export const ENGLISH_POSTS = {
         "detail": "Jakob Uszkoreit, 2017-08-31. Sequential computation, information flow and translation decoding."
       }
     ],
-    "demoAfter": "model"
+    "demos": [
+      {
+        "id": "demo",
+        "type": "review-attention",
+        "title": "Q, K, V and causal masking",
+        "after": "model"
+      },
+      {
+        "id": "position-encoding",
+        "type": "review-position",
+        "title": "Positional encoding frequencies",
+        "after": "model"
+      }
+    ]
   },
   "tinyvit": {
     "title": "TinyViT: Fast Pretraining Distillation for Small Vision Transformers",
     "summary": "How sparse soft labels, reproducible augmentation and compact architectures work together, with accuracy and compute compared across input resolutions.",
-    "demoTitle": "Reconstructing probabilities from the top entries",
     "sections": [
       {
         "id": "abstract",
@@ -132,12 +143,18 @@ export const ENGLISH_POSTS = {
         "detail": "Epoch-range cache generation, parallel saving and validation."
       }
     ],
-    "demoAfter": "method"
+    "demos": [
+      {
+        "id": "demo",
+        "type": "review-distillation",
+        "title": "Reconstructing probabilities from the top entries",
+        "after": "method"
+      }
+    ]
   },
   "calm-continuous-autoregressive-language-models": {
     "title": "Continuous Autoregressive Language Models",
     "summary": "Connect the token-chunk autoencoder, energy-based generative head and discrete input-feedback path. Reconstruction accuracy and generation quality answer different questions.",
-    "demoTitle": "Token chunks and generation steps",
     "sections": [
       {
         "id": "abstract",
@@ -209,12 +226,24 @@ export const ENGLISH_POSTS = {
         "detail": "Autoencoder, Energy Transformer, evaluation, sampling and alternative-head training scripts."
       }
     ],
-    "demoAfter": "model"
+    "demos": [
+      {
+        "id": "demo",
+        "type": "review-calm",
+        "title": "Token chunks and generation steps",
+        "after": "evaluation"
+      },
+      {
+        "id": "energy-loss",
+        "type": "review-energy",
+        "title": "Mean prediction and a two-mode distribution",
+        "after": "model"
+      }
+    ]
   },
   "nested-learning": {
     "title": "Nested Learning: The Illusion of Deep Learning Architectures",
     "summary": "Read models and optimizers as learning problems with different update rates, connecting momentum, Continuum Memory Systems, self-modifying Titans and HOPE.",
-    "demoTitle": "Different update periods",
     "sections": [
       {
         "id": "abstract",
@@ -266,7 +295,14 @@ export const ENGLISH_POSTS = {
         "detail": "Extended version linked by the conference paper. Numerical results in this review use the conference version’s Table 1."
       }
     ],
-    "demoAfter": "hope"
+    "demos": [
+      {
+        "id": "demo",
+        "type": "review-memory",
+        "title": "Different update periods",
+        "after": "hope"
+      }
+    ]
   },
   "boj-python-17467-n-mod-p-2": {
     "title": "[BOJ / Python] 17467: N! mod P (2)",
@@ -487,6 +523,20 @@ export const ENGLISH_POSTS = {
         "id": "summary",
         "title": "Summary",
         "html": "<p>Cost evolution changes position-dependent phase and shifts momentum with the gradient. Kinetic mixing turns momentum into position change. Both phase and probability density therefore matter for subsequent evolution.</p>"
+      }
+    ],
+    "demos": [
+      {
+        "id": "cost-phase",
+        "type": "review-phase",
+        "title": "Cost evolution: density and complex amplitude",
+        "after": "introduction"
+      },
+      {
+        "id": "kinetic-mixer",
+        "type": "review-mixer",
+        "title": "Position distribution after mixing",
+        "after": "algorithm"
       }
     ]
   }

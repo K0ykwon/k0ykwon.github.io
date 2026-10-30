@@ -32,8 +32,6 @@ export const PAPER_REVIEWS = [
         "detail": "Jakob Uszkoreit, 2017-08-31. 순차 계산, attention 정보 전달과 번역 모델의 생성 경로."
       }
     ],
-    "demo": "review-attention",
-    "demoTitle": "Q·K·V와 마스크 계산",
     "sections": [
       {
         "id": "abstract",
@@ -81,7 +79,20 @@ export const PAPER_REVIEWS = [
         "html": "<p>Transformer는 위치 간 정보 전달을 attention 행렬로 계산해 학습의 순차 의존성을 줄인다. Q·K로 구한 가중치는 V를 섞으며, FFN·위치 표현·정규화가 함께 모델을 구성한다. 학습의 병렬화가 자기회귀 생성의 순차성까지 없애는 것은 아니다.</p>"
       }
     ],
-    "demoAfter": "model"
+    "demos": [
+      {
+        "id": "demo",
+        "type": "review-attention",
+        "title": "Q·K·V와 마스크 계산",
+        "after": "model"
+      },
+      {
+        "id": "position-encoding",
+        "type": "review-position",
+        "title": "위치 인코딩의 주파수",
+        "after": "model"
+      }
+    ]
   },
   {
     "id": "tinyvit",
@@ -121,8 +132,6 @@ export const PAPER_REVIEWS = [
         "detail": "epoch별 sparse label 저장, 분산 생성 및 캐시 검증 절차."
       }
     ],
-    "demo": "review-distillation",
-    "demoTitle": "상위 확률만 저장했을 때의 복원",
     "sections": [
       {
         "id": "abstract",
@@ -165,7 +174,14 @@ export const PAPER_REVIEWS = [
         "html": "<p>TinyViT는 배포할 모델뿐 아니라 학생 학습의 비용을 줄인다. 교사 확률과 증강 정보를 저장해 재사용하고, 상위 확률과 나머지 질량으로 감독 신호를 복원한다. 모델 크기·입력 해상도·학습 파이프라인을 함께 비교해야 한다.</p>"
       }
     ],
-    "demoAfter": "method"
+    "demos": [
+      {
+        "id": "demo",
+        "type": "review-distillation",
+        "title": "상위 확률만 저장했을 때의 복원",
+        "after": "method"
+      }
+    ]
   },
   {
     "id": "calm-continuous-autoregressive-language-models",
@@ -205,8 +221,6 @@ export const PAPER_REVIEWS = [
         "detail": "README의 autoencoder·Energy Transformer·평가·샘플링 구성 및 대체 head 학습 스크립트."
       }
     ],
-    "demo": "review-calm",
-    "demoTitle": "토큰 묶음과 생성 단계 수",
     "sections": [
       {
         "id": "abstract",
@@ -259,7 +273,20 @@ export const PAPER_REVIEWS = [
         "html": "<p>CALM은 K개 토큰을 대표하는 벡터를 예측한다. autoencoder, energy 기반 생성, 샘플 기반 평가와 온도 조절이 함께 바뀐다. 복원 정확도, 생성 품질, 단계 수와 실제 실행 비용을 구분해서 읽는 것이 전체 설계를 이해하는 데 도움이 된다.</p>"
       }
     ],
-    "demoAfter": "model"
+    "demos": [
+      {
+        "id": "demo",
+        "type": "review-calm",
+        "title": "토큰 묶음과 생성 단계 수",
+        "after": "evaluation"
+      },
+      {
+        "id": "energy-loss",
+        "type": "review-energy",
+        "title": "평균 예측과 두 모드 분포",
+        "after": "model"
+      }
+    ]
   },
   {
     "id": "nested-learning",
@@ -299,8 +326,6 @@ export const PAPER_REVIEWS = [
         "detail": "NeurIPS 원고가 안내하는 확장 버전. 이 리뷰의 수치는 학회판 Table 1 기준."
       }
     ],
-    "demo": "review-memory",
-    "demoTitle": "서로 다른 갱신 주기",
     "sections": [
       {
         "id": "abstract",
@@ -333,7 +358,14 @@ export const PAPER_REVIEWS = [
         "html": "<p>Nested Learning은 모델과 학습 규칙을 함께 기술하고, 각 상태가 어떤 입력을 얼마나 오래 압축하는지 묻는다. HOPE는 self-modifying 시퀀스 메모리와 여러 갱신 주기의 CMS를 결합한 구체적인 모델이다. 이 관점은 층 수와 별개로 학습의 시간 척도를 설계할 수 있게 한다.</p>"
       }
     ],
-    "demoAfter": "hope"
+    "demos": [
+      {
+        "id": "demo",
+        "type": "review-memory",
+        "title": "서로 다른 갱신 주기",
+        "after": "hope"
+      }
+    ]
   },
   {
     "id": "cv-qaoa-continuous-problems",
@@ -408,6 +440,20 @@ export const PAPER_REVIEWS = [
         "id": "summary",
         "title": "요약",
         "html": "<p>Cost 진화는 위치별 위상을 바꾸고 운동량을 gradient 방향으로 이동시킨다. Kinetic mixer는 운동량을 위치 변화로 연결한다. 따라서 중간 상태의 확률밀도뿐 아니라 위상도 다음 진화에 영향을 준다.</p>"
+      }
+    ],
+    "demos": [
+      {
+        "id": "cost-phase",
+        "type": "review-phase",
+        "title": "Cost 진화: 확률밀도와 복소 진폭",
+        "after": "introduction"
+      },
+      {
+        "id": "kinetic-mixer",
+        "type": "review-mixer",
+        "title": "Mixer 이후 위치 분포",
+        "after": "algorithm"
       }
     ]
   }

@@ -1,14 +1,17 @@
-import {getLanguage,t} from '../i18n.js?v=20261030-review-math';
-import {localizePost} from './localization.js?v=20261030-review-math';
-import {mountComments} from './comments.js?v=20261030-review-math';
-import {POSTS} from './posts.js?v=20261030-review-math';
-import {mountDemo} from './demos.js?v=20261030-review-math';
-import {renderMath} from './math.js?v=20261030-review-math';
+import {getLanguage,t} from '../i18n.js?v=20261030-multiple-demos';
+import {localizePost} from './localization.js?v=20261030-multiple-demos';
+import {mountComments} from './comments.js?v=20261030-multiple-demos';
+import {POSTS} from './posts.js?v=20261030-multiple-demos';
+import {mountDemo} from './demos.js?v=20261030-multiple-demos';
+import {renderMath} from './math.js?v=20261030-multiple-demos';
 export const escapeHTML=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const getBlogPost=slug=>POSTS.find(post=>post.slug===slug);
 const link=post=>`#blog/${post.slug}`;
 const date=value=>value.replaceAll('-','.');
 let selectedCategory='알고리즘';
+export function getPostDemos(post){
+ return post.demos??(post.demo?[{id:'demo',type:post.demo,title:post.demoTitle,after:post.demoAfter??post.sections[1]?.id}]:[]);
+}
 function highlightPython(code){
  const pattern=/#[^\n]*|"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|\b(?:def|return|if|else|elif|for|while|in|from|import|as|and|or|not|None|True|False|with|class)\b|\b\d[\d_]*(?:\.\d+)?\b/g;
  let result='',offset=0;
@@ -21,13 +24,14 @@ export function renderBlogIndex(){
 export function renderBlogArticle(original){
  const post=localizePost(original,getLanguage());
  const id=name=>`${post.slug}-${name}`;
+ const demos=getPostDemos(post);
  const code=post.code?`<section class="article-code" id="${id('code')}"><h2>Python 코드</h2><div class="code-toolbar"><span>Python · BOJ ${post.id}</span><div><a href="${post.codePath}" download>다운로드</a><button type="button" data-copy-code>코드 복사</button></div></div><pre tabindex="0" aria-label="Python 풀이 코드"><code>${highlightPython(post.code)}</code></pre><p class="code-status" role="status" data-code-status></p></section>`:'';
  const toc=[];
  const body=post.sections.map((section,index)=>{
   toc.push([section.id,section.title]);
   let html=renderMath(section.html).replace(/#SOURCE(\d+)/g,(_,n)=>`#${id('source-'+n)}`).replace(/data-review-ref="(\d+)"/g,(_,n)=>`data-scroll-to="${id('source-'+n)}"`);
   let result=`<section class="article-section" id="${id(section.id)}"><h2>${section.title}</h2>${html}</section>`;
-  if(post.demo&&(post.demoAfter?section.id===post.demoAfter:index===1)){toc.push(['demo',post.demoTitle]);result+=`<section class="article-demo" id="${id('demo')}"><h2>${escapeHTML(post.demoTitle)}</h2><div data-demo="${post.demo}"></div></section>`;}
+  for(const demo of demos.filter(demo=>demo.after===section.id)){toc.push([demo.id,demo.title]);result+=`<section class="article-demo" id="${id(demo.id)}"><h2>${escapeHTML(demo.title)}</h2><div data-demo="${demo.type}" data-demo-id="${demo.id}"></div></section>`;}
   if(index===post.sections.length-2&&code){toc.push(['code','Python 코드']);result+=code;}
   return result;
  }).join('');
@@ -49,7 +53,7 @@ export function activateBlog(container,post){
   container.addEventListener('click',e=>{const categoryButton=e.target.closest('[data-blog-category]');if(categoryButton){category=categoryButton.dataset.blogCategory;selectedCategory=category;filter='전체';container.querySelectorAll('[data-blog-category]').forEach(b=>b.setAttribute('aria-pressed',String(b===categoryButton)));container.querySelector('.blog-filters').hidden=category!=='알고리즘';container.querySelectorAll('[data-blog-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.blogFilter==='전체')));refresh();return;}const button=e.target.closest('[data-blog-filter]');if(!button)return;filter=button.dataset.blogFilter;container.querySelectorAll('[data-blog-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));refresh();},{signal});
  }else{
   selectedCategory=post.category;
-  if(post.demo)mountDemo(container.querySelector('[data-demo]'),post.demo,signal);
+  container.querySelectorAll('[data-demo]').forEach(root=>mountDemo(root,root.dataset.demo,signal));
   mountComments(container.querySelector('.article-comments'),post,signal);
   container.addEventListener('click',async e=>{
    const toc=e.target.closest('[data-scroll-to]');if(toc){e.preventDefault();document.getElementById(toc.dataset.scrollTo)?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth',block:'start'});return;}

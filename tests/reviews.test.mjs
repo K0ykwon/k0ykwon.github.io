@@ -1,7 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {POSTS} from '../blog/posts.js';
-import {renderBlogArticle,getBlogPost} from '../blog/ui.js';
+import {renderBlogArticle,getBlogPost,getPostDemos} from '../blog/ui.js';
+import {positionalEncoding,twoModeEnergy,costMixerExample} from '../blog/extra-review-models.js';
 import {attentionExample,sparseDistribution,chunkBudget,memorySchedule} from '../blog/review-models.js';
 const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-10,`${a} != ${b}`);
 test('Five paper reviews render references and valid related articles without BOJ/code-only controls',()=>{
@@ -22,6 +23,34 @@ test('Chunk calculator accounts for incomplete final chunks and per-chunk overhe
 test('Memory timeline advances only at each scheduled update and resets at zero',()=>{
  for(let step=0;step<=32;step++)for(const item of memorySchedule(step)){assert.equal(item.count,item.updates.filter(Boolean).length);item.updates.forEach((active,index)=>assert.equal(active,index<step&&(index+1)%item.period===0));}
  assert.deepEqual(memorySchedule(16).map(m=>m.count),[16,4,1]);
+});
+test('Each article can place multiple independent demos at its relevant section with stable bilingual ids',()=>{
+ for(const post of POSTS){
+  const ko=getPostDemos(post),en=getPostDemos(localizePost(post,'en'));
+  assert.deepEqual(ko.map(({id,type,after})=>({id,type,after})),en.map(({id,type,after})=>({id,type,after})));
+  for(const demo of en){assert.doesNotMatch(demo.title,/[가-힣]/);assert.ok(post.sections.some(s=>s.id===demo.after));}
+  const rendered=renderBlogArticle(post);assert.equal([...rendered.matchAll(/ data-demo="/g)].length,ko.length);
+  for(const demo of ko)assert.match(rendered,new RegExp(`id="${post.slug}-${demo.id}"`));
+ }
+ assert.equal(getPostDemos(getBlogPost('cv-qaoa-continuous-problems')).length,2);
+});
+test('Sinusoidal encoding has unit-length pairs and position-shift invariant inner products',()=>{
+ const dot=(a,b)=>a.reduce((sum,v,i)=>sum+v*b[i],0);
+ for(let pos=0;pos<64;pos++){const pe=positionalEncoding(pos);for(let i=0;i<16;i+=2)near(pe[i]**2+pe[i+1]**2,1);}
+ near(dot(positionalEncoding(2),positionalEncoding(7)),dot(positionalEncoding(15),positionalEncoding(20)));
+});
+test('Two-mode energy loss is minimized at the target mixture rather than the mean-only prediction',()=>{
+ for(const a of [.5,1,2,4]){const best=twoModeEnergy(a,.5);near(best.mixtureLoss,a);near(best.pointLoss,2*a);for(const p of [0,.1,.25,.75,.9,1])assert.ok(twoModeEnergy(a,p).mixtureLoss>best.mixtureLoss);}
+});
+test('Cost and Fourier mixer preserve norm and match the analytic Gaussian quadratic update',()=>{
+ for(const shape of ['quadratic','double-well'])for(const eta of [0,.8,2])for(const gamma of [0,.35,1.5]){
+  const result=costMixerExample({eta,gamma,shape});near(result.norm,1);assert.ok(result.densityDrift<1e-14);
+  if(gamma===0)result.afterMixer.forEach((p,i)=>near(p,result.density[i]));
+ }
+ const eta=.8,gamma=.35,result=costMixerExample({eta,gamma});
+ const expectedVariance=(1-eta*gamma)**2*.8**2+gamma**2/(4*.8**2);
+ near(result.finalCost,expectedVariance/2);
+ const initial=costMixerExample({eta:0,gamma:0});initial.re.forEach((v,i)=>near(v,initial.initial[i]));
 });
 
 import {localizePost} from '../blog/localization.js';
