@@ -1,6 +1,6 @@
-import {localizePost} from './blog/localization.js?v=20261030-desk-experience';
-import {getLanguage,setLanguage,t,translateDOM,observeLanguage} from './i18n.js?v=20261030-desk-experience';
-import {getBlogPost,renderBlogIndex,renderBlogArticle,activateBlog} from './blog/ui.js?v=20261030-desk-experience';
+import {localizePost} from './blog/localization.js?v=20261030-experience-art';
+import {getLanguage,setLanguage,t,translateDOM,observeLanguage} from './i18n.js?v=20261030-experience-art';
+import {getBlogPost,renderBlogIndex,renderBlogArticle,activateBlog} from './blog/ui.js?v=20261030-experience-art';
 import {lightingAt,solarMinute} from './lighting.js?v=20261029-scenes-16';
 import {seoulParts,seasonFor,outsideFor,parseWeather,cachedScene} from './weather.js?v=20261029-scene-start';
 const root=document.documentElement;

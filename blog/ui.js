@@ -1,9 +1,9 @@
-import {getLanguage,t} from '../i18n.js?v=20261030-desk-experience';
-import {localizePost} from './localization.js?v=20261030-desk-experience';
-import {mountComments} from './comments.js?v=20261030-desk-experience';
-import {POSTS} from './posts.js?v=20261030-desk-experience';
-import {mountDemo} from './demos.js?v=20261030-desk-experience';
-import {renderMath} from './math.js?v=20261030-desk-experience';
+import {getLanguage,t} from '../i18n.js?v=20261030-experience-art';
+import {localizePost} from './localization.js?v=20261030-experience-art';
+import {mountComments} from './comments.js?v=20261030-experience-art';
+import {POSTS} from './posts.js?v=20261030-experience-art';
+import {mountDemo} from './demos.js?v=20261030-experience-art';
+import {renderMath} from './math.js?v=20261030-experience-art';
 export const escapeHTML=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const getBlogPost=slug=>POSTS.find(post=>post.slug===slug);
 const link=post=>`#blog/${post.slug}`;

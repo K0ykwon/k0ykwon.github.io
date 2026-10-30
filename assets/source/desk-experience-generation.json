@@ -1,0 +1,68 @@
+{
+  "mode": "built-in imagegen",
+  "source": "assets/desk-wide-v6.webp",
+  "output": "assets/desk-wide-v7.webp",
+  "size": [
+    1895,
+    830
+  ],
+  "edit": "Only the right notebook interior; original alpha channel and all pixels outside the local mask retained.",
+  "prompt": "Use case: precise-object-edit / text-localization. Edit target: the supplied transparent wide ink desk illustration. Production website foreground asset. Make one strictly LOCAL edit ONLY inside the RIGHT page of the open spiral notebook at the bottom centre. Preserve the EXACT original wide 1895:830 framing, all object locations, the notebook outline and binding, the pen on the right page, paper texture, the entire left notebook page with Youngkwon Ko and its wording, lamp, plant, laptop, Blog and Contact text, everything outside the right notebook page. Preserve the existing clean transparent window cutout, no outdoor landscape, no baked light/glow, no new objects, no sticky tabs. On the right notebook page, REMOVE the complete old Working notes heading, its three lines and the three-node diagram. Replace them with a natural black hand-inked career page, in the SAME casual handwritten pen lettering and perspective as the surrounding original illustration. Heading: Experience →. Below, a simple small vertical hand-drawn timeline with five dots linked by a thin line and five short labels, top to bottom: ROK Navy, Root Education, Little Samo, Medisys Lab, Creai+it. Heading approximately x923,y551; timeline dots approximately x927 at y586,614,642,670,698; labels to their right approximately x948. Compact and readable, clear of the black pen, page borders and spiral. No dates, slogans or role descriptions. Uncoloured off-white paper and dark ink, no pastel wash. All remaining foreground and transparent alpha unchanged. Do not redesign or zoom the desk. Return the edited full wide foreground.",
+  "integration": {
+    "generated_size": [
+      1894,
+      830
+    ],
+    "aligned_size": [
+      1895,
+      830
+    ],
+    "page_polygon": [
+      [
+        891,
+        529
+      ],
+      [
+        1200,
+        538
+      ],
+      [
+        1273,
+        736
+      ],
+      [
+        889,
+        735
+      ]
+    ],
+    "preserved_pen_polygon": [
+      [
+        1199,
+        589
+      ],
+      [
+        1226,
+        597
+      ],
+      [
+        1225,
+        622
+      ],
+      [
+        1100,
+        746
+      ],
+      [
+        1076,
+        746
+      ],
+      [
+        1082,
+        726
+      ]
+    ],
+    "mask_feather_sigma": 1.2,
+    "alpha_source": "assets/desk-wide-v6.webp",
+    "hover": "Existing transparent registered watercolor wash; no lettering is repeated in the hover layer."
+  }
+}
