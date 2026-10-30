@@ -52,3 +52,5 @@ Hover example: [software screen preview](hover-preview.jpg).
 Hover alignment v2 uses original-contour SVG masks and affine registration of the generated atlas; notebook pages are registered separately. The laptop uses color blending to retain the original mountain luminance and outlines. Registration data: `assets/hover/registration-v2.json`.
 
 Aligned hover preview: [v2](hover-alignment-preview.jpg).
+
+About profile portrait: the supplied original photograph is stored as `assets/youngkwon-ko.jpg`, with responsive display cropping only. [Preview](about-photo-preview.jpg).
