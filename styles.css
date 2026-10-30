@@ -162,8 +162,10 @@ html.theme-ready{transition:--paper .6s ease-in-out,--surface .6s ease-in-out,--
 /* Stream section headings with a moving caret, then reveal their content in order. */
 .section-enter .stream-char{opacity:0;animation:section-type 1ms linear both;animation-delay:var(--stream-delay);animation-play-state:paused}
 .section-enter .section-rise{opacity:0;animation:section-rise-in .48s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--entrance-delay);animation-play-state:paused}
+.section-enter #page-title.section-rise{animation-name:section-title-in;animation-duration:.65s}
 .section-playing .stream-char,.section-playing .section-rise{animation-play-state:running}
 @keyframes section-type{from{opacity:0}to{opacity:1}}
+@keyframes section-title-in{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 @keyframes section-rise-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){.section-enter .stream-char,.section-enter .section-rise{opacity:1;transform:none;animation:none!important}}
 

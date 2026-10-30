@@ -4,7 +4,6 @@ import {seoulParts,seasonFor,outsideFor,parseWeather,cachedScene} from './weathe
 const root=document.documentElement;
 const pageView=document.getElementById('page-view');
 const content=document.getElementById('page-content');
-const shelf=document.getElementById('selected-work');
 const reducedMotion=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
 const sections={
   about:{index:'01',object:'THE OPEN NOTEBOOK',title:'Hello, I’m Youngkwon Ko.',intro:'I’m an Artificial Intelligence undergraduate at Yonsei University, currently on leave while serving as an AI Specialist in the Republic of Korea Navy. I work across applied AI research and software development.',body:`<div class="profile-mark"><img class="profile-photo" src="assets/youngkwon-ko.jpg" alt="Portrait of Youngkwon Ko" width="1536" height="1536" decoding="async"><div><strong>Youngkwon Ko</strong><small>AI / ML research & software development</small><nav class="profile-links" aria-label="Personal profiles"><a href="mailto:yko081524@yonsei.ac.kr">Email <span>↗</span></a><a href="https://github.com/K0ykwon" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a><a href="https://www.linkedin.com/in/youngkwon-ko-355984390/" target="_blank" rel="noopener noreferrer">LinkedIn <span>↗</span></a><a href="https://orcid.org/0009-0002-2721-1329" target="_blank" rel="noopener noreferrer">ORCID <span>↗</span></a></nav></div></div><article class="panel-entry"><span class="entry-meta">EDUCATION · MAR 2023–PRESENT</span><h3>Yonsei University</h3><p>B.S. in Artificial Intelligence — in progress.</p><p>Seoul, Republic of Korea. Currently on a leave of absence.</p></article><article class="panel-entry"><span class="entry-meta">INTERESTS</span><h3>How we represent and use information.</h3><p>I’m interested in representation learning, computer vision, and efficient AI systems. My research also explores quantum optimization.</p><div class="entry-tags"><span>Representation learning</span><span>Computer vision</span><span>Efficient AI</span><span>Quantum optimization</span></div></article><article class="panel-entry"><span class="entry-meta">HOW I WORK</span><h3>From questions to working tools.</h3><p>I like connecting research with implementation: exploring an idea, testing it in code, and turning what I learn into tools that help with real tasks.</p><p>Python and PyTorch are central to my machine learning work; I also build the interfaces and services around it.</p><a href="#software" data-section="software">Explore my software <span>↗</span></a></article><article class="panel-entry"><span class="entry-meta">TECHNICAL SKILLS</span><h3>Tools I work with.</h3><p><strong>Programming</strong><br>Python, TypeScript, C++, JavaScript</p><p><strong>Machine learning</strong><br>PyTorch, TensorFlow, OpenCV</p><p><strong>Development</strong><br>React, Next.js, Git, Linux</p></article><article class="panel-entry"><span class="entry-meta">GET IN TOUCH</span><h3>Let’s compare notes.</h3><p>For research conversations, software projects, or collaboration, feel free to reach out.</p><a href="mailto:yko081524@yonsei.ac.kr">yko081524@yonsei.ac.kr <span>↗</span></a></article>`},
@@ -60,6 +59,8 @@ function renderSection(key,{scroll=true,postSlug=''}={}) {
   sectionObserver?.disconnect();cancelAnimationFrame(entranceFrame);pageView.classList.remove('section-enter','section-playing');
   document.getElementById('page-title').removeAttribute('aria-label');
   for(const id of ['page-kicker','page-index','page-title','page-intro']){const el=document.getElementById(id);el.classList.remove('section-rise');el.style.removeProperty('--entrance-delay');}
+  // Commit the cleared animation styles before reusing the heading elements.
+  if(!pageView.hidden)void pageView.offsetWidth;
   pageView.dataset.section=key;pageView.dataset.post=activePost;
   document.title=post?`${post.title} — Youngkwon Ko`:key==='blog'?'Blog — Youngkwon Ko':'Youngkwon Ko — A desk of ideas';
   document.getElementById('page-kicker').textContent=page.object;
@@ -73,7 +74,7 @@ function renderSection(key,{scroll=true,postSlug=''}={}) {
     const papers=[...publications.querySelectorAll('.publication')].sort((a,b)=>Number(firstAuthor(b))-Number(firstAuthor(a)));
     papers.forEach((paper,index)=>{paper.querySelector('.publication-index>span').textContent=String(index+1).padStart(2,'0');publications.append(paper);});
   }
-  pageView.hidden=false;shelf.hidden=true;
+  pageView.hidden=false;
   if(key==='blog')blogCleanup=activateBlog(content,post);
   prepareSectionEntrance(page.title,key,{typing:key==='about'});
   document.querySelectorAll('a[data-section]').forEach(el=>{if(el.dataset.section===key&&(!el.hasAttribute('data-post')||el.dataset.post===activePost))el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');});
