@@ -1,5 +1,5 @@
 import {COMMENTS_CONFIG} from './comments-config.js?v=20261030-language-comments';
-import {getLanguage,t} from '../i18n.js?v=20261030-multiple-demos';
+import {getLanguage,t} from '../i18n.js?v=20261030-desk-experience';
 export function commentAttributes(post,config=COMMENTS_CONFIG){
  if(!config.categoryId)return null;
  return {'data-repo':config.repo,'data-repo-id':config.repoId,'data-category':config.category,'data-category-id':config.categoryId,'data-mapping':'specific','data-term':`blog/${post.slug}`,'data-strict':'1','data-reactions-enabled':'1','data-emit-metadata':'0','data-input-position':'top','data-loading':'lazy','data-theme':document.documentElement.dataset.theme==='dark'?'dark_dimmed':'light','data-lang':getLanguage()};

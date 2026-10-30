@@ -201,15 +201,7 @@
           501
         ],
         [
-          1217,
-          520
-        ],
-        [
-          1320,
-          779
-        ],
-        [
-          860,
+          855,
           787
         ]
       ],
@@ -227,22 +219,6 @@
           519
         ],
         [
-          880,
-          525
-        ],
-        [
-          1200,
-          535
-        ],
-        [
-          1285,
-          738
-        ],
-        [
-          880,
-          743
-        ],
-        [
           847,
           738
         ]
@@ -250,10 +226,12 @@
       "box": [
         469,
         519,
-        1286,
+        848,
         744
       ],
-      "file": "assets/hover/about.webp"
+      "file": "assets/hover/about.webp",
+      "source": "watercolor-atlas.webp",
+      "registration": "registration-v2.json#regions/about"
     },
     "software": {
       "hit": [
@@ -360,6 +338,44 @@
         794
       ],
       "file": "assets/hover/contact.webp"
+    },
+    "experience": {
+      "hit": [
+        [
+          875,
+          501
+        ],
+        [
+          1217,
+          520
+        ],
+        [
+          1244,
+          596
+        ],
+        [
+          1290,
+          597
+        ],
+        [
+          1335,
+          710
+        ],
+        [
+          1310,
+          737
+        ],
+        [
+          1320,
+          779
+        ],
+        [
+          875,
+          787
+        ]
+      ],
+      "source": "watercolor-atlas.webp",
+      "registration": "registration-v2.json#regions/experience"
     }
   }
 }

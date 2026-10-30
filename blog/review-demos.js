@@ -1,5 +1,5 @@
 import {attentionExample,sparseDistribution,chunkBudget,memorySchedule} from './review-models.js?v=20261030-reviews';
-import {EXTRA_REVIEW_DEMOS} from './extra-review-demos.js?v=20261030-multiple-demos';
+import {EXTRA_REVIEW_DEMOS} from './extra-review-demos.js?v=20261030-desk-experience';
 const numbers=values=>values.map(v=>Number.isFinite(v)?v.toFixed(3):'−∞').join(', ');
 function attention(root,signal){
  root.innerHTML=`<p>Q = K = [[1, 0], [0, 1], [1, 1]]인 2차원 예다. 학습된 언어 모델의 attention이 아니다. 행을 고르면 가중합 계산이 표시된다.</p><div class="demo-controls"><label>Query <select data-query><option value="0">위치 1</option><option value="1">위치 2</option><option value="2">위치 3</option></select></label><label><input type="checkbox" data-causal> Causal mask</label><label class="demo-range">점수 배율 <input type="range" data-scale min="0.5" max="3" step="0.5" value="1"><output data-scale-label></output></label></div><div data-example></div>`;

@@ -1,5 +1,5 @@
-import {getLanguage} from '../i18n.js?v=20261030-multiple-demos';
-import {positionalEncoding,twoModeEnergy,costMixerExample} from './extra-review-models.js?v=20261030-multiple-demos';
+import {getLanguage} from '../i18n.js?v=20261030-desk-experience';
+import {positionalEncoding,twoModeEnergy,costMixerExample} from './extra-review-models.js?v=20261030-desk-experience';
 const text=(ko,en)=>getLanguage()==='ko'?ko:en;
 const number=value=>Math.abs(value)<1e-10?'0.000':value.toFixed(3);
 function plot(series,{min=0,max=1,left='0',right='63',label='',cursor=null }={}){

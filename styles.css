@@ -135,8 +135,15 @@ html.theme-ready{transition:--paper .6s ease-in-out,--surface .6s ease-in-out,--
 .desk:has(.hotspot-lamp:focus-visible) .hover-lamp{opacity:1}
 .desk .hotspot-blog{clip-path:polygon(0.94987% 69.63855%,14.08971% 50.36145%,26.75462% 52.16867%,26.91293% 57.59036%,30.60686% 60.00000%,29.81530% 67.46988%,21.53034% 86.50602%,1.05541% 78.31325%)}
 .desk:has(.hotspot-blog:is(:focus-visible,[aria-current="page"])) .hover-blog{opacity:1}
-.desk .hotspot-about{clip-path:polygon(23.06069% 89.87952%,30.18470% 61.32530%,45.11873% 60.36145%,64.22164% 62.65060%,69.65699% 93.85542%,45.38259% 94.81928%)}
+.desk .hotspot-about{clip-path:polygon(23.06069% 89.87952%,30.18470% 61.32530%,45.11873% 60.36145%,45.11873% 94.81928%)}
 .desk:has(.hotspot-about:is(:focus-visible,[aria-current="page"])) .hover-about{opacity:1}
+.desk .hotspot-experience{clip-path:polygon(46.17414% 60.36145%,64.22164% 62.65060%,65.64644% 71.80723%,68.07388% 71.92771%,70.44855% 85.54217%,69.12929% 88.79518%,69.65699% 93.85542%,46.17414% 94.81928%)}
+.desk:has(.hotspot-experience:is(:focus-visible,[aria-current="page"])) .hover-experience{opacity:1}
+.desk-experience-tab{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;overflow:visible}
+.desk-experience-tab .tab-paper{fill:#e8e0cf;stroke:#292821;stroke-width:2.5;stroke-linejoin:round;transition:fill .18s ease}
+.desk-experience-tab .tab-seam{fill:none;stroke:#888170;stroke-width:1.5}
+.desk-experience-tab text{font:23px 'Kalam',cursive;fill:#252721}
+.desk:has(.hotspot-experience:is(:focus-visible,[aria-current="page"])) .tab-paper{fill:#d3b98b}
 .desk .hotspot-software{clip-path:polygon(64.90765% 66.26506%,72.40106% 55.30120%,74.93404% 25.78313%,97.62533% 31.08434%,95.51451% 64.09639%,91.45119% 78.79518%,65.32982% 69.15663%)}
 .desk:has(.hotspot-software:is(:focus-visible,[aria-current="page"])) .hover-software{opacity:1}
 .desk .hotspot-contact{clip-path:polygon(72.29551% 90.72289%,76.09499% 74.09639%,89.07652% 79.03614%,87.07124% 99.27711%,72.29551% 94.33735%)}
@@ -145,6 +152,8 @@ html.theme-ready{transition:--paper .6s ease-in-out,--surface .6s ease-in-out,--
 .desk:has(.hotspot-lamp:hover) .hover-lamp{opacity:1}
 .desk:has(.hotspot-blog:hover) .hover-blog{opacity:1}
 .desk:has(.hotspot-about:hover) .hover-about{opacity:1}
+.desk:has(.hotspot-experience:hover) .hover-experience{opacity:1}
+.desk:has(.hotspot-experience:hover) .tab-paper{fill:#d3b98b}
 .desk:has(.hotspot-software:hover) .hover-software{opacity:1}
 .desk:has(.hotspot-contact:hover) .hover-contact{opacity:1}
 }

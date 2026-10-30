@@ -1,4 +1,4 @@
-import {ENGLISH_POSTS} from './posts-en.js?v=20261030-multiple-demos';
+import {ENGLISH_POSTS} from './posts-en.js?v=20261030-desk-experience';
 export function localizePost(post,language){
  if(!post)return post;
  if(language!=='en')return {...post,language:'ko'};

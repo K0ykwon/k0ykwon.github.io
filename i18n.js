@@ -1,4 +1,6 @@
 const pairs = [
+ ["Experience on the right notebook page","노트 오른쪽 페이지의 경력"],
+ ["About Youngkwon Ko on the left notebook page","노트 왼쪽 페이지의 소개"],
  ["Copy failed. Select the code or download the file.","복사에 실패했습니다. 코드를 선택해 복사하거나 파일을 다운로드할 수 있습니다."],
 
   [
@@ -337,8 +339,8 @@ const pairs = [
     "책 사이의 기록"
   ],
   [
-    "INSIDE THE FOLDER",
-    "폴더 속 이력"
+    "RIGHT NOTEBOOK PAGE",
+    "노트 오른쪽의 이력"
   ],
   [
     "A LETTER FROM THE DESK",
@@ -889,7 +891,7 @@ export function translateDOM(scope=document.body){
  // Article prose is supplied by explicit locale variants; generated controls use this dictionary.
  const walker=document.createTreeWalker(scope,NodeFilter.SHOW_TEXT);let node;
  while(node=walker.nextNode()){
-  if(node.parentElement?.closest('script,style,pre,code,.stream-char,.article-section,.localized-demo,.language-switch'))continue;
+  if(node.parentElement?.closest('script,style,pre,code,.stream-char,.article-section,.localized-demo,.desk-lettering,.language-switch'))continue;
   let entry=sources.get(node);if(!entry||node.textContent!==entry.last)entry={original:node.textContent,last:node.textContent};
   const value=t(entry.original);if(value!==node.textContent)node.textContent=value;entry.last=value;sources.set(node,entry);
  }
