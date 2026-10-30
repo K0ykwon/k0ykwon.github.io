@@ -78,7 +78,6 @@ function renderSection(key,{scroll=true,postSlug='',force=false,animate=true}={}
   pageView.hidden=false;
   if(key==='blog')blogCleanup=activateBlog(content,post);
   translateDOM(pageView);
-  pageView.dataset.language=getLanguage();
   if(animate)prepareSectionEntrance(t(page.title),key,{typing:key==='about'});
   document.querySelectorAll('a[data-section]').forEach(el=>{if(el.dataset.section===key&&(!el.hasAttribute('data-post')||el.dataset.post===activePost))el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');});
   if(scroll)scrollToSection();

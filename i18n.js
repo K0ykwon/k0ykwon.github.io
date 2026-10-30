@@ -601,7 +601,7 @@ export function setLanguage(value){
  if(!['ko','en'].includes(value))return;
  language=value;document.documentElement.lang=value;
  try{localStorage.setItem('desk-language',value);}catch{}
- document.querySelectorAll('[data-language]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.language===value)));
+ document.querySelectorAll('.language-switch button[data-language]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.language===value)));
  translateDOM();
 }
 export function observeLanguage(){

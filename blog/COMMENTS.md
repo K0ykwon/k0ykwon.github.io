@@ -1,6 +1,6 @@
 # Giscus setup
 
-The integration is implemented, but the repository currently has Discussions disabled. Comments remain in a pending state until setup is complete.
+The integration is implemented, but Discussions is enabled, but Giscus repository access is awaiting GitHub reauthentication. Comments remain in a pending state until setup is complete.
 
 1. In `K0ykwon/k0ykwon.github.io` → Settings → General → Features, enable Discussions.
 2. Install https://github.com/apps/giscus for **only** this repository.
