@@ -1,4 +1,6 @@
+import {PAPER_REVIEWS} from './paper-reviews.js?v=20261030-reviews';
 export const POSTS = [
+  ...PAPER_REVIEWS,
   {
     "id": 17467,
     "slug": "boj-python-17467-n-mod-p-2",
