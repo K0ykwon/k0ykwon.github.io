@@ -1,6 +1,6 @@
-import {localizePost} from './blog/localization.js?v=20261030-experience-art';
-import {getLanguage,setLanguage,t,translateDOM,observeLanguage} from './i18n.js?v=20261030-experience-art';
-import {getBlogPost,renderBlogIndex,renderBlogArticle,activateBlog} from './blog/ui.js?v=20261030-experience-art';
+import {localizePost} from './blog/localization.js?v=20261030-body-language';
+import {getLanguage,setLanguage,t,english,translateDOM,observeLanguage} from './i18n.js?v=20261030-body-language';
+import {getBlogPost,renderBlogIndex,renderBlogArticle,activateBlog} from './blog/ui.js?v=20261030-body-language';
 import {lightingAt,solarMinute} from './lighting.js?v=20261029-scenes-16';
 import {seoulParts,seasonFor,outsideFor,parseWeather,cachedScene} from './weather.js?v=20261029-scene-start';
 const root=document.documentElement;
@@ -55,7 +55,7 @@ function renderSection(key,{scroll=true,postSlug='',force=false,animate=true,com
   const base=sections[key];if(!base)return;
   const post=key==='blog'?localizePost(getBlogPost(postSlug),getLanguage()):undefined;
   const activePost=post?.slug||'';
-  const page=post?{...base,object:post.kind==='review'?`PAPER REVIEW / ${post.paper.year}`:`${t(post.category)} / ${t(post.subcategory)} / BOJ ${post.id}`,title:post.title,intro:post.summary,body:renderBlogArticle(post)}:key==='blog'?{...base,body:renderBlogIndex()}:base;
+  const page=post?{...base,object:post.kind==='review'?`PAPER REVIEW / ${post.paper.year}`:`${english(post.category)} / ${english(post.subcategory)} / BOJ ${post.id}`,title:post.title,intro:post.summary,body:renderBlogArticle(post)}:key==='blog'?{...base,body:renderBlogIndex()}:base;
   if(!force&&pageView.dataset.section===key&&pageView.dataset.post===activePost&&!pageView.hidden){if(scroll)scrollToSection();return;}
   blogCleanup?.();blogCleanup=undefined;
   sectionObserver?.disconnect();cancelAnimationFrame(entranceFrame);pageView.classList.remove('section-enter','section-playing');
@@ -67,7 +67,7 @@ function renderSection(key,{scroll=true,postSlug='',force=false,animate=true,com
   document.title=post?`${post.title} — Youngkwon Ko`:key==='blog'?'Blog — Youngkwon Ko':'Youngkwon Ko — A desk of ideas';
   document.getElementById('page-kicker').textContent=page.object;
   document.getElementById('page-index').textContent=`${page.index} / From the desk`;
-  document.getElementById('page-title').textContent=t(page.title);
+  document.getElementById('page-title').textContent=english(page.title);
   document.getElementById('page-intro').textContent=page.intro;
   content.innerHTML=page.body;
   if(commentsRoot)content.querySelector('.article-comments')?.replaceWith(commentsRoot);
@@ -80,7 +80,7 @@ function renderSection(key,{scroll=true,postSlug='',force=false,animate=true,com
   pageView.hidden=false;
   if(key==='blog')blogCleanup=activateBlog(content,post);
   translateDOM(pageView);
-  if(animate)prepareSectionEntrance(t(page.title),key,{typing:key==='about'});
+  if(animate)prepareSectionEntrance(english(page.title),key,{typing:key==='about'});
   document.querySelectorAll('a[data-section]').forEach(el=>{if(el.dataset.section===key&&(!el.hasAttribute('data-post')||el.dataset.post===activePost))el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');});
   if(scroll)scrollToSection();
 }
@@ -126,7 +126,7 @@ async function updateScenery(weights){
 }
 function updateLighting(now){const parts=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Seoul',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(now);const t=Object.fromEntries(parts.filter(p=>p.type!=='literal').map(p=>[p.type,Number(p.value)]));const l=lightingAt(t.hour*60+t.minute+t.second/60,{...solarTimes,weather:root.dataset.weather});for(const [key,value] of Object.entries({'--spill-color':l.color,'--spill-opacity':l.opacity,'--sky-brightness':l.brightness,'--sky-saturation':l.saturation,'--sky-warmth':l.warmth,'--room-darkness':l.roomDarkness,'--lamp-power':l.lamp,'--lamp-shade':l.lampShade,'--lamp-radius':`${l.lampRadius}%`,'--lamp-radius-y':`${l.lampRadiusY}%`,'--lamp-tint':l.lampTint,'--weather-ink':l.weatherInk}))root.style.setProperty(key,String(value));updateScenery(l.scenes);}
 function updateClock(now=new Date()){
- const clock=document.getElementById('seoul-clock');const label=`${clockFormats[getLanguage()].format(now)} KST`;
+ const clock=document.getElementById('seoul-clock');const label=`${clockFormats.en.format(now)} KST`;
  if(clock.textContent!==label)clock.textContent=label;
  document.getElementById('year').textContent=seoulParts(now).year;
 }

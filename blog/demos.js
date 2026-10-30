@@ -1,5 +1,5 @@
-import {getLanguage} from '../i18n.js?v=20261030-experience-art';
-import {mountReviewDemo} from './review-demos.js?v=20261030-experience-art';
+import {getLanguage} from '../i18n.js?v=20261030-body-language';
+import {mountReviewDemo} from './review-demos.js?v=20261030-body-language';
 import {queensSolutions,bishopPlacement,towerStages,polygonCounts,factorialComparison} from './algorithms.js?v=20261030-editorial';
 const sampleBishops=[[1,1,0,1,1],[0,1,0,0,0],[1,0,1,0,1],[1,0,0,0,0],[1,0,1,1,1]];
 const options=(values,selected)=>values.map(value=>`<option value="${value}" ${value===selected?'selected':''}>${value}</option>`).join('');

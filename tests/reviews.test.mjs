@@ -54,6 +54,19 @@ test('Cost and Fourier mixer preserve norm and match the analytic Gaussian quadr
 });
 
 import {localizePost} from '../blog/localization.js';
+test('Korean mode preserves English article titles and all headings while retaining Korean prose',()=>{
+ for(const original of POSTS){
+  const ko=localizePost(original,'ko'),en=localizePost(original,'en');
+  assert.equal(ko.title,en.title);
+  assert.deepEqual(ko.sections.map(s=>s.title),en.sections.map(s=>s.title));
+  for(let i=0;i<ko.sections.length;i++){
+   const headings=html=>[...html.matchAll(/<(h[2-6]|th)\b[^>]*>[\s\S]*?<\/\1>/g)].map(m=>m[0]);
+   assert.deepEqual(headings(ko.sections[i].html),headings(en.sections[i].html));
+  }
+  assert.match(ko.sections.map(s=>s.html).join(''),/[가-힣]/);
+  assert.deepEqual(getPostDemos(ko).map(d=>d.title),getPostDemos(en).map(d=>d.title));
+ }
+});
 import {ENGLISH_POSTS} from '../blog/posts-en.js';
 import {renderMath} from '../blog/math.js';
 test('Every authored formula renders in both languages with accessible math and no TeX errors',()=>{

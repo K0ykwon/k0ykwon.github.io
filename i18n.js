@@ -1,4 +1,13 @@
 const pairs = [
+ ["Modular arithmetic", "모듈러 연산"],
+ ["Wilson’s theorem", "Wilson 정리"],
+ ["Combinatorics", "조합론"],
+ ["Interval partitioning", "구간 분할"],
+ ["State compression", "상태 압축"],
+ ["Optimization", "최적화"],
+ ["Diagonals", "대각선"],
+ ["Backtracking", "백트래킹"],
+
  ["Experience on the right notebook page","노트 오른쪽 페이지의 경력"],
  ["About Youngkwon Ko on the left notebook page","노트 왼쪽 페이지의 소개"],
  ["Copy failed. Select the code or download the file.","복사에 실패했습니다. 코드를 선택해 복사하거나 파일을 다운로드할 수 있습니다."],
@@ -843,15 +852,15 @@ const dictionaries={ko:new Map(pairs),en:new Map(pairs.map(([en,ko])=>[ko,en]))}
 let language='en';
 try{const saved=localStorage.getItem('desk-language');language=['ko','en'].includes(saved)?saved:(navigator.language.startsWith('ko')?'ko':'en');}catch{}
 export const getLanguage=()=>language;
-export function t(value){
+export function t(value,target=language){
  const text=String(value),trimmed=text.trim();
- let result=dictionaries[language].get(trimmed);
+ let result=dictionaries[target].get(trimmed);
  if(result===undefined){
-  if(language==='en')result=trimmed.replace(/^(\d+)개의 글$/,'$1 posts').replace(/^작성 /,'Published ').replace(/^수정 /,'Updated ');
+  if(target==='en')result=trimmed.replace(/^(\d+)개의 글$/,'$1 posts').replace(/^작성 /,'Published ').replace(/^수정 /,'Updated ');
   else result=trimmed.replace(/^(\d+) posts$/,'$1개의 글').replace(/^(\d{2}) \/ From the desk$/,'$1 / 책상에서').replace(/^Published /,'작성 ').replace(/^Updated /,'수정 ');
  }
 
- if(language==='en')result=result
+ if(target==='en')result=result
  .replace(/^(\d+) \/ (\d+)개 해$/,'$1 / $2 solutions')
  .replace(/^(\d+) \/ (\d+)행$/,'$1 / $2 rows')
  .replace(/^다음은 (\d+)번째 행$/,'Next: row $1')
@@ -886,6 +895,7 @@ export function t(value){
 
  return text.replace(trimmed,result);
 }
+export const english=value=>t(value,'en');
 const sources=new WeakMap();
 export function translateDOM(scope=document.body){
  // Article prose is supplied by explicit locale variants; generated controls use this dictionary.
@@ -893,9 +903,12 @@ export function translateDOM(scope=document.body){
  while(node=walker.nextNode()){
   if(node.parentElement?.closest('script,style,pre,code,.stream-char,.article-section,.localized-demo,.language-switch'))continue;
   let entry=sources.get(node);if(!entry||node.textContent!==entry.last)entry={original:node.textContent,last:node.textContent};
-  const value=t(entry.original);if(value!==node.textContent)node.textContent=value;entry.last=value;sources.set(node,entry);
+  const parent=node.parentElement;
+  const fixed=parent?.closest('h1,h2,h3,h4,h5,h6,a,button,label,select,option,th,nav,.timeline-entry p>strong,.panel-entry p>strong,.entry-meta,.entry-tags,.blog-tags,.post-meta,.blog-card-meta,.paper-details,.page-index,.profile-mark,.timeline-date,.timeline-status,.publication-authors,.publication-venue,.code-toolbar,.site-header,.site-footer,.page-bottom,.blog-tools');
+  const prose=!fixed&&parent?.closest('p,li,small,.page-intro,.demo-readout,.demo-caption,figcaption');
+  const value=prose?t(entry.original):english(entry.original);if(value!==node.textContent)node.textContent=value;entry.last=value;sources.set(node,entry);
  }
- for(const attr of ['placeholder','aria-label','title'])for(const el of scope.querySelectorAll(`[${attr}]`)){const value=t(el.getAttribute(attr));if(value!==el.getAttribute(attr))el.setAttribute(attr,value);}
+ for(const attr of ['placeholder','aria-label','title'])for(const el of scope.querySelectorAll(`[${attr}]`)){const value=english(el.getAttribute(attr));if(value!==el.getAttribute(attr))el.setAttribute(attr,value);}
 }
 export function setLanguage(value){
  if(!['ko','en'].includes(value))return;
