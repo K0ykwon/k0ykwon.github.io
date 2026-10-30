@@ -54,3 +54,5 @@ Hover alignment v2 uses original-contour SVG masks and affine registration of th
 Aligned hover preview: [v2](hover-alignment-preview.jpg).
 
 About profile portrait: the supplied original photograph is stored as `assets/youngkwon-ko.jpg`, with responsive display cropping only. [Preview](about-photo-preview.jpg).
+
+Section entrances stream each heading with a following blinking caret and stagger content groups across About, Research, Software, Blog, Experience, and Contact. Motion starts when the heading enters view and respects reduced-motion preferences. [Preview](section-stream-preview.jpg).
