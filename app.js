@@ -1,4 +1,5 @@
-import {getBlogPost,renderBlogIndex,renderBlogArticle,activateBlog} from './blog/ui.js?v=20261030-article-rise';
+import {getLanguage,setLanguage,t,translateDOM,observeLanguage} from './i18n.js?v=20261030-language-comments';
+import {getBlogPost,renderBlogIndex,renderBlogArticle,activateBlog} from './blog/ui.js?v=20261030-language-comments';
 import {lightingAt,solarMinute} from './lighting.js?v=20261029-scenes-16';
 import {seoulParts,seasonFor,outsideFor,parseWeather,cachedScene} from './weather.js?v=20261029-scene-start';
 const root=document.documentElement;
@@ -22,7 +23,7 @@ function prepareSectionEntrance(titleText,key,{typing=true}={}){
  if(typing){line.setAttribute('aria-hidden','true');
  [...titleText].forEach((char,index)=>{const span=document.createElement('span');span.className='stream-char';span.textContent=char;span.style.setProperty('--stream-delay',`${index*32}ms`);line.append(span);});
  title.replaceChildren(line);}
- const items=[document.getElementById('page-kicker'),document.getElementById('page-index'),...(!typing?[title]:[]),document.getElementById('page-intro'),...content.querySelectorAll('.profile-photo,.profile-mark>div,.panel-entry,.research-section-heading,.publication,.ongoing-entry,.experience-section-heading,.timeline-item,.award-entry,.cv-entry,.blog-tools,.blog-list>li,.post-meta,.article-toc,.article-section,.article-demo,.article-code,.article-footer')].filter(Boolean);
+ const items=[document.getElementById('page-kicker'),document.getElementById('page-index'),...(!typing?[title]:[]),document.getElementById('page-intro'),...content.querySelectorAll('.profile-photo,.profile-mark>div,.panel-entry,.research-section-heading,.publication,.ongoing-entry,.experience-section-heading,.timeline-item,.award-entry,.cv-entry,.blog-tools,.blog-list>li,.post-meta,.article-toc,.article-section,.article-demo,.article-code,.article-footer,.article-comments')].filter(Boolean);
  const streamDuration=typing?titleText.length*32:0;
  items.forEach((el,index)=>{el.classList.add('section-rise');el.style.setProperty('--entrance-delay',`${streamDuration+Math.min(index*90,1100)}ms`);});
  pageView.classList.add('section-enter');
@@ -49,12 +50,12 @@ function scrollToSection(){
  document.getElementById('page-title').focus({preventScroll:true});
  requestAnimationFrame(()=>pageView.scrollIntoView({behavior:reducedMotion()?'instant':'smooth',block:'start'}));
 }
-function renderSection(key,{scroll=true,postSlug=''}={}) {
+function renderSection(key,{scroll=true,postSlug='',force=false,animate=true}={}) {
   const base=sections[key];if(!base)return;
   const post=key==='blog'?getBlogPost(postSlug):undefined;
   const activePost=post?.slug||'';
   const page=post?{...base,object:`${post.category} / ${post.subcategory} / BOJ ${post.id}`,title:post.title,intro:post.summary,body:renderBlogArticle(post)}:base;
-  if(pageView.dataset.section===key&&pageView.dataset.post===activePost&&!pageView.hidden){if(scroll)scrollToSection();return;}
+  if(!force&&pageView.dataset.section===key&&pageView.dataset.post===activePost&&!pageView.hidden){if(scroll)scrollToSection();return;}
   blogCleanup?.();blogCleanup=undefined;
   sectionObserver?.disconnect();cancelAnimationFrame(entranceFrame);pageView.classList.remove('section-enter','section-playing');
   document.getElementById('page-title').removeAttribute('aria-label');
@@ -65,7 +66,7 @@ function renderSection(key,{scroll=true,postSlug=''}={}) {
   document.title=post?`${post.title} — Youngkwon Ko`:key==='blog'?'Blog — Youngkwon Ko':'Youngkwon Ko — A desk of ideas';
   document.getElementById('page-kicker').textContent=page.object;
   document.getElementById('page-index').textContent=`${page.index} / From the desk`;
-  document.getElementById('page-title').textContent=page.title;
+  document.getElementById('page-title').textContent=t(page.title);
   document.getElementById('page-intro').textContent=page.intro;
   content.innerHTML=page.body;
   if(key==='research'){
@@ -76,7 +77,9 @@ function renderSection(key,{scroll=true,postSlug=''}={}) {
   }
   pageView.hidden=false;
   if(key==='blog')blogCleanup=activateBlog(content,post);
-  prepareSectionEntrance(page.title,key,{typing:key==='about'});
+  translateDOM(pageView);
+  pageView.dataset.language=getLanguage();
+  if(animate)prepareSectionEntrance(t(page.title),key,{typing:key==='about'});
   document.querySelectorAll('a[data-section]').forEach(el=>{if(el.dataset.section===key&&(!el.hasAttribute('data-post')||el.dataset.post===activePost))el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');});
   if(scroll)scrollToSection();
 }
@@ -99,7 +102,7 @@ let weatherIsDay;let weatherFetchedAt=0;let solarTimes={};let weatherPending=fal
 const weatherInterval=5*60*1000;
 try{const cached=cachedScene(localStorage.getItem('desk-weather'),new Date());if(cached){root.dataset.weather=cached.kind;solarTimes=cached.solarTimes;}}catch{}
 
-const clockFormat=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Seoul',weekday:'short',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:true});
+const clockFormats=Object.fromEntries(['ko','en'].map(language=>[language,new Intl.DateTimeFormat(language==='ko'?'ko-KR':'en-US',{timeZone:'Asia/Seoul',weekday:'short',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:true})]));
 const seoulDate=now=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);
 // Decode only the active time/weather combination before crossfading; keep the last image on load failure.
 const sceneLayers=[...document.querySelectorAll('.scene-image')];
@@ -122,7 +125,7 @@ async function updateScenery(weights){
 }
 function updateLighting(now){const parts=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Seoul',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(now);const t=Object.fromEntries(parts.filter(p=>p.type!=='literal').map(p=>[p.type,Number(p.value)]));const l=lightingAt(t.hour*60+t.minute+t.second/60,{...solarTimes,weather:root.dataset.weather});for(const [key,value] of Object.entries({'--spill-color':l.color,'--spill-opacity':l.opacity,'--sky-brightness':l.brightness,'--sky-saturation':l.saturation,'--sky-warmth':l.warmth,'--room-darkness':l.roomDarkness,'--lamp-power':l.lamp,'--lamp-shade':l.lampShade,'--lamp-radius':`${l.lampRadius}%`,'--lamp-radius-y':`${l.lampRadiusY}%`,'--lamp-tint':l.lampTint,'--weather-ink':l.weatherInk}))root.style.setProperty(key,String(value));updateScenery(l.scenes);}
 function updateClock(now=new Date()){
- const clock=document.getElementById('seoul-clock');const label=`${clockFormat.format(now)} KST`;
+ const clock=document.getElementById('seoul-clock');const label=`${clockFormats[getLanguage()].format(now)} KST`;
  if(clock.textContent!==label)clock.textContent=label;
  document.getElementById('year').textContent=seoulParts(now).year;
 }
@@ -144,6 +147,15 @@ function refreshLive({forceWeather=false}={}){
 }
 function clockTick(){clearTimeout(clockTimer);if(!document.hidden)refreshLive();clockTimer=setTimeout(clockTick,1000-Date.now()%1000);}
 function resumeLive({forceWeather=false}={}){if(document.hidden)return;sceneUpdatedAt=0;refreshLive({forceWeather});clockTick();}
+setLanguage(getLanguage());
+document.querySelector('.language-switch').addEventListener('click',event=>{
+ const button=event.target.closest('[data-language]');if(!button||button.dataset.language===getLanguage())return;
+ setLanguage(button.dataset.language);
+ const key=pageView.dataset.section||'about',postSlug=pageView.dataset.post||'';
+ if(!postSlug)renderSection(key,{scroll:false,postSlug,force:true,animate:false});
+ updateClock();
+});
+observeLanguage();
 updateClock();updateScene();updateWeather();syncHash({initial:true});clockTick();
 document.addEventListener('visibilitychange',()=>{if(document.hidden){clearTimeout(clockTimer);}else resumeLive();});
 window.addEventListener('pageshow',()=>resumeLive());
