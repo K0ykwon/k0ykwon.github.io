@@ -63,3 +63,5 @@ Blog now includes all five public BOJ/Python posts from `koykwon`'s Velog. `blog
 Blog routes use `#blog` for the index and `#blog/<slug>` for an article. Search and classification work locally. Article controls, ordinary body clicks, and reselecting the current page preserve the reading view.
 
 Interactive article preview: [N-Queens](blog-demo-preview.jpg).
+
+Paper reviews use locally hosted KaTeX 0.16.22 (`assets/vendor/katex`, MIT) via `blog/math.js`. Explicit `data-math` nodes hold TeX source; rendering produces HTML plus accessible MathML before the article enters the page. Display equations scroll within their own keyboard-focusable containers on narrow screens. Fonts and styles are served from this repository, without a runtime CDN. Reviews include notation, worked algebra, method details and interpretation of experiment limits in both languages.

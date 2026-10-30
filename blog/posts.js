@@ -1,4 +1,4 @@
-import {PAPER_REVIEWS} from './paper-reviews.js?v=20261030-paper-sections';
+import {PAPER_REVIEWS} from './paper-reviews.js?v=20261030-review-math';
 export const POSTS = [
   ...PAPER_REVIEWS,
   {

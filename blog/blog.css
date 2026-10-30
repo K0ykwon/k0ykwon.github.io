@@ -44,6 +44,14 @@
 .article-prose var{font-style:normal;font-family:var(--serif);font-size:1.07em}
 .article-prose code{font:12px/1.8 ui-monospace,SFMono-Regular,Consolas,monospace;background:var(--soft);padding:2px 4px;border-radius:2px}
 .article-formula{font:16px/2 var(--serif);background:var(--soft);border-left:2px solid var(--line);padding:16px 22px;margin:22px 0;overflow-x:auto}
+.article-equation{max-width:100%;min-width:0;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;padding:20px 22px;margin:24px 0;background:var(--soft);border:1px solid var(--line);border-radius:4px;font-size:16px;line-height:1.5;scrollbar-width:thin}
+.article-equation:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.article-equation .katex-display{margin:0;width:max-content;min-width:100%;text-align:left}
+.article-equation .katex-display>.katex{text-align:left}
+.article-prose .katex{font-size:1.1em;line-height:1.2;text-indent:0;letter-spacing:normal;white-space:nowrap;word-break:normal;overflow-wrap:normal;color:inherit}
+.math-inline{display:inline;white-space:nowrap}
+.article-prose h3{font-size:17px;line-height:1.7;font-weight:550;letter-spacing:-.2px;margin:29px 0 13px}
+@media(max-width:520px){.article-equation{padding:17px 14px;font-size:14px;margin:20px 0}.article-prose h3{font-size:16px;margin-top:25px}}
 .article-prose table{width:100%;border-collapse:collapse;font-size:12px;margin:20px 0}
 .article-prose th,.article-prose td{text-align:left;border-bottom:1px solid var(--line);padding:12px 10px;line-height:1.8}
 .article-prose th{font-weight:500;color:var(--muted)}

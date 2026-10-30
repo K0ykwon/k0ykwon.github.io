@@ -26,6 +26,27 @@ test('Memory timeline advances only at each scheduled update and resets at zero'
 
 import {localizePost} from '../blog/localization.js';
 import {ENGLISH_POSTS} from '../blog/posts-en.js';
+import {renderMath} from '../blog/math.js';
+test('Every authored formula renders in both languages with accessible math and no TeX errors',()=>{
+ for(const post of POSTS)for(const language of ['ko','en']){
+  const localized=localizePost(post,language);let count=0;
+  for(const section of localized.sections){
+   const expected=[...section.html.matchAll(/data-math="(?:inline|display)"/g)].length;
+   const html=renderMath(section.html);count+=expected;
+   assert.equal([...html.matchAll(/class="katex-mathml"/g)].length,expected);
+   assert.doesNotMatch(html,/katex-error|data-math=/);
+   if(expected)assert.match(html,/<math[^>]*xmlns=/);
+  }
+  if(post.kind==='review')assert.ok(count>=2,post.slug);
+ }
+});
+test('Math rendering decodes HTML safely and leaves code and ordinary text unchanged',()=>{
+ const code='<pre><code>a &lt; b \\sum_i x_i</code></pre>';
+ assert.equal(renderMath(code),code);
+ assert.match(renderMath('<span data-math="inline">a &lt; b</span>'),/<mo>&lt;<\/mo>/);
+ assert.match(renderMath('<div data-math="display">\\begin{aligned}a&amp;=b\\\\c&amp;=d\\end{aligned}</div>'),/katex-display/);
+ assert.throws(()=>renderMath('<span data-math="inline">\\notARealCommand</span>'));
+});
 test('All ten articles have complete English counterparts with stable sections, code and references',()=>{
  assert.equal(POSTS.length,10);assert.equal(Object.keys(ENGLISH_POSTS).length,10);
  for(const original of POSTS){const en=localizePost(original,'en'),ko=localizePost(original,'ko');assert.equal(en.language,'en');assert.equal(ko.language,'ko');for(const key of ['id','slug','category','subcategory','code','codePath'])assert.equal(en[key],original[key]);assert.deepEqual(en.sections.map(s=>s.id),ko.sections.map(s=>s.id));assert.deepEqual(en.sources?.map(s=>s.url),ko.sources?.map(s=>s.url));for(const text of [en.title,en.summary,...(original.demo?[en.demoTitle]:[]),...en.sections.flatMap(s=>[s.title,s.html]),...(en.sources||[]).flatMap(s=>[s.title,s.detail])]){assert.ok(text);assert.doesNotMatch(text,/[가-힣]|undefined/);}}

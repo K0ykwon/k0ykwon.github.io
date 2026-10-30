@@ -1,8 +1,9 @@
-import {getLanguage,t} from '../i18n.js?v=20261030-paper-sections';
-import {localizePost} from './localization.js?v=20261030-paper-sections';
-import {mountComments} from './comments.js?v=20261030-paper-sections';
-import {POSTS} from './posts.js?v=20261030-paper-sections';
-import {mountDemo} from './demos.js?v=20261030-paper-sections';
+import {getLanguage,t} from '../i18n.js?v=20261030-review-math';
+import {localizePost} from './localization.js?v=20261030-review-math';
+import {mountComments} from './comments.js?v=20261030-review-math';
+import {POSTS} from './posts.js?v=20261030-review-math';
+import {mountDemo} from './demos.js?v=20261030-review-math';
+import {renderMath} from './math.js?v=20261030-review-math';
 export const escapeHTML=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const getBlogPost=slug=>POSTS.find(post=>post.slug===slug);
 const link=post=>`#blog/${post.slug}`;
@@ -24,7 +25,7 @@ export function renderBlogArticle(original){
  const toc=[];
  const body=post.sections.map((section,index)=>{
   toc.push([section.id,section.title]);
-  let html=section.html.replace(/#SOURCE(\d+)/g,(_,n)=>`#${id('source-'+n)}`).replace(/data-review-ref="(\d+)"/g,(_,n)=>`data-scroll-to="${id('source-'+n)}"`);
+  let html=renderMath(section.html).replace(/#SOURCE(\d+)/g,(_,n)=>`#${id('source-'+n)}`).replace(/data-review-ref="(\d+)"/g,(_,n)=>`data-scroll-to="${id('source-'+n)}"`);
   let result=`<section class="article-section" id="${id(section.id)}"><h2>${section.title}</h2>${html}</section>`;
   if(post.demo&&(post.demoAfter?section.id===post.demoAfter:index===1)){toc.push(['demo',post.demoTitle]);result+=`<section class="article-demo" id="${id('demo')}"><h2>${escapeHTML(post.demoTitle)}</h2><div data-demo="${post.demo}"></div></section>`;}
   if(index===post.sections.length-2&&code){toc.push(['code','Python 코드']);result+=code;}

@@ -1,4 +1,4 @@
-import {ENGLISH_POSTS} from './posts-en.js?v=20261030-paper-sections';
+import {ENGLISH_POSTS} from './posts-en.js?v=20261030-review-math';
 export function localizePost(post,language){
  if(!post)return post;
  if(language!=='en')return {...post,language:'ko'};
