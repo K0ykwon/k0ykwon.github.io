@@ -56,3 +56,10 @@ Aligned hover preview: [v2](hover-alignment-preview.jpg).
 About profile portrait: the supplied original photograph is stored as `assets/youngkwon-ko.jpg`, with responsive display cropping only. [Preview](about-photo-preview.jpg).
 
 Section entrances stream each heading with a following blinking caret and stagger content groups across About, Research, Software, Blog, Experience, and Contact. Motion starts when the heading enters view and respects reduced-motion preferences. [Preview](section-stream-preview.jpg).
+
+
+Blog now includes all five public BOJ/Python posts from `koykwon`'s Velog. `blog/posts.js` holds the edited articles; the original rendered text, HTML, code blocks, and formulas remain in `blog/source/velog-originals.json`. Each article links to its original and exposes a readable downloadable Python solution. `blog/algorithms.js` powers bounded browser playgrounds, and `tests/blog.test.mjs` plus `tests/blog_code_checks.py` verify the demos and actual Python files against independent results.
+
+Blog routes use `#blog` for the index and `#blog/<slug>` for an article. Search and classification work locally. Article controls, ordinary body clicks, and reselecting the current page preserve the reading view.
+
+Interactive article preview: [N-Queens](blog-demo-preview.jpg).
