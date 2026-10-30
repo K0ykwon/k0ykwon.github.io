@@ -1,33 +1,53 @@
 export const ENGLISH_POSTS = {
   "attention-is-all-you-need": {
-    "title": "Attention Is All You Need — Reading Context Without Recurrence",
+    "title": "Attention Is All You Need",
     "summary": "Work through Q, K, V and causal masking to separate parallel training from sequential generation in the Transformer.",
     "demoTitle": "Q, K, V and causal masking",
     "sections": [
       {
-        "id": "question",
-        "title": "1. Must reading order determine computation order?",
+        "id": "abstract",
+        "title": "Abstract",
+        "html": "<p>The Transformer performs sequence transduction around attention without recurrence or convolution. The paper reports translation quality and parallel-training benefits, followed by an application to constituency parsing.</p>"
+      },
+      {
+        "id": "introduction",
+        "title": "1. Introduction",
         "html": "<p>An RNN must compute the previous hidden state before moving to the next position. Longer sequences also create longer paths for information to travel. The Transformer reduces this sequential dependence by computing interactions with attention. The original translation model is an <strong>encoder–decoder</strong>, distinct from today’s decoder-only LLMs.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\" aria-label=\"Reference 2\">[2]</a></sup></p><p>This review starts with how one position collects information from others. Working through the calculation also separates attention weights from the output representation they produce.</p>"
       },
       {
-        "id": "attention",
-        "title": "2. Queries compare keys; the weights combine values",
-        "html": "<div class=\"article-formula\">Q = XW<sub>Q</sub>, K = XW<sub>K</sub>, V = XW<sub>V</sub><br>A = softmax(QKᵀ / √d<sub>k</sub>)<br>Y = AV</div><p>Q, K and V are separate linear projections of <var>X ∈ ℝ<sup>n×d</sup></var>. Each row of A gives one query’s weights over the keys. Softmax runs along the key dimension, so each row sums to one. The weighted sum of values produces an output vector.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\" aria-label=\"Reference 1\">[1]</a></sup></p><p>For example, weights <code>[0.75, 0.25]</code> applied to values <code>[2, 0]</code> and <code>[0, 4]</code> produce <code>[1.5, 1]</code>. This mixes two values; it does not select only the token with the largest weight.</p><p>For independent, unit-variance components, the variance of a dot product grows with dimension. Dividing by √d<sub>k</sub> counteracts large scores that would make softmax excessively sharp.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\" aria-label=\"Reference 1\">[1]</a></sup></p>"
+        "id": "background",
+        "title": "2. Background",
+        "html": "<p>RNNs pass states along sequence order; CNNs connect distant positions through multiple layers. This section compares those paths and motivates self-attention without recurrence or convolution.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\">[2]</a></sup></p>"
       },
       {
-        "id": "architecture",
-        "title": "3. The model contains more than attention",
-        "html": "<p>Each head uses its own projections. Their outputs are concatenated and projected again. Position-wise FFNs, residual connections and layer normalization are also part of the model. The original paper uses <strong>Post-LN</strong>, placing normalization after each residual sublayer, and adds positional information to the embeddings.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\" aria-label=\"Reference 1\">[1]</a></sup></p><div class=\"review-flow\" aria-label=\"One Transformer encoder block\"><span>Input + position</span><span>Multi-head attention</span><span>Add &amp; Norm</span><span>FFN</span><span>Add &amp; Norm</span></div><p>An implementation must distinguish encoder self-attention, masked decoder self-attention and encoder–decoder cross-attention. In cross-attention, queries come from a different sequence than the keys and values.</p>"
+        "id": "model",
+        "title": "3. Model Architecture",
+        "html": "<h3>3.1 Encoder and Decoder Stacks</h3><p>Each head uses its own projections. Their outputs are concatenated and projected again. Position-wise FFNs, residual connections and layer normalization are also part of the model. The original paper uses <strong>Post-LN</strong>, placing normalization after each residual sublayer, and adds positional information to the embeddings.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\" aria-label=\"Reference 1\">[1]</a></sup></p><div class=\"review-flow\" aria-label=\"One Transformer encoder block\"><span>Input + position</span><span>Multi-head attention</span><span>Add &amp; Norm</span><span>FFN</span><span>Add &amp; Norm</span></div><p>An implementation must distinguish encoder self-attention, masked decoder self-attention and encoder–decoder cross-attention. In cross-attention, queries come from a different sequence than the keys and values.</p><h3>3.2 Attention</h3><div class=\"article-formula\">Q = XW<sub>Q</sub>, K = XW<sub>K</sub>, V = XW<sub>V</sub><br>A = softmax(QKᵀ / √d<sub>k</sub>)<br>Y = AV</div><p>Q, K and V are separate linear projections of <var>X ∈ ℝ<sup>n×d</sup></var>. Each row of A gives one query’s weights over the keys. Softmax runs along the key dimension, so each row sums to one. The weighted sum of values produces an output vector.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\" aria-label=\"Reference 1\">[1]</a></sup></p><p>For example, weights <code>[0.75, 0.25]</code> applied to values <code>[2, 0]</code> and <code>[0, 4]</code> produce <code>[1.5, 1]</code>. This mixes two values; it does not select only the token with the largest weight.</p><p>For independent, unit-variance components, the variance of a dot product grows with dimension. Dividing by √d<sub>k</sub> counteracts large scores that would make softmax excessively sharp.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\" aria-label=\"Reference 1\">[1]</a></sup></p><h3>3.3 Position-wise Feed-Forward Networks</h3><p>The same two linear transformations and ReLU act at each position. Attention mixes positions; the FFN transforms features within each position.</p><h3>3.4 Embeddings and Softmax</h3><p>Embeddings map tokens into vectors; the output projection and softmax produce vocabulary probabilities. The paper shares embedding and output-projection weights.</p><h3>3.5 Positional Encoding</h3><p>Sinusoidal position representations are added to embeddings. Position order is not supplied automatically by the weighted averaging operation.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup></p>"
       },
       {
-        "id": "parallel",
-        "title": "4. Parallel training can coexist with sequential generation",
+        "id": "why",
+        "title": "4. Why Self-Attention",
         "html": "<p>During training, previous tokens in the target sentence are known. Shifting the targets and masking future positions lets the model compute predictions at all positions in parallel. During generation, the next token is still unknown, so ordinary autoregressive inference proceeds one token at a time.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\" aria-label=\"Reference 2\">[2]</a></sup></p><p>Attention connects distant positions directly within a layer. Its score matrix, however, has <var>n×n</var> entries. Increasing sequence length from 1,024 to 4,096 grows one head’s matrix from about one million to about 16.8 million entries: a 16-fold increase. This quadratic dependence is a recurring issue in long-context models.</p>"
       },
       {
+        "id": "training",
+        "title": "5. Training",
+        "html": "<p>This section covers data and batching, hardware and schedules, optimization and regularization. Training uses Adam with warm-up and a decaying learning rate, dropout and label smoothing. These conditions accompany the architecture in the reported results.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup></p>"
+      },
+      {
         "id": "results",
-        "title": "5. Translation results and what I take from them",
-        "html": "<p>The paper reports 28.4 BLEU on WMT 2014 English-to-German and 41.8 BLEU on English-to-French (§6). These scores belong to the paper’s translation datasets and evaluation settings.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\" aria-label=\"Reference 1\">[1]</a></sup></p><p><strong>What stands out to me is the joint redesign of information paths and computation schedules.</strong> Beyond using attention, the model moves position-wise computation out of a recurrent chain and into matrix operations. CALM takes a different next step: changing the unit an autoregressive model predicts.</p><p><a href=\"#blog/calm-continuous-autoregressive-language-models\" data-section=\"blog\" data-post=\"calm-continuous-autoregressive-language-models\">Read the CALM review →</a></p>"
+        "title": "6. Results",
+        "html": "<p>The paper reports 28.4 BLEU on WMT 2014 English-to-German and 41.8 BLEU on English-to-French (§6). These scores belong to the paper’s translation datasets and evaluation settings.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\" aria-label=\"Reference 1\">[1]</a></sup></p><p>Sections 6.1–6.3 examine translation, model variations and constituency parsing, respectively, moving from the main task to architectural choices and another structured prediction task.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup></p>"
+      },
+      {
+        "id": "conclusion",
+        "title": "7. Conclusion",
+        "html": "<p>The conclusion summarizes sequence transduction without recurrence or convolution and points toward image, audio, video and restricted-attention extensions.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup></p>"
+      },
+      {
+        "id": "summary",
+        "title": "Summary",
+        "html": "<p>The Transformer reduces sequential training dependencies through attention matrices. Queries and keys determine weights used to mix values, while FFNs, position information and normalization complete the model. Parallel training does not eliminate sequential autoregressive generation.</p>"
       }
     ],
     "tags": [
@@ -44,42 +64,53 @@ export const ENGLISH_POSTS = {
         "title": "Author overview · Google Research",
         "detail": "Jakob Uszkoreit, 2017-08-31. Sequential computation, information flow and translation decoding."
       }
-    ]
+    ],
+    "demoAfter": "model"
   },
   "tinyvit": {
-    "title": "TinyViT — Bringing Large-Model Pretraining to Small Models",
+    "title": "TinyViT: Fast Pretraining Distillation for Small Vision Transformers",
     "summary": "How sparse soft labels, reproducible augmentation and compact architectures work together, with accuracy and compute compared across input resolutions.",
     "demoTitle": "Reconstructing probabilities from the top entries",
     "sections": [
       {
-        "id": "question",
-        "title": "1. Is more data enough for a small model?",
+        "id": "abstract",
+        "title": "Abstract",
+        "html": "<p>TinyViT combines compact vision transformers with fast pretraining distillation. Sparse teacher predictions are cached for student reuse, allowing small models to benefit from large-scale pretraining data.</p>"
+      },
+      {
+        "id": "introduction",
+        "title": "1. Introduction",
         "html": "<p>TinyViT combines <strong>pretraining distillation</strong> with compact vision architectures. Rather than running the teacher at every student-training step, it stores teacher predictions and augmentation information in advance for reuse.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\" aria-label=\"Reference 1\">[1]</a></sup></p><p>Two costs matter here: the size of the deployed student and the repeated cost of running its large teacher. Even a small student may be unable to use a large batch when the teacher occupies most GPU memory.</p>"
       },
       {
-        "id": "cache",
-        "title": "2. A prediction cache must match the augmented image",
-        "html": "<div class=\"review-flow\" aria-label=\"TinyViT pretraining distillation\"><span>Image + augmentation</span><span>Teacher inference</span><span>Cache sparse labels</span><span>Replay augmentation</span><span>Train student</span></div><p>A teacher’s crop and a student’s crop can differ even when they come from the same original image. The cache therefore retains the information needed to reproduce the corresponding augmentation, alongside the prediction. Equation (1) minimizes cross-entropy between the teacher’s soft label and the student output.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\" aria-label=\"Reference 1\">[1]</a></sup></p><p>Imagine a cat on the left of an image and a car on the right. If the cached prediction describes the cat crop but the student sees the car crop, the supervision is mismatched regardless of how quickly the cache loads. Augmentation replay is therefore part of the training signal’s correctness.</p>"
+        "id": "related",
+        "title": "2. Related Work",
+        "html": "<p>The paper connects large-scale pretraining, small vision transformers and knowledge distillation. Its approach transfers pretrained teacher knowledge to small students and can complement quantization or pruning.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup></p>"
       },
       {
-        "id": "sparse",
-        "title": "3. Preserve large probabilities and share the remainder",
-        "html": "<p>Instead of storing all <var>C</var> class probabilities, retain the top <var>k</var> values and their indices. Distribute the remaining probability mass uniformly among the omitted classes. This is the reconstruction rule from Equation (2).<sup><a href=\"#SOURCE1\" data-review-ref=\"1\" aria-label=\"Reference 1\">[1]</a></sup></p><div class=\"article-formula\">p̃<sub>c</sub> = p<sub>c</sub> &nbsp; (top k entries)<br>p̃<sub>c</sub> = (1 − Σ<sub>i∈top-k</sub> p<sub>i</sub>) / (C − k) &nbsp; (other entries)</div><p>Unlike a hard label, this preserves relationships among the large probabilities while approximating the small ones. It also differs from renormalizing only the top entries and setting all others to zero.</p><p>The official guide describes generating teacher outputs in parallel across epoch ranges and checking saved labels against recomputed predictions. A cache can then be reused across multiple student experiments.<sup><a href=\"#SOURCE3\" data-review-ref=\"3\" aria-label=\"Reference 3\">[3]</a></sup></p>"
+        "id": "method",
+        "title": "3. TinyViT",
+        "html": "<h3>3.1 Fast Pretraining Distillation</h3><div class=\"review-flow\" aria-label=\"TinyViT pretraining distillation\"><span>Image + augmentation</span><span>Teacher inference</span><span>Cache sparse labels</span><span>Replay augmentation</span><span>Train student</span></div><p>A teacher’s crop and a student’s crop can differ even when they come from the same original image. The cache therefore retains the information needed to reproduce the corresponding augmentation, alongside the prediction. Equation (1) minimizes cross-entropy between the teacher’s soft label and the student output.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\" aria-label=\"Reference 1\">[1]</a></sup></p><p>Imagine a cat on the left of an image and a car on the right. If the cached prediction describes the cat crop but the student sees the car crop, the supervision is mismatched regardless of how quickly the cache loads. Augmentation replay is therefore part of the training signal’s correctness.</p><p>Instead of storing all <var>C</var> class probabilities, retain the top <var>k</var> values and their indices. Distribute the remaining probability mass uniformly among the omitted classes. This is the reconstruction rule from Equation (2).<sup><a href=\"#SOURCE1\" data-review-ref=\"1\" aria-label=\"Reference 1\">[1]</a></sup></p><div class=\"article-formula\">p̃<sub>c</sub> = p<sub>c</sub> &nbsp; (top k entries)<br>p̃<sub>c</sub> = (1 − Σ<sub>i∈top-k</sub> p<sub>i</sub>) / (C − k) &nbsp; (other entries)</div><p>Unlike a hard label, this preserves relationships among the large probabilities while approximating the small ones. It also differs from renormalizing only the top entries and setting all others to zero.</p><p>The official guide describes generating teacher outputs in parallel across epoch ranges and checking saved labels against recomputed predictions. A cache can then be reused across multiple student experiments.<sup><a href=\"#SOURCE3\" data-review-ref=\"3\" aria-label=\"Reference 3\">[3]</a></sup></p><h3>3.2 Model Architectures</h3><p>The model has four stages with progressively lower spatial resolution. MBConv blocks are used early and for downsampling, followed by Transformer blocks in the last three stages. Progressive contraction searches for smaller candidates under parameter-count and throughput constraints.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\" aria-label=\"Reference 1\">[1]</a></sup></p><p>When examining an implementation, spatial resolution and channel width matter alongside parameter count. Two models with the same number of layers may have very different costs depending on what they compute at the high-resolution stages.</p>"
       },
       {
-        "id": "architecture",
-        "title": "4. Contract the architecture to fit the budget",
-        "html": "<p>The model has four stages with progressively lower spatial resolution. MBConv blocks are used early and for downsampling, followed by Transformer blocks in the last three stages. Progressive contraction searches for smaller candidates under parameter-count and throughput constraints.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\" aria-label=\"Reference 1\">[1]</a></sup></p><p>When examining an implementation, spatial resolution and channel width matter alongside parameter count. Two models with the same number of layers may have very different costs depending on what they compute at the high-resolution stages.</p>"
+        "id": "analysis",
+        "title": "4. Analysis and Discussions",
+        "html": "<p>This section examines hard samples and class relationships as factors limiting small models. It compares pretraining on original data, a cleaned subset and teacher soft labels, separating data quantity from supervision quality.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup></p>"
       },
       {
-        "id": "results",
-        "title": "5. Higher resolution has a measurable cost",
-        "html": "<p>These configurations come from the official Model Zoo. Each is pretrained on ImageNet-22k (21,841 classes), then fine-tuned on ImageNet-1k. Accuracy is ImageNet-1k top-1; MACs count multiply–accumulate operations per image.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\" aria-label=\"Reference 2\">[2]</a></sup></p><div class=\"review-table-wrap\"><table><thead><tr><th>Model</th><th>Input</th><th>Acc@1</th><th>MACs</th></tr></thead><tbody><tr><td>TinyViT-5M</td><td>224²</td><td>80.7%</td><td>1.3G</td></tr><tr><td>TinyViT-21M</td><td>224²</td><td>84.8%</td><td>4.3G</td></tr><tr><td>TinyViT-21M-512</td><td>512²</td><td>86.5%</td><td>27.0G</td></tr></tbody></table></div><p>Raising the 21M model’s input from 224 to 512 improves accuracy by 1.7 percentage points while increasing MACs by about 6.3 times. That arithmetic does not imply an identical latency ratio: hardware and batch size also affect measured speed.</p>"
+        "id": "experiments",
+        "title": "5. Experiments",
+        "html": "<p>Sections 5.1–5.4 cover implementation, ablations, ImageNet results and transfer learning. The evaluations separate pipeline and architectural choices before considering classification and transfer tasks.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup></p><p>These configurations come from the official Model Zoo. Each is pretrained on ImageNet-22k (21,841 classes), then fine-tuned on ImageNet-1k. Accuracy is ImageNet-1k top-1; MACs count multiply–accumulate operations per image.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\" aria-label=\"Reference 2\">[2]</a></sup></p><div class=\"review-table-wrap\"><table><thead><tr><th>Model</th><th>Input</th><th>Acc@1</th><th>MACs</th></tr></thead><tbody><tr><td>TinyViT-5M</td><td>224²</td><td>80.7%</td><td>1.3G</td></tr><tr><td>TinyViT-21M</td><td>224²</td><td>84.8%</td><td>4.3G</td></tr><tr><td>TinyViT-21M-512</td><td>512²</td><td>86.5%</td><td>27.0G</td></tr></tbody></table></div><p>Raising the 21M model’s input from 224 to 512 improves accuracy by 1.7 percentage points while increasing MACs by about 6.3 times. That arithmetic does not imply an identical latency ratio: hardware and batch size also affect measured speed.</p>"
       },
       {
-        "id": "takeaway",
-        "title": "6. Optimize more than the deployed model",
-        "html": "<p><strong>The reusable training pipeline is the idea I would take from TinyViT.</strong> Knowledge from the teacher becomes a stored supervision signal instead of something recalculated for every student. This is valuable when repeatedly comparing compact models.</p><p>For my own experiments, I would first check that teacher inputs and augmentations are reproduced correctly, then measure storage, cache-read bandwidth and student-training time. The useful comparison is the total cost of training several students, alongside the speed of an individual step.</p>"
+        "id": "conclusions",
+        "title": "6. Conclusions",
+        "html": "<p>The paper concludes that small vision models can benefit from large-model knowledge and large-scale pretraining, combining fast distillation with constrained model contraction.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup></p>"
+      },
+      {
+        "id": "summary",
+        "title": "Summary",
+        "html": "<p>TinyViT reduces student-training cost alongside deployment size. Teacher probabilities and augmentation information are cached for reuse; top entries and residual mass reconstruct the supervision. Model size, resolution and the training pipeline should be compared together.</p>"
       }
     ],
     "tags": [
@@ -100,42 +131,63 @@ export const ENGLISH_POSTS = {
         "title": "Official teacher-logit storage guide",
         "detail": "Epoch-range cache generation, parallel saving and validation."
       }
-    ]
+    ],
+    "demoAfter": "method"
   },
   "calm-continuous-autoregressive-language-models": {
-    "title": "CALM — Predicting a Vector for a Token Chunk",
+    "title": "Continuous Autoregressive Language Models",
     "summary": "Connect the token-chunk autoencoder, energy-based generative head and discrete input-feedback path. Reconstruction accuracy and generation quality answer different questions.",
     "demoTitle": "Token chunks and generation steps",
     "sections": [
       {
-        "id": "question",
-        "title": "1. What if each step predicted more information?",
+        "id": "abstract",
+        "title": "Abstract",
+        "html": "<p>CALM represents K tokens with one continuous vector, changing next-token prediction into next-vector prediction. It combines an autoencoder with likelihood-free generation, evaluation and sampling.</p>"
+      },
+      {
+        "id": "introduction",
+        "title": "1. Introduction",
         "html": "<p>CALM here means <em>Continuous Autoregressive Language Models</em>. It generates a continuous vector representing <var>K</var> tokens, with an autoencoder connecting chunks and vectors. K=3 in Figure 1 is an illustration; the main experiments use a K=4 configuration.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\" aria-label=\"Reference 1\">[1]</a></sup></p><p>This changes the number of units to generate, rather than merely accelerating a Transformer’s matrix operations. Each step also introduces reconstruction and compression work, so K times fewer steps should not be read as a guaranteed K-fold latency improvement.</p>"
       },
       {
         "id": "autoencoder",
-        "title": "2. Reconstructable does not automatically mean easy to generate",
-        "html": "<div class=\"article-formula\">z<sub>i</sub> = Enc(x<sub>(i−1)K+1:iK</sub>)<br>x̂<sub>(i−1)K+1:iK</sub> = Dec(z<sub>i</sub>)</div><p>The autoencoder preserves information in a token chunk. The author’s final configuration maps K=4 tokens to a 128-dimensional vector, with token-level reconstruction accuracy above 99.9%. Variational regularization and dropout make the latent space more robust to small perturbations.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\" aria-label=\"Reference 2\">[2]</a></sup></p><p>Accurate reconstruction alone does not ensure that predicting the next vector is easy. Imagine assigning each token chunk a distant, arbitrary point: decoding the point could work perfectly, while generating an appropriate next point from context remains difficult. Reconstruction and a useful generative geometry are separate design goals.</p>"
+        "title": "2. Autoencoder",
+        "html": "<div class=\"article-formula\">z<sub>i</sub> = Enc(x<sub>(i−1)K+1:iK</sub>)<br>x̂<sub>(i−1)K+1:iK</sub> = Dec(z<sub>i</sub>)</div><p>The autoencoder preserves information in a token chunk. The author’s final configuration maps K=4 tokens to a 128-dimensional vector, with token-level reconstruction accuracy above 99.9%. Variational regularization and dropout make the latent space more robust to small perturbations.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\" aria-label=\"Reference 2\">[2]</a></sup></p><p>Accurate reconstruction alone does not ensure that predicting the next vector is easy. Imagine assigning each token chunk a distant, arbitrary point: decoding the point could work perfectly, while generating an appropriate next point from context remains difficult. Reconstruction and a useful generative geometry are separate design goals.</p><p>Sections 2.1 and 2.2 address high-fidelity reconstruction and robust representations: recovering tokens and creating a stable space for generation are related but separate goals.</p>"
       },
       {
-        "id": "head",
-        "title": "3. Generate conditional samples instead of an average vector",
-        "html": "<p>MSE regression may predict an average of several plausible continuations. CALM’s head samples <var>z = G(h, ε)</var> from a context representation h and random noise ε. Its energy score uses distances to the target as well as distances between generated samples.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\" aria-label=\"Reference 2\">[2]</a></sup></p><div class=\"article-formula\">Basic energy loss to minimize<br>2 E‖Z − z*‖ − E‖Z − Z′‖</div><p>Z and Z′ are independent samples for the same context. The first term pulls predictions toward the observation; the second discourages collapsing every sample to the same point. Their combination distinguishes distribution learning from predicting only a conditional mean.</p><p>The official repository also includes diffusion and flow-matching training scripts. The default energy head generates a sample in one call, whereas those alternatives use iterative sampling.<sup><a href=\"#SOURCE3\" data-review-ref=\"3\" aria-label=\"Reference 3\">[3]</a></sup></p>"
-      },
-      {
-        "id": "loop",
-        "title": "4. The predicted vector is decoded before feeding back",
-        "html": "<div class=\"review-flow\" aria-label=\"CALM autoregressive feedback path\"><span>Previous token chunks</span><span>Input compression + Transformer</span><span>Noise + generative head</span><span>Next vector z</span><span>Decoder → K tokens</span></div><p>The author describes decoding a predicted vector back to tokens, then embedding and compressing those tokens as the next input. The output space is continuous, but the feedback path uses discrete tokens.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\" aria-label=\"Reference 2\">[2]</a></sup></p><p>This is more than grouping the embeddings of an existing LLM. The input unit, output head, autoencoder and training objective change together. Adding an autoencoder in front of an ordinary pretrained LLM does not produce the same system.</p>"
+        "id": "model",
+        "title": "3. Likelihood-Free Language Modeling",
+        "html": "<p>MSE regression may predict an average of several plausible continuations. CALM’s head samples <var>z = G(h, ε)</var> from a context representation h and random noise ε. Its energy score uses distances to the target as well as distances between generated samples.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\" aria-label=\"Reference 2\">[2]</a></sup></p><div class=\"article-formula\">Basic energy loss to minimize<br>2 E‖Z − z*‖ − E‖Z − Z′‖</div><p>Z and Z′ are independent samples for the same context. The first term pulls predictions toward the observation; the second discourages collapsing every sample to the same point. Their combination distinguishes distribution learning from predicting only a conditional mean.</p><p>The official repository also includes diffusion and flow-matching training scripts. The default energy head generates a sample in one call, whereas those alternatives use iterative sampling.<sup><a href=\"#SOURCE3\" data-review-ref=\"3\" aria-label=\"Reference 3\">[3]</a></sup></p><div class=\"review-flow\" aria-label=\"CALM autoregressive feedback path\"><span>Previous token chunks</span><span>Input compression + Transformer</span><span>Noise + generative head</span><span>Next vector z</span><span>Decoder → K tokens</span></div><p>The author describes decoding a predicted vector back to tokens, then embedding and compressing those tokens as the next input. The output space is continuous, but the feedback path uses discrete tokens.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\" aria-label=\"Reference 2\">[2]</a></sup></p><p>This is more than grouping the embeddings of an existing LLM. The input unit, output head, autoencoder and training objective change together. Adding an autoencoder in front of an ordinary pretrained LLM does not produce the same system.</p>"
       },
       {
         "id": "evaluation",
-        "title": "5. How is performance compared?",
-        "html": "<p>The paper introduces the sample-based BrierLM metric (higher is better) and compares language-model quality against computational cost. Its autoencoder ablations also show that similar, high reconstruction accuracy can coexist with different downstream scores as latent dimension and regularization change.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\" aria-label=\"Reference 1\">[1]</a></sup></p><p>Parameter count, training FLOPs, inference FLOPs and measured throughput describe different resources. Counting steps helps explain the architecture, while final generation quality depends on learning the conditional vector distribution. The calculator below considers only step count and an assumed cost per step.</p>"
+        "title": "4. Likelihood-Free LM Evaluation",
+        "html": "<p>The paper introduces the sample-based BrierLM metric (higher is better) and compares language-model quality against computational cost. Its autoencoder ablations also show that similar, high reconstruction accuracy can coexist with different downstream scores as latent dimension and regularization change.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\" aria-label=\"Reference 1\">[1]</a></sup></p><p>Parameter count, training FLOPs, inference FLOPs and measured throughput describe different resources. Counting steps helps explain the architecture, while final generation quality depends on learning the conditional vector distribution. The calculator below considers only step count and an assumed cost per step.</p><p>Sections 4.1 and 4.2 cover evaluation principles and BrierLM, combining n-gram Brier-based scores for sample-based comparison.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup></p>"
       },
       {
-        "id": "connection",
-        "title": "6. A connection to Nested Learning",
-        "html": "<p><strong>CALM changes the unit being predicted; Nested Learning changes the timescales at which states learn.</strong> These are different design axes. One possible direction is a memory that updates over chunk-level representations. This is my follow-up idea, not an experimental result established by the two papers.</p><p>I would first keep the autoencoder fixed and test whether a rapidly adapting memory improves prediction across chunks. Measuring reconstruction accuracy, contextual prediction and decoded generation separately would help locate where any improvement occurs.</p><p><a href=\"#blog/nested-learning\" data-section=\"blog\" data-post=\"nested-learning\">Read the Nested Learning review →</a></p>"
+        "id": "sampling",
+        "title": "5. Likelihood-Free Temperature Sampling",
+        "html": "<p>The target is a distribution proportional to P(x)<sup>1/T</sup> without explicit probability evaluation. Sections 5.1–5.3 cover rejection sampling, expected cost and a batch approximation. A finite batch can differ from the exact target; batch size controls cost and approximation quality.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup></p>"
+      },
+      {
+        "id": "related",
+        "title": "6. Related Work",
+        "html": "<p>Sections 6.1–6.4 address autoencoders, likelihood-free modeling, evaluation and temperature sampling, distinguishing representation compression from generating the next conditional distribution.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup></p>"
+      },
+      {
+        "id": "experiments",
+        "title": "7. Experiments",
+        "html": "<p>Sections 7.1–7.5 cover settings, main results, the autoencoder, architecture and temperature sampling. The analysis separates latent dimension, regularization, generative heads, input feedback and sampling configurations while comparing quality against compute.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup></p>"
+      },
+      {
+        "id": "conclusion",
+        "title": "8. Conclusion and Future Work",
+        "html": "<p>The conclusion treats semantic bandwidth K as a design axis. Future directions include semantically structured autoencoders, model and objective improvements, lighter sampling and joint scaling with model size, data and K.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup></p>"
+      },
+      {
+        "id": "summary",
+        "title": "Summary",
+        "html": "<p>CALM predicts a vector representing K tokens. Its autoencoder, energy-based generation, sample-based evaluation and temperature control form a coordinated system. Reconstruction accuracy, generation quality, step count and runtime cost describe different parts of that system.</p>"
       }
     ],
     "tags": [
@@ -156,42 +208,43 @@ export const ENGLISH_POSTS = {
         "title": "Official implementation · shaochenze/calm",
         "detail": "Autoencoder, Energy Transformer, evaluation, sampling and alternative-head training scripts."
       }
-    ]
+    ],
+    "demoAfter": "model"
   },
   "nested-learning": {
-    "title": "Nested Learning — From Layer Depth to Learning Timescales",
+    "title": "Nested Learning: The Illusion of Deep Learning Architectures",
     "summary": "Read models and optimizers as learning problems with different update rates, connecting momentum, Continuum Memory Systems, self-modifying Titans and HOPE.",
     "demoTitle": "Different update periods",
     "sections": [
       {
-        "id": "question",
-        "title": "1. A joint view of models and learning rules",
-        "html": "<p>Nested Learning (NL) represents a model as interconnected learning problems. Each has its own context flow, state, objective and update rate. A learning level is distinct from a layer index: levels organize components by what they update and how frequently they do so.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\" aria-label=\"Reference 1\">[1]</a></sup></p><p>In ordinary inference, the context used by attention keeps changing while pretrained weights stay fixed. These components belong to the same model, but retain information differently and change at different rates. NL uses that distinction as an architectural design axis.</p>"
+        "id": "abstract",
+        "title": "Abstract",
+        "html": "<p>Nested Learning represents architectures and optimizers as learning problems with distinct context flows and update rates. Deep optimizers, self-modifying Titans and CMS lead to the evaluated HOPE architecture.</p>"
       },
       {
-        "id": "optimizer",
-        "title": "2. An optimizer remembers previous inputs too",
-        "html": "<div class=\"article-formula\">m<sub>t</sub> = βm<sub>t−1</sub> + (1−β)g<sub>t</sub><br>θ<sub>t+1</sub> = θ<sub>t</sub> − ηm<sub>t</sub></div><p>This is a simple normalized-momentum example. The state m retains past gradient information; a larger β extends its influence. An optimizer can therefore be read as a memory that accumulates inputs and changes later updates.</p><p>The authors use the associative-memory perspective to discuss deep optimizers with more expressive objectives and internal learning rules. The useful step is explicitly formulating how optimizer states learn, beyond simply renaming them as memory.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\" aria-label=\"Reference 2\">[2]</a></sup></p>"
+        "id": "introduction",
+        "title": "1. Introduction",
+        "html": "<p>Nested Learning (NL) represents a model as interconnected learning problems. Each has its own context flow, state, objective and update rate. A learning level is distinct from a layer index: levels organize components by what they update and how frequently they do so.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\" aria-label=\"Reference 1\">[1]</a></sup></p><p>In ordinary inference, the context used by attention keeps changing while pretrained weights stay fixed. These components belong to the same model, but retain information differently and change at different rates. NL uses that distinction as an architectural design axis.</p><p>Section 1.1 gives neurophysiological motivation for multiple learning timescales. This biological connection motivates the design perspective and is separate from the model’s empirical results.</p>"
       },
       {
-        "id": "cms",
-        "title": "3. Fill the space between fast and slow memory",
-        "html": "<p>A Continuum Memory System (CMS) connects MLP memories updated at different periods. In Equations (30)–(31), each block updates at times determined by its own chunk size. HOPE combines a self-modifying Titans-style sequence module with CMS.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\" aria-label=\"Reference 1\">[1]</a></sup></p><div class=\"review-flow\" aria-label=\"Two components of HOPE\"><span>Context input</span><span>Self-modifying memory<br>Sequence interactions</span><span>CMS<br>MLPs with multiple update periods</span><span>Output</span></div><p>The timeline uses illustrative periods of 1, 4 and 16 inputs. It distinguishes states updated at every input from states updated after accumulating several inputs; it does not reproduce HOPE training or memory accuracy.</p>"
+        "id": "nested",
+        "title": "2. Nested Learning",
+        "html": "<h3>2.1 Associative Memory</h3><p>Learning is represented through storing and recalling associations between inputs and outputs.</p><h3>2.2 Nested Optimization Problems</h3><p>Optimization problems with distinct context flows and update rates are organized into levels, adding a design axis beyond layer depth.</p><h3>2.3 Optimizers as Learning Modules</h3><div class=\"article-formula\">m<sub>t</sub> = βm<sub>t−1</sub> + (1−β)g<sub>t</sub><br>θ<sub>t+1</sub> = θ<sub>t</sub> − ηm<sub>t</sub></div><p>This is a simple normalized-momentum example. The state m retains past gradient information; a larger β extends its influence. An optimizer can therefore be read as a memory that accumulates inputs and changes later updates.</p><p>The authors use the associative-memory perspective to discuss deep optimizers with more expressive objectives and internal learning rules. The useful step is explicitly formulating how optimizer states learn, beyond simply renaming them as memory.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\" aria-label=\"Reference 2\">[2]</a></sup></p>"
       },
       {
-        "id": "self-modification",
-        "title": "4. What does self-modifying change?",
-        "html": "<p>The Google Research overview presents Hope as a variant of Titans, adapting memory and elements involved in its updates to the context. CMS supplies multiple storage levels between immediate working context and longer-lived knowledge.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\" aria-label=\"Reference 2\">[2]</a></sup></p><p>In an implementation, I would distinguish <strong>states adapted within the current sequence</strong> from <strong>initial states and rules learned across training sequences</strong>. Writing down which parameters receive gradients from which loss makes these two uses of “update” easier to separate.</p>"
+        "id": "hope",
+        "title": "3. HOPE: A Self-Referential Learning Module with Continuum Memory",
+        "html": "<p>A Continuum Memory System (CMS) connects MLP memories updated at different periods. In Equations (30)–(31), each block updates at times determined by its own chunk size. HOPE combines a self-modifying Titans-style sequence module with CMS.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\" aria-label=\"Reference 1\">[1]</a></sup></p><div class=\"review-flow\" aria-label=\"Two components of HOPE\"><span>Context input</span><span>Self-modifying memory<br>Sequence interactions</span><span>CMS<br>MLPs with multiple update periods</span><span>Output</span></div><p>The timeline uses illustrative periods of 1, 4 and 16 inputs. It distinguishes states updated at every input from states updated after accumulating several inputs; it does not reproduce HOPE training or memory accuracy.</p><p>The Google Research overview presents Hope as a variant of Titans, adapting memory and elements involved in its updates to the context. CMS supplies multiple storage levels between immediate working context and longer-lived knowledge.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\" aria-label=\"Reference 2\">[2]</a></sup></p><p>In an implementation, I would distinguish <strong>states adapted within the current sequence</strong> from <strong>initial states and rules learned across training sequences</strong>. Writing down which parameters receive gradients from which loss makes these two uses of “update” easier to separate.</p>"
       },
       {
-        "id": "results",
-        "title": "5. HOPE’s language-model experiments",
+        "id": "experiments",
+        "title": "4. Experiments",
         "html": "<p>The following entries are from Table 1 of the conference paper, at 1.3B parameters and 100B training tokens. Wiki is WikiText perplexity, where lower is better. Avg. summarizes the commonsense-reasoning tasks in the table.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\" aria-label=\"Reference 1\">[1]</a></sup></p><div class=\"review-table-wrap\"><table><thead><tr><th>Model</th><th>Wiki ppl ↓</th><th>Reasoning avg. ↑</th></tr></thead><tbody><tr><td>Transformer++</td><td>18.53</td><td>52.25</td></tr><tr><td>Titans (LMM)</td><td>15.60</td><td>56.82</td></tr><tr><td>HOPE</td><td>15.11</td><td>57.23</td></tr></tbody></table></div><p>HOPE improves both selected metrics in this comparison, although rankings differ across individual tasks. The authors also describe evaluations of long-context retrieval, continual learning and knowledge incorporation.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\" aria-label=\"Reference 2\">[2]</a></sup></p>"
       },
       {
-        "id": "takeaway",
-        "title": "6. Design representations and update rules together",
-        "html": "<p><strong>The useful design question is what information stays where, and for how long.</strong> A fast module can handle recent context while slower modules reflect longer-term changes. This provides another axis besides parameter count and layer depth.</p><p>For a connection with CALM, I would first specify where chunk-level latent representations are stored, which contexts train that storage, and how often it updates. Testing prediction units and update periods separately before combining them would help distinguish their effects. This remains a follow-up experimental idea.</p><p><a href=\"#blog/calm-continuous-autoregressive-language-models\" data-section=\"blog\" data-post=\"calm-continuous-autoregressive-language-models\">Read the CALM review →</a></p>"
+        "id": "summary",
+        "title": "Summary",
+        "html": "<p>Nested Learning describes architectures and learning rules together, asking which context each state compresses and for how long. HOPE combines self-modifying sequence memory with a multi-rate CMS. This makes learning timescales a design axis distinct from the number of layers.</p>"
       }
     ],
     "tags": [
@@ -212,7 +265,8 @@ export const ENGLISH_POSTS = {
         "title": "Extended manuscript · arXiv:2512.24695",
         "detail": "Extended version linked by the conference paper. Numerical results in this review use the conference version’s Table 1."
       }
-    ]
+    ],
+    "demoAfter": "hope"
   },
   "boj-python-17467-n-mod-p-2": {
     "title": "[BOJ / Python] 17467: N! mod P (2)",
@@ -372,6 +426,68 @@ export const ENGLISH_POSTS = {
       "Bitmask",
       "Backtracking",
       "DFS"
+    ]
+  },
+  "cv-qaoa-continuous-problems": {
+    "title": "A Quantum Approximate Optimization Algorithm for continuous problems",
+    "summary": "Read the original CV-QAOA proposal in its body-section order: cost and kinetic evolution, constraint and discrete encodings, complexity and numerical examples.",
+    "tags": [
+      "CV-QAOA",
+      "Quantum optimization",
+      "Continuous variables"
+    ],
+    "sourceText": [
+      {
+        "title": "Paper · arXiv:1902.00409",
+        "detail": "Original 2019 proposal. Follows the unnumbered body sections and notation in Equations (1)–(4)."
+      }
+    ],
+    "sections": [
+      {
+        "id": "abstract",
+        "title": "Abstract",
+        "html": "<p>The proposal alternates cost and mixer evolution for continuous optimization, interpreting the dynamics as gradient descent in superposition and discussing encodings, complexity relationships and numerical examples.</p>"
+      },
+      {
+        "id": "introduction",
+        "title": "Introduction",
+        "html": "<p>The proposal encodes an objective as position-dependent cost energy and alternates noncommuting cost and mixer evolution for continuous optimization.</p><sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup>"
+      },
+      {
+        "id": "algorithm",
+        "title": "Quantum algorithm",
+        "html": "<p>Following the paper’s notation, η controls cost evolution and γ controls mixing. With ℏ=1, composing the transformations below shows how the position update combines the gradient and existing momentum.</p><div class=\"article-formula\">H<sub>C</sub> = f(x̂), H<sub>M</sub> = p̂²/2<br>U(η,γ) = exp(−iγH<sub>M</sub>) exp(−iηH<sub>C</sub>)<br>p̂ → p̂ − η∇f(x̂)<br>x̂ → x̂ + γp̂ − γη∇f(x̂)</div><sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup><p>Immediately after cost evolution, ψ′(x)=exp(−iηf(x))ψ(x), so |ψ′(x)|²=|ψ(x)|². The density stays unchanged while phase changes. Mixing subsequently allows amplitudes at different positions to interfere, making that phase relevant to the next position distribution.</p><p>For f(x)=x²/2, substitute ∇f(x)=x to obtain x̂ → (1−γη)x̂+γp̂. This is an algebraic illustration, not a numerical optimization result.</p>"
+      },
+      {
+        "id": "constraints",
+        "title": "Constrained Optimization",
+        "html": "<p>Constraint-violation potentials are added to the objective, using an energy difference between allowed and violating regions to guide optimization.</p><sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup><p>For a simple equality constraint, adding λ(g(x)−c)² gives zero penalty at g(x)=c and a growing penalty away from it. The coefficient λ balances constraint enforcement against the original objective.</p>"
+      },
+      {
+        "id": "discrete",
+        "title": "Encoding discrete optimization problems",
+        "html": "<p>Functions and potentials associate continuous variables with discrete choices, allowing discrete objectives to be represented.</p><sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup>"
+      },
+      {
+        "id": "complexity",
+        "title": "Complexity",
+        "html": "<p>Variants can encode continuous-space Grover search and CV-IQP circuits. These are relationships between circuit families, not guarantees of faster optimization for every objective.</p><sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup>"
+      },
+      {
+        "id": "examples",
+        "title": "Numerical examples",
+        "html": "<p>The numerical example optimizes the two-dimensional Styblinski–Tang function, starting from a momentum-squeezed state and sampling low-cost points from the final state.</p><sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup><p>Among 1,000 sampled points, the paper reports a best value of −78.33216 against a global minimum of approximately −78.3323.</p>"
+      },
+      {
+        "id": "conclusion",
+        "title": "Conclusion",
+        "html": "<p>The conclusion brings together the gradient-descent-in-superposition interpretation and extensions to constrained and discrete problems.</p><sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup>"
+      },
+      {
+        "id": "summary",
+        "title": "Summary",
+        "html": "<p>Cost evolution changes position-dependent phase and shifts momentum with the gradient. Kinetic mixing turns momentum into position change. Both phase and probability density therefore matter for subsequent evolution.</p>"
+      }
     ]
   }
 };

@@ -1,8 +1,8 @@
-import {getLanguage,t} from '../i18n.js?v=20261030-bilingual';
-import {localizePost} from './localization.js?v=20261030-bilingual';
-import {mountComments} from './comments.js?v=20261030-bilingual';
-import {POSTS} from './posts.js?v=20261030-reviews';
-import {mountDemo} from './demos.js?v=20261030-bilingual';
+import {getLanguage,t} from '../i18n.js?v=20261030-paper-sections';
+import {localizePost} from './localization.js?v=20261030-paper-sections';
+import {mountComments} from './comments.js?v=20261030-paper-sections';
+import {POSTS} from './posts.js?v=20261030-paper-sections';
+import {mountDemo} from './demos.js?v=20261030-paper-sections';
 export const escapeHTML=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const getBlogPost=slug=>POSTS.find(post=>post.slug===slug);
 const link=post=>`#blog/${post.slug}`;
@@ -26,13 +26,13 @@ export function renderBlogArticle(original){
   toc.push([section.id,section.title]);
   let html=section.html.replace(/#SOURCE(\d+)/g,(_,n)=>`#${id('source-'+n)}`).replace(/data-review-ref="(\d+)"/g,(_,n)=>`data-scroll-to="${id('source-'+n)}"`);
   let result=`<section class="article-section" id="${id(section.id)}"><h2>${section.title}</h2>${html}</section>`;
-  if(index===1&&post.demo){toc.push(['demo',post.demoTitle]);result+=`<section class="article-demo" id="${id('demo')}"><h2>${escapeHTML(post.demoTitle)}</h2><div data-demo="${post.demo}"></div></section>`;}
+  if(post.demo&&(post.demoAfter?section.id===post.demoAfter:index===1)){toc.push(['demo',post.demoTitle]);result+=`<section class="article-demo" id="${id('demo')}"><h2>${escapeHTML(post.demoTitle)}</h2><div data-demo="${post.demo}"></div></section>`;}
   if(index===post.sections.length-2&&code){toc.push(['code','Python 코드']);result+=code;}
   return result;
  }).join('');
  const references=post.sources?`<section class="article-section review-sources" id="${id('references')}"><h2>${t('참고문헌')}</h2><ol>${post.sources.map((source,index)=>`<li id="${id('source-'+(index+1))}"><a href="${escapeHTML(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(source.title)} ↗</a><p>${escapeHTML(source.detail)}</p></li>`).join('')}</ol></section>`:'';
  if(post.sources)toc.push(['references','참고문헌']);
- const paper=post.paper?`<div class="paper-details"><span class="entry-meta">${escapeHTML(post.paper.venue)} · ${post.paper.year}</span><p class="paper-original-title">${escapeHTML(post.paper.title)}</p><p>${escapeHTML(post.paper.authors)}</p></div>`:'';
+ const paper=post.paper?`<div class="paper-details"><span class="entry-meta">${escapeHTML(post.paper.venue)} · ${post.paper.year}</span><p>${escapeHTML(post.paper.authors)}</p></div>`:'';
  return `<article class="blog-article" lang="${post.language}" aria-labelledby="page-title"><div class="post-meta"><a href="#blog" data-section="blog" data-post="">← 글 목록</a><span>Youngkwon Ko</span><span>${escapeHTML(t(post.category))} / ${escapeHTML(t(post.subcategory))}</span><time datetime="${post.published}">작성 ${date(post.published)}</time><span>수정 ${date(post.updated)}</span></div>${paper}<div class="article-columns"><div class="article-prose">${body}${references}<footer class="article-footer"><div>${post.kind==='review'?'':`<a href="https://www.acmicpc.net/problem/${post.id}" target="_blank" rel="noopener noreferrer">BOJ ${post.id} ↗</a>`}<a href="#blog" data-section="blog" data-post="">모든 글 보기 →</a></div></footer><section class="article-comments" aria-labelledby="comments-title"><h2 id="comments-title">Comments</h2><p role="status" data-comments-status></p><div class="giscus"></div></section></div><aside class="article-aside"><details class="article-toc" open><summary>목차</summary><nav aria-label="글 목차">${toc.map(([target,title])=>`<button type="button" data-scroll-to="${id(target)}">${title}</button>`).join('')}</nav></details></aside></div></article>`;
 }
 export function activateBlog(container,post){

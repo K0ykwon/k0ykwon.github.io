@@ -4,9 +4,9 @@ import {POSTS} from '../blog/posts.js';
 import {renderBlogArticle,getBlogPost} from '../blog/ui.js';
 import {attentionExample,sparseDistribution,chunkBudget,memorySchedule} from '../blog/review-models.js';
 const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-10,`${a} != ${b}`);
-test('Four paper reviews render references and valid related articles without BOJ/code-only controls',()=>{
- const reviews=POSTS.filter(post=>post.kind==='review');assert.equal(reviews.length,4);
- for(const post of reviews){assert.equal(post.category,'Paper review');assert.ok(post.paper.authors);assert.ok(post.sections.length>=5);assert.ok(post.sources.length);const html=renderBlogArticle(post);assert.doesNotMatch(html,/undefined|acmicpc\.net|data-copy-code|#SOURCE/);const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size);for(const match of html.matchAll(/data-scroll-to="([^"]+)"/g))assert.ok(ids.includes(match[1]),match[1]);for(const section of post.sections)for(const match of section.html.matchAll(/data-post="([^"]+)"/g))assert.ok(getBlogPost(match[1]));}
+test('Five paper reviews render references and valid related articles without BOJ/code-only controls',()=>{
+ const reviews=POSTS.filter(post=>post.kind==='review');assert.equal(reviews.length,5);
+ for(const post of reviews){assert.equal(post.category,'Paper review');assert.ok(post.paper.authors);assert.equal(post.title,post.paper.title);assert.equal(localizePost(post,'en').title,post.paper.title);assert.equal(post.sections.at(-1).id,'summary');assert.ok(post.sections.length>=5);assert.ok(post.sources.length);const html=renderBlogArticle(post);assert.doesNotMatch(html,/undefined|acmicpc\.net|data-copy-code|#SOURCE/);const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size);for(const match of html.matchAll(/data-scroll-to="([^"]+)"/g))assert.ok(ids.includes(match[1]),match[1]);for(const section of post.sections)for(const match of section.html.matchAll(/data-post="([^"]+)"/g))assert.ok(getBlogPost(match[1]));}
 });
 test('Attention weights normalize, respect the causal mask and produce the stated weighted sum',()=>{
  for(const causal of [false,true])for(const scale of [.5,1,3]){const result=attentionExample({causal,scale});result.weights.forEach((row,r)=>{near(row.reduce((a,b)=>a+b,0),1);row.forEach((w,c)=>{assert.ok(w>=0);if(causal&&c>r)assert.equal(w,0);});for(let d=0;d<2;d++)near(result.outputs[r][d],row.reduce((s,w,c)=>s+w*result.values[c][d],0));});}
@@ -26,7 +26,7 @@ test('Memory timeline advances only at each scheduled update and resets at zero'
 
 import {localizePost} from '../blog/localization.js';
 import {ENGLISH_POSTS} from '../blog/posts-en.js';
-test('All nine articles have complete English counterparts with stable sections, code and references',()=>{
- assert.equal(POSTS.length,9);assert.equal(Object.keys(ENGLISH_POSTS).length,9);
- for(const original of POSTS){const en=localizePost(original,'en'),ko=localizePost(original,'ko');assert.equal(en.language,'en');assert.equal(ko.language,'ko');for(const key of ['id','slug','category','subcategory','code','codePath'])assert.equal(en[key],original[key]);assert.deepEqual(en.sections.map(s=>s.id),ko.sections.map(s=>s.id));assert.deepEqual(en.sources?.map(s=>s.url),ko.sources?.map(s=>s.url));for(const text of [en.title,en.summary,en.demoTitle,...en.sections.flatMap(s=>[s.title,s.html]),...(en.sources||[]).flatMap(s=>[s.title,s.detail])]){assert.ok(text);assert.doesNotMatch(text,/[가-힣]|undefined/);}}
+test('All ten articles have complete English counterparts with stable sections, code and references',()=>{
+ assert.equal(POSTS.length,10);assert.equal(Object.keys(ENGLISH_POSTS).length,10);
+ for(const original of POSTS){const en=localizePost(original,'en'),ko=localizePost(original,'ko');assert.equal(en.language,'en');assert.equal(ko.language,'ko');for(const key of ['id','slug','category','subcategory','code','codePath'])assert.equal(en[key],original[key]);assert.deepEqual(en.sections.map(s=>s.id),ko.sections.map(s=>s.id));assert.deepEqual(en.sources?.map(s=>s.url),ko.sources?.map(s=>s.url));for(const text of [en.title,en.summary,...(original.demo?[en.demoTitle]:[]),...en.sections.flatMap(s=>[s.title,s.html]),...(en.sources||[]).flatMap(s=>[s.title,s.detail])]){assert.ok(text);assert.doesNotMatch(text,/[가-힣]|undefined/);}}
 });
