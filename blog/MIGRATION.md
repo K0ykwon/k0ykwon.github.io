@@ -10,6 +10,6 @@ Imported on 2026-10-30. Original publication date: 2026-04-20.
 | 1799 | Bishops | Direct diagonal indices replace padding, cache DFS states; edit allowed cells. |
 | 9663 | N-Queens | Name masks and explain row transitions; step through valid solutions. |
 
-The original snapshots are kept in `source/velog-originals.json`. Edited Python solutions are in `code/`. Article source links point to the original Velog posts. No original posts were deleted or changed on Velog.
+The original snapshots are kept in `source/velog-originals.json`. Edited Python solutions are in `code/`. Public pages no longer show Velog links. Articles use 알고리즘 as the parent category and 비트마스크, DP, or 수론 as a subcategory. No original posts were deleted or changed on Velog.
 
 Local validation: original sample outputs; N-Queens counts for N=1…8; all 512 allowed-cell configurations on a 3×3 bishop board; randomized tower instances compared with the complete three-choice search; polygon counts compared with Catalan/Fuss–Catalan formulas (including N=1000 in Python); modular factorials compared with direct products for small primes.

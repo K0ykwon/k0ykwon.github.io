@@ -10,11 +10,16 @@
 .blog-search{display:flex;align-items:center;gap:24px;max-width:600px;font-size:12px}
 .blog-search span{white-space:nowrap}
 .blog-search input{width:100%;min-width:0;padding:12px 0;border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;color:var(--ink);font:inherit;outline-offset:4px}
-.blog-filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.blog-categories{margin-top:22px}
+.blog-category-list{display:flex;flex-wrap:wrap;gap:12px 24px}
+.blog-category-list button{padding:6px 0;border-bottom:1px solid transparent;font-size:13px;color:var(--muted)}
+.blog-category-list button[aria-pressed=true]{border-color:var(--ink);color:var(--ink)}
+.blog-category-list span{margin-left:7px;color:var(--muted);font-size:11px}
+.blog-filters[hidden]{display:none}
+.blog-filters{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 0 5px;padding-left:16px;border-left:1px solid var(--line)}
 .blog-filters button{padding:7px 13px;border:1px solid var(--line);border-radius:3px;font-size:11px}
 .blog-filters button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
 .blog-list-meta{display:flex;justify-content:space-between;gap:16px;margin-top:26px;font-size:11px;color:var(--muted)}
-.blog-list-meta a{border-bottom:1px solid var(--line);padding-bottom:3px}
 .blog-list{padding:0;margin:0;list-style:none}
 .blog-card{display:grid;grid-template-columns:35px minmax(0,1fr) 25px;gap:22px;padding:28px 0;border-top:1px solid var(--line)}
 .blog-card-number{font:italic 20px var(--serif);color:var(--muted);padding-top:23px}
@@ -23,7 +28,6 @@
 .blog-card p{font-size:13px;line-height:1.9;color:var(--muted);max-width:810px;margin:0}
 .blog-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:17px}
 .blog-tags span{border:1px solid var(--line);font-size:10px;padding:4px 7px;border-radius:2px;color:var(--muted)}
-.blog-tags .playground-tag{border-color:transparent;background:var(--soft);color:var(--ink)}
 .blog-card-arrow{font-size:22px;align-self:center}
 .blog-no-results{padding:40px 0;color:var(--muted);font-size:14px}
 .post-meta{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;font-size:11px;color:var(--muted);padding:18px 0 25px;border-bottom:1px solid var(--line)}

@@ -5,10 +5,10 @@ import {spawnSync} from 'node:child_process';
 import {queensSolutions,bishopPlacement,towerStages,polygonCounts,factorialComparison} from '../blog/algorithms.js';
 import {POSTS} from '../blog/posts.js';
 
-test('All five migrated articles retain their source and downloadable Python code',()=>{
+test('All five migrated articles have archived originals and matching downloadable Python code',()=>{
  const original=JSON.parse(readFileSync(new URL('../blog/source/velog-originals.json',import.meta.url)));
  assert.equal(POSTS.length,5);assert.equal(new Set(POSTS.map(p=>p.slug)).size,5);
- for(const post of POSTS){assert.ok(original.posts.some(p=>p.url===post.source));assert.equal(post.published,'2026-04-20');assert.equal(post.code,readFileSync(new URL('../'+post.codePath,import.meta.url),'utf8'));assert.ok(post.sections.length>=4);}
+ for(const post of POSTS){assert.ok(original.posts.some(p=>p.url.includes('/BOJ-Python-'+post.id+'-')));assert.equal(post.category,'알고리즘');assert.ok(['비트마스크','DP','수론'].includes(post.subcategory));assert.equal(post.published,'2026-04-20');assert.equal(post.code,readFileSync(new URL('../'+post.codePath,import.meta.url),'utf8'));assert.ok(post.sections.length>=4);}
 });
 test('Queen playground enumerates the known counts and only non-attacking boards',()=>{
  const counts=[1,0,0,2,10,4,40,92];
