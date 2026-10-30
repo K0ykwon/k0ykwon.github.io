@@ -1,4 +1,4 @@
-import {getBlogPost,renderBlogIndex,renderBlogArticle,activateBlog} from './blog/ui.js?v=20261030-editorial';
+import {getBlogPost,renderBlogIndex,renderBlogArticle,activateBlog} from './blog/ui.js?v=20261030-article-rise';
 import {lightingAt,solarMinute} from './lighting.js?v=20261029-scenes-16';
 import {seoulParts,seasonFor,outsideFor,parseWeather,cachedScene} from './weather.js?v=20261029-scene-start';
 const root=document.documentElement;
@@ -15,20 +15,22 @@ const sections={
   contact:{index:'06',object:'A LETTER FROM THE DESK',title:'Let’s talk.',intro:'For research conversations, collaboration, or a simple hello.',body:`<article class="panel-entry"><span class="entry-meta">EMAIL</span><a class="contact-link" href="mailto:yko081524@yonsei.ac.kr">yko081524@yonsei.ac.kr <span>↗</span></a><button class="copy-button" id="copy-email">Copy email address</button><span class="sr-only" id="copy-status" role="status"></span></article><article class="panel-entry"><span class="entry-meta">CODE & PROJECTS</span><h3>GitHub</h3><a href="https://github.com/K0ykwon" target="_blank" rel="noopener noreferrer">@K0ykwon <span>↗</span></a></article><article class="panel-entry"><span class="entry-meta">PROFILE & CONNECTIONS</span><h3>LinkedIn</h3><a href="https://www.linkedin.com/in/youngkwon-ko-355984390/" target="_blank" rel="noopener noreferrer">Youngkwon Ko <span>↗</span></a></article><article class="panel-entry"><span class="entry-meta">RESEARCH IDENTIFIER</span><h3>ORCID</h3><a href="https://orcid.org/0009-0002-2721-1329" target="_blank" rel="noopener noreferrer">0009-0002-2721-1329 <span>↗</span></a></article>`}
 };
 let sectionObserver;let entranceFrame;let blogCleanup;
-function prepareSectionEntrance(titleText,key){
+function prepareSectionEntrance(titleText,key,{typing=true}={}){
  if(reducedMotion())return;
  const title=document.getElementById('page-title');
  title.setAttribute('aria-label',titleText);
- const line=document.createElement('span');line.setAttribute('aria-hidden','true');
+ const line=typing?document.createElement('span'):null;
+ if(typing){line.setAttribute('aria-hidden','true');
  [...titleText].forEach((char,index)=>{const span=document.createElement('span');span.className='stream-char';span.textContent=char;span.style.setProperty('--stream-delay',`${index*32}ms`);line.append(span);});
- title.replaceChildren(line);
- const items=[document.getElementById('page-kicker'),document.getElementById('page-index'),document.getElementById('page-intro'),...content.querySelectorAll('.profile-photo,.profile-mark>div,.panel-entry,.research-section-heading,.publication,.ongoing-entry,.experience-section-heading,.timeline-item,.award-entry,.cv-entry,.blog-tools,.blog-list>li,.post-meta,.article-toc,.article-section,.article-demo,.article-code,.article-footer')].filter(Boolean);
- const streamDuration=titleText.length*32;
+ title.replaceChildren(line);}
+ const items=[document.getElementById('page-kicker'),document.getElementById('page-index'),...(!typing?[title]:[]),document.getElementById('page-intro'),...content.querySelectorAll('.profile-photo,.profile-mark>div,.panel-entry,.research-section-heading,.publication,.ongoing-entry,.experience-section-heading,.timeline-item,.award-entry,.cv-entry,.blog-tools,.blog-list>li,.post-meta,.article-toc,.article-section,.article-demo,.article-code,.article-footer')].filter(Boolean);
+ const streamDuration=typing?titleText.length*32:0;
  items.forEach((el,index)=>{el.classList.add('section-rise');el.style.setProperty('--entrance-delay',`${streamDuration+Math.min(index*90,1100)}ms`);});
  pageView.classList.add('section-enter');
  const play=()=>{
-  if(!line.isConnected||pageView.dataset.section!==key)return;
+  if(!title.isConnected||pageView.dataset.section!==key)return;
   pageView.classList.add('section-playing');sectionObserver?.disconnect();
+  if(!typing)return;
   const chars=[...line.children];const start=performance.now();let head;line.classList.add('is-streaming');
   const follow=now=>{
    if(!line.isConnected||pageView.dataset.section!==key)return;
@@ -57,7 +59,7 @@ function renderSection(key,{scroll=true,postSlug=''}={}) {
   blogCleanup?.();blogCleanup=undefined;
   sectionObserver?.disconnect();cancelAnimationFrame(entranceFrame);pageView.classList.remove('section-enter','section-playing');
   document.getElementById('page-title').removeAttribute('aria-label');
-  for(const id of ['page-kicker','page-index','page-intro']){const el=document.getElementById(id);el.classList.remove('section-rise');el.style.removeProperty('--entrance-delay');}
+  for(const id of ['page-kicker','page-index','page-title','page-intro']){const el=document.getElementById(id);el.classList.remove('section-rise');el.style.removeProperty('--entrance-delay');}
   pageView.dataset.section=key;pageView.dataset.post=activePost;
   document.title=post?`${post.title} — Youngkwon Ko`:key==='blog'?'Blog — Youngkwon Ko':'Youngkwon Ko — A desk of ideas';
   document.getElementById('page-kicker').textContent=page.object;
@@ -73,7 +75,7 @@ function renderSection(key,{scroll=true,postSlug=''}={}) {
   }
   pageView.hidden=false;shelf.hidden=true;
   if(key==='blog')blogCleanup=activateBlog(content,post);
-  prepareSectionEntrance(page.title,key);
+  prepareSectionEntrance(page.title,key,{typing:key==='about'});
   document.querySelectorAll('a[data-section]').forEach(el=>{if(el.dataset.section===key&&(!el.hasAttribute('data-post')||el.dataset.post===activePost))el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');});
   if(scroll)scrollToSection();
 }
