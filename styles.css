@@ -100,8 +100,8 @@ html.theme-ready{transition:--paper .6s ease-in-out,--surface .6s ease-in-out,--
 .timeline-entry a,.cv-entry a{display:inline-flex;gap:20px;font-size:12px;border-bottom:1px solid var(--line);padding-bottom:4px}
 .honors-section{position:sticky;top:30px}
 .award-entry{padding:0 0 24px;margin-bottom:24px;border-bottom:1px solid var(--line)}
-.award-entry .entry-meta{display:block;margin-bottom:10px}.cv-entry{padding-top:5px}.cv-entry h3{font-size:18px;font-weight:500;margin:10px 0}
-@media(max-width:900px){.experience-overview{grid-template-columns:minmax(0,1fr);gap:42px}.honors-section{position:static}.timeline-item{grid-template-columns:125px minmax(0,1fr);gap:18px}.honors-section{display:grid;grid-template-columns:1fr 1fr;gap:0 30px}.honors-section .experience-section-heading,.honors-section .cv-entry{grid-column:1/-1}}
+.award-entry .entry-meta{display:block;margin-bottom:10px}.cv-entry{grid-column:1/-1;margin-top:12px;padding:24px 0 0;border-top:1px solid var(--line)}.cv-downloads{display:flex;flex-wrap:wrap;gap:16px 30px}.cv-entry h3{font-size:18px;font-weight:500;margin:10px 0}
+@media(max-width:900px){.experience-overview{grid-template-columns:minmax(0,1fr);gap:42px}.honors-section{position:static}.timeline-item{grid-template-columns:125px minmax(0,1fr);gap:18px}.honors-section{display:grid;grid-template-columns:1fr 1fr;gap:0 30px}.honors-section .experience-section-heading{grid-column:1/-1}}
 @media(max-width:520px){.page-view[data-section=about] .page-heading{display:block;margin-bottom:30px}.page-view[data-section=about] .page-intro{margin-top:18px}.experience-section-heading h2{font-size:24px}.timeline-item{display:block;padding:0 0 32px 18px;border-left:1px solid var(--line)}.timeline-date{font-size:10px;margin-bottom:10px;padding:0}.timeline-status{display:inline-block;margin:0 0 0 8px}.timeline-entry{padding:0;border:0}.timeline-entry:before{left:-22px;top:-23px}.timeline-item:last-child{border-color:transparent}.timeline-entry h3{font-size:20px}.honors-section{display:block}.award-entry{margin-bottom:22px}}
 
 /* Laptop stays on: a very low daytime baseline, with bounded spill in darkness. */

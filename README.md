@@ -84,4 +84,4 @@ Section navigation appears once in the site header. Removed the duplicate mobile
 
 2026-10-31 research articles: all three publication rows now open independent `#research/<slug>` article views. Each has a concise bilingual explanation and its own interactive illustration: hyperspectral patch budgets, HBR-IE evidence links, and multi-camera detection/temporal-check/alert stages. Research list has no inline demo. Article navigation, browser history and selected demo state across language changes are preserved.
 
-2026-10-31 CV: added a two-page English LaTeX CV matching the portfolio palette and typography. About now links to `#about/cv`, with rendered-page preview, page navigation, contained zoom, PDF download and LaTeX source. Source, PDF and preview pages are in `assets/cv/`; build notes are in `assets/cv/README.md`.
+2026-10-31 CV: added a two-page English LaTeX CV matching the portfolio palette and typography. About ends with direct PDF and LaTeX downloads, without a separate view or preview. Source and PDF are in `assets/cv/`; build notes are in `assets/cv/README.md`.

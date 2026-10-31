@@ -58,4 +58,4 @@ Publications의 항목을 누르면 `#research/<slug>` 주소에서 글 형태�
 
 ## CV
 
-About의 CV 링크는 `#about/cv` 미리보기를 엽니다. `assets/cv/youngkwon-ko-cv.tex`가 편집 원본이며, PDF와 두 페이지 미리보기 이미지를 함께 관리합니다. `assets/cv/README.md`에 컴파일과 미리보기 갱신 방법이 있습니다. CV 화면의 한영 안내 문구와 페이지·확대 조작은 `about/cv-preview.js`에 있습니다.
+About 맨 아래에 PDF와 LaTeX 원본 다운로드를 배치합니다. 별도 CV 화면이나 미리보기는 없습니다. `assets/cv/youngkwon-ko-cv.tex`가 편집 원본이며, 컴파일 방법은 `assets/cv/README.md`에 있습니다. 다운로드 안내 문구와 링크는 `about/cv.js`에서 관리합니다.
