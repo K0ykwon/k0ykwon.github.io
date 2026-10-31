@@ -1,0 +1,1 @@
+export default `<li class="timeline-item"><div class="timeline-date">{{period}}</div><article class="timeline-entry"><h3>{{title}}</h3><p><strong>{{role}}</strong></p><p>SamoAI 멀티에이전트 프레임워크를 기반으로 인스타그램 인플루언서 탐색 및 데이터 수집 도구 SamoAI-InstagramTracker를 개발했습니다.</p><p>SamoAI 엔진과 CLI 기반 에이전트 채팅 인터페이스 유지보수에 참여했습니다.</p></article></li>`;

@@ -1,0 +1,11 @@
+import {DEMOS as demos0} from './boj-python-1799-bishops/demo.js?v=20261031-content-folders';
+import {DEMOS as demos1} from './tinyvit/demo.js?v=20261031-content-folders';
+import {DEMOS as demos2} from './calm-continuous-autoregressive-language-models/demo.js?v=20261031-content-folders';
+import {DEMOS as demos3} from './boj-python-2392-polygon-partition/demo.js?v=20261031-content-folders';
+import {DEMOS as demos4} from './boj-python-17467-n-mod-p-2/demo.js?v=20261031-content-folders';
+import {DEMOS as demos5} from './boj-python-9663-n-queens/demo.js?v=20261031-content-folders';
+import {DEMOS as demos6} from './cv-qaoa-continuous-problems/demo.js?v=20261031-content-folders';
+import {DEMOS as demos7} from './nested-learning/demo.js?v=20261031-content-folders';
+import {DEMOS as demos8} from './attention-is-all-you-need/demo.js?v=20261031-content-folders';
+import {DEMOS as demos9} from './boj-python-1126-equal-towers/demo.js?v=20261031-content-folders';
+export const POST_DEMOS={...demos0,...demos1,...demos2,...demos3,...demos4,...demos5,...demos6,...demos7,...demos8,...demos9};

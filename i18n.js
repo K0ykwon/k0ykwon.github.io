@@ -1,17 +1,48 @@
 const pairs = [
- ["Modular arithmetic", "모듈러 연산"],
- ["Wilson’s theorem", "Wilson 정리"],
- ["Combinatorics", "조합론"],
- ["Interval partitioning", "구간 분할"],
- ["State compression", "상태 압축"],
- ["Optimization", "최적화"],
- ["Diagonals", "대각선"],
- ["Backtracking", "백트래킹"],
-
- ["Experience on the right notebook page","노트 오른쪽 페이지의 경력"],
- ["About Youngkwon Ko on the left notebook page","노트 왼쪽 페이지의 소개"],
- ["Copy failed. Select the code or download the file.","복사에 실패했습니다. 코드를 선택해 복사하거나 파일을 다운로드할 수 있습니다."],
-
+  [
+    "Modular arithmetic",
+    "모듈러 연산"
+  ],
+  [
+    "Wilson’s theorem",
+    "Wilson 정리"
+  ],
+  [
+    "Combinatorics",
+    "조합론"
+  ],
+  [
+    "Interval partitioning",
+    "구간 분할"
+  ],
+  [
+    "State compression",
+    "상태 압축"
+  ],
+  [
+    "Optimization",
+    "최적화"
+  ],
+  [
+    "Diagonals",
+    "대각선"
+  ],
+  [
+    "Backtracking",
+    "백트래킹"
+  ],
+  [
+    "Experience on the right notebook page",
+    "노트 오른쪽 페이지의 경력"
+  ],
+  [
+    "About Youngkwon Ko on the left notebook page",
+    "노트 왼쪽 페이지의 소개"
+  ],
+  [
+    "Copy failed. Select the code or download the file.",
+    "복사에 실패했습니다. 코드를 선택해 복사하거나 파일을 다운로드할 수 있습니다."
+  ],
   [
     "The slider controls how many rows contain queens. Red cells are attacked in the next row; the arrows select another solution.",
     "슬라이더는 퀸을 놓은 행 수를 조절한다. 붉은 칸은 다음 행에서 공격받는 위치이고, 화살표는 다른 해로 전환한다."
@@ -271,14 +302,83 @@ const pairs = [
   [
     "Input progress",
     "입력 진행"
-  ]
-,
- ["Paper reviews and algorithm solutions.","논문 리뷰와 알고리즘 문제 풀이."],["Title, topic, problem number","제목, 주제, 문제 번호"],["References","참고문헌"],
- ["For research conversations, collaboration, or a simple hello.","연구나 협업에 관한 이야기, 가벼운 인사도 환영합니다."],
- ["Light","라이트"],["Dark","다크"],["switch to dark mode","다크 모드로 전환"],["switch to light mode","라이트 모드로 전환"],
- ["Main navigation","주 메뉴"],["Selected section","현재 섹션"],["Personal profiles","개인 프로필"],
-
- ["Weather unavailable · Seoul local time","날씨 정보 없음 · 서울 시간"],["Connecting to the sky…","날씨 확인 중…"],["Clear · Live weather","맑음 · 실시간 날씨"],["Cloudy · Live weather","흐림 · 실시간 날씨"],["Rain · Live weather","비 · 실시간 날씨"],["Snow · Live weather","눈 · 실시간 날씨"],["Comments","댓글"],["Comments are not available yet.","댓글은 준비 중입니다."],["Comments could not be loaded.","댓글을 불러오지 못했습니다."],
+  ],
+  [
+    "Paper reviews and algorithm solutions.",
+    "논문 리뷰와 알고리즘 문제 풀이."
+  ],
+  [
+    "Title, topic, problem number",
+    "제목, 주제, 문제 번호"
+  ],
+  [
+    "References",
+    "참고문헌"
+  ],
+  [
+    "Light",
+    "라이트"
+  ],
+  [
+    "Dark",
+    "다크"
+  ],
+  [
+    "switch to dark mode",
+    "다크 모드로 전환"
+  ],
+  [
+    "switch to light mode",
+    "라이트 모드로 전환"
+  ],
+  [
+    "Main navigation",
+    "주 메뉴"
+  ],
+  [
+    "Selected section",
+    "현재 섹션"
+  ],
+  [
+    "Personal profiles",
+    "개인 프로필"
+  ],
+  [
+    "Weather unavailable · Seoul local time",
+    "날씨 정보 없음 · 서울 시간"
+  ],
+  [
+    "Connecting to the sky…",
+    "날씨 확인 중…"
+  ],
+  [
+    "Clear · Live weather",
+    "맑음 · 실시간 날씨"
+  ],
+  [
+    "Cloudy · Live weather",
+    "흐림 · 실시간 날씨"
+  ],
+  [
+    "Rain · Live weather",
+    "비 · 실시간 날씨"
+  ],
+  [
+    "Snow · Live weather",
+    "눈 · 실시간 날씨"
+  ],
+  [
+    "Comments",
+    "댓글"
+  ],
+  [
+    "Comments are not available yet.",
+    "댓글은 준비 중입니다."
+  ],
+  [
+    "Comments could not be loaded.",
+    "댓글을 불러오지 못했습니다."
+  ],
   [
     "About",
     "소개"
@@ -364,10 +464,6 @@ const pairs = [
     "AI / ML 연구 및 소프트웨어 개발"
   ],
   [
-    "I’m an Artificial Intelligence undergraduate at Yonsei University, currently on leave while serving as an AI Specialist in the Republic of Korea Navy. I work across applied AI research and software development.",
-    "연세대학교 인공지능학과에 재학 중이며, 현재 휴학 후 대한민국 해군 AI 개발병으로 복무하고 있습니다. 응용 AI 연구와 소프트웨어 개발을 하고 있습니다."
-  ],
-  [
     "EDUCATION · MAR 2023–PRESENT",
     "학력 · 2023년 3월–현재"
   ],
@@ -376,24 +472,12 @@ const pairs = [
     "연세대학교"
   ],
   [
-    "B.S. in Artificial Intelligence — in progress.",
-    "인공지능학과 학사과정 재학 중."
-  ],
-  [
-    "Seoul, Republic of Korea. Currently on a leave of absence.",
-    "대한민국 서울. 현재 휴학 중."
-  ],
-  [
     "INTERESTS",
     "관심 분야"
   ],
   [
     "How we represent and use information.",
     "정보를 표현하고 활용하는 방법."
-  ],
-  [
-    "I’m interested in representation learning, computer vision, and efficient AI systems. My research also explores quantum optimization.",
-    "표현 학습, 컴퓨터 비전, 효율적인 AI 시스템에 관심이 있습니다. 양자 최적화도 연구하고 있습니다."
   ],
   [
     "Representation learning",
@@ -418,14 +502,6 @@ const pairs = [
   [
     "From questions to working tools.",
     "질문에서 시작해 도구로 만들기."
-  ],
-  [
-    "I like connecting research with implementation: exploring an idea, testing it in code, and turning what I learn into tools that help with real tasks.",
-    "아이디어를 코드로 실험하고, 그 과정에서 배운 내용을 실제 작업에 쓰이는 도구로 만드는 일을 좋아합니다."
-  ],
-  [
-    "Python and PyTorch are central to my machine learning work; I also build the interfaces and services around it.",
-    "머신러닝에는 주로 Python과 PyTorch를 사용하며, 모델을 활용하는 인터페이스와 서비스도 개발합니다."
   ],
   [
     "Explore my software",
@@ -460,16 +536,8 @@ const pairs = [
     "함께 이야기해요."
   ],
   [
-    "For research conversations, software projects, or collaboration, feel free to reach out.",
-    "연구, 소프트웨어 프로젝트, 협업에 관한 이야기를 기다립니다."
-  ],
-  [
     "Email",
     "이메일"
-  ],
-  [
-    "Selected publications in applied AI and information representation, followed by a short overview of ongoing work.",
-    "응용 AI 및 정보 표현 분야의 논문과 진행 중인 연구를 소개합니다."
   ],
   [
     "01 / SELECTED PUBLICATIONS",
@@ -492,14 +560,6 @@ const pairs = [
     "임무 기반 AI"
   ],
   [
-    "An autoencoder-based transmission framework combining latent compression with spectral patch prioritization. On KSC and Salinas, it achieves approximately 613× and 710.5× latent-payload reductions, respectively, while outperforming random and edge-based selection on important-region retrieval.",
-    "오토인코더 기반 잠재 표현 압축과 스펙트럼 패치 우선순위 선정을 결합한 전송 프레임워크입니다. KSC와 Salinas에서 잠재 페이로드를 각각 약 613배, 710.5배 줄였으며, 중요 영역 검색 지표에서 무작위·에지 기반 선택보다 높은 성능을 얻었습니다."
-  ],
-  [
-    "A corpus study of the Inchon Landing that develops a provenance-preserving schema and resources for extracting structured information from historical battle records.",
-    "인천상륙작전 기록을 대상으로, 역사 전투 기록에서 구조화된 정보를 추출하기 위한 출처 보존 스키마와 자원을 구축한 코퍼스 연구입니다."
-  ],
-  [
     "Information extraction",
     "정보 추출"
   ],
@@ -514,14 +574,6 @@ const pairs = [
   [
     "MULTI-CCTV · FIRE & SMOKE DETECTION",
     "다중 CCTV · 화재 및 연기 탐지"
-  ],
-  [
-    "A public-data-based framework combining fire/smoke donor crops, ship-like background and confuser images, and synthetic positive proxies. The prototype connects detection, temporal verification, and alert evidence capture across multiple camera channels.",
-    "공개 화재·연기 이미지, 함정과 유사한 배경 및 오탐 유발 이미지, 합성 양성 자료를 결합한 프레임워크입니다. 여러 카메라 채널에서 탐지, 시간축 검증, 경보 근거 저장을 연결했습니다."
-  ],
-  [
-    "A four-stream MP4 NVR emulator processed 240 sampled frames at 27.80 analyzed FPS, providing preliminary validation of the end-to-end processing pipeline.",
-    "4개 스트림의 MP4 NVR 에뮬레이터에서 240개 샘플 프레임을 초당 27.80프레임으로 분석해 전체 처리 흐름을 예비 검증했습니다."
   ],
   [
     "Fire & smoke detection",
@@ -544,22 +596,6 @@ const pairs = [
     "진행 중인 연구"
   ],
   [
-    "Phase-aware compression and transfer for continuing CV-QAOA optimization through short coherent blocks.",
-    "짧은 결맞음 블록을 이어 CV-QAOA 최적화를 계속하기 위한 위상 기반 압축 및 전달 기법."
-  ],
-  [
-    "Resolving parent relationships between entities using passage evidence.",
-    "본문의 근거를 이용한 개체 간 부모 관계 판별."
-  ],
-  [
-    "Tools for exploring models, working with information, and turning experiments into software.",
-    "모델을 분석하고 정보를 다루며, 실험을 소프트웨어로 구현한 프로젝트입니다."
-  ],
-  [
-    "PyTorch tracing and model exploration, with observed Model IR, editable ArchitectureIR, a harness, and a skill registry.",
-    "관측 기반 Model IR, 편집 가능한 ArchitectureIR, 하네스와 스킬 레지스트리를 갖춘 PyTorch 추적 및 모델 분석 도구입니다."
-  ],
-  [
     "Explore repository",
     "저장소 보기"
   ],
@@ -568,16 +604,8 @@ const pairs = [
     "PYTHON · 문서 도구"
   ],
   [
-    "A legal document analysis and case-retrieval system developed through Creai+it.",
-    "Creai+it에서 개발한 법률 문서 분석 및 판례 검색 시스템입니다."
-  ],
-  [
     "AI · INFORMATION RETRIEVAL",
     "AI · 정보 검색"
-  ],
-  [
-    "Document processing, retrieval, and question answering in a practical assistant workflow.",
-    "문서 처리, 검색, 질의응답을 연결한 문서 어시스턴트입니다."
   ],
   [
     "More on GitHub",
@@ -616,14 +644,6 @@ const pairs = [
     "전역 예정: 2027년 8월."
   ],
   [
-    "Applied AI research and development as an AI-specialized enlisted service member, including a mission-aware hyperspectral image transmission framework using autoencoder compression and spectral patch prioritization.",
-    "AI 개발병으로 응용 AI를 연구·개발하고 있습니다. 오토인코더 압축과 스펙트럼 패치 우선순위 선정을 이용한 임무 기반 초분광 영상 전송 프레임워크를 개발했습니다."
-  ],
-  [
-    "Participating in technical research and discussions on hyperspectral satellite systems in collaboration with the Agency for Defense Development (ADD).",
-    "국방과학연구소(ADD)와 협력해 초분광 위성 시스템 관련 기술 연구와 논의에 참여하고 있습니다."
-  ],
-  [
     "Explore the research",
     "연구 보기"
   ],
@@ -636,28 +656,12 @@ const pairs = [
     "공동 창업자"
   ],
   [
-    "Co-founded an AI-powered education platform organizing admissions-focused influencer content into a structured learning environment.",
-    "입시 분야 인플루언서 콘텐츠를 체계적인 학습 환경으로 구성하는 AI 교육 플랫폼을 공동 창업했습니다."
-  ],
-  [
-    "Developed AI-assisted learning features and contributed to product design and frontend development with Next.js and TypeScript.",
-    "AI 학습 지원 기능을 개발하고, Next.js 및 TypeScript를 사용한 제품 설계와 프런트엔드 개발에 참여했습니다."
-  ],
-  [
     "SEP–OCT 2025",
     "2025년 9–10월"
   ],
   [
     "Contract Software Developer",
     "계약 소프트웨어 개발자"
-  ],
-  [
-    "Developed SamoAI-InstagramTracker, an AI-powered Instagram influencer discovery and data collection application built on the SamoAI multi-agent framework.",
-    "SamoAI 멀티에이전트 프레임워크를 기반으로 인스타그램 인플루언서 탐색 및 데이터 수집 도구 SamoAI-InstagramTracker를 개발했습니다."
-  ],
-  [
-    "Contributed to maintenance of the SamoAI engine and its CLI-based agent chat interface.",
-    "SamoAI 엔진과 CLI 기반 에이전트 채팅 인터페이스 유지보수에 참여했습니다."
   ],
   [
     "JAN–JUN 2025",
@@ -672,28 +676,12 @@ const pairs = [
     "연구 인턴"
   ],
   [
-    "Researched low-dose CT image quality assessment with 11,200 MOS-annotated images, training and evaluating EfficientNet, ViT, TinyViT, and ManiQA.",
-    "MOS 품질 주석이 있는 CT 이미지 11,200장으로 저선량 CT 영상 품질 평가를 연구하고, EfficientNet, ViT, TinyViT, ManiQA를 학습·평가했습니다."
-  ],
-  [
-    "Investigated CT denoising fine-tuning with an image quality assessment model as a reward signal.",
-    "영상 품질 평가 모델을 보상 신호로 사용하는 CT 잡음 제거 미세조정 방법을 연구했습니다."
-  ],
-  [
     "SEP 2024–DEC 2025",
     "2024년 9월–2025년 12월"
   ],
   [
     "Co-Leader · AI Startup Club",
     "공동 대표 · AI 창업 동아리"
-  ],
-  [
-    "Led AI product development across document intelligence, legal AI, assistive technology, and generative AI. Projects included Somni, an AI-assisted narrative development system, and Miney, a legal document analysis and case-retrieval system.",
-    "문서 지능, 법률 AI, 보조공학, 생성형 AI 분야의 제품 개발을 이끌었습니다. AI 서사 개발 시스템 Somni와 법률 문서 분석·판례 검색 시스템 Miney 등을 개발했습니다."
-  ],
-  [
-    "Collaborated with Upstage on a Solar-based intelligent document processing system and participated in the 2025 AGI Agent Hackathon.",
-    "Upstage와 Solar 기반 지능형 문서 처리 시스템을 개발하고 2025 AGI Agent Hackathon에 참가했습니다."
   ],
   [
     "02 / RECOGNITION",
@@ -724,16 +712,8 @@ const pairs = [
     "RED S 디자인 어워드"
   ],
   [
-    "1st Prize · Interactive Media Design, Yonsei University.",
-    "1등 · 연세대학교 인터랙티브 미디어 디자인."
-  ],
-  [
     "Looking for a CV?",
     "이력서가 필요하신가요?"
-  ],
-  [
-    "For a current CV or more details about my work, please get in touch.",
-    "최신 이력서나 자세한 경력은 이메일로 문의해주세요."
   ],
   [
     "Request a CV",
@@ -901,7 +881,7 @@ export function translateDOM(scope=document.body){
  // Article prose is supplied by explicit locale variants; generated controls use this dictionary.
  const walker=document.createTreeWalker(scope,NodeFilter.SHOW_TEXT);let node;
  while(node=walker.nextNode()){
-  if(node.parentElement?.closest('script,style,pre,code,.stream-char,.article-section,.localized-demo,.language-switch'))continue;
+  if(node.parentElement?.closest('script,style,pre,code,.stream-char,.article-section,[data-content-localized],.localized-demo,.language-switch'))continue;
   let entry=sources.get(node);if(!entry||node.textContent!==entry.last)entry={original:node.textContent,last:node.textContent};
   const parent=node.parentElement;
   const fixed=parent?.closest('h1,h2,h3,h4,h5,h6,a,button,label,select,option,th,nav,.timeline-entry p>strong,.panel-entry p>strong,.entry-meta,.entry-tags,.blog-tags,.post-meta,.blog-card-meta,.paper-details,.page-index,.profile-mark,.timeline-date,.timeline-status,.publication-authors,.publication-venue,.code-toolbar,.site-header,.site-footer,.page-bottom,.blog-tools');

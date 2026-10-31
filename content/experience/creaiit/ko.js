@@ -1,0 +1,1 @@
+export default `<li class="timeline-item"><div class="timeline-date">{{period}}</div><article class="timeline-entry"><h3>{{title}}</h3><p><strong>{{role}}</strong></p><p>문서 지능, 법률 AI, 보조공학, 생성형 AI 분야의 제품 개발을 이끌었습니다. AI 서사 개발 시스템 Somni와 법률 문서 분석·판례 검색 시스템 Miney 등을 개발했습니다.</p><p>Upstage와 Solar 기반 지능형 문서 처리 시스템을 개발하고 2025 AGI Agent Hackathon에 참가했습니다.</p></article></li>`;

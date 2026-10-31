@@ -185,3 +185,6 @@ html.theme-ready{transition:--paper .6s ease-in-out,--surface .6s ease-in-out,--
 @media(max-width:800px){.header-controls{order:1;margin-left:auto}.header-controls .theme-button{margin-left:0}.main-nav{order:2}.site-header{column-gap:10px}}
 
 @media(max-width:700px){.page-view[data-section=about] .page-content{grid-template-columns:minmax(0,1fr)}}
+
+/* Locale wrappers keep content ownership separate without changing the page grid. */
+.page-content>[data-content-localized]{display:contents}

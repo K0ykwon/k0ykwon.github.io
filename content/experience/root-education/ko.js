@@ -1,0 +1,1 @@
+export default `<li class="timeline-item"><div class="timeline-date">{{period}}</div><article class="timeline-entry"><h3>{{title}}</h3><p><strong>{{role}}</strong></p><p>입시 분야 인플루언서 콘텐츠를 체계적인 학습 환경으로 구성하는 AI 교육 플랫폼을 공동 창업했습니다.</p><p>AI 학습 지원 기능을 개발하고, Next.js 및 TypeScript를 사용한 제품 설계와 프런트엔드 개발에 참여했습니다.</p></article></li>`;

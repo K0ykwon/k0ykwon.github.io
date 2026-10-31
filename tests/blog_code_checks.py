@@ -4,12 +4,14 @@ import math
 import random
 import runpy
 
-ROOT = Path(__file__).resolve().parents[1] / "blog" / "code"
-queens = runpy.run_path(str(ROOT / "boj_9663.py"))["count_queens"]
-bishops = runpy.run_path(str(ROOT / "boj_1799.py"))["max_bishops"]
-towers = runpy.run_path(str(ROOT / "boj_1126.py"))["tallest_equal_towers"]
-polygons = runpy.run_path(str(ROOT / "boj_2392.py"))["polygon_partitions"]
-factorial = runpy.run_path(str(ROOT / "boj_17467.py"))["factorial_mod_prime"]
+ROOT = Path(__file__).resolve().parents[1] / "content" / "posts"
+def solution(slug, name):
+    return runpy.run_path(str(ROOT / slug / "solution.py"))[name]
+queens = solution("boj-python-9663-n-queens", "count_queens")
+bishops = solution("boj-python-1799-bishops", "max_bishops")
+towers = solution("boj-python-1126-equal-towers", "tallest_equal_towers")
+polygons = solution("boj-python-2392-polygon-partition", "polygon_partitions")
+factorial = solution("boj-python-17467-n-mod-p-2", "factorial_mod_prime")
 
 for n, expected in enumerate([1, 0, 0, 2, 10, 4, 40, 92], start=1):
     assert queens(n) == expected

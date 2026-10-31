@@ -1,4 +1,4 @@
-import {ENGLISH_POSTS} from './posts-en.js?v=20261030-body-language';
+import {ENGLISH_POSTS} from './posts-en.js?v=20261031-content-folders';
 export function preserveEnglishHeadings(html,englishHTML){
  const headings=[...englishHTML.matchAll(/<(h[2-6]|th)\b[^>]*>[\s\S]*?<\/\1>/g)].map(match=>match[0]);
  let index=0;

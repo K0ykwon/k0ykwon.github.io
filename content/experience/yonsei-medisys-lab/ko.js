@@ -1,0 +1,1 @@
+export default `<li class="timeline-item"><div class="timeline-date">{{period}}</div><article class="timeline-entry"><h3>{{title}}</h3><p><strong>{{role}}</strong></p><p>MOS 품질 주석이 있는 CT 이미지 11,200장으로 저선량 CT 영상 품질 평가를 연구하고, EfficientNet, ViT, TinyViT, ManiQA를 학습·평가했습니다.</p><p>영상 품질 평가 모델을 보상 신호로 사용하는 CT 잡음 제거 미세조정 방법을 연구했습니다.</p></article></li>`;

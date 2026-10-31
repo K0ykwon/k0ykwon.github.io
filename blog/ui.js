@@ -1,9 +1,9 @@
-import {getLanguage,t,english} from '../i18n.js?v=20261030-body-language';
-import {localizePost} from './localization.js?v=20261030-body-language';
-import {mountComments} from './comments.js?v=20261030-body-language';
-import {POSTS} from './posts.js?v=20261030-body-language';
-import {mountDemo} from './demos.js?v=20261030-body-language';
-import {renderMath} from './math.js?v=20261030-body-language';
+import {getLanguage,t,english} from '../i18n.js?v=20261031-content-folders';
+import {localizePost} from './localization.js?v=20261031-content-folders';
+import {mountComments} from './comments.js?v=20261031-content-folders';
+import {POSTS} from './posts.js?v=20261031-content-folders';
+import {mountDemo} from './demos.js?v=20261031-content-folders';
+import {renderMath} from './math.js?v=20261031-content-folders';
 export const escapeHTML=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const getBlogPost=slug=>POSTS.find(post=>post.slug===slug);
 const link=post=>`#blog/${post.slug}`;
