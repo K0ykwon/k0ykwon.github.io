@@ -1,0 +1,101 @@
+% Youngkwon Ko - Curriculum Vitae
+% Compile twice with XeLaTeX. TeX Gyre is preferred; URW and Latin Modern are fallbacks.
+\documentclass[a4paper,10pt]{article}
+\usepackage[left=20mm,right=20mm,top=17mm,bottom=18mm]{geometry}
+\usepackage{fontspec}
+\IfFontExistsTF{TeX Gyre Heros}{\setmainfont{TeX Gyre Heros}}{\setmainfont{Latin Modern Sans}}
+\IfFontExistsTF{TeX Gyre Pagella}{\newfontfamily\headingfont{TeX Gyre Pagella}}{\IfFontExistsTF{P052}{\newfontfamily\headingfont{P052}}{\newfontfamily\headingfont{Latin Modern Roman}}}
+\usepackage{xcolor}
+\definecolor{Paper}{HTML}{F8F7F3}
+\definecolor{Ink}{HTML}{252721}
+\definecolor{Muted}{HTML}{74796F}
+\definecolor{Rule}{HTML}{D9D9CF}
+\definecolor{Moss}{HTML}{7C9688}
+\definecolor{Accent}{HTML}{AD503E}
+\pagecolor{Paper}\color{Ink}
+\usepackage{enumitem,needspace,fancyhdr,lastpage}
+\usepackage[hidelinks,unicode]{hyperref}
+\hypersetup{pdftitle={Youngkwon Ko - Curriculum Vitae},pdfauthor={Youngkwon Ko},pdfsubject={AI/ML research and software development},pdflang={en-US}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{2em}
+\setlength{\headheight}{13pt}
+\setlength{\footskip}{24pt}
+\pagestyle{fancy}\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.35pt}
+\renewcommand{\footrule}{\hbox to\headwidth{\color{Rule}\leaders\hrule height \footrulewidth\hfill}}
+\fancyfoot[L]{\fontsize{8}{10}\selectfont\color{Muted}Youngkwon Ko\hspace{12pt}\href{https://k0ykwon.github.io/}{k0ykwon.github.io}}
+\fancyfoot[R]{\fontsize{8}{10}\selectfont\color{Muted}\thepage\ / \pageref*{LastPage}}
+\setlist[itemize]{leftmargin=12pt,label=\textcolor{Moss}{\textbullet},topsep=4pt,itemsep=3pt,parsep=0pt,partopsep=0pt}
+\newcommand{\cvsection}[2]{\par\addvspace{15pt}\Needspace{65pt}{\fontsize{8}{10}\selectfont\color{Muted}#1\hspace{12pt}}{\headingfont\fontsize{19}{23}\selectfont #2}\par\vspace{6pt}{\color{Rule}\hrule height .4pt}\vspace{9pt}}
+\newcommand{\cvrole}[4]{\Needspace{90pt}\noindent\textbf{#1}\hfill{\fontsize{8.5}{11}\selectfont\color{Muted}#3}\par\vspace{2pt}{\fontsize{9.5}{13}\selectfont\color{Muted}#2}\par#4\par\vspace{8pt}}
+\newcommand{\cvpaper}[4]{\Needspace{95pt}\begin{list}{}{\setlength{\leftmargin}{23pt}\setlength{\labelwidth}{18pt}\setlength{\labelsep}{5pt}\setlength{\topsep}{0pt}\setlength{\parsep}{0pt}\setlength{\itemsep}{0pt}}\item[{\fontsize{8}{10}\selectfont\color{Muted}#1}]\textbf{#2}\par\vspace{4pt}{\fontsize{9}{12}\selectfont #3}\par\vspace{2pt}{\fontsize{9}{12}\selectfont\color{Muted}#4}\end{list}\vspace{9pt}}
+\newcommand{\workitem}[2]{\textbf{#1}\hspace{6pt}#2\par\vspace{6pt}}
+\begin{document}
+\fontsize{10}{14}\selectfont
+{\fontsize{8}{10}\selectfont\color{Muted}CURRICULUM VITAE\hfill UPDATED 31 OCTOBER 2026}\par\vspace{9pt}
+{\headingfont\fontsize{36}{40}\selectfont Youngkwon Ko}\par\vspace{5pt}
+{\fontsize{10}{14}\selectfont\color{Muted}AI / ML research \& software development}\par\vspace{13pt}
+{\fontsize{9}{13}\selectfont
+\href{mailto:yko081524@yonsei.ac.kr}{yko081524@yonsei.ac.kr}\hspace{14pt}
+\href{https://github.com/K0ykwon}{GitHub / K0ykwon}\hspace{14pt}
+\href{https://www.linkedin.com/in/youngkwon-ko-355984390/}{LinkedIn}\par
+\href{https://orcid.org/0009-0002-2721-1329}{ORCID / 0009-0002-2721-1329}}
+\cvsection{01}{Education}
+\textbf{Yonsei University}\hfill{\fontsize{8.5}{11}\selectfont\color{Muted}March 2023 - Present}\par
+B.S. in Artificial Intelligence, Seoul, Republic of Korea.\par
+{\color{Muted}Currently on a leave of absence while serving in the Republic of Korea Navy.}
+\cvsection{02}{Research interests}
+Representation learning, computer vision, efficient AI systems, and quantum optimization.
+\cvsection{03}{Publications}
+\cvpaper{01}{A Mission-Aware Autoencoder Bottleneck Compression Framework for Drone-Based Hyperspectral Image Transmission.}{\textbf{Youngkwon Ko}, Yunbo Shim, Doun Lee, and Seayul Choi.}{\textit{Marine Science \& Technology}, 2026.}
+\cvpaper{02}{Provenance-Preserving Schema and Resource Construction for Information Extraction from Historical Battle Records: A Corpus Study of the Inchon Landing.}{Yunbo Shim, \textbf{Youngkwon Ko}, et al.}{\textit{Proceedings of the Korea Computer Congress (KCC 2026)}, 2026.}
+{\fontsize{8}{10}\selectfont\color{Muted}RESEARCH MANUSCRIPT}\par\vspace{7pt}
+\cvpaper{03}{Design and Preliminary Validation of a Public-Data-Based Ship-Like Multi-CCTV Fire and Smoke Early Warning System.}{Yunbo Shim, \textbf{Youngkwon Ko}, Doun Lee, Seayul Choi, and Muhyeon Park.}{Public-data-based multi-camera detection, temporal verification, and alert evidence capture.}
+\cvsection{04}{Research in progress}
+\workitem{PACT}{Phase-aware compression and transfer for continuing CV-QAOA optimization through short coherent blocks.}
+\workitem{Lineage}{Evidence-grounded resolution of parent relationships between entities.}
+\cvsection{05}{Selected software}
+\workitem{\href{https://github.com/PtwoI/p2i-core}{P2I \textcolor{Muted}{/ PyTorch model analysis}}}{Runtime tracing, model exploration, and an editable ArchitectureIR with an agent-facing harness.}
+\newpage
+\fontsize{9.7}{13}\selectfont
+\setlist[itemize]{topsep=3pt,itemsep=2pt}
+{\fontsize{8}{10}\selectfont\color{Muted}YOUNGKWON KO\hfill RESEARCH \& DEVELOPMENT}\par\vspace{2pt}
+\cvsection{06}{Research \& professional experience}
+\cvrole{Republic of Korea Navy}{Artificial Intelligence Specialist \textbullet\ Expected completion: August 2027}{December 2025 - Present}{
+\begin{itemize}
+\item Developed mission-aware hyperspectral image transmission using autoencoder compression and spectral patch prioritization. Reported approximately 613$\times$ and 710.5$\times$ latent-payload reductions on KSC and Salinas, respectively.
+\item Participating in technical research and discussions on hyperspectral satellite systems in collaboration with the Agency for Defense Development (ADD).
+\end{itemize}}
+\cvrole{Root Education}{Co-Founder}{September - December 2025}{
+\begin{itemize}
+\item Co-founded an AI education platform organizing admissions-focused influencer content into a structured learning environment.
+\item Developed AI-assisted learning features and contributed to product design and frontend development with Next.js and TypeScript.
+\end{itemize}}
+\cvrole{Little Samo}{Contract Software Developer}{September - October 2025}{
+\begin{itemize}
+\item Built SamoAI-InstagramTracker for AI-powered influencer discovery and data collection on the SamoAI multi-agent framework.
+\item Contributed to the SamoAI engine and its CLI-based agent chat interface.
+\end{itemize}}
+\cvrole{Yonsei Medisys Lab}{Research Intern}{January - June 2025}{
+\begin{itemize}
+\item Researched low-dose CT quality assessment using 11,200 MOS-annotated images; trained and evaluated EfficientNet, ViT, TinyViT, and ManiQA.
+\item Investigated CT denoising fine-tuning using an image quality assessment model as a reward signal.
+\end{itemize}}
+\cvrole{Creai+it}{Co-Leader, AI Startup Club}{September 2024 - December 2025}{
+\begin{itemize}
+\item Led AI product development across document intelligence, legal AI, assistive technology, and generative AI, including Somni and Miney.
+\item Collaborated with Upstage on a Solar-based document processing system and participated in the 2025 AGI Agent Hackathon.
+\end{itemize}}
+\cvsection{07}{Awards \& honors}
+\textbf{1st Place, Navy \& Marine Corps Artificial Intelligence Competition}\hfill{\fontsize{8.5}{11}\selectfont\color{Muted}2026}\par\vspace{6pt}
+\textbf{RED S Design Award - 1st Prize}\hfill{\fontsize{8.5}{11}\selectfont\color{Muted}June 2025}\par
+{\fontsize{9}{12}\selectfont\color{Muted}Interactive Media Design, Yonsei University.}
+\cvsection{08}{Technical skills}
+\begin{tabular}{@{}p{30mm}@{}p{140mm}@{}}
+\textbf{Programming} & Python, TypeScript, C++, JavaScript\\[3pt]
+\textbf{Machine learning} & PyTorch, TensorFlow, OpenCV\\[3pt]
+\textbf{Development} & React, Next.js, Git, Linux
+\end{tabular}
+\end{document}

@@ -1,6 +1,7 @@
+import {getCVPage,activateCV} from './content/about/cv-preview.js?v=20261031-cv';
 import {getResearchPost,renderResearchArticle} from './content/research/articles.js?v=20261031-research-posts';
 import {activateResearch} from './content/research/interactions.js?v=20261031-research-posts';
-import {getSection,hasSection} from './content/index.js?v=20261031-research-posts';
+import {getSection,hasSection} from './content/index.js?v=20261031-cv';
 import {localizePost} from './blog/localization.js?v=20261031-content-folders';
 import {getLanguage,setLanguage,t,english,translateDOM,observeLanguage} from './i18n.js?v=20261031-content-folders';
 import {getBlogPost,renderBlogIndex,renderBlogArticle,activateBlog} from './blog/ui.js?v=20261031-content-folders';
@@ -11,7 +12,7 @@ const pageView=document.getElementById('page-view');
 const content=document.getElementById('page-content');
 const reducedMotion=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-let sectionObserver;let entranceFrame;let blogCleanup;let researchCleanup;
+let sectionObserver;let entranceFrame;let blogCleanup;let researchCleanup;let cvCleanup;
 function prepareSectionEntrance(titleText,key,{typing=true}={}){
  if(reducedMotion())return;
  const title=document.getElementById('page-title');
@@ -51,17 +52,18 @@ function renderSection(key,{scroll=true,postSlug='',force=false,animate=true,com
   const base=getSection(key,getLanguage());if(!base)return;
   const post=key==='blog'?localizePost(getBlogPost(postSlug),getLanguage()):undefined;
   const researchPost=key==='research'?getResearchPost(postSlug,getLanguage()):undefined;
-  const activePost=post?.slug||researchPost?.slug||'';
-  const page=post?{...base,object:post.kind==='review'?`PAPER REVIEW / ${post.paper.year}`:`${english(post.category)} / ${english(post.subcategory)} / BOJ ${post.id}`,title:post.title,intro:post.summary,body:renderBlogArticle(post)}:researchPost?{...base,object:`RESEARCH / ${researchPost.topic}`,title:researchPost.title,intro:researchPost.summary,body:renderResearchArticle(researchPost)}:key==='blog'?{...base,body:renderBlogIndex()}:base;
+  const cv=key==='about'&&postSlug==='cv';
+  const activePost=post?.slug||researchPost?.slug||(cv?'cv':'');
+  const page=cv?{...base,...getCVPage(getLanguage())}:post?{...base,object:post.kind==='review'?`PAPER REVIEW / ${post.paper.year}`:`${english(post.category)} / ${english(post.subcategory)} / BOJ ${post.id}`,title:post.title,intro:post.summary,body:renderBlogArticle(post)}:researchPost?{...base,object:`RESEARCH / ${researchPost.topic}`,title:researchPost.title,intro:researchPost.summary,body:renderResearchArticle(researchPost)}:key==='blog'?{...base,body:renderBlogIndex()}:base;
   if(!force&&pageView.dataset.section===key&&pageView.dataset.post===activePost&&!pageView.hidden){if(scroll)scrollToSection();return;}
-  blogCleanup?.();blogCleanup=undefined;researchCleanup?.();researchCleanup=undefined;
+  blogCleanup?.();blogCleanup=undefined;researchCleanup?.();researchCleanup=undefined;cvCleanup?.();cvCleanup=undefined;
   sectionObserver?.disconnect();cancelAnimationFrame(entranceFrame);pageView.classList.remove('section-enter','section-playing');
   document.getElementById('page-title').removeAttribute('aria-label');
   for(const id of ['page-kicker','page-index','page-title','page-intro']){const el=document.getElementById(id);el.classList.remove('section-rise');el.style.removeProperty('--entrance-delay');}
   // Commit the cleared animation styles before reusing the heading elements.
   if(!pageView.hidden)void pageView.offsetWidth;
   pageView.dataset.section=key;pageView.dataset.post=activePost;
-  document.title=(post||researchPost)?`${page.title} — Youngkwon Ko`:key==='blog'?'Blog — Youngkwon Ko':'Youngkwon Ko — A desk of ideas';
+  document.title=(post||researchPost||cv)?`${page.title} — Youngkwon Ko`:key==='blog'?'Blog — Youngkwon Ko':'Youngkwon Ko — A desk of ideas';
   document.getElementById('page-kicker').textContent=page.object;
   document.getElementById('page-index').textContent=`${page.index} / From the desk`;
   document.getElementById('page-title').textContent=english(page.title);
@@ -77,8 +79,9 @@ function renderSection(key,{scroll=true,postSlug='',force=false,animate=true,com
   pageView.hidden=false;
   if(key==='blog')blogCleanup=activateBlog(content,post);
   if(key==='research')researchCleanup=activateResearch(content);
+  if(cv)cvCleanup=activateCV(content);
   translateDOM(pageView);
-  if(animate)prepareSectionEntrance(english(page.title),key,{typing:key==='about'});
+  if(animate)prepareSectionEntrance(english(page.title),key,{typing:key==='about'&&!cv});
   document.querySelectorAll('a[data-section]').forEach(el=>{if(el.dataset.section===key&&(!el.hasAttribute('data-post')||el.dataset.post===activePost))el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');});
   if(scroll)scrollToSection();
 }
@@ -87,7 +90,7 @@ function home({scroll=true}={}) {
   if(scroll){document.querySelector('.brand').focus({preventScroll:true});window.scrollTo({top:0,behavior:reducedMotion()?'instant':'smooth'});}
 }
 function syncHash({initial=false}={}){let [key,postSlug='']=location.hash.slice(1).split('/');if(key==='experience'){key='about';history.replaceState(null,'',`${location.pathname}${location.search}#about`);}if(hasSection(key))renderSection(key,{postSlug});else home({scroll:!initial&&!location.hash});}
-function navigate(key,postSlug=''){if(!hasSection(key))return;const activePost=key==='blog'?getBlogPost(postSlug)?.slug||'':key==='research'?getResearchPost(postSlug)?.slug||'':'';if(pageView.dataset.section!==key||pageView.dataset.post!==activePost||pageView.hidden)history.pushState(null,'',`${location.pathname}${location.search}#${key}${activePost?'/'+activePost:''}`);renderSection(key,{postSlug:activePost});}
+function navigate(key,postSlug=''){if(!hasSection(key))return;const activePost=key==='blog'?getBlogPost(postSlug)?.slug||'':key==='research'?getResearchPost(postSlug)?.slug||'':key==='about'&&postSlug==='cv'?'cv':'';if(pageView.dataset.section!==key||pageView.dataset.post!==activePost||pageView.hidden)history.pushState(null,'',`${location.pathname}${location.search}#${key}${activePost?'/'+activePost:''}`);renderSection(key,{postSlug:activePost});}
 document.addEventListener('click',e=>{
   if(e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
   const a=e.target.closest('a[data-section]');if(a){e.preventDefault();navigate(a.dataset.section,a.dataset.post||'');return;}
@@ -149,7 +152,7 @@ function resumeLive({forceWeather=false}={}){if(document.hidden)return;sceneUpda
 setLanguage(getLanguage());
 document.querySelector('.language-switch').addEventListener('click',event=>{
  const button=event.target.closest('[data-language]');if(!button||button.dataset.language===getLanguage())return;
- const anchor=[...content.querySelectorAll('.article-section,.article-demo,.article-code,.hbr-demo,.research-demo')].find(el=>{const rect=el.getBoundingClientRect();return rect.bottom>80&&rect.top<window.innerHeight;});
+ const anchor=[...content.querySelectorAll('.article-section,.article-demo,.article-code,.hbr-demo,.research-demo,.cv-page')].find(el=>{const rect=el.getBoundingClientRect();return rect.bottom>80&&rect.top<window.innerHeight;});
  const anchorId=anchor?.id,anchorTop=anchor?.getBoundingClientRect().top;
  const commentsRoot=content.querySelector('.article-comments:has(iframe)');
  const demoControls=[...content.querySelectorAll('[data-demo] input,[data-demo] select,[data-research-demo] input,[data-research-demo] select')].map(el=>({value:el.value,checked:el.checked}));

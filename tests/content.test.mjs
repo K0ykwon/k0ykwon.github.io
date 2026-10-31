@@ -75,3 +75,15 @@ test('Illustrative transmission budgets select nested priorities and CCTV filter
  const {CAMERA_EVIDENCE,confirmedCameras}=await import('../content/research/ship-fire-smoke/demo.js');
  assert.equal(CAMERA_EVIDENCE.length,4);assert.deepEqual(confirmedCameras().map(c=>c.id),['02']);assert.equal(CAMERA_EVIDENCE.find(c=>c.kind==='reflection').frames.filter(Boolean).length,1);
 });
+
+test('CV preview links to the compiled PDF, editable LaTeX and both rendered pages',async()=>{
+ const {readFileSync}=await import('node:fs');
+ const {getCVPage}=await import('../content/about/cv-preview.js');
+ const {default:manifest}=await import('../assets/cv/manifest.js');
+ assert.equal(manifest.pages.length,2);
+ const file=path=>new URL('../'+path.split('?')[0],import.meta.url);
+ assert.equal(readFileSync(file(manifest.pdf)).subarray(0,5).toString(),'%PDF-');
+ assert.match(readFileSync(file(manifest.source),'utf8'),/\\documentclass\[a4paper,10pt\]\{article\}/);
+ for(const page of manifest.pages){assert.ok(existsSync(file(page.src)));assert.ok(page.width>1000&&page.height>1500);}
+ for(const language of ['en','ko']){const page=getCVPage(language);assert.equal(page.title,'Curriculum vitae.');assert.ok(page.body.includes(`href="${manifest.pdf}"`));assert.ok(page.body.includes(`href="${manifest.source}"`));assert.equal([...page.body.matchAll(/class="cv-page"/g)].length,2);assert.ok(getSection('about',language).body.includes('href="#about/cv"'));assert.doesNotMatch(page.body,/undefined/);}
+});

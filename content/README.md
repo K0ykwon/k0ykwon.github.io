@@ -55,3 +55,7 @@
 ## 연구 상세 화면
 
 Publications의 항목을 누르면 `#research/<slug>` 주소에서 글 형태로 표시됩니다. 목록용 소개는 각 항목의 `en.js`/`ko.js`, 상세 설명은 `article.js`, 시각화는 `demo.js`에서 관리합니다. 공통 상세 레이아웃은 `research/articles.js`와 `research/articles.css`에 있습니다. 초분광 연구는 전송 예산에 따른 패치 선택, HBR-IE는 원문과 필드 연결, 다중 CCTV 연구는 처리 단계별 예시를 제공합니다. 세 시각화 모두 설명용 데이터를 사용합니다.
+
+## CV
+
+About의 CV 링크는 `#about/cv` 미리보기를 엽니다. `assets/cv/youngkwon-ko-cv.tex`가 편집 원본이며, PDF와 두 페이지 미리보기 이미지를 함께 관리합니다. `assets/cv/README.md`에 컴파일과 미리보기 갱신 방법이 있습니다. CV 화면의 한영 안내 문구와 페이지·확대 조작은 `about/cv-preview.js`에 있습니다.
