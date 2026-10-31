@@ -51,3 +51,7 @@
 ## HBR-IE 시각화
 
 `research/historical-battle-records/example.js`에 설명용 예문, 원문 구간과 필드 연결, 한영 설명을 저장합니다. 실제 코퍼스 인용이 아닌 구성 예문입니다. `demo.js`가 시각화와 선택 동작, `demo.css`가 배치를 담당하며 `research/interactions.js`에서 활성화합니다. 항목이나 원문 구간을 누르면 양쪽이 연결되어 강조되고, 선택 상태는 언어 전환 시에도 유지됩니다.
+
+## 연구 상세 화면
+
+Publications의 항목을 누르면 `#research/<slug>` 주소에서 글 형태로 표시됩니다. 목록용 소개는 각 항목의 `en.js`/`ko.js`, 상세 설명은 `article.js`, 시각화는 `demo.js`에서 관리합니다. 공통 상세 레이아웃은 `research/articles.js`와 `research/articles.css`에 있습니다. 초분광 연구는 전송 예산에 따른 패치 선택, HBR-IE는 원문과 필드 연결, 다중 CCTV 연구는 처리 단계별 예시를 제공합니다. 세 시각화 모두 설명용 데이터를 사용합니다.

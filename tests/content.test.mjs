@@ -44,9 +44,34 @@ test('HBR-IE fields retain exact source spans with valid accessible controls in 
   const sentence=EXAMPLE[language].parts.map(part=>part.text).join('');
   for(const field of EXAMPLE.fields){const record=evidenceFor(field,language);assert.ok(record.span);assert.ok(sentence.includes(record.span));assert.equal(record.source,EXAMPLE.id);assert.equal(record.evidence,EXAMPLE.evidence);}
   assert.equal(evidenceFor('event',language).value,'Land');
-  const body=getSection('research',language).body;
+  const {getResearchPost,renderResearchArticle}=await import('../content/research/articles.js');
+  const body=renderResearchArticle(getResearchPost('historical-battle-records',language));
   const ids=[...body.matchAll(/\bid="([^"]+)"/g)].map(match=>match[1]);assert.equal(ids.length,new Set(ids).size);
   for(const [,target] of body.matchAll(/aria-controls="([^"]+)"/g))assert.ok(ids.includes(target));
  }
  assert.equal(evidenceFor('missing'),undefined);
+});
+
+
+test('All three publications have separate bilingual article routes and their own visualization',async()=>{
+ const {getResearchPost,renderResearchArticle}=await import('../content/research/articles.js');
+ const expected={'mission-aware-hyperspectral':'hyperspectral','historical-battle-records':'hbr-ie','ship-fire-smoke':'cctv'};
+ for(const language of ['en','ko']){
+  const listing=getSection('research',language).body;assert.doesNotMatch(listing,/data-research-demo=/);
+  for(const [slug,demo] of Object.entries(expected)){
+   assert.ok(listing.includes(`href="#research/${slug}"`));
+   const post=getResearchPost(slug,language);assert.equal(post.slug,slug);assert.equal(post.language,language);assert.equal(post.title,getResearchPost(slug,'en').title);assert.ok(post.summary);
+   const article=renderResearchArticle(post);assert.match(article,/class="research-article"/);assert.ok(article.includes(`data-research-demo="${demo}"`));assert.equal([...article.matchAll(/data-research-demo=/g)].length,1);assert.doesNotMatch(article,/undefined|\{\{\w+\}\}/);
+   const ids=[...article.matchAll(/\bid="([^"]+)"/g)].map(match=>match[1]);assert.equal(ids.length,new Set(ids).size);for(const [,target] of article.matchAll(/data-scroll-to="([^"]+)"/g))assert.ok(ids.includes(target));
+  }
+ }
+ assert.equal(getResearchPost('missing'),undefined);assert.equal(getResearchPost('pact'),undefined);
+});
+test('Illustrative transmission budgets select nested priorities and CCTV filters a transient candidate',async()=>{
+ const {PATCHES,selectPatches}=await import('../content/research/mission-aware-hyperspectral/demo.js');
+ assert.equal(PATCHES.length,48);let previous=new Set();
+ for(let budget=1;budget<=48;budget++){const chosen=selectPatches(budget);assert.equal(chosen.length,budget);const ids=new Set(chosen.map(p=>p.id));assert.equal(ids.size,budget);for(const id of previous)assert.ok(ids.has(id));for(let i=1;i<chosen.length;i++)assert.ok(chosen[i-1].score>=chosen[i].score);previous=ids;}
+ for(const invalid of [0,49,1.5,NaN])assert.throws(()=>selectPatches(invalid),RangeError);
+ const {CAMERA_EVIDENCE,confirmedCameras}=await import('../content/research/ship-fire-smoke/demo.js');
+ assert.equal(CAMERA_EVIDENCE.length,4);assert.deepEqual(confirmedCameras().map(c=>c.id),['02']);assert.equal(CAMERA_EVIDENCE.find(c=>c.kind==='reflection').frames.filter(Boolean).length,1);
 });

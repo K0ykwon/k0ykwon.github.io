@@ -1,5 +1,6 @@
-import {activateResearch} from './content/research/interactions.js?v=20261031-research-evidence';
-import {getSection,hasSection} from './content/index.js?v=20261031-research-evidence';
+import {getResearchPost,renderResearchArticle} from './content/research/articles.js?v=20261031-research-posts';
+import {activateResearch} from './content/research/interactions.js?v=20261031-research-posts';
+import {getSection,hasSection} from './content/index.js?v=20261031-research-posts';
 import {localizePost} from './blog/localization.js?v=20261031-content-folders';
 import {getLanguage,setLanguage,t,english,translateDOM,observeLanguage} from './i18n.js?v=20261031-content-folders';
 import {getBlogPost,renderBlogIndex,renderBlogArticle,activateBlog} from './blog/ui.js?v=20261031-content-folders';
@@ -49,8 +50,9 @@ function scrollToSection(){
 function renderSection(key,{scroll=true,postSlug='',force=false,animate=true,commentsRoot=null}={}) {
   const base=getSection(key,getLanguage());if(!base)return;
   const post=key==='blog'?localizePost(getBlogPost(postSlug),getLanguage()):undefined;
-  const activePost=post?.slug||'';
-  const page=post?{...base,object:post.kind==='review'?`PAPER REVIEW / ${post.paper.year}`:`${english(post.category)} / ${english(post.subcategory)} / BOJ ${post.id}`,title:post.title,intro:post.summary,body:renderBlogArticle(post)}:key==='blog'?{...base,body:renderBlogIndex()}:base;
+  const researchPost=key==='research'?getResearchPost(postSlug,getLanguage()):undefined;
+  const activePost=post?.slug||researchPost?.slug||'';
+  const page=post?{...base,object:post.kind==='review'?`PAPER REVIEW / ${post.paper.year}`:`${english(post.category)} / ${english(post.subcategory)} / BOJ ${post.id}`,title:post.title,intro:post.summary,body:renderBlogArticle(post)}:researchPost?{...base,object:`RESEARCH / ${researchPost.topic}`,title:researchPost.title,intro:researchPost.summary,body:renderResearchArticle(researchPost)}:key==='blog'?{...base,body:renderBlogIndex()}:base;
   if(!force&&pageView.dataset.section===key&&pageView.dataset.post===activePost&&!pageView.hidden){if(scroll)scrollToSection();return;}
   blogCleanup?.();blogCleanup=undefined;researchCleanup?.();researchCleanup=undefined;
   sectionObserver?.disconnect();cancelAnimationFrame(entranceFrame);pageView.classList.remove('section-enter','section-playing');
@@ -59,14 +61,14 @@ function renderSection(key,{scroll=true,postSlug='',force=false,animate=true,com
   // Commit the cleared animation styles before reusing the heading elements.
   if(!pageView.hidden)void pageView.offsetWidth;
   pageView.dataset.section=key;pageView.dataset.post=activePost;
-  document.title=post?`${post.title} — Youngkwon Ko`:key==='blog'?'Blog — Youngkwon Ko':'Youngkwon Ko — A desk of ideas';
+  document.title=(post||researchPost)?`${page.title} — Youngkwon Ko`:key==='blog'?'Blog — Youngkwon Ko':'Youngkwon Ko — A desk of ideas';
   document.getElementById('page-kicker').textContent=page.object;
   document.getElementById('page-index').textContent=`${page.index} / From the desk`;
   document.getElementById('page-title').textContent=english(page.title);
   document.getElementById('page-intro').textContent=page.intro;
   content.innerHTML=page.body;
   if(commentsRoot)content.querySelector('.article-comments')?.replaceWith(commentsRoot);
-  if(key==='research'){
+  if(key==='research'&&!researchPost){
     const publications=content.querySelector('.publications-section');
     const firstAuthor=paper=>paper.querySelector('.publication-authors')?.textContent.split(',')[0].trim()==='Youngkwon Ko';
     const papers=[...publications.querySelectorAll('.publication')].sort((a,b)=>Number(firstAuthor(b))-Number(firstAuthor(a)));
@@ -85,7 +87,7 @@ function home({scroll=true}={}) {
   if(scroll){document.querySelector('.brand').focus({preventScroll:true});window.scrollTo({top:0,behavior:reducedMotion()?'instant':'smooth'});}
 }
 function syncHash({initial=false}={}){let [key,postSlug='']=location.hash.slice(1).split('/');if(key==='experience'){key='about';history.replaceState(null,'',`${location.pathname}${location.search}#about`);}if(hasSection(key))renderSection(key,{postSlug});else home({scroll:!initial&&!location.hash});}
-function navigate(key,postSlug=''){if(!hasSection(key))return;const activePost=key==='blog'?getBlogPost(postSlug)?.slug||'':'';if(pageView.dataset.section!==key||pageView.dataset.post!==activePost||pageView.hidden)history.pushState(null,'',`${location.pathname}${location.search}#${key}${activePost?'/'+activePost:''}`);renderSection(key,{postSlug:activePost});}
+function navigate(key,postSlug=''){if(!hasSection(key))return;const activePost=key==='blog'?getBlogPost(postSlug)?.slug||'':key==='research'?getResearchPost(postSlug)?.slug||'':'';if(pageView.dataset.section!==key||pageView.dataset.post!==activePost||pageView.hidden)history.pushState(null,'',`${location.pathname}${location.search}#${key}${activePost?'/'+activePost:''}`);renderSection(key,{postSlug:activePost});}
 document.addEventListener('click',e=>{
   if(e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
   const a=e.target.closest('a[data-section]');if(a){e.preventDefault();navigate(a.dataset.section,a.dataset.post||'');return;}
@@ -147,14 +149,14 @@ function resumeLive({forceWeather=false}={}){if(document.hidden)return;sceneUpda
 setLanguage(getLanguage());
 document.querySelector('.language-switch').addEventListener('click',event=>{
  const button=event.target.closest('[data-language]');if(!button||button.dataset.language===getLanguage())return;
- const anchor=[...content.querySelectorAll('.article-section,.article-demo,.article-code,.hbr-demo')].find(el=>{const rect=el.getBoundingClientRect();return rect.bottom>80&&rect.top<window.innerHeight;});
+ const anchor=[...content.querySelectorAll('.article-section,.article-demo,.article-code,.hbr-demo,.research-demo')].find(el=>{const rect=el.getBoundingClientRect();return rect.bottom>80&&rect.top<window.innerHeight;});
  const anchorId=anchor?.id,anchorTop=anchor?.getBoundingClientRect().top;
  const commentsRoot=content.querySelector('.article-comments:has(iframe)');
- const demoControls=[...content.querySelectorAll('[data-demo] input,[data-demo] select')].map(el=>({value:el.value,checked:el.checked}));
+ const demoControls=[...content.querySelectorAll('[data-demo] input,[data-demo] select,[data-research-demo] input,[data-research-demo] select')].map(el=>({value:el.value,checked:el.checked}));
  setLanguage(button.dataset.language);
  const key=pageView.dataset.section||'about',postSlug=pageView.dataset.post||'';
  renderSection(key,{scroll:false,postSlug,force:true,animate:false,commentsRoot});
- const restoredControls=[...content.querySelectorAll('[data-demo] input,[data-demo] select')];
+ const restoredControls=[...content.querySelectorAll('[data-demo] input,[data-demo] select,[data-research-demo] input,[data-research-demo] select')];
  demoControls.forEach((state,index)=>{const el=restoredControls[index];if(!el)return;el.value=state.value;if(el.type==='checkbox')el.checked=state.checked;el.dispatchEvent(new Event('input',{bubbles:true}));if(el.tagName==='SELECT')el.dispatchEvent(new Event('change',{bubbles:true}));if(el.matches('[data-blocks]'))el.form.requestSubmit();});
  if(anchorId){const translated=document.getElementById(anchorId);if(translated)window.scrollBy({top:translated.getBoundingClientRect().top-anchorTop,behavior:'instant'});}
  updateClock();

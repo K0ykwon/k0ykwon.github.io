@@ -1,4 +1,4 @@
-import {EXAMPLE,evidenceFor} from './example.js?v=20261031-research-evidence';
+import {EXAMPLE,evidenceFor} from './example.js?v=20261031-research-posts';
 const escape=value=>String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 let selection='all';
 export function renderEvidenceDemo(language='en'){
