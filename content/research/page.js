@@ -1,3 +1,3 @@
 import metadata from './meta.js?v=20261031-content-folders';
-import {publications,ongoing} from './index.js?v=20261031-content-folders';
+import {publications,ongoing} from './index.js?v=20261031-research-evidence';
 export default function research(language){return {...metadata,intro:metadata.intro[language],body:`<div data-content-localized><div class="research-overview"><section class="publications-section" aria-labelledby="publications-title"><header class="research-section-heading"><span class="entry-meta">01 / SELECTED PUBLICATIONS</span><h2 id="publications-title">Publications</h2></header>${publications.map(entry=>entry.html[language]).join('')}</section><section class="ongoing-section" aria-labelledby="ongoing-title"><header class="research-section-heading"><span class="entry-meta">02 / IN PROGRESS</span><h2 id="ongoing-title">Ongoing work</h2></header>${ongoing.map(entry=>entry.html[language]).join('')}</section></div></div>`};}

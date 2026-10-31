@@ -37,3 +37,16 @@ test('Every declared widget belongs to its post folder and has a working rendere
  }
  assert.deepEqual(types.sort(),Object.keys(POST_DEMOS).sort());
 });
+
+test('HBR-IE fields retain exact source spans with valid accessible controls in both locales',async()=>{
+ const {EXAMPLE,evidenceFor}=await import('../content/research/historical-battle-records/example.js');
+ for(const language of ['en','ko']){
+  const sentence=EXAMPLE[language].parts.map(part=>part.text).join('');
+  for(const field of EXAMPLE.fields){const record=evidenceFor(field,language);assert.ok(record.span);assert.ok(sentence.includes(record.span));assert.equal(record.source,EXAMPLE.id);assert.equal(record.evidence,EXAMPLE.evidence);}
+  assert.equal(evidenceFor('event',language).value,'Land');
+  const body=getSection('research',language).body;
+  const ids=[...body.matchAll(/\bid="([^"]+)"/g)].map(match=>match[1]);assert.equal(ids.length,new Set(ids).size);
+  for(const [,target] of body.matchAll(/aria-controls="([^"]+)"/g))assert.ok(ids.includes(target));
+ }
+ assert.equal(evidenceFor('missing'),undefined);
+});

@@ -1,4 +1,5 @@
-import {getSection,hasSection} from './content/index.js?v=20261031-content-folders';
+import {activateResearch} from './content/research/interactions.js?v=20261031-research-evidence';
+import {getSection,hasSection} from './content/index.js?v=20261031-research-evidence';
 import {localizePost} from './blog/localization.js?v=20261031-content-folders';
 import {getLanguage,setLanguage,t,english,translateDOM,observeLanguage} from './i18n.js?v=20261031-content-folders';
 import {getBlogPost,renderBlogIndex,renderBlogArticle,activateBlog} from './blog/ui.js?v=20261031-content-folders';
@@ -9,7 +10,7 @@ const pageView=document.getElementById('page-view');
 const content=document.getElementById('page-content');
 const reducedMotion=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-let sectionObserver;let entranceFrame;let blogCleanup;
+let sectionObserver;let entranceFrame;let blogCleanup;let researchCleanup;
 function prepareSectionEntrance(titleText,key,{typing=true}={}){
  if(reducedMotion())return;
  const title=document.getElementById('page-title');
@@ -51,7 +52,7 @@ function renderSection(key,{scroll=true,postSlug='',force=false,animate=true,com
   const activePost=post?.slug||'';
   const page=post?{...base,object:post.kind==='review'?`PAPER REVIEW / ${post.paper.year}`:`${english(post.category)} / ${english(post.subcategory)} / BOJ ${post.id}`,title:post.title,intro:post.summary,body:renderBlogArticle(post)}:key==='blog'?{...base,body:renderBlogIndex()}:base;
   if(!force&&pageView.dataset.section===key&&pageView.dataset.post===activePost&&!pageView.hidden){if(scroll)scrollToSection();return;}
-  blogCleanup?.();blogCleanup=undefined;
+  blogCleanup?.();blogCleanup=undefined;researchCleanup?.();researchCleanup=undefined;
   sectionObserver?.disconnect();cancelAnimationFrame(entranceFrame);pageView.classList.remove('section-enter','section-playing');
   document.getElementById('page-title').removeAttribute('aria-label');
   for(const id of ['page-kicker','page-index','page-title','page-intro']){const el=document.getElementById(id);el.classList.remove('section-rise');el.style.removeProperty('--entrance-delay');}
@@ -73,6 +74,7 @@ function renderSection(key,{scroll=true,postSlug='',force=false,animate=true,com
   }
   pageView.hidden=false;
   if(key==='blog')blogCleanup=activateBlog(content,post);
+  if(key==='research')researchCleanup=activateResearch(content);
   translateDOM(pageView);
   if(animate)prepareSectionEntrance(english(page.title),key,{typing:key==='about'});
   document.querySelectorAll('a[data-section]').forEach(el=>{if(el.dataset.section===key&&(!el.hasAttribute('data-post')||el.dataset.post===activePost))el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');});
@@ -145,7 +147,7 @@ function resumeLive({forceWeather=false}={}){if(document.hidden)return;sceneUpda
 setLanguage(getLanguage());
 document.querySelector('.language-switch').addEventListener('click',event=>{
  const button=event.target.closest('[data-language]');if(!button||button.dataset.language===getLanguage())return;
- const anchor=[...content.querySelectorAll('.article-section,.article-demo,.article-code')].find(el=>{const rect=el.getBoundingClientRect();return rect.bottom>80&&rect.top<window.innerHeight;});
+ const anchor=[...content.querySelectorAll('.article-section,.article-demo,.article-code,.hbr-demo')].find(el=>{const rect=el.getBoundingClientRect();return rect.bottom>80&&rect.top<window.innerHeight;});
  const anchorId=anchor?.id,anchorTop=anchor?.getBoundingClientRect().top;
  const commentsRoot=content.querySelector('.article-comments:has(iframe)');
  const demoControls=[...content.querySelectorAll('[data-demo] input,[data-demo] select')].map(el=>({value:el.value,checked:el.checked}));
