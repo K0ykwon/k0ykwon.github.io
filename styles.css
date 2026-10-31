@@ -55,7 +55,7 @@
 
 /* Independent light sources, both masked to the opaque interior. */
 .window-landscape{isolation:isolate}.window-landscape .scene-image{position:absolute;inset:0;width:100%;height:100%;filter:none!important;opacity:0;transition:none!important}.window-landscape:where([data-ready]) .scene-image{transition:opacity 4s ease!important}
-.scene-illumination{position:absolute;inset:0;z-index:2;pointer-events:none;mask-image:url('assets/desk-wide-v7.webp');mask-size:100% 100%;mask-mode:alpha;mask-repeat:no-repeat;transition:background 4s ease,opacity 4s ease!important}
+.scene-illumination{position:absolute;inset:0;z-index:2;pointer-events:none;mask-image:url('assets/desk-wide-v8.webp');mask-size:100% 100%;mask-mode:alpha;mask-repeat:no-repeat;transition:background 4s ease,opacity 4s ease!important}
 .room-shade{background:radial-gradient(ellipse var(--lamp-radius,28%) var(--lamp-radius-y,48%) at 25% 65%,rgb(8 12 20 / var(--lamp-shade,.1)) 0%,rgb(8 12 20 / var(--lamp-shade,.1)) 12%,rgb(8 12 20 / var(--room-darkness,.15)) 100%)}
 .window-pool{background:radial-gradient(ellipse at 62% 53%,var(--spill-color,#fff4e0) 0%,transparent 80%);opacity:var(--spill-opacity,.1);mix-blend-mode:soft-light}
 .lamp-pool{background:radial-gradient(ellipse var(--lamp-radius,28%) var(--lamp-radius-y,48%) at 25% 65%,#ffb85c 0%,#ffd18a 25%,transparent 74%);opacity:var(--lamp-tint,0);mix-blend-mode:multiply}
@@ -76,15 +76,15 @@ html.theme-ready{transition:--paper .6s ease-in-out,--surface .6s ease-in-out,--
 .weather-widget{color:var(--weather-ink,#202421)}
 .profile-links{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:22px}.profile-links a{display:inline-flex;font-size:12px;border-bottom:1px solid var(--line);padding-bottom:5px;gap:8px}.profile-links a:focus-visible{outline-offset:4px}
 
-/* Experience has its own reading order: career timeline, then a separate honors rail. */
-.page-view[data-section=experience] .page-layout{display:block;padding-top:38px}
-.page-view[data-section=experience] .page-heading{position:static;display:grid;grid-template-columns:1fr 1fr;column-gap:7%;align-items:center;margin-bottom:42px}
-.page-view[data-section=experience] .page-heading .entry-meta,.page-view[data-section=experience] .page-index{grid-column:1}
-.page-view[data-section=experience] .page-index{margin-top:12px}
-.page-view[data-section=experience] #page-title{grid-column:1;margin-bottom:0}
-.page-view[data-section=experience] .page-intro{grid-column:2;grid-row:1/4;max-width:420px}
-.page-view[data-section=experience] .page-content{display:block}
-.experience-overview{display:grid;grid-template-columns:minmax(0,2.25fr) minmax(240px,1fr);gap:6%;align-items:start}
+/* About includes the introduction, career timeline and a separate honors rail. */
+.page-view[data-section=about] .page-layout{display:block;padding-top:38px}
+.page-view[data-section=about] .page-heading{position:static;display:grid;grid-template-columns:1fr 1fr;column-gap:7%;align-items:center;margin-bottom:42px}
+.page-view[data-section=about] .page-heading .entry-meta,.page-view[data-section=about] .page-index{grid-column:1}
+.page-view[data-section=about] .page-index{margin-top:12px}
+.page-view[data-section=about] #page-title{grid-column:1;margin-bottom:0}
+.page-view[data-section=about] .page-intro{grid-column:2;grid-row:1/4;max-width:420px}
+.page-view[data-section=about] .page-content{grid-template-columns:repeat(2,minmax(0,1fr))}
+.experience-overview{grid-column:1/-1;margin-top:36px;display:grid;grid-template-columns:minmax(0,2.25fr) minmax(240px,1fr);gap:6%;align-items:start}
 .experience-section-heading{border-top:1px solid var(--ink);padding:20px 0 26px}
 .experience-section-heading h2{font:normal 26px/1.3 var(--serif);margin:10px 0 0;letter-spacing:-.5px}
 .career-timeline{list-style:none;padding:0;margin:0}
@@ -102,10 +102,10 @@ html.theme-ready{transition:--paper .6s ease-in-out,--surface .6s ease-in-out,--
 .award-entry{padding:0 0 24px;margin-bottom:24px;border-bottom:1px solid var(--line)}
 .award-entry .entry-meta{display:block;margin-bottom:10px}.cv-entry{padding-top:5px}.cv-entry h3{font-size:18px;font-weight:500;margin:10px 0}
 @media(max-width:900px){.experience-overview{grid-template-columns:minmax(0,1fr);gap:42px}.honors-section{position:static}.timeline-item{grid-template-columns:125px minmax(0,1fr);gap:18px}.honors-section{display:grid;grid-template-columns:1fr 1fr;gap:0 30px}.honors-section .experience-section-heading,.honors-section .cv-entry{grid-column:1/-1}}
-@media(max-width:520px){.page-view[data-section=experience] .page-heading{display:block;margin-bottom:30px}.page-view[data-section=experience] .page-intro{margin-top:18px}.experience-section-heading h2{font-size:24px}.timeline-item{display:block;padding:0 0 32px 18px;border-left:1px solid var(--line)}.timeline-date{font-size:10px;margin-bottom:10px;padding:0}.timeline-status{display:inline-block;margin:0 0 0 8px}.timeline-entry{padding:0;border:0}.timeline-entry:before{left:-22px;top:-23px}.timeline-item:last-child{border-color:transparent}.timeline-entry h3{font-size:20px}.honors-section{display:block}.award-entry{margin-bottom:22px}}
+@media(max-width:520px){.page-view[data-section=about] .page-heading{display:block;margin-bottom:30px}.page-view[data-section=about] .page-intro{margin-top:18px}.experience-section-heading h2{font-size:24px}.timeline-item{display:block;padding:0 0 32px 18px;border-left:1px solid var(--line)}.timeline-date{font-size:10px;margin-bottom:10px;padding:0}.timeline-status{display:inline-block;margin:0 0 0 8px}.timeline-entry{padding:0;border:0}.timeline-entry:before{left:-22px;top:-23px}.timeline-item:last-child{border-color:transparent}.timeline-entry h3{font-size:20px}.honors-section{display:block}.award-entry{margin-bottom:22px}}
 
 /* Laptop stays on: a very low daytime baseline, with bounded spill in darkness. */
-.room-shade{mask-image:radial-gradient(ellipse 34% 60% at 83% 57%,rgb(0 0 0 / calc(1 - .72 * var(--lamp-power,0))) 0%,rgb(0 0 0 / calc(1 - .4 * var(--lamp-power,0))) 42%,#000 100%),url('assets/desk-wide-v7.webp');mask-composite:intersect}
+.room-shade{mask-image:radial-gradient(ellipse 34% 60% at 83% 57%,rgb(0 0 0 / calc(1 - .72 * var(--lamp-power,0))) 0%,rgb(0 0 0 / calc(1 - .4 * var(--lamp-power,0))) 42%,#000 100%),url('assets/desk-wide-v8.webp');mask-composite:intersect}
 .screen-pool{background:radial-gradient(ellipse 26% 42% at 80% 68%,#d0e3fc 0%,transparent 78%);opacity:calc(.015 + .055 * var(--lamp-power,0));mix-blend-mode:screen}
 .screen-emitter{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none;opacity:calc(.025 + .045 * var(--lamp-power,0));mix-blend-mode:screen;transition:opacity 4s ease!important}.screen-emitter polygon{fill:#dcecff}
 @media(prefers-reduced-motion:reduce){.screen-emitter{transition:none!important}}
@@ -137,8 +137,8 @@ html.theme-ready{transition:--paper .6s ease-in-out,--surface .6s ease-in-out,--
 .desk:has(.hotspot-blog:is(:focus-visible,[aria-current="page"])) .hover-blog{opacity:1}
 .desk .hotspot-about{clip-path:polygon(23.06069% 89.87952%,30.18470% 61.32530%,45.11873% 60.36145%,45.11873% 94.81928%)}
 .desk:has(.hotspot-about:is(:focus-visible,[aria-current="page"])) .hover-about{opacity:1}
-.desk .hotspot-experience{clip-path:polygon(46.17414% 60.36145%,64.22164% 62.65060%,69.65699% 93.85542%,46.17414% 94.81928%)}
-.desk:has(.hotspot-experience:is(:focus-visible,[aria-current="page"])) .hover-experience{opacity:1}
+.desk .hotspot-research{clip-path:polygon(46.17414% 60.36145%,64.22164% 62.65060%,69.65699% 93.85542%,46.17414% 94.81928%)}
+.desk:has(.hotspot-research:is(:focus-visible,[aria-current="page"])) .hover-research{opacity:1}
 .desk .hotspot-software{clip-path:polygon(64.90765% 66.26506%,72.40106% 55.30120%,74.93404% 25.78313%,97.62533% 31.08434%,95.51451% 64.09639%,91.45119% 78.79518%,65.32982% 69.15663%)}
 .desk:has(.hotspot-software:is(:focus-visible,[aria-current="page"])) .hover-software{opacity:1}
 .desk .hotspot-contact{clip-path:polygon(72.29551% 90.72289%,76.09499% 74.09639%,89.07652% 79.03614%,87.07124% 99.27711%,72.29551% 94.33735%)}
@@ -147,7 +147,7 @@ html.theme-ready{transition:--paper .6s ease-in-out,--surface .6s ease-in-out,--
 .desk:has(.hotspot-lamp:hover) .hover-lamp{opacity:1}
 .desk:has(.hotspot-blog:hover) .hover-blog{opacity:1}
 .desk:has(.hotspot-about:hover) .hover-about{opacity:1}
-.desk:has(.hotspot-experience:hover) .hover-experience{opacity:1}
+.desk:has(.hotspot-research:hover) .hover-research{opacity:1}
 .desk:has(.hotspot-software:hover) .hover-software{opacity:1}
 .desk:has(.hotspot-contact:hover) .hover-contact{opacity:1}
 }
@@ -183,3 +183,5 @@ html.theme-ready{transition:--paper .6s ease-in-out,--surface .6s ease-in-out,--
 .language-switch button{padding:7px 0;border:0;border-bottom:1px solid transparent;font-size:11px}
 .language-switch button[aria-pressed=true]{color:var(--ink);border-color:var(--ink)}
 @media(max-width:800px){.header-controls{order:1;margin-left:auto}.header-controls .theme-button{margin-left:0}.main-nav{order:2}.site-header{column-gap:10px}}
+
+@media(max-width:700px){.page-view[data-section=about] .page-content{grid-template-columns:minmax(0,1fr)}}

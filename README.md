@@ -75,3 +75,5 @@ Desk v7 replaces the right notebook’s Working notes lettering and diagram with
 Language selection changes explanatory prose only. Navigation, page and article titles, subheadings, table headings, categories, tags and control labels stay in English. Korean articles reuse English heading markup with stable section ids; introductory descriptions, article paragraphs and explanatory demo captions retain their Korean variants.
 
 Section navigation appears once in the site header. Removed the duplicate mobile desk menu and the repeated section menu above page content; Back to the desk buttons remain.
+
+2026-10-31 navigation consolidation: the left notebook page opens About, including the original five-entry career timeline and separate awards; the right page opens Research, with Publications first and brief Ongoing work. Software remains on the laptop. The header has five destinations. Old #experience links resolve to About. Desk v8 replaces only the right-page lettering with Research and publication/research notes, preserving the original alpha and pen; both themes and illumination masks use the same art.

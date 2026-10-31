@@ -1,0 +1,15 @@
+{
+  "mode": "built-in imagegen",
+  "source": "assets/desk-wide-v7.webp",
+  "output": "assets/desk-wide-v8.webp",
+  "size": [
+    1895,
+    830
+  ],
+  "prompt": "Use case: precise-object-edit.\nAsset type: existing illustrated portfolio desk foreground, wide 1895 by 830 pixels.\nInput image is the EDIT TARGET. Change ONLY the ink lettering and drawings INSIDE THE RIGHT PAGE of the central spiral notebook (approximately x900 to1200, y540 to710).\nReplace the existing \"Experience\" heading and all five career timeline dots and career labels with a hand-lettered research page. Exact main heading: \"Research →\". Below, smaller handwritten text on several short neatly spaced lines: \"Publications\", \"Hyperspectral imaging\", \"Historical records\". Near the lower-left of this right page draw a tiny elegant wavefunction curve, and a final small line \"PACT · Lineage\". Keep these inside the page and to the LEFT of the black pen so that no lettering overlaps the pen. Match the existing thin hand-ink note style, paper perspective, generous spacing, monochrome palette. No timeline dots.\nInvariants: absolutely preserve the entire rest of the desk, left notebook page and its Youngkwon Ko lettering, spiral binding, pen shape and position, notebook page edges and outline, laptop and its Software lettering, lamp, plant, books and Blog lettering, contact card, background, light, camera, scale, composition. Keep original transparent window and all original alpha transparency. Do NOT resize, crop, reframe, redraw or move any object. No new lighting. This is a surgical edit to the right notebook page only. Output the full original wide image with transparency retained.",
+  "integration": {
+    "edit": "Only right page interior; existing feathered page mask excludes original pen. Original alpha retained. All RGB pixels outside mask unchanged.",
+    "mask_source": "desk-experience-generation.json integration",
+    "hover": "Existing registered transparent watercolor wash renamed from experience to research."
+  }
+}
