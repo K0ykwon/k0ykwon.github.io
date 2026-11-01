@@ -17,7 +17,7 @@
 각 항목의 `meta.js`에는 식별자, 제목, 종류를 저장합니다. 경력에는 표시 기간(`period`)과 직책(`role`)도 있습니다. `en.js`와 `ko.js`는 해당 언어의 HTML 본문입니다. 두 본문의 `{{title}}`, `{{period}}`, `{{role}}`는 `meta.js`의 값을 사용하므로 공통 정보를 한 번만 수정하면 됩니다. `index.js`가 이 정보를 조합합니다.
 
 - 논문: `research/mission-aware-hyperspectral/`, `research/historical-battle-records/`, `research/ship-fire-smoke/`
-- 진행 중인 연구: `research/pact/`, `research/lineage/`
+- 진행 중인 연구: `research/under-review/` (이중 익명 심사 중인 논문 수만 표시)
 - 경력 예시: `experience/rok-navy/`, `experience/creaiit/`
 - 수상 예시: `awards/navy-marine-ai-2026/`
 

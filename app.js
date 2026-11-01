@@ -1,6 +1,6 @@
 import {getResearchPost,renderResearchArticle} from './content/research/articles.js?v=20261031-research-posts';
 import {activateResearch} from './content/research/interactions.js?v=20261031-research-posts';
-import {getSection,hasSection} from './content/index.js?v=20261031-cv-footer';
+import {getSection,hasSection} from './content/index.js?v=20261102-review';
 import {localizePost} from './blog/localization.js?v=20261031-content-folders';
 import {getLanguage,setLanguage,t,english,translateDOM,observeLanguage} from './i18n.js?v=20261031-content-folders';
 import {getBlogPost,renderBlogIndex,renderBlogArticle,activateBlog} from './blog/ui.js?v=20261031-content-folders';

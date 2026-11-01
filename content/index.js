@@ -1,5 +1,5 @@
 import about from './about/index.js?v=20261031-cv-footer';
-import research from './research/page.js?v=20261031-research-posts';
+import research from './research/page.js?v=20261102-review';
 import software from './software/index.js?v=20261031-content-folders';
 import contact from './contact/index.js?v=20261031-content-folders';
 import blog from './posts/page.js?v=20261031-content-folders';

@@ -7,7 +7,7 @@ The CV LaTeX supplied by Youngkwon Ko in this conversation is the source for edu
 ## Implemented distribution
 
 - **About:** short introduction; Yonsei AI undergraduate studies beginning March 2023; currently on leave; current Navy AI Specialist role; interests and working approach; three skill groups; Email/GitHub/LinkedIn/ORCID links.
-- **Research:** three full publication entries as supplied, with complete titles and supplied author lists; hyperspectral results explicitly described as latent-payload reductions; ongoing PACT and Lineage work kept separate from publications.
+- **Research:** three full publication entries as supplied, with complete titles and supplied author lists; hyperspectral results explicitly described as latent-payload reductions; an anonymous count of two manuscripts under double-blind review kept separate from publications.
 - **Experience:** ROK Navy, Creai+it, Root Education, Little Samo, Yonsei Medisys Lab; roles, dates and responsibilities from the CV; two awards.
 - **Software:** retain current projects and repository links; clarify Miney as legal document analysis and case retrieval. Somni appears in the Creai+it experience, without inventing a repository URL.
 - **Contact:** Email, GitHub, LinkedIn and ORCID.
@@ -18,7 +18,7 @@ The CV LaTeX supplied by Youngkwon Ko in this conversation is the source for edu
 - Navy: December 2025–present; August 2027 is expected service completion, not a completed past role.
 - Creai+it: September 2024–December 2025, corrected by the user.
 - Publications retain the venue and year supplied by the user. No DOI, issue/pages, extra coauthors or publication URL is invented.
-- PACT and Lineage remain ongoing work; they are not moved into the supplied publication list.
+- Manuscripts under double-blind review are represented only by their count; titles, methods and author-identifying details are not listed.
 
 ## Public links
 
@@ -39,7 +39,7 @@ Career entries are now a vertical timeline sorted by starting date (latest first
 
 ## Research layout update
 
-Publications are the main full-width, detailed list (three papers with authors, available bibliographic metadata, short summaries and topics). Ongoing work is a separate compact section containing PACT and Lineage only. The low-dose CT research item is removed from Research; the Medisys employment entry remains in Experience.
+Publications are the main full-width, detailed list (three papers with authors, available bibliographic metadata, short summaries and topics). Ongoing work is a separate compact section displaying only two manuscripts under double-blind review. The low-dose CT research item is removed from Research; the Medisys employment entry remains in Experience.
 
 ## Added publication: public-data multi-CCTV early warning
 

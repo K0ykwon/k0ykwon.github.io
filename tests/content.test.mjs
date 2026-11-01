@@ -65,7 +65,7 @@ test('All three publications have separate bilingual article routes and their ow
    const ids=[...article.matchAll(/\bid="([^"]+)"/g)].map(match=>match[1]);assert.equal(ids.length,new Set(ids).size);for(const [,target] of article.matchAll(/data-scroll-to="([^"]+)"/g))assert.ok(ids.includes(target));
   }
  }
- assert.equal(getResearchPost('missing'),undefined);assert.equal(getResearchPost('pact'),undefined);
+ assert.equal(getResearchPost('missing'),undefined);assert.equal(getResearchPost('under-review'),undefined);
 });
 test('Illustrative transmission budgets select nested priorities and CCTV filters a transient candidate',async()=>{
  const {PATCHES,selectPatches}=await import('../content/research/mission-aware-hyperspectral/demo.js');

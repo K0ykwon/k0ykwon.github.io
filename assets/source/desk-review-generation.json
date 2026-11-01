@@ -1,0 +1,19 @@
+{
+  "mode": "built-in imagegen",
+  "output": "assets/desk-wide-v9.webp",
+  "size": [
+    1895,
+    830
+  ],
+  "prompt": "Replace only the small handwritten last line of the right notebook page with Under review · 2. Preserve handwriting, paper texture, every other object, framing and transparency.",
+  "integration": {
+    "patch": [
+      922,
+      701,
+      1085,
+      731
+    ],
+    "alpha": "Original alpha retained; all visible RGB changes confined to the text patch.",
+    "hover": "Registered watercolor layer contains no research names."
+  }
+}
