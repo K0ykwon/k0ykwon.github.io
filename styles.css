@@ -188,3 +188,5 @@ html.theme-ready{transition:--paper .6s ease-in-out,--surface .6s ease-in-out,--
 
 /* Locale wrappers keep content ownership separate without changing the page grid. */
 .page-content>[data-content-localized]{display:contents}
+
+.software-links{display:flex;flex-wrap:wrap;gap:12px 20px}
