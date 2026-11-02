@@ -1,4 +1,4 @@
-import {read,hosted} from './catalog-client.js?v=6c62efe7fa0cfd68';
+import {read,hosted} from './catalog-client.js?v=92e50eea49149e42';
 const $=selector=>document.querySelector(selector);
 const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 let graph,nodes,selected='model:transformer',zoom=1,searchTimer,mode='overview',world={width:1400,height:720},camera={x:0,y:0,width:1400,height:720},pan=null;
