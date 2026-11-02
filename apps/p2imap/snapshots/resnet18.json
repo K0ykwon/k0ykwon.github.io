@@ -1,0 +1,4412 @@
+{
+  "runtime_id": "resnet18",
+  "p2i_version": "0.4.4",
+  "operations": 90,
+  "modules": 68,
+  "bindings": [
+    {
+      "ontology_id": "component:convolution",
+      "module_path": "layer1.0.conv1",
+      "architecture_node_id": "a7",
+      "module_type": "torch.nn.Conv2d",
+      "parameters": {
+        "in_channels": 64,
+        "out_channels": 64,
+        "kernel_size": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "padding": [
+          1,
+          1
+        ],
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "bias": false,
+        "padding_mode": "zeros"
+      },
+      "editable": true,
+      "managed_by": null,
+      "parameter_count": 36864
+    }
+  ],
+  "architecture": {
+    "version": "0.1",
+    "model_name": "ResNet",
+    "root_id": "a0",
+    "revision": 0,
+    "seed": 0,
+    "nodes": [
+      {
+        "id": "a0",
+        "name": "ResNet",
+        "qualified_name": "",
+        "kind": "custom",
+        "module_type": "torchvision.models.resnet.ResNet",
+        "parameters": {},
+        "children": [
+          {
+            "name": "conv1",
+            "node_id": "a1"
+          },
+          {
+            "name": "bn1",
+            "node_id": "a2"
+          },
+          {
+            "name": "relu",
+            "node_id": "a3"
+          },
+          {
+            "name": "maxpool",
+            "node_id": "a4"
+          },
+          {
+            "name": "layer1",
+            "node_id": "a5"
+          },
+          {
+            "name": "layer2",
+            "node_id": "a18"
+          },
+          {
+            "name": "layer3",
+            "node_id": "a34"
+          },
+          {
+            "name": "layer4",
+            "node_id": "a50"
+          },
+          {
+            "name": "avgpool",
+            "node_id": "a66"
+          },
+          {
+            "name": "fc",
+            "node_id": "a67"
+          }
+        ],
+        "source_observed_module_id": "m0",
+        "latest_observed_module_id": "m0",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation."
+        ],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              3,
+              32,
+              32
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              4
+            ],
+            "rank": 2,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a1",
+        "name": "conv1",
+        "qualified_name": "conv1",
+        "kind": "module",
+        "module_type": "torch.nn.Conv2d",
+        "parameters": {
+          "in_channels": 3,
+          "out_channels": 64,
+          "kernel_size": [
+            7,
+            7
+          ],
+          "stride": [
+            2,
+            2
+          ],
+          "padding": [
+            3,
+            3
+          ],
+          "dilation": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": false,
+          "padding_mode": "zeros"
+        },
+        "children": [],
+        "source_observed_module_id": "m1",
+        "latest_observed_module_id": "m1",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              3,
+              32,
+              32
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              16,
+              16
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a2",
+        "name": "bn1",
+        "qualified_name": "bn1",
+        "kind": "module",
+        "module_type": "torch.nn.BatchNorm2d",
+        "parameters": {
+          "num_features": 64,
+          "eps": 1e-05,
+          "momentum": 0.1,
+          "affine": true,
+          "track_running_stats": true
+        },
+        "children": [],
+        "source_observed_module_id": "m2",
+        "latest_observed_module_id": "m2",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              16,
+              16
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              16,
+              16
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a3",
+        "name": "relu",
+        "qualified_name": "relu",
+        "kind": "module",
+        "module_type": "torch.nn.ReLU",
+        "parameters": {
+          "inplace": true
+        },
+        "children": [],
+        "source_observed_module_id": "m3",
+        "latest_observed_module_id": "m3",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              16,
+              16
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              16,
+              16
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a4",
+        "name": "maxpool",
+        "qualified_name": "maxpool",
+        "kind": "module",
+        "module_type": "torch.nn.MaxPool2d",
+        "parameters": {
+          "kernel_size": 3,
+          "stride": 2,
+          "padding": 1,
+          "dilation": 1,
+          "return_indices": false,
+          "ceil_mode": false
+        },
+        "children": [],
+        "source_observed_module_id": "m4",
+        "latest_observed_module_id": "m4",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              16,
+              16
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a5",
+        "name": "layer1",
+        "qualified_name": "layer1",
+        "kind": "container",
+        "module_type": "torch.nn.Sequential",
+        "parameters": {},
+        "children": [
+          {
+            "name": "0",
+            "node_id": "a6"
+          },
+          {
+            "name": "1",
+            "node_id": "a12"
+          }
+        ],
+        "source_observed_module_id": "m5",
+        "latest_observed_module_id": "m5",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a6",
+        "name": "0",
+        "qualified_name": "layer1.0",
+        "kind": "custom",
+        "module_type": "torchvision.models.resnet.BasicBlock",
+        "parameters": {},
+        "children": [
+          {
+            "name": "conv1",
+            "node_id": "a7"
+          },
+          {
+            "name": "bn1",
+            "node_id": "a8"
+          },
+          {
+            "name": "relu",
+            "node_id": "a9"
+          },
+          {
+            "name": "conv2",
+            "node_id": "a10"
+          },
+          {
+            "name": "bn2",
+            "node_id": "a11"
+          }
+        ],
+        "source_observed_module_id": "m6",
+        "latest_observed_module_id": "m6",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation."
+        ],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a7",
+        "name": "conv1",
+        "qualified_name": "layer1.0.conv1",
+        "kind": "module",
+        "module_type": "torch.nn.Conv2d",
+        "parameters": {
+          "in_channels": 64,
+          "out_channels": 64,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "dilation": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": false,
+          "padding_mode": "zeros"
+        },
+        "children": [],
+        "source_observed_module_id": "m7",
+        "latest_observed_module_id": "m7",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a8",
+        "name": "bn1",
+        "qualified_name": "layer1.0.bn1",
+        "kind": "module",
+        "module_type": "torch.nn.BatchNorm2d",
+        "parameters": {
+          "num_features": 64,
+          "eps": 1e-05,
+          "momentum": 0.1,
+          "affine": true,
+          "track_running_stats": true
+        },
+        "children": [],
+        "source_observed_module_id": "m8",
+        "latest_observed_module_id": "m8",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a9",
+        "name": "relu",
+        "qualified_name": "layer1.0.relu",
+        "kind": "module",
+        "module_type": "torch.nn.ReLU",
+        "parameters": {
+          "inplace": true
+        },
+        "children": [],
+        "source_observed_module_id": "m9",
+        "latest_observed_module_id": "m9",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a10",
+        "name": "conv2",
+        "qualified_name": "layer1.0.conv2",
+        "kind": "module",
+        "module_type": "torch.nn.Conv2d",
+        "parameters": {
+          "in_channels": 64,
+          "out_channels": 64,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "dilation": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": false,
+          "padding_mode": "zeros"
+        },
+        "children": [],
+        "source_observed_module_id": "m10",
+        "latest_observed_module_id": "m10",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a11",
+        "name": "bn2",
+        "qualified_name": "layer1.0.bn2",
+        "kind": "module",
+        "module_type": "torch.nn.BatchNorm2d",
+        "parameters": {
+          "num_features": 64,
+          "eps": 1e-05,
+          "momentum": 0.1,
+          "affine": true,
+          "track_running_stats": true
+        },
+        "children": [],
+        "source_observed_module_id": "m11",
+        "latest_observed_module_id": "m11",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a12",
+        "name": "1",
+        "qualified_name": "layer1.1",
+        "kind": "custom",
+        "module_type": "torchvision.models.resnet.BasicBlock",
+        "parameters": {},
+        "children": [
+          {
+            "name": "conv1",
+            "node_id": "a13"
+          },
+          {
+            "name": "bn1",
+            "node_id": "a14"
+          },
+          {
+            "name": "relu",
+            "node_id": "a15"
+          },
+          {
+            "name": "conv2",
+            "node_id": "a16"
+          },
+          {
+            "name": "bn2",
+            "node_id": "a17"
+          }
+        ],
+        "source_observed_module_id": "m12",
+        "latest_observed_module_id": "m12",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation."
+        ],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a13",
+        "name": "conv1",
+        "qualified_name": "layer1.1.conv1",
+        "kind": "module",
+        "module_type": "torch.nn.Conv2d",
+        "parameters": {
+          "in_channels": 64,
+          "out_channels": 64,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "dilation": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": false,
+          "padding_mode": "zeros"
+        },
+        "children": [],
+        "source_observed_module_id": "m13",
+        "latest_observed_module_id": "m13",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a14",
+        "name": "bn1",
+        "qualified_name": "layer1.1.bn1",
+        "kind": "module",
+        "module_type": "torch.nn.BatchNorm2d",
+        "parameters": {
+          "num_features": 64,
+          "eps": 1e-05,
+          "momentum": 0.1,
+          "affine": true,
+          "track_running_stats": true
+        },
+        "children": [],
+        "source_observed_module_id": "m14",
+        "latest_observed_module_id": "m14",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a15",
+        "name": "relu",
+        "qualified_name": "layer1.1.relu",
+        "kind": "module",
+        "module_type": "torch.nn.ReLU",
+        "parameters": {
+          "inplace": true
+        },
+        "children": [],
+        "source_observed_module_id": "m15",
+        "latest_observed_module_id": "m15",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a16",
+        "name": "conv2",
+        "qualified_name": "layer1.1.conv2",
+        "kind": "module",
+        "module_type": "torch.nn.Conv2d",
+        "parameters": {
+          "in_channels": 64,
+          "out_channels": 64,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "dilation": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": false,
+          "padding_mode": "zeros"
+        },
+        "children": [],
+        "source_observed_module_id": "m16",
+        "latest_observed_module_id": "m16",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a17",
+        "name": "bn2",
+        "qualified_name": "layer1.1.bn2",
+        "kind": "module",
+        "module_type": "torch.nn.BatchNorm2d",
+        "parameters": {
+          "num_features": 64,
+          "eps": 1e-05,
+          "momentum": 0.1,
+          "affine": true,
+          "track_running_stats": true
+        },
+        "children": [],
+        "source_observed_module_id": "m17",
+        "latest_observed_module_id": "m17",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a18",
+        "name": "layer2",
+        "qualified_name": "layer2",
+        "kind": "container",
+        "module_type": "torch.nn.Sequential",
+        "parameters": {},
+        "children": [
+          {
+            "name": "0",
+            "node_id": "a19"
+          },
+          {
+            "name": "1",
+            "node_id": "a28"
+          }
+        ],
+        "source_observed_module_id": "m18",
+        "latest_observed_module_id": "m18",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a19",
+        "name": "0",
+        "qualified_name": "layer2.0",
+        "kind": "custom",
+        "module_type": "torchvision.models.resnet.BasicBlock",
+        "parameters": {},
+        "children": [
+          {
+            "name": "conv1",
+            "node_id": "a20"
+          },
+          {
+            "name": "bn1",
+            "node_id": "a21"
+          },
+          {
+            "name": "relu",
+            "node_id": "a22"
+          },
+          {
+            "name": "conv2",
+            "node_id": "a23"
+          },
+          {
+            "name": "bn2",
+            "node_id": "a24"
+          },
+          {
+            "name": "downsample",
+            "node_id": "a25"
+          }
+        ],
+        "source_observed_module_id": "m19",
+        "latest_observed_module_id": "m19",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation."
+        ],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a20",
+        "name": "conv1",
+        "qualified_name": "layer2.0.conv1",
+        "kind": "module",
+        "module_type": "torch.nn.Conv2d",
+        "parameters": {
+          "in_channels": 64,
+          "out_channels": 128,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            2,
+            2
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "dilation": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": false,
+          "padding_mode": "zeros"
+        },
+        "children": [],
+        "source_observed_module_id": "m20",
+        "latest_observed_module_id": "m20",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a21",
+        "name": "bn1",
+        "qualified_name": "layer2.0.bn1",
+        "kind": "module",
+        "module_type": "torch.nn.BatchNorm2d",
+        "parameters": {
+          "num_features": 128,
+          "eps": 1e-05,
+          "momentum": 0.1,
+          "affine": true,
+          "track_running_stats": true
+        },
+        "children": [],
+        "source_observed_module_id": "m21",
+        "latest_observed_module_id": "m21",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a22",
+        "name": "relu",
+        "qualified_name": "layer2.0.relu",
+        "kind": "module",
+        "module_type": "torch.nn.ReLU",
+        "parameters": {
+          "inplace": true
+        },
+        "children": [],
+        "source_observed_module_id": "m22",
+        "latest_observed_module_id": "m22",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a23",
+        "name": "conv2",
+        "qualified_name": "layer2.0.conv2",
+        "kind": "module",
+        "module_type": "torch.nn.Conv2d",
+        "parameters": {
+          "in_channels": 128,
+          "out_channels": 128,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "dilation": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": false,
+          "padding_mode": "zeros"
+        },
+        "children": [],
+        "source_observed_module_id": "m23",
+        "latest_observed_module_id": "m23",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a24",
+        "name": "bn2",
+        "qualified_name": "layer2.0.bn2",
+        "kind": "module",
+        "module_type": "torch.nn.BatchNorm2d",
+        "parameters": {
+          "num_features": 128,
+          "eps": 1e-05,
+          "momentum": 0.1,
+          "affine": true,
+          "track_running_stats": true
+        },
+        "children": [],
+        "source_observed_module_id": "m24",
+        "latest_observed_module_id": "m24",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a25",
+        "name": "downsample",
+        "qualified_name": "layer2.0.downsample",
+        "kind": "container",
+        "module_type": "torch.nn.Sequential",
+        "parameters": {},
+        "children": [
+          {
+            "name": "0",
+            "node_id": "a26"
+          },
+          {
+            "name": "1",
+            "node_id": "a27"
+          }
+        ],
+        "source_observed_module_id": "m25",
+        "latest_observed_module_id": "m25",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a26",
+        "name": "0",
+        "qualified_name": "layer2.0.downsample.0",
+        "kind": "module",
+        "module_type": "torch.nn.Conv2d",
+        "parameters": {
+          "in_channels": 64,
+          "out_channels": 128,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            2,
+            2
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "dilation": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": false,
+          "padding_mode": "zeros"
+        },
+        "children": [],
+        "source_observed_module_id": "m26",
+        "latest_observed_module_id": "m26",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              64,
+              8,
+              8
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a27",
+        "name": "1",
+        "qualified_name": "layer2.0.downsample.1",
+        "kind": "module",
+        "module_type": "torch.nn.BatchNorm2d",
+        "parameters": {
+          "num_features": 128,
+          "eps": 1e-05,
+          "momentum": 0.1,
+          "affine": true,
+          "track_running_stats": true
+        },
+        "children": [],
+        "source_observed_module_id": "m27",
+        "latest_observed_module_id": "m27",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a28",
+        "name": "1",
+        "qualified_name": "layer2.1",
+        "kind": "custom",
+        "module_type": "torchvision.models.resnet.BasicBlock",
+        "parameters": {},
+        "children": [
+          {
+            "name": "conv1",
+            "node_id": "a29"
+          },
+          {
+            "name": "bn1",
+            "node_id": "a30"
+          },
+          {
+            "name": "relu",
+            "node_id": "a31"
+          },
+          {
+            "name": "conv2",
+            "node_id": "a32"
+          },
+          {
+            "name": "bn2",
+            "node_id": "a33"
+          }
+        ],
+        "source_observed_module_id": "m28",
+        "latest_observed_module_id": "m28",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation."
+        ],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a29",
+        "name": "conv1",
+        "qualified_name": "layer2.1.conv1",
+        "kind": "module",
+        "module_type": "torch.nn.Conv2d",
+        "parameters": {
+          "in_channels": 128,
+          "out_channels": 128,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "dilation": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": false,
+          "padding_mode": "zeros"
+        },
+        "children": [],
+        "source_observed_module_id": "m29",
+        "latest_observed_module_id": "m29",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a30",
+        "name": "bn1",
+        "qualified_name": "layer2.1.bn1",
+        "kind": "module",
+        "module_type": "torch.nn.BatchNorm2d",
+        "parameters": {
+          "num_features": 128,
+          "eps": 1e-05,
+          "momentum": 0.1,
+          "affine": true,
+          "track_running_stats": true
+        },
+        "children": [],
+        "source_observed_module_id": "m30",
+        "latest_observed_module_id": "m30",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a31",
+        "name": "relu",
+        "qualified_name": "layer2.1.relu",
+        "kind": "module",
+        "module_type": "torch.nn.ReLU",
+        "parameters": {
+          "inplace": true
+        },
+        "children": [],
+        "source_observed_module_id": "m31",
+        "latest_observed_module_id": "m31",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a32",
+        "name": "conv2",
+        "qualified_name": "layer2.1.conv2",
+        "kind": "module",
+        "module_type": "torch.nn.Conv2d",
+        "parameters": {
+          "in_channels": 128,
+          "out_channels": 128,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "dilation": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": false,
+          "padding_mode": "zeros"
+        },
+        "children": [],
+        "source_observed_module_id": "m32",
+        "latest_observed_module_id": "m32",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a33",
+        "name": "bn2",
+        "qualified_name": "layer2.1.bn2",
+        "kind": "module",
+        "module_type": "torch.nn.BatchNorm2d",
+        "parameters": {
+          "num_features": 128,
+          "eps": 1e-05,
+          "momentum": 0.1,
+          "affine": true,
+          "track_running_stats": true
+        },
+        "children": [],
+        "source_observed_module_id": "m33",
+        "latest_observed_module_id": "m33",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a34",
+        "name": "layer3",
+        "qualified_name": "layer3",
+        "kind": "container",
+        "module_type": "torch.nn.Sequential",
+        "parameters": {},
+        "children": [
+          {
+            "name": "0",
+            "node_id": "a35"
+          },
+          {
+            "name": "1",
+            "node_id": "a44"
+          }
+        ],
+        "source_observed_module_id": "m34",
+        "latest_observed_module_id": "m34",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a35",
+        "name": "0",
+        "qualified_name": "layer3.0",
+        "kind": "custom",
+        "module_type": "torchvision.models.resnet.BasicBlock",
+        "parameters": {},
+        "children": [
+          {
+            "name": "conv1",
+            "node_id": "a36"
+          },
+          {
+            "name": "bn1",
+            "node_id": "a37"
+          },
+          {
+            "name": "relu",
+            "node_id": "a38"
+          },
+          {
+            "name": "conv2",
+            "node_id": "a39"
+          },
+          {
+            "name": "bn2",
+            "node_id": "a40"
+          },
+          {
+            "name": "downsample",
+            "node_id": "a41"
+          }
+        ],
+        "source_observed_module_id": "m35",
+        "latest_observed_module_id": "m35",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation."
+        ],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a36",
+        "name": "conv1",
+        "qualified_name": "layer3.0.conv1",
+        "kind": "module",
+        "module_type": "torch.nn.Conv2d",
+        "parameters": {
+          "in_channels": 128,
+          "out_channels": 256,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            2,
+            2
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "dilation": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": false,
+          "padding_mode": "zeros"
+        },
+        "children": [],
+        "source_observed_module_id": "m36",
+        "latest_observed_module_id": "m36",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a37",
+        "name": "bn1",
+        "qualified_name": "layer3.0.bn1",
+        "kind": "module",
+        "module_type": "torch.nn.BatchNorm2d",
+        "parameters": {
+          "num_features": 256,
+          "eps": 1e-05,
+          "momentum": 0.1,
+          "affine": true,
+          "track_running_stats": true
+        },
+        "children": [],
+        "source_observed_module_id": "m37",
+        "latest_observed_module_id": "m37",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a38",
+        "name": "relu",
+        "qualified_name": "layer3.0.relu",
+        "kind": "module",
+        "module_type": "torch.nn.ReLU",
+        "parameters": {
+          "inplace": true
+        },
+        "children": [],
+        "source_observed_module_id": "m38",
+        "latest_observed_module_id": "m38",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a39",
+        "name": "conv2",
+        "qualified_name": "layer3.0.conv2",
+        "kind": "module",
+        "module_type": "torch.nn.Conv2d",
+        "parameters": {
+          "in_channels": 256,
+          "out_channels": 256,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "dilation": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": false,
+          "padding_mode": "zeros"
+        },
+        "children": [],
+        "source_observed_module_id": "m39",
+        "latest_observed_module_id": "m39",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a40",
+        "name": "bn2",
+        "qualified_name": "layer3.0.bn2",
+        "kind": "module",
+        "module_type": "torch.nn.BatchNorm2d",
+        "parameters": {
+          "num_features": 256,
+          "eps": 1e-05,
+          "momentum": 0.1,
+          "affine": true,
+          "track_running_stats": true
+        },
+        "children": [],
+        "source_observed_module_id": "m40",
+        "latest_observed_module_id": "m40",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a41",
+        "name": "downsample",
+        "qualified_name": "layer3.0.downsample",
+        "kind": "container",
+        "module_type": "torch.nn.Sequential",
+        "parameters": {},
+        "children": [
+          {
+            "name": "0",
+            "node_id": "a42"
+          },
+          {
+            "name": "1",
+            "node_id": "a43"
+          }
+        ],
+        "source_observed_module_id": "m41",
+        "latest_observed_module_id": "m41",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a42",
+        "name": "0",
+        "qualified_name": "layer3.0.downsample.0",
+        "kind": "module",
+        "module_type": "torch.nn.Conv2d",
+        "parameters": {
+          "in_channels": 128,
+          "out_channels": 256,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            2,
+            2
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "dilation": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": false,
+          "padding_mode": "zeros"
+        },
+        "children": [],
+        "source_observed_module_id": "m42",
+        "latest_observed_module_id": "m42",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              128,
+              4,
+              4
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a43",
+        "name": "1",
+        "qualified_name": "layer3.0.downsample.1",
+        "kind": "module",
+        "module_type": "torch.nn.BatchNorm2d",
+        "parameters": {
+          "num_features": 256,
+          "eps": 1e-05,
+          "momentum": 0.1,
+          "affine": true,
+          "track_running_stats": true
+        },
+        "children": [],
+        "source_observed_module_id": "m43",
+        "latest_observed_module_id": "m43",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a44",
+        "name": "1",
+        "qualified_name": "layer3.1",
+        "kind": "custom",
+        "module_type": "torchvision.models.resnet.BasicBlock",
+        "parameters": {},
+        "children": [
+          {
+            "name": "conv1",
+            "node_id": "a45"
+          },
+          {
+            "name": "bn1",
+            "node_id": "a46"
+          },
+          {
+            "name": "relu",
+            "node_id": "a47"
+          },
+          {
+            "name": "conv2",
+            "node_id": "a48"
+          },
+          {
+            "name": "bn2",
+            "node_id": "a49"
+          }
+        ],
+        "source_observed_module_id": "m44",
+        "latest_observed_module_id": "m44",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation."
+        ],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a45",
+        "name": "conv1",
+        "qualified_name": "layer3.1.conv1",
+        "kind": "module",
+        "module_type": "torch.nn.Conv2d",
+        "parameters": {
+          "in_channels": 256,
+          "out_channels": 256,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "dilation": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": false,
+          "padding_mode": "zeros"
+        },
+        "children": [],
+        "source_observed_module_id": "m45",
+        "latest_observed_module_id": "m45",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a46",
+        "name": "bn1",
+        "qualified_name": "layer3.1.bn1",
+        "kind": "module",
+        "module_type": "torch.nn.BatchNorm2d",
+        "parameters": {
+          "num_features": 256,
+          "eps": 1e-05,
+          "momentum": 0.1,
+          "affine": true,
+          "track_running_stats": true
+        },
+        "children": [],
+        "source_observed_module_id": "m46",
+        "latest_observed_module_id": "m46",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a47",
+        "name": "relu",
+        "qualified_name": "layer3.1.relu",
+        "kind": "module",
+        "module_type": "torch.nn.ReLU",
+        "parameters": {
+          "inplace": true
+        },
+        "children": [],
+        "source_observed_module_id": "m47",
+        "latest_observed_module_id": "m47",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a48",
+        "name": "conv2",
+        "qualified_name": "layer3.1.conv2",
+        "kind": "module",
+        "module_type": "torch.nn.Conv2d",
+        "parameters": {
+          "in_channels": 256,
+          "out_channels": 256,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "dilation": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": false,
+          "padding_mode": "zeros"
+        },
+        "children": [],
+        "source_observed_module_id": "m48",
+        "latest_observed_module_id": "m48",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a49",
+        "name": "bn2",
+        "qualified_name": "layer3.1.bn2",
+        "kind": "module",
+        "module_type": "torch.nn.BatchNorm2d",
+        "parameters": {
+          "num_features": 256,
+          "eps": 1e-05,
+          "momentum": 0.1,
+          "affine": true,
+          "track_running_stats": true
+        },
+        "children": [],
+        "source_observed_module_id": "m49",
+        "latest_observed_module_id": "m49",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a50",
+        "name": "layer4",
+        "qualified_name": "layer4",
+        "kind": "container",
+        "module_type": "torch.nn.Sequential",
+        "parameters": {},
+        "children": [
+          {
+            "name": "0",
+            "node_id": "a51"
+          },
+          {
+            "name": "1",
+            "node_id": "a60"
+          }
+        ],
+        "source_observed_module_id": "m50",
+        "latest_observed_module_id": "m50",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a51",
+        "name": "0",
+        "qualified_name": "layer4.0",
+        "kind": "custom",
+        "module_type": "torchvision.models.resnet.BasicBlock",
+        "parameters": {},
+        "children": [
+          {
+            "name": "conv1",
+            "node_id": "a52"
+          },
+          {
+            "name": "bn1",
+            "node_id": "a53"
+          },
+          {
+            "name": "relu",
+            "node_id": "a54"
+          },
+          {
+            "name": "conv2",
+            "node_id": "a55"
+          },
+          {
+            "name": "bn2",
+            "node_id": "a56"
+          },
+          {
+            "name": "downsample",
+            "node_id": "a57"
+          }
+        ],
+        "source_observed_module_id": "m51",
+        "latest_observed_module_id": "m51",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation."
+        ],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a52",
+        "name": "conv1",
+        "qualified_name": "layer4.0.conv1",
+        "kind": "module",
+        "module_type": "torch.nn.Conv2d",
+        "parameters": {
+          "in_channels": 256,
+          "out_channels": 512,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            2,
+            2
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "dilation": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": false,
+          "padding_mode": "zeros"
+        },
+        "children": [],
+        "source_observed_module_id": "m52",
+        "latest_observed_module_id": "m52",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a53",
+        "name": "bn1",
+        "qualified_name": "layer4.0.bn1",
+        "kind": "module",
+        "module_type": "torch.nn.BatchNorm2d",
+        "parameters": {
+          "num_features": 512,
+          "eps": 1e-05,
+          "momentum": 0.1,
+          "affine": true,
+          "track_running_stats": true
+        },
+        "children": [],
+        "source_observed_module_id": "m53",
+        "latest_observed_module_id": "m53",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a54",
+        "name": "relu",
+        "qualified_name": "layer4.0.relu",
+        "kind": "module",
+        "module_type": "torch.nn.ReLU",
+        "parameters": {
+          "inplace": true
+        },
+        "children": [],
+        "source_observed_module_id": "m54",
+        "latest_observed_module_id": "m54",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a55",
+        "name": "conv2",
+        "qualified_name": "layer4.0.conv2",
+        "kind": "module",
+        "module_type": "torch.nn.Conv2d",
+        "parameters": {
+          "in_channels": 512,
+          "out_channels": 512,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "dilation": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": false,
+          "padding_mode": "zeros"
+        },
+        "children": [],
+        "source_observed_module_id": "m55",
+        "latest_observed_module_id": "m55",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a56",
+        "name": "bn2",
+        "qualified_name": "layer4.0.bn2",
+        "kind": "module",
+        "module_type": "torch.nn.BatchNorm2d",
+        "parameters": {
+          "num_features": 512,
+          "eps": 1e-05,
+          "momentum": 0.1,
+          "affine": true,
+          "track_running_stats": true
+        },
+        "children": [],
+        "source_observed_module_id": "m56",
+        "latest_observed_module_id": "m56",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a57",
+        "name": "downsample",
+        "qualified_name": "layer4.0.downsample",
+        "kind": "container",
+        "module_type": "torch.nn.Sequential",
+        "parameters": {},
+        "children": [
+          {
+            "name": "0",
+            "node_id": "a58"
+          },
+          {
+            "name": "1",
+            "node_id": "a59"
+          }
+        ],
+        "source_observed_module_id": "m57",
+        "latest_observed_module_id": "m57",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a58",
+        "name": "0",
+        "qualified_name": "layer4.0.downsample.0",
+        "kind": "module",
+        "module_type": "torch.nn.Conv2d",
+        "parameters": {
+          "in_channels": 256,
+          "out_channels": 512,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            2,
+            2
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "dilation": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": false,
+          "padding_mode": "zeros"
+        },
+        "children": [],
+        "source_observed_module_id": "m58",
+        "latest_observed_module_id": "m58",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              256,
+              2,
+              2
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a59",
+        "name": "1",
+        "qualified_name": "layer4.0.downsample.1",
+        "kind": "module",
+        "module_type": "torch.nn.BatchNorm2d",
+        "parameters": {
+          "num_features": 512,
+          "eps": 1e-05,
+          "momentum": 0.1,
+          "affine": true,
+          "track_running_stats": true
+        },
+        "children": [],
+        "source_observed_module_id": "m59",
+        "latest_observed_module_id": "m59",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a60",
+        "name": "1",
+        "qualified_name": "layer4.1",
+        "kind": "custom",
+        "module_type": "torchvision.models.resnet.BasicBlock",
+        "parameters": {},
+        "children": [
+          {
+            "name": "conv1",
+            "node_id": "a61"
+          },
+          {
+            "name": "bn1",
+            "node_id": "a62"
+          },
+          {
+            "name": "relu",
+            "node_id": "a63"
+          },
+          {
+            "name": "conv2",
+            "node_id": "a64"
+          },
+          {
+            "name": "bn2",
+            "node_id": "a65"
+          }
+        ],
+        "source_observed_module_id": "m60",
+        "latest_observed_module_id": "m60",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation."
+        ],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a61",
+        "name": "conv1",
+        "qualified_name": "layer4.1.conv1",
+        "kind": "module",
+        "module_type": "torch.nn.Conv2d",
+        "parameters": {
+          "in_channels": 512,
+          "out_channels": 512,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "dilation": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": false,
+          "padding_mode": "zeros"
+        },
+        "children": [],
+        "source_observed_module_id": "m61",
+        "latest_observed_module_id": "m61",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a62",
+        "name": "bn1",
+        "qualified_name": "layer4.1.bn1",
+        "kind": "module",
+        "module_type": "torch.nn.BatchNorm2d",
+        "parameters": {
+          "num_features": 512,
+          "eps": 1e-05,
+          "momentum": 0.1,
+          "affine": true,
+          "track_running_stats": true
+        },
+        "children": [],
+        "source_observed_module_id": "m62",
+        "latest_observed_module_id": "m62",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a63",
+        "name": "relu",
+        "qualified_name": "layer4.1.relu",
+        "kind": "module",
+        "module_type": "torch.nn.ReLU",
+        "parameters": {
+          "inplace": true
+        },
+        "children": [],
+        "source_observed_module_id": "m63",
+        "latest_observed_module_id": "m63",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a64",
+        "name": "conv2",
+        "qualified_name": "layer4.1.conv2",
+        "kind": "module",
+        "module_type": "torch.nn.Conv2d",
+        "parameters": {
+          "in_channels": 512,
+          "out_channels": 512,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "dilation": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": false,
+          "padding_mode": "zeros"
+        },
+        "children": [],
+        "source_observed_module_id": "m64",
+        "latest_observed_module_id": "m64",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a65",
+        "name": "bn2",
+        "qualified_name": "layer4.1.bn2",
+        "kind": "module",
+        "module_type": "torch.nn.BatchNorm2d",
+        "parameters": {
+          "num_features": 512,
+          "eps": 1e-05,
+          "momentum": 0.1,
+          "affine": true,
+          "track_running_stats": true
+        },
+        "children": [],
+        "source_observed_module_id": "m65",
+        "latest_observed_module_id": "m65",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a66",
+        "name": "avgpool",
+        "qualified_name": "avgpool",
+        "kind": "module",
+        "module_type": "torch.nn.AdaptiveAvgPool2d",
+        "parameters": {
+          "output_size": [
+            1,
+            1
+          ]
+        },
+        "children": [],
+        "source_observed_module_id": "m66",
+        "latest_observed_module_id": "m66",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              512,
+              1,
+              1
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a67",
+        "name": "fc",
+        "qualified_name": "fc",
+        "kind": "module",
+        "module_type": "torch.nn.Linear",
+        "parameters": {
+          "in_features": 512,
+          "out_features": 4,
+          "bias": true
+        },
+        "children": [],
+        "source_observed_module_id": "m67",
+        "latest_observed_module_id": "m67",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              512
+            ],
+            "rank": 2,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              4
+            ],
+            "rank": 2,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      }
+    ]
+  },
+  "scope": "Current fixed example configuration, with randomly initialized weights."
+}

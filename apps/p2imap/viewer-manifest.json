@@ -1,0 +1,18 @@
+{
+  "catalog_revision": "717831eb65c7b09454ff95adc565db735bd8024ec1e7dfa129ad0e90d3db31f8",
+  "runtime_snapshots": [
+    "bert",
+    "cnn",
+    "gpt2",
+    "gru",
+    "lstm",
+    "mlp",
+    "perceptron",
+    "resnet18",
+    "rnn",
+    "seq2seq",
+    "vit"
+  ],
+  "mode": "read-only",
+  "weights": "random initialization, not trained checkpoints"
+}

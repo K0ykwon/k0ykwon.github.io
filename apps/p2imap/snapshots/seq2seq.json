@@ -1,0 +1,1817 @@
+{
+  "runtime_id": "seq2seq",
+  "p2i_version": "0.4.4",
+  "operations": 87,
+  "modules": 31,
+  "bindings": [
+    {
+      "ontology_id": "component:encoder",
+      "module_path": "encoder.0",
+      "architecture_node_id": "a5",
+      "module_type": "torch.nn.TransformerEncoderLayer",
+      "parameters": {
+        "d_model": 32,
+        "nhead": 4,
+        "dim_feedforward": 64,
+        "dropout": 0.0,
+        "activation": "relu",
+        "layer_norm_eps": 1e-05,
+        "batch_first": true,
+        "norm_first": false,
+        "bias": true
+      },
+      "editable": true,
+      "managed_by": null,
+      "parameter_count": 8544
+    },
+    {
+      "ontology_id": "component:decoder",
+      "module_path": "decoder.0",
+      "architecture_node_id": "a16",
+      "module_type": "torch.nn.TransformerDecoderLayer",
+      "parameters": {
+        "d_model": 32,
+        "nhead": 4,
+        "dim_feedforward": 64,
+        "dropout": 0.0,
+        "activation": "relu",
+        "layer_norm_eps": 1e-05,
+        "batch_first": true,
+        "norm_first": false,
+        "bias": true
+      },
+      "editable": true,
+      "managed_by": null,
+      "parameter_count": 12832
+    },
+    {
+      "ontology_id": "component:positions",
+      "module_path": "positions",
+      "architecture_node_id": "a3",
+      "module_type": "p2i.examples.seq2seq.SinusoidalPositions",
+      "parameters": {},
+      "editable": false,
+      "managed_by": null,
+      "parameter_count": 0
+    },
+    {
+      "ontology_id": "component:cross_attention",
+      "module_path": "decoder.0.multihead_attn",
+      "architecture_node_id": "a19",
+      "module_type": "torch.nn.MultiheadAttention",
+      "parameters": {
+        "embed_dim": 32,
+        "num_heads": 4,
+        "dropout": 0.0,
+        "bias": true,
+        "add_bias_kv": false,
+        "add_zero_attn": false,
+        "kdim": 32,
+        "vdim": 32,
+        "batch_first": true
+      },
+      "editable": false,
+      "managed_by": "a16",
+      "parameter_count": 4224
+    },
+    {
+      "ontology_id": "component:self_attention",
+      "module_path": "encoder.0.self_attn",
+      "architecture_node_id": "a6",
+      "module_type": "torch.nn.MultiheadAttention",
+      "parameters": {
+        "embed_dim": 32,
+        "num_heads": 4,
+        "dropout": 0.0,
+        "bias": true,
+        "add_bias_kv": false,
+        "add_zero_attn": false,
+        "kdim": 32,
+        "vdim": 32,
+        "batch_first": true
+      },
+      "editable": false,
+      "managed_by": "a5",
+      "parameter_count": 4224
+    },
+    {
+      "ontology_id": "component:ffn",
+      "module_path": "decoder.0.linear1",
+      "architecture_node_id": "a21",
+      "module_type": "torch.nn.Linear",
+      "parameters": {
+        "in_features": 32,
+        "out_features": 64,
+        "bias": true
+      },
+      "editable": false,
+      "managed_by": "a16",
+      "parameter_count": 2112
+    }
+  ],
+  "architecture": {
+    "version": "0.1",
+    "model_name": "TinySeq2Seq",
+    "root_id": "a0",
+    "revision": 0,
+    "seed": 0,
+    "nodes": [
+      {
+        "id": "a0",
+        "name": "TinySeq2Seq",
+        "qualified_name": "",
+        "kind": "custom",
+        "module_type": "p2i.examples.seq2seq.TinySeq2Seq",
+        "parameters": {},
+        "children": [
+          {
+            "name": "source_embedding",
+            "node_id": "a1"
+          },
+          {
+            "name": "target_embedding",
+            "node_id": "a2"
+          },
+          {
+            "name": "positions",
+            "node_id": "a3"
+          },
+          {
+            "name": "encoder",
+            "node_id": "a4"
+          },
+          {
+            "name": "decoder",
+            "node_id": "a15"
+          },
+          {
+            "name": "head",
+            "node_id": "a30"
+          }
+        ],
+        "source_observed_module_id": "m0",
+        "latest_observed_module_id": "m0",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation."
+        ],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              7
+            ],
+            "rank": 2,
+            "dtype": "torch.int64",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              5
+            ],
+            "rank": 2,
+            "dtype": "torch.int64",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a1",
+        "name": "source_embedding",
+        "qualified_name": "source_embedding",
+        "kind": "module",
+        "module_type": "torch.nn.Embedding",
+        "parameters": {
+          "num_embeddings": 32,
+          "embedding_dim": 32,
+          "padding_idx": null,
+          "max_norm": null,
+          "norm_type": 2.0,
+          "scale_grad_by_freq": false,
+          "sparse": false
+        },
+        "children": [],
+        "source_observed_module_id": "m1",
+        "latest_observed_module_id": "m1",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              7
+            ],
+            "rank": 2,
+            "dtype": "torch.int64",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              7,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a2",
+        "name": "target_embedding",
+        "qualified_name": "target_embedding",
+        "kind": "module",
+        "module_type": "torch.nn.Embedding",
+        "parameters": {
+          "num_embeddings": 32,
+          "embedding_dim": 32,
+          "padding_idx": null,
+          "max_norm": null,
+          "norm_type": 2.0,
+          "scale_grad_by_freq": false,
+          "sparse": false
+        },
+        "children": [],
+        "source_observed_module_id": "m2",
+        "latest_observed_module_id": "m2",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              5
+            ],
+            "rank": 2,
+            "dtype": "torch.int64",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a3",
+        "name": "positions",
+        "qualified_name": "positions",
+        "kind": "custom",
+        "module_type": "p2i.examples.seq2seq.SinusoidalPositions",
+        "parameters": {},
+        "children": [],
+        "source_observed_module_id": "m3",
+        "latest_observed_module_id": "m3",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation."
+        ],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              7,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              7,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a4",
+        "name": "encoder",
+        "qualified_name": "encoder",
+        "kind": "container",
+        "module_type": "torch.nn.ModuleList",
+        "parameters": {},
+        "children": [
+          {
+            "name": "0",
+            "node_id": "a5"
+          }
+        ],
+        "source_observed_module_id": "m4",
+        "latest_observed_module_id": "m4",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [],
+        "output_contracts": [],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a5",
+        "name": "0",
+        "qualified_name": "encoder.0",
+        "kind": "module",
+        "module_type": "torch.nn.TransformerEncoderLayer",
+        "parameters": {
+          "d_model": 32,
+          "nhead": 4,
+          "dim_feedforward": 64,
+          "dropout": 0.0,
+          "activation": "relu",
+          "layer_norm_eps": 1e-05,
+          "batch_first": true,
+          "norm_first": false,
+          "bias": true
+        },
+        "children": [
+          {
+            "name": "self_attn",
+            "node_id": "a6"
+          },
+          {
+            "name": "linear1",
+            "node_id": "a8"
+          },
+          {
+            "name": "dropout",
+            "node_id": "a9"
+          },
+          {
+            "name": "linear2",
+            "node_id": "a10"
+          },
+          {
+            "name": "norm1",
+            "node_id": "a11"
+          },
+          {
+            "name": "norm2",
+            "node_id": "a12"
+          },
+          {
+            "name": "dropout1",
+            "node_id": "a13"
+          },
+          {
+            "name": "dropout2",
+            "node_id": "a14"
+          }
+        ],
+        "source_observed_module_id": "m5",
+        "latest_observed_module_id": "m5",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              7,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              7,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a6",
+        "name": "self_attn",
+        "qualified_name": "encoder.0.self_attn",
+        "kind": "module",
+        "module_type": "torch.nn.MultiheadAttention",
+        "parameters": {
+          "embed_dim": 32,
+          "num_heads": 4,
+          "dropout": 0.0,
+          "bias": true,
+          "add_bias_kv": false,
+          "add_zero_attn": false,
+          "kdim": 32,
+          "vdim": 32,
+          "batch_first": true
+        },
+        "children": [
+          {
+            "name": "out_proj",
+            "node_id": "a7"
+          }
+        ],
+        "source_observed_module_id": "m6",
+        "latest_observed_module_id": "m6",
+        "editable": false,
+        "edit_restrictions": [
+          "Internal module managed by adapter a5; edit its parent instead."
+        ],
+        "managed_by": "a5",
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              7,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              7,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a7",
+        "name": "out_proj",
+        "qualified_name": "encoder.0.self_attn.out_proj",
+        "kind": "custom",
+        "module_type": "torch.nn.modules.linear.NonDynamicallyQuantizableLinear",
+        "parameters": {},
+        "children": [],
+        "source_observed_module_id": "m7",
+        "latest_observed_module_id": "m7",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation.",
+          "Internal module managed by adapter a5; edit its parent instead."
+        ],
+        "managed_by": "a5",
+        "input_contracts": [],
+        "output_contracts": [],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a8",
+        "name": "linear1",
+        "qualified_name": "encoder.0.linear1",
+        "kind": "module",
+        "module_type": "torch.nn.Linear",
+        "parameters": {
+          "in_features": 32,
+          "out_features": 64,
+          "bias": true
+        },
+        "children": [],
+        "source_observed_module_id": "m8",
+        "latest_observed_module_id": "m8",
+        "editable": false,
+        "edit_restrictions": [
+          "Internal module managed by adapter a5; edit its parent instead."
+        ],
+        "managed_by": "a5",
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              7,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              7,
+              64
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a9",
+        "name": "dropout",
+        "qualified_name": "encoder.0.dropout",
+        "kind": "module",
+        "module_type": "torch.nn.Dropout",
+        "parameters": {
+          "p": 0.0,
+          "inplace": false
+        },
+        "children": [],
+        "source_observed_module_id": "m9",
+        "latest_observed_module_id": "m9",
+        "editable": false,
+        "edit_restrictions": [
+          "Internal module managed by adapter a5; edit its parent instead."
+        ],
+        "managed_by": "a5",
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              7,
+              64
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              7,
+              64
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a10",
+        "name": "linear2",
+        "qualified_name": "encoder.0.linear2",
+        "kind": "module",
+        "module_type": "torch.nn.Linear",
+        "parameters": {
+          "in_features": 64,
+          "out_features": 32,
+          "bias": true
+        },
+        "children": [],
+        "source_observed_module_id": "m10",
+        "latest_observed_module_id": "m10",
+        "editable": false,
+        "edit_restrictions": [
+          "Internal module managed by adapter a5; edit its parent instead."
+        ],
+        "managed_by": "a5",
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              7,
+              64
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              7,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a11",
+        "name": "norm1",
+        "qualified_name": "encoder.0.norm1",
+        "kind": "module",
+        "module_type": "torch.nn.LayerNorm",
+        "parameters": {
+          "normalized_shape": [
+            32
+          ],
+          "eps": 1e-05,
+          "elementwise_affine": true,
+          "bias": true
+        },
+        "children": [],
+        "source_observed_module_id": "m11",
+        "latest_observed_module_id": "m11",
+        "editable": false,
+        "edit_restrictions": [
+          "Internal module managed by adapter a5; edit its parent instead."
+        ],
+        "managed_by": "a5",
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              7,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              7,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a12",
+        "name": "norm2",
+        "qualified_name": "encoder.0.norm2",
+        "kind": "module",
+        "module_type": "torch.nn.LayerNorm",
+        "parameters": {
+          "normalized_shape": [
+            32
+          ],
+          "eps": 1e-05,
+          "elementwise_affine": true,
+          "bias": true
+        },
+        "children": [],
+        "source_observed_module_id": "m12",
+        "latest_observed_module_id": "m12",
+        "editable": false,
+        "edit_restrictions": [
+          "Internal module managed by adapter a5; edit its parent instead."
+        ],
+        "managed_by": "a5",
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              7,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              7,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a13",
+        "name": "dropout1",
+        "qualified_name": "encoder.0.dropout1",
+        "kind": "module",
+        "module_type": "torch.nn.Dropout",
+        "parameters": {
+          "p": 0.0,
+          "inplace": false
+        },
+        "children": [],
+        "source_observed_module_id": "m13",
+        "latest_observed_module_id": "m13",
+        "editable": false,
+        "edit_restrictions": [
+          "Internal module managed by adapter a5; edit its parent instead."
+        ],
+        "managed_by": "a5",
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              7,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              7,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a14",
+        "name": "dropout2",
+        "qualified_name": "encoder.0.dropout2",
+        "kind": "module",
+        "module_type": "torch.nn.Dropout",
+        "parameters": {
+          "p": 0.0,
+          "inplace": false
+        },
+        "children": [],
+        "source_observed_module_id": "m14",
+        "latest_observed_module_id": "m14",
+        "editable": false,
+        "edit_restrictions": [
+          "Internal module managed by adapter a5; edit its parent instead."
+        ],
+        "managed_by": "a5",
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              7,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              7,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a15",
+        "name": "decoder",
+        "qualified_name": "decoder",
+        "kind": "container",
+        "module_type": "torch.nn.ModuleList",
+        "parameters": {},
+        "children": [
+          {
+            "name": "0",
+            "node_id": "a16"
+          }
+        ],
+        "source_observed_module_id": "m15",
+        "latest_observed_module_id": "m15",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [],
+        "output_contracts": [],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a16",
+        "name": "0",
+        "qualified_name": "decoder.0",
+        "kind": "module",
+        "module_type": "torch.nn.TransformerDecoderLayer",
+        "parameters": {
+          "d_model": 32,
+          "nhead": 4,
+          "dim_feedforward": 64,
+          "dropout": 0.0,
+          "activation": "relu",
+          "layer_norm_eps": 1e-05,
+          "batch_first": true,
+          "norm_first": false,
+          "bias": true
+        },
+        "children": [
+          {
+            "name": "self_attn",
+            "node_id": "a17"
+          },
+          {
+            "name": "multihead_attn",
+            "node_id": "a19"
+          },
+          {
+            "name": "linear1",
+            "node_id": "a21"
+          },
+          {
+            "name": "dropout",
+            "node_id": "a22"
+          },
+          {
+            "name": "linear2",
+            "node_id": "a23"
+          },
+          {
+            "name": "norm1",
+            "node_id": "a24"
+          },
+          {
+            "name": "norm2",
+            "node_id": "a25"
+          },
+          {
+            "name": "norm3",
+            "node_id": "a26"
+          },
+          {
+            "name": "dropout1",
+            "node_id": "a27"
+          },
+          {
+            "name": "dropout2",
+            "node_id": "a28"
+          },
+          {
+            "name": "dropout3",
+            "node_id": "a29"
+          }
+        ],
+        "source_observed_module_id": "m16",
+        "latest_observed_module_id": "m16",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              7,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              5,
+              5
+            ],
+            "rank": 2,
+            "dtype": "torch.bool",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a17",
+        "name": "self_attn",
+        "qualified_name": "decoder.0.self_attn",
+        "kind": "module",
+        "module_type": "torch.nn.MultiheadAttention",
+        "parameters": {
+          "embed_dim": 32,
+          "num_heads": 4,
+          "dropout": 0.0,
+          "bias": true,
+          "add_bias_kv": false,
+          "add_zero_attn": false,
+          "kdim": 32,
+          "vdim": 32,
+          "batch_first": true
+        },
+        "children": [
+          {
+            "name": "out_proj",
+            "node_id": "a18"
+          }
+        ],
+        "source_observed_module_id": "m17",
+        "latest_observed_module_id": "m17",
+        "editable": false,
+        "edit_restrictions": [
+          "Internal module managed by adapter a16; edit its parent instead."
+        ],
+        "managed_by": "a16",
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              5,
+              5
+            ],
+            "rank": 2,
+            "dtype": "torch.bool",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a18",
+        "name": "out_proj",
+        "qualified_name": "decoder.0.self_attn.out_proj",
+        "kind": "custom",
+        "module_type": "torch.nn.modules.linear.NonDynamicallyQuantizableLinear",
+        "parameters": {},
+        "children": [],
+        "source_observed_module_id": "m18",
+        "latest_observed_module_id": "m18",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation.",
+          "Internal module managed by adapter a16; edit its parent instead."
+        ],
+        "managed_by": "a16",
+        "input_contracts": [],
+        "output_contracts": [],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a19",
+        "name": "multihead_attn",
+        "qualified_name": "decoder.0.multihead_attn",
+        "kind": "module",
+        "module_type": "torch.nn.MultiheadAttention",
+        "parameters": {
+          "embed_dim": 32,
+          "num_heads": 4,
+          "dropout": 0.0,
+          "bias": true,
+          "add_bias_kv": false,
+          "add_zero_attn": false,
+          "kdim": 32,
+          "vdim": 32,
+          "batch_first": true
+        },
+        "children": [
+          {
+            "name": "out_proj",
+            "node_id": "a20"
+          }
+        ],
+        "source_observed_module_id": "m19",
+        "latest_observed_module_id": "m19",
+        "editable": false,
+        "edit_restrictions": [
+          "Internal module managed by adapter a16; edit its parent instead."
+        ],
+        "managed_by": "a16",
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              7,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a20",
+        "name": "out_proj",
+        "qualified_name": "decoder.0.multihead_attn.out_proj",
+        "kind": "custom",
+        "module_type": "torch.nn.modules.linear.NonDynamicallyQuantizableLinear",
+        "parameters": {},
+        "children": [],
+        "source_observed_module_id": "m20",
+        "latest_observed_module_id": "m20",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation.",
+          "Internal module managed by adapter a16; edit its parent instead."
+        ],
+        "managed_by": "a16",
+        "input_contracts": [],
+        "output_contracts": [],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a21",
+        "name": "linear1",
+        "qualified_name": "decoder.0.linear1",
+        "kind": "module",
+        "module_type": "torch.nn.Linear",
+        "parameters": {
+          "in_features": 32,
+          "out_features": 64,
+          "bias": true
+        },
+        "children": [],
+        "source_observed_module_id": "m21",
+        "latest_observed_module_id": "m21",
+        "editable": false,
+        "edit_restrictions": [
+          "Internal module managed by adapter a16; edit its parent instead."
+        ],
+        "managed_by": "a16",
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              64
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a22",
+        "name": "dropout",
+        "qualified_name": "decoder.0.dropout",
+        "kind": "module",
+        "module_type": "torch.nn.Dropout",
+        "parameters": {
+          "p": 0.0,
+          "inplace": false
+        },
+        "children": [],
+        "source_observed_module_id": "m22",
+        "latest_observed_module_id": "m22",
+        "editable": false,
+        "edit_restrictions": [
+          "Internal module managed by adapter a16; edit its parent instead."
+        ],
+        "managed_by": "a16",
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              64
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              64
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a23",
+        "name": "linear2",
+        "qualified_name": "decoder.0.linear2",
+        "kind": "module",
+        "module_type": "torch.nn.Linear",
+        "parameters": {
+          "in_features": 64,
+          "out_features": 32,
+          "bias": true
+        },
+        "children": [],
+        "source_observed_module_id": "m23",
+        "latest_observed_module_id": "m23",
+        "editable": false,
+        "edit_restrictions": [
+          "Internal module managed by adapter a16; edit its parent instead."
+        ],
+        "managed_by": "a16",
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              64
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a24",
+        "name": "norm1",
+        "qualified_name": "decoder.0.norm1",
+        "kind": "module",
+        "module_type": "torch.nn.LayerNorm",
+        "parameters": {
+          "normalized_shape": [
+            32
+          ],
+          "eps": 1e-05,
+          "elementwise_affine": true,
+          "bias": true
+        },
+        "children": [],
+        "source_observed_module_id": "m24",
+        "latest_observed_module_id": "m24",
+        "editable": false,
+        "edit_restrictions": [
+          "Internal module managed by adapter a16; edit its parent instead."
+        ],
+        "managed_by": "a16",
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a25",
+        "name": "norm2",
+        "qualified_name": "decoder.0.norm2",
+        "kind": "module",
+        "module_type": "torch.nn.LayerNorm",
+        "parameters": {
+          "normalized_shape": [
+            32
+          ],
+          "eps": 1e-05,
+          "elementwise_affine": true,
+          "bias": true
+        },
+        "children": [],
+        "source_observed_module_id": "m25",
+        "latest_observed_module_id": "m25",
+        "editable": false,
+        "edit_restrictions": [
+          "Internal module managed by adapter a16; edit its parent instead."
+        ],
+        "managed_by": "a16",
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a26",
+        "name": "norm3",
+        "qualified_name": "decoder.0.norm3",
+        "kind": "module",
+        "module_type": "torch.nn.LayerNorm",
+        "parameters": {
+          "normalized_shape": [
+            32
+          ],
+          "eps": 1e-05,
+          "elementwise_affine": true,
+          "bias": true
+        },
+        "children": [],
+        "source_observed_module_id": "m26",
+        "latest_observed_module_id": "m26",
+        "editable": false,
+        "edit_restrictions": [
+          "Internal module managed by adapter a16; edit its parent instead."
+        ],
+        "managed_by": "a16",
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a27",
+        "name": "dropout1",
+        "qualified_name": "decoder.0.dropout1",
+        "kind": "module",
+        "module_type": "torch.nn.Dropout",
+        "parameters": {
+          "p": 0.0,
+          "inplace": false
+        },
+        "children": [],
+        "source_observed_module_id": "m27",
+        "latest_observed_module_id": "m27",
+        "editable": false,
+        "edit_restrictions": [
+          "Internal module managed by adapter a16; edit its parent instead."
+        ],
+        "managed_by": "a16",
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a28",
+        "name": "dropout2",
+        "qualified_name": "decoder.0.dropout2",
+        "kind": "module",
+        "module_type": "torch.nn.Dropout",
+        "parameters": {
+          "p": 0.0,
+          "inplace": false
+        },
+        "children": [],
+        "source_observed_module_id": "m28",
+        "latest_observed_module_id": "m28",
+        "editable": false,
+        "edit_restrictions": [
+          "Internal module managed by adapter a16; edit its parent instead."
+        ],
+        "managed_by": "a16",
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a29",
+        "name": "dropout3",
+        "qualified_name": "decoder.0.dropout3",
+        "kind": "module",
+        "module_type": "torch.nn.Dropout",
+        "parameters": {
+          "p": 0.0,
+          "inplace": false
+        },
+        "children": [],
+        "source_observed_module_id": "m29",
+        "latest_observed_module_id": "m29",
+        "editable": false,
+        "edit_restrictions": [
+          "Internal module managed by adapter a16; edit its parent instead."
+        ],
+        "managed_by": "a16",
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a30",
+        "name": "head",
+        "qualified_name": "head",
+        "kind": "module",
+        "module_type": "torch.nn.Linear",
+        "parameters": {
+          "in_features": 32,
+          "out_features": 32,
+          "bias": true
+        },
+        "children": [],
+        "source_observed_module_id": "m30",
+        "latest_observed_module_id": "m30",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      }
+    ]
+  },
+  "scope": "Current fixed example configuration, with randomly initialized weights."
+}
