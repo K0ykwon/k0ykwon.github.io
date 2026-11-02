@@ -3350,7 +3350,7 @@ atlas:alternative_to a owl:ObjectProperty,
     atlas:label "MobileNet" ;
     atlas:reference_year 2017 ;
     atlas:runtime_id "mobilenet" ;
-    atlas:runtime_note "torchvision MobileNetV2 width 0.25 예제. 역잔차·depthwise convolution·선형 병목을 포함합니다. 초기 MobileNetV1과는 세부 블록이 다릅니다. 모든 가중치는 무작위 초기화이며 학습된 모델이 아닙니다." ;
+    atlas:runtime_note "2017년 MobileNet V1의 depthwise·pointwise convolution과 원래 단계 구성을 포함한 width multiplier 0.25 예제입니다. 32×32 입력·4종 분류이며 가중치는 무작위 초기화입니다." ;
     atlas:summary "Depthwise와 pointwise 연산을 분리한 경량 합성곱 구조." ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/convolution>,
