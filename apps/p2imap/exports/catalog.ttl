@@ -3162,6 +3162,8 @@ atlas:alternative_to a owl:ObjectProperty,
         <https://github.com/PtwoI/p2i-kg#component/text_encoder> ;
     atlas:label "CLIP" ;
     atlas:reference_year 2021 ;
+    atlas:runtime_id "clip" ;
+    atlas:runtime_note "Transformers CLIP의 작은 영상·텍스트 encoder와 8차원 투영. 정규화된 표현의 유사도 logits를 출력합니다. 모든 가중치는 무작위 초기화이며 학습된 모델이 아닙니다." ;
     atlas:summary "영상과 텍스트 인코더를 대조 목적을 이용해 공동 표현 공간으로 연결합니다." ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/contrastive> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/contrastive> .
@@ -3175,6 +3177,8 @@ atlas:alternative_to a owl:ObjectProperty,
     atlas:has_component <https://github.com/PtwoI/p2i-kg#component/denoiser> ;
     atlas:label "DDPM" ;
     atlas:reference_year 2020 ;
+    atlas:runtime_id "ddpm" ;
+    atlas:runtime_note "10-step noise schedule의 한 시점 forward noising과 시간 조건 U-Net의 잡음 예측. 전체 역확산 샘플링은 수행하지 않습니다. 모든 가중치는 무작위 초기화이며 학습된 모델이 아닙니다." ;
     atlas:summary "잡음을 점진적으로 제거하는 역과정을 학습하는 확산 생성 모델." ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/denoising> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/denoising>,
@@ -3191,6 +3195,8 @@ atlas:alternative_to a owl:ObjectProperty,
     atlas:has_component <https://github.com/PtwoI/p2i-kg#component/convolution> ;
     atlas:label "DenseNet" ;
     atlas:reference_year 2016 ;
+    atlas:runtime_id "densenet" ;
+    atlas:runtime_note "각 블록 1층·growth rate 8로 축소한 torchvision DenseNet. 특징 연결과 전이층을 유지합니다. 모든 가중치는 무작위 초기화이며 학습된 모델이 아닙니다." ;
     atlas:summary "이전 층의 특징을 연결하여 재사용하는 합성곱 네트워크." ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/convolution>,
@@ -3206,6 +3212,8 @@ atlas:alternative_to a owl:ObjectProperty,
         <https://github.com/PtwoI/p2i-kg#component/generator> ;
     atlas:label "GAN" ;
     atlas:reference_year 2014 ;
+    atlas:runtime_id "gan" ;
+    atlas:runtime_note "작은 MLP generator와 discriminator. 생성 표본·진짜 표본의 판별을 한 번 추적하며 교대 학습은 수행하지 않습니다. 모든 가중치는 무작위 초기화이며 학습된 모델이 아닙니다." ;
     atlas:summary "생성자와 판별자를 함께 학습시키는 적대적 생성 프레임워크." ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/adversarial> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/adversarial>,
@@ -3220,6 +3228,8 @@ atlas:alternative_to a owl:ObjectProperty,
     atlas:has_component <https://github.com/PtwoI/p2i-kg#component/graph_aggregation> ;
     atlas:label "Graph Convolutional Network" ;
     atlas:reference_year 2016 ;
+    atlas:runtime_id "gcn" ;
+    atlas:runtime_note "5개 노드의 2층 GCN. self-loop·대칭 차수 정규화·이웃 집계와 선형 투영을 실행합니다. 모든 가중치는 무작위 초기화이며 학습된 모델이 아닙니다." ;
     atlas:summary "그래프 구조와 노드 특징을 이웃 집계로 함께 학습합니다." ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/message_passing> .
@@ -3234,6 +3244,8 @@ atlas:alternative_to a owl:ObjectProperty,
     atlas:has_component <https://github.com/PtwoI/p2i-kg#component/convolution> ;
     atlas:label "Inception · GoogLeNet" ;
     atlas:reference_year 2014 ;
+    atlas:runtime_id "inception" ;
+    atlas:runtime_note "torchvision GoogLeNet의 병렬 Inception 분기. 보조 분류기를 끈 64×64 입력 예제입니다. 모든 가중치는 무작위 초기화이며 학습된 모델이 아닙니다." ;
     atlas:summary "서로 다른 크기의 특징 경로를 결합하는 다중 스케일 합성곱 구조." ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/convolution>,
@@ -3265,6 +3277,8 @@ atlas:alternative_to a owl:ObjectProperty,
     atlas:has_component <https://github.com/PtwoI/p2i-kg#component/convolution> ;
     atlas:label "ConvNeXt" ;
     atlas:reference_year 2022 ;
+    atlas:runtime_id "convnext" ;
+    atlas:runtime_note "단계당 블록 1개·폭 8/16/32/64의 torchvision ConvNeXt. depthwise convolution과 LayerNorm을 포함합니다. 모든 가중치는 무작위 초기화이며 학습된 모델이 아닙니다." ;
     atlas:summary "ResNet을 현대화하는 설계 실험에서 얻은 순수 합성곱 모델 계열." ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/convolution>,
@@ -3281,6 +3295,8 @@ atlas:alternative_to a owl:ObjectProperty,
     atlas:has_component <https://github.com/PtwoI/p2i-kg#component/convolution> ;
     atlas:label "EfficientNet" ;
     atlas:reference_year 2019 ;
+    atlas:runtime_id "efficientnet" ;
+    atlas:runtime_note "torchvision EfficientNet-B0의 MBConv와 squeeze-excitation. 32×32 입력·4종 분류 예제입니다. 모든 가중치는 무작위 초기화이며 학습된 모델이 아닙니다." ;
     atlas:summary "깊이·너비·해상도의 균형을 맞춰 합성곱 모델을 확장합니다." ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/compound_scaling>,
@@ -3297,6 +3313,8 @@ atlas:alternative_to a owl:ObjectProperty,
     atlas:has_component <https://github.com/PtwoI/p2i-kg#component/graph_aggregation> ;
     atlas:label "Graph Attention Network" ;
     atlas:reference_year 2017 ;
+    atlas:runtime_id "gat" ;
+    atlas:runtime_note "5개 노드의 1-head GAT. 이웃 마스킹·additive attention·softmax 집계를 실행합니다. 모든 가중치는 무작위 초기화이며 학습된 모델이 아닙니다." ;
     atlas:summary "어텐션 가중치로 그래프 이웃의 표현을 집계합니다." ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/attention>,
@@ -3313,6 +3331,8 @@ atlas:alternative_to a owl:ObjectProperty,
     atlas:has_component <https://github.com/PtwoI/p2i-kg#component/state_space> ;
     atlas:label "Mamba" ;
     atlas:reference_year 2023 ;
+    atlas:runtime_id "mamba" ;
+    atlas:runtime_note "Transformers Mamba 1층·폭 16·state 4. 입력 의존적 selective SSM과 causal convolution을 CPU 경로로 실행합니다. 모든 가중치는 무작위 초기화이며 학습된 모델이 아닙니다." ;
     atlas:summary "입력에 의존하는 상태 공간 갱신으로 긴 시퀀스를 처리합니다." ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/autoregressive> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/recurrence>,
@@ -3329,6 +3349,8 @@ atlas:alternative_to a owl:ObjectProperty,
     atlas:has_component <https://github.com/PtwoI/p2i-kg#component/convolution> ;
     atlas:label "MobileNet" ;
     atlas:reference_year 2017 ;
+    atlas:runtime_id "mobilenet" ;
+    atlas:runtime_note "torchvision MobileNetV2 width 0.25 예제. 역잔차·depthwise convolution·선형 병목을 포함합니다. 초기 MobileNetV1과는 세부 블록이 다릅니다. 모든 가중치는 무작위 초기화이며 학습된 모델이 아닙니다." ;
     atlas:summary "Depthwise와 pointwise 연산을 분리한 경량 합성곱 구조." ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/convolution>,
@@ -3360,6 +3382,8 @@ atlas:alternative_to a owl:ObjectProperty,
     atlas:has_component <https://github.com/PtwoI/p2i-kg#component/convolution> ;
     atlas:label "U-Net" ;
     atlas:reference_year 2015 ;
+    atlas:runtime_id "unet" ;
+    atlas:runtime_note "2단계 U-Net 축소 예제. encoder–decoder와 skip concatenation을 포함하며 padding으로 공간 크기를 보존합니다. 모든 가중치는 무작위 초기화이며 학습된 모델이 아닙니다." ;
     atlas:summary "축소 경로와 확장 경로 사이 특징 연결을 이용한 영상 분할 모델." ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/convolution>,
@@ -3376,6 +3400,8 @@ atlas:alternative_to a owl:ObjectProperty,
         <https://github.com/PtwoI/p2i-kg#component/latent_encoder> ;
     atlas:label "Variational Autoencoder" ;
     atlas:reference_year 2013 ;
+    atlas:runtime_id "vae" ;
+    atlas:runtime_note "잠재 차원 4의 VAE. 평균·로그분산 추정과 reparameterization, decoder를 포함하며 epsilon도 입력으로 받습니다. 모든 가중치는 무작위 초기화이며 학습된 모델이 아닙니다." ;
     atlas:summary "잠재 분포의 변분 추론과 재매개화를 이용하는 생성 모델." ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/elbo> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/encoder_decoder>,
@@ -3392,6 +3418,8 @@ atlas:alternative_to a owl:ObjectProperty,
     atlas:has_component <https://github.com/PtwoI/p2i-kg#component/convolution> ;
     atlas:label "VGG" ;
     atlas:reference_year 2014 ;
+    atlas:runtime_id "vgg" ;
+    atlas:runtime_note "torchvision VGG11의 합성곱 스택. 1×1 풀링과 작은 분류기로 축소했습니다. 모든 가중치는 무작위 초기화이며 학습된 모델이 아닙니다." ;
     atlas:summary "작은 합성곱 커널을 반복하여 깊은 영상 특징을 학습합니다." ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/activation>,
@@ -3428,6 +3456,8 @@ atlas:alternative_to a owl:ObjectProperty,
         <https://github.com/PtwoI/p2i-kg#component/self_attention> ;
     atlas:label "RoFormer" ;
     atlas:reference_year 2021 ;
+    atlas:runtime_id "roformer" ;
+    atlas:runtime_note "Transformers RoFormer 1층·폭 16. RoPE를 쓰는 양방향 어텐션 구조입니다. 모든 가중치는 무작위 초기화이며 학습된 모델이 아닙니다." ;
     atlas:summary "회전 위치 임베딩을 어텐션에 결합한 Transformer 계열." ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/ffn>,
         <https://github.com/PtwoI/p2i-kg#concept/relative_position>,
@@ -3514,6 +3544,8 @@ atlas:Task a owl:Class ;
         <https://github.com/PtwoI/p2i-kg#component/self_attention> ;
     atlas:label "LLaMA · 2023" ;
     atlas:reference_year 2023 ;
+    atlas:runtime_id "llama" ;
+    atlas:runtime_note "Transformers LLaMA 1층·폭 16. RMSNorm·RoPE·SwiGLU·causal attention을 포함합니다. 모든 가중치는 무작위 초기화이며 학습된 모델이 아닙니다." ;
     atlas:summary "RoPE·RMSNorm·SwiGLU를 결합한 초기 LLaMA 자기회귀 구조." ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/autoregressive> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/causal_mask>,
@@ -3550,6 +3582,8 @@ atlas:Task a owl:Class ;
         <https://github.com/PtwoI/p2i-kg#component/self_attention> ;
     atlas:label "Swin Transformer" ;
     atlas:reference_year 2021 ;
+    atlas:runtime_id "swin" ;
+    atlas:runtime_note "torchvision Swin: 두 단계, 작은 2×2 윈도, 단계당 블록 2개. shifted-window와 patch merging을 포함합니다. 모든 가중치는 무작위 초기화이며 학습된 모델이 아닙니다." ;
     atlas:summary "이동 윈도 어텐션과 계층적 해상도로 지역·광역 정보를 결합합니다." ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/patch_embedding>,
@@ -3635,6 +3669,8 @@ atlas:subconcept_of a owl:ObjectProperty,
         <https://github.com/PtwoI/p2i-kg#component/router> ;
     atlas:label "Switch Transformer" ;
     atlas:reference_year 2021 ;
+    atlas:runtime_id "switch" ;
+    atlas:runtime_note "Transformers Switch 2-expert top-1 routing. encoder와 decoder에 실제 sparse FFN을 포함하며 capacity는 16입니다. 모든 가중치는 무작위 초기화이며 학습된 모델이 아닙니다." ;
     atlas:summary "T5의 FFN 일부를 희소 전문가와 토큰별 라우팅으로 확장합니다." ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/span_corruption> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/cross_attention>,
@@ -3655,6 +3691,8 @@ atlas:subconcept_of a owl:ObjectProperty,
         <https://github.com/PtwoI/p2i-kg#component/encoder> ;
     atlas:label "T5" ;
     atlas:reference_year 2019 ;
+    atlas:runtime_id "t5" ;
+    atlas:runtime_note "Transformers T5: 폭 16, encoder/decoder 각 1층. 상대 위치 bias·교차 어텐션·공유 임베딩을 포함합니다. 모든 가중치는 무작위 초기화이며 학습된 모델이 아닙니다." ;
     atlas:summary "다양한 언어 과제를 text-to-text 형식으로 통합한 인코더–디코더 모델." ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/span_corruption> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/cross_attention>,
