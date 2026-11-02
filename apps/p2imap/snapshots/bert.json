@@ -1,0 +1,1746 @@
+{
+  "runtime_id": "bert",
+  "p2i_version": "0.4.4",
+  "operations": 86,
+  "modules": 30,
+  "bindings": [
+    {
+      "ontology_id": "component:encoder",
+      "module_path": "encoder.layer.0",
+      "architecture_node_id": "a9",
+      "module_type": "transformers.models.bert.modeling_bert.BertLayer",
+      "parameters": {},
+      "editable": false,
+      "managed_by": null,
+      "parameter_count": 2224
+    },
+    {
+      "ontology_id": "component:self_attention",
+      "module_path": "encoder.layer.0.attention.self",
+      "architecture_node_id": "a11",
+      "module_type": "transformers.models.bert.modeling_bert.BertSelfAttention",
+      "parameters": {},
+      "editable": false,
+      "managed_by": null,
+      "parameter_count": 816
+    },
+    {
+      "ontology_id": "component:ffn",
+      "module_path": "encoder.layer.0.intermediate",
+      "architecture_node_id": "a20",
+      "module_type": "transformers.models.bert.modeling_bert.BertIntermediate",
+      "parameters": {},
+      "editable": false,
+      "managed_by": null,
+      "parameter_count": 544
+    },
+    {
+      "ontology_id": "component:positions",
+      "module_path": "embeddings.position_embeddings",
+      "architecture_node_id": "a3",
+      "module_type": "torch.nn.Embedding",
+      "parameters": {
+        "num_embeddings": 512,
+        "embedding_dim": 16,
+        "padding_idx": null,
+        "max_norm": null,
+        "norm_type": 2.0,
+        "scale_grad_by_freq": false,
+        "sparse": false
+      },
+      "editable": true,
+      "managed_by": null,
+      "parameter_count": 8192
+    }
+  ],
+  "architecture": {
+    "version": "0.1",
+    "model_name": "BertModel",
+    "root_id": "a0",
+    "revision": 0,
+    "seed": 0,
+    "nodes": [
+      {
+        "id": "a0",
+        "name": "BertModel",
+        "qualified_name": "",
+        "kind": "custom",
+        "module_type": "transformers.models.bert.modeling_bert.BertModel",
+        "parameters": {},
+        "children": [
+          {
+            "name": "embeddings",
+            "node_id": "a1"
+          },
+          {
+            "name": "encoder",
+            "node_id": "a7"
+          },
+          {
+            "name": "pooler",
+            "node_id": "a27"
+          }
+        ],
+        "source_observed_module_id": "m0",
+        "latest_observed_module_id": "m0",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation."
+        ],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6
+            ],
+            "rank": 2,
+            "dtype": "torch.int64",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              16
+            ],
+            "rank": 2,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a1",
+        "name": "embeddings",
+        "qualified_name": "embeddings",
+        "kind": "custom",
+        "module_type": "transformers.models.bert.modeling_bert.BertEmbeddings",
+        "parameters": {},
+        "children": [
+          {
+            "name": "word_embeddings",
+            "node_id": "a2"
+          },
+          {
+            "name": "position_embeddings",
+            "node_id": "a3"
+          },
+          {
+            "name": "token_type_embeddings",
+            "node_id": "a4"
+          },
+          {
+            "name": "LayerNorm",
+            "node_id": "a5"
+          },
+          {
+            "name": "dropout",
+            "node_id": "a6"
+          }
+        ],
+        "source_observed_module_id": "m1",
+        "latest_observed_module_id": "m1",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation."
+        ],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6
+            ],
+            "rank": 2,
+            "dtype": "torch.int64",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              6
+            ],
+            "rank": 2,
+            "dtype": "torch.int64",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a2",
+        "name": "word_embeddings",
+        "qualified_name": "embeddings.word_embeddings",
+        "kind": "module",
+        "module_type": "torch.nn.Embedding",
+        "parameters": {
+          "num_embeddings": 64,
+          "embedding_dim": 16,
+          "padding_idx": 0,
+          "max_norm": null,
+          "norm_type": 2.0,
+          "scale_grad_by_freq": false,
+          "sparse": false
+        },
+        "children": [],
+        "source_observed_module_id": "m2",
+        "latest_observed_module_id": "m2",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6
+            ],
+            "rank": 2,
+            "dtype": "torch.int64",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a3",
+        "name": "position_embeddings",
+        "qualified_name": "embeddings.position_embeddings",
+        "kind": "module",
+        "module_type": "torch.nn.Embedding",
+        "parameters": {
+          "num_embeddings": 512,
+          "embedding_dim": 16,
+          "padding_idx": null,
+          "max_norm": null,
+          "norm_type": 2.0,
+          "scale_grad_by_freq": false,
+          "sparse": false
+        },
+        "children": [],
+        "source_observed_module_id": "m3",
+        "latest_observed_module_id": "m3",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              1,
+              6
+            ],
+            "rank": 2,
+            "dtype": "torch.int64",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              1,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a4",
+        "name": "token_type_embeddings",
+        "qualified_name": "embeddings.token_type_embeddings",
+        "kind": "module",
+        "module_type": "torch.nn.Embedding",
+        "parameters": {
+          "num_embeddings": 2,
+          "embedding_dim": 16,
+          "padding_idx": null,
+          "max_norm": null,
+          "norm_type": 2.0,
+          "scale_grad_by_freq": false,
+          "sparse": false
+        },
+        "children": [],
+        "source_observed_module_id": "m4",
+        "latest_observed_module_id": "m4",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6
+            ],
+            "rank": 2,
+            "dtype": "torch.int64",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a5",
+        "name": "LayerNorm",
+        "qualified_name": "embeddings.LayerNorm",
+        "kind": "module",
+        "module_type": "torch.nn.LayerNorm",
+        "parameters": {
+          "normalized_shape": [
+            16
+          ],
+          "eps": 1e-12,
+          "elementwise_affine": true,
+          "bias": true
+        },
+        "children": [],
+        "source_observed_module_id": "m5",
+        "latest_observed_module_id": "m5",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a6",
+        "name": "dropout",
+        "qualified_name": "embeddings.dropout",
+        "kind": "module",
+        "module_type": "torch.nn.Dropout",
+        "parameters": {
+          "p": 0.1,
+          "inplace": false
+        },
+        "children": [],
+        "source_observed_module_id": "m6",
+        "latest_observed_module_id": "m6",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a7",
+        "name": "encoder",
+        "qualified_name": "encoder",
+        "kind": "custom",
+        "module_type": "transformers.models.bert.modeling_bert.BertEncoder",
+        "parameters": {},
+        "children": [
+          {
+            "name": "layer",
+            "node_id": "a8"
+          }
+        ],
+        "source_observed_module_id": "m7",
+        "latest_observed_module_id": "m7",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation."
+        ],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              1,
+              1,
+              6
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a8",
+        "name": "layer",
+        "qualified_name": "encoder.layer",
+        "kind": "container",
+        "module_type": "torch.nn.ModuleList",
+        "parameters": {},
+        "children": [
+          {
+            "name": "0",
+            "node_id": "a9"
+          }
+        ],
+        "source_observed_module_id": "m8",
+        "latest_observed_module_id": "m8",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [],
+        "output_contracts": [],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a9",
+        "name": "0",
+        "qualified_name": "encoder.layer.0",
+        "kind": "custom",
+        "module_type": "transformers.models.bert.modeling_bert.BertLayer",
+        "parameters": {},
+        "children": [
+          {
+            "name": "attention",
+            "node_id": "a10"
+          },
+          {
+            "name": "intermediate",
+            "node_id": "a20"
+          },
+          {
+            "name": "output",
+            "node_id": "a23"
+          }
+        ],
+        "source_observed_module_id": "m9",
+        "latest_observed_module_id": "m9",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation."
+        ],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              1,
+              1,
+              6
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a10",
+        "name": "attention",
+        "qualified_name": "encoder.layer.0.attention",
+        "kind": "custom",
+        "module_type": "transformers.models.bert.modeling_bert.BertAttention",
+        "parameters": {},
+        "children": [
+          {
+            "name": "self",
+            "node_id": "a11"
+          },
+          {
+            "name": "output",
+            "node_id": "a16"
+          }
+        ],
+        "source_observed_module_id": "m10",
+        "latest_observed_module_id": "m10",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation."
+        ],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              1,
+              1,
+              6
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a11",
+        "name": "self",
+        "qualified_name": "encoder.layer.0.attention.self",
+        "kind": "custom",
+        "module_type": "transformers.models.bert.modeling_bert.BertSelfAttention",
+        "parameters": {},
+        "children": [
+          {
+            "name": "query",
+            "node_id": "a12"
+          },
+          {
+            "name": "key",
+            "node_id": "a13"
+          },
+          {
+            "name": "value",
+            "node_id": "a14"
+          },
+          {
+            "name": "dropout",
+            "node_id": "a15"
+          }
+        ],
+        "source_observed_module_id": "m11",
+        "latest_observed_module_id": "m11",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation."
+        ],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              1,
+              1,
+              6
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a12",
+        "name": "query",
+        "qualified_name": "encoder.layer.0.attention.self.query",
+        "kind": "module",
+        "module_type": "torch.nn.Linear",
+        "parameters": {
+          "in_features": 16,
+          "out_features": 16,
+          "bias": true
+        },
+        "children": [],
+        "source_observed_module_id": "m12",
+        "latest_observed_module_id": "m12",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a13",
+        "name": "key",
+        "qualified_name": "encoder.layer.0.attention.self.key",
+        "kind": "module",
+        "module_type": "torch.nn.Linear",
+        "parameters": {
+          "in_features": 16,
+          "out_features": 16,
+          "bias": true
+        },
+        "children": [],
+        "source_observed_module_id": "m13",
+        "latest_observed_module_id": "m13",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a14",
+        "name": "value",
+        "qualified_name": "encoder.layer.0.attention.self.value",
+        "kind": "module",
+        "module_type": "torch.nn.Linear",
+        "parameters": {
+          "in_features": 16,
+          "out_features": 16,
+          "bias": true
+        },
+        "children": [],
+        "source_observed_module_id": "m14",
+        "latest_observed_module_id": "m14",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a15",
+        "name": "dropout",
+        "qualified_name": "encoder.layer.0.attention.self.dropout",
+        "kind": "module",
+        "module_type": "torch.nn.Dropout",
+        "parameters": {
+          "p": 0.1,
+          "inplace": false
+        },
+        "children": [],
+        "source_observed_module_id": "m15",
+        "latest_observed_module_id": "m15",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              2,
+              6,
+              6
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              2,
+              6,
+              6
+            ],
+            "rank": 4,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a16",
+        "name": "output",
+        "qualified_name": "encoder.layer.0.attention.output",
+        "kind": "custom",
+        "module_type": "transformers.models.bert.modeling_bert.BertSelfOutput",
+        "parameters": {},
+        "children": [
+          {
+            "name": "dense",
+            "node_id": "a17"
+          },
+          {
+            "name": "LayerNorm",
+            "node_id": "a18"
+          },
+          {
+            "name": "dropout",
+            "node_id": "a19"
+          }
+        ],
+        "source_observed_module_id": "m16",
+        "latest_observed_module_id": "m16",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation."
+        ],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a17",
+        "name": "dense",
+        "qualified_name": "encoder.layer.0.attention.output.dense",
+        "kind": "module",
+        "module_type": "torch.nn.Linear",
+        "parameters": {
+          "in_features": 16,
+          "out_features": 16,
+          "bias": true
+        },
+        "children": [],
+        "source_observed_module_id": "m17",
+        "latest_observed_module_id": "m17",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a18",
+        "name": "LayerNorm",
+        "qualified_name": "encoder.layer.0.attention.output.LayerNorm",
+        "kind": "module",
+        "module_type": "torch.nn.LayerNorm",
+        "parameters": {
+          "normalized_shape": [
+            16
+          ],
+          "eps": 1e-12,
+          "elementwise_affine": true,
+          "bias": true
+        },
+        "children": [],
+        "source_observed_module_id": "m18",
+        "latest_observed_module_id": "m18",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a19",
+        "name": "dropout",
+        "qualified_name": "encoder.layer.0.attention.output.dropout",
+        "kind": "module",
+        "module_type": "torch.nn.Dropout",
+        "parameters": {
+          "p": 0.1,
+          "inplace": false
+        },
+        "children": [],
+        "source_observed_module_id": "m19",
+        "latest_observed_module_id": "m19",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a20",
+        "name": "intermediate",
+        "qualified_name": "encoder.layer.0.intermediate",
+        "kind": "custom",
+        "module_type": "transformers.models.bert.modeling_bert.BertIntermediate",
+        "parameters": {},
+        "children": [
+          {
+            "name": "dense",
+            "node_id": "a21"
+          },
+          {
+            "name": "intermediate_act_fn",
+            "node_id": "a22"
+          }
+        ],
+        "source_observed_module_id": "m20",
+        "latest_observed_module_id": "m20",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation."
+        ],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a21",
+        "name": "dense",
+        "qualified_name": "encoder.layer.0.intermediate.dense",
+        "kind": "module",
+        "module_type": "torch.nn.Linear",
+        "parameters": {
+          "in_features": 16,
+          "out_features": 32,
+          "bias": true
+        },
+        "children": [],
+        "source_observed_module_id": "m21",
+        "latest_observed_module_id": "m21",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a22",
+        "name": "intermediate_act_fn",
+        "qualified_name": "encoder.layer.0.intermediate.intermediate_act_fn",
+        "kind": "custom",
+        "module_type": "transformers.activations.GELUActivation",
+        "parameters": {},
+        "children": [],
+        "source_observed_module_id": "m22",
+        "latest_observed_module_id": "m22",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation."
+        ],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a23",
+        "name": "output",
+        "qualified_name": "encoder.layer.0.output",
+        "kind": "custom",
+        "module_type": "transformers.models.bert.modeling_bert.BertOutput",
+        "parameters": {},
+        "children": [
+          {
+            "name": "dense",
+            "node_id": "a24"
+          },
+          {
+            "name": "LayerNorm",
+            "node_id": "a25"
+          },
+          {
+            "name": "dropout",
+            "node_id": "a26"
+          }
+        ],
+        "source_observed_module_id": "m23",
+        "latest_observed_module_id": "m23",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation."
+        ],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a24",
+        "name": "dense",
+        "qualified_name": "encoder.layer.0.output.dense",
+        "kind": "module",
+        "module_type": "torch.nn.Linear",
+        "parameters": {
+          "in_features": 32,
+          "out_features": 16,
+          "bias": true
+        },
+        "children": [],
+        "source_observed_module_id": "m24",
+        "latest_observed_module_id": "m24",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              32
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a25",
+        "name": "LayerNorm",
+        "qualified_name": "encoder.layer.0.output.LayerNorm",
+        "kind": "module",
+        "module_type": "torch.nn.LayerNorm",
+        "parameters": {
+          "normalized_shape": [
+            16
+          ],
+          "eps": 1e-12,
+          "elementwise_affine": true,
+          "bias": true
+        },
+        "children": [],
+        "source_observed_module_id": "m25",
+        "latest_observed_module_id": "m25",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a26",
+        "name": "dropout",
+        "qualified_name": "encoder.layer.0.output.dropout",
+        "kind": "module",
+        "module_type": "torch.nn.Dropout",
+        "parameters": {
+          "p": 0.1,
+          "inplace": false
+        },
+        "children": [],
+        "source_observed_module_id": "m26",
+        "latest_observed_module_id": "m26",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a27",
+        "name": "pooler",
+        "qualified_name": "pooler",
+        "kind": "custom",
+        "module_type": "transformers.models.bert.modeling_bert.BertPooler",
+        "parameters": {},
+        "children": [
+          {
+            "name": "dense",
+            "node_id": "a28"
+          },
+          {
+            "name": "activation",
+            "node_id": "a29"
+          }
+        ],
+        "source_observed_module_id": "m27",
+        "latest_observed_module_id": "m27",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation."
+        ],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              6,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              16
+            ],
+            "rank": 2,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a28",
+        "name": "dense",
+        "qualified_name": "pooler.dense",
+        "kind": "module",
+        "module_type": "torch.nn.Linear",
+        "parameters": {
+          "in_features": 16,
+          "out_features": 16,
+          "bias": true
+        },
+        "children": [],
+        "source_observed_module_id": "m28",
+        "latest_observed_module_id": "m28",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              16
+            ],
+            "rank": 2,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              16
+            ],
+            "rank": 2,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a29",
+        "name": "activation",
+        "qualified_name": "pooler.activation",
+        "kind": "custom",
+        "module_type": "torch.nn.modules.activation.Tanh",
+        "parameters": {},
+        "children": [],
+        "source_observed_module_id": "m29",
+        "latest_observed_module_id": "m29",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation."
+        ],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              16
+            ],
+            "rank": 2,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              16
+            ],
+            "rank": 2,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      }
+    ]
+  },
+  "scope": "Current fixed example configuration, with randomly initialized weights."
+}

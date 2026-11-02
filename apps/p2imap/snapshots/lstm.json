@@ -1,0 +1,220 @@
+{
+  "runtime_id": "lstm",
+  "p2i_version": "0.4.4",
+  "operations": 14,
+  "modules": 3,
+  "bindings": [
+    {
+      "ontology_id": "component:recurrent",
+      "module_path": "recurrent",
+      "architecture_node_id": "a1",
+      "module_type": "torch.nn.LSTM",
+      "parameters": {
+        "input_size": 8,
+        "hidden_size": 16,
+        "num_layers": 1,
+        "bias": true,
+        "batch_first": true,
+        "dropout": 0.0,
+        "bidirectional": false,
+        "proj_size": 0
+      },
+      "editable": true,
+      "managed_by": null,
+      "parameter_count": 1664
+    }
+  ],
+  "architecture": {
+    "version": "0.1",
+    "model_name": "RecurrentClassifier",
+    "root_id": "a0",
+    "revision": 0,
+    "seed": 0,
+    "nodes": [
+      {
+        "id": "a0",
+        "name": "RecurrentClassifier",
+        "qualified_name": "",
+        "kind": "custom",
+        "module_type": "p2i.examples.recurrent.RecurrentClassifier",
+        "parameters": {},
+        "children": [
+          {
+            "name": "recurrent",
+            "node_id": "a1"
+          },
+          {
+            "name": "head",
+            "node_id": "a2"
+          }
+        ],
+        "source_observed_module_id": "m0",
+        "latest_observed_module_id": "m0",
+        "editable": false,
+        "edit_restrictions": [
+          "No reconstruction adapter is available. Constructor is read-only; live sessions retain the original forward implementation."
+        ],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              8
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              3
+            ],
+            "rank": 2,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a1",
+        "name": "recurrent",
+        "qualified_name": "recurrent",
+        "kind": "module",
+        "module_type": "torch.nn.LSTM",
+        "parameters": {
+          "input_size": 8,
+          "hidden_size": 16,
+          "num_layers": 1,
+          "bias": true,
+          "batch_first": true,
+          "dropout": 0.0,
+          "bidirectional": false,
+          "proj_size": 0
+        },
+        "children": [],
+        "source_observed_module_id": "m1",
+        "latest_observed_module_id": "m1",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              8
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              5,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              1,
+              2,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          },
+          {
+            "shape": [
+              1,
+              2,
+              16
+            ],
+            "rank": 3,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      },
+      {
+        "id": "a2",
+        "name": "head",
+        "qualified_name": "head",
+        "kind": "module",
+        "module_type": "torch.nn.Linear",
+        "parameters": {
+          "in_features": 16,
+          "out_features": 3,
+          "bias": true
+        },
+        "children": [],
+        "source_observed_module_id": "m2",
+        "latest_observed_module_id": "m2",
+        "editable": true,
+        "edit_restrictions": [],
+        "managed_by": null,
+        "input_contracts": [
+          {
+            "shape": [
+              2,
+              16
+            ],
+            "rank": 2,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "output_contracts": [
+          {
+            "shape": [
+              2,
+              3
+            ],
+            "rank": 2,
+            "dtype": "torch.float32",
+            "dtype_family": null,
+            "device": null,
+            "evidence": "observed"
+          }
+        ],
+        "contracts_revision": 0,
+        "skill_id": null,
+        "skill_revision": null,
+        "training": false
+      }
+    ]
+  },
+  "scope": "Current fixed example configuration, with randomly initialized weights."
+}

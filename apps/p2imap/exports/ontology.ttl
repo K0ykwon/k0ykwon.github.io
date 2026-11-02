@@ -1,0 +1,68 @@
+@prefix atlas: <https://github.com/PtwoI/p2i-kg#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+atlas:Claim a owl:Class ;
+    rdfs:label "Claim" .
+
+atlas:alternative_to a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:domain atlas:Model ;
+    rdfs:range atlas:Model .
+
+atlas:applied_to a owl:ObjectProperty ;
+    rdfs:domain atlas:Model ;
+    rdfs:range atlas:Task .
+
+atlas:documented_in a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( atlas:Model atlas:Concept atlas:Component atlas:Objective atlas:Task ) ] ;
+    rdfs:range atlas:Paper .
+
+atlas:extends a owl:ObjectProperty ;
+    rdfs:domain atlas:Model ;
+    rdfs:range atlas:Model .
+
+atlas:has_component a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( atlas:Model atlas:Component ) ] ;
+    rdfs:range atlas:Component .
+
+atlas:ontology a owl:Ontology ;
+    owl:versionInfo "0.2" .
+
+atlas:subconcept_of a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:domain atlas:Concept ;
+    rdfs:range atlas:Concept ;
+    rdfs:subPropertyOf skos:broaderTransitive .
+
+atlas:trained_with a owl:ObjectProperty ;
+    rdfs:domain atlas:Model ;
+    rdfs:range atlas:Objective .
+
+atlas:uses a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( atlas:Model atlas:Component ) ] ;
+    rdfs:range atlas:Concept .
+
+atlas:Paper a owl:Class ;
+    rdfs:label "Paper" .
+
+atlas:Objective a owl:Class ;
+    rdfs:label "Objective" .
+
+atlas:Task a owl:Class ;
+    rdfs:label "Task" .
+
+atlas:Component a owl:Class ;
+    rdfs:label "Component" .
+
+atlas:Concept a owl:Class ;
+    rdfs:label "Concept" .
+
+atlas:Model a owl:Class ;
+    rdfs:label "Model" .
+
