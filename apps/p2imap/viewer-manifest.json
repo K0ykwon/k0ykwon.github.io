@@ -1,18 +1,1 @@
-{
-  "catalog_revision": "717831eb65c7b09454ff95adc565db735bd8024ec1e7dfa129ad0e90d3db31f8",
-  "runtime_snapshots": [
-    "bert",
-    "cnn",
-    "gpt2",
-    "gru",
-    "lstm",
-    "mlp",
-    "perceptron",
-    "resnet18",
-    "rnn",
-    "seq2seq",
-    "vit"
-  ],
-  "mode": "read-only",
-  "weights": "random initialization, not trained checkpoints"
-}
+{"catalog_revision":"b7e732538a651b4cb543a3b892727e437c4bab354874b8433fbe83ce9d560ed9","runtime_snapshots":["bert","clip","cnn","convnext","ddpm","densenet","efficientnet","gan","gat","gcn","gpt2","gru","inception","llama","lstm","mamba","mlp","mobilenet","perceptron","resnet18","rnn","roformer","seq2seq","swin","switch","t5","unet","vae","vgg","vit"],"mode":"read-only","weights":"random initialization, not trained checkpoints"}
