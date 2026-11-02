@@ -7,26 +7,26 @@ atlas:ClaimShape a sh:NodeShape ;
     sh:property [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:path atlas:source ],
-        [ sh:datatype xsd:string ;
-            sh:minCount 1 ;
-            sh:minLength 1 ;
-            sh:path atlas:explanation ],
+            sh:path atlas:target ],
         [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:path atlas:target ],
+            sh:path atlas:relation ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path atlas:source ],
         [ sh:in ( "documented" "structural" "pedagogical" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path atlas:basis ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:minLength 1 ;
+            sh:path atlas:explanation ],
         [ sh:class atlas:Paper ;
             sh:minCount 1 ;
-            sh:path atlas:evidence ],
-        [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:path atlas:relation ] ;
+            sh:path atlas:evidence ] ;
     sh:targetClass atlas:Claim .
 
 atlas:ComponentShape a sh:NodeShape ;
@@ -34,12 +34,12 @@ atlas:ComponentShape a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:minLength 1 ;
-            sh:path atlas:label ],
+            sh:path atlas:summary ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:minLength 1 ;
-            sh:path atlas:summary ] ;
+            sh:path atlas:label ] ;
     sh:targetClass atlas:Component .
 
 atlas:ConceptShape a sh:NodeShape ;
@@ -73,26 +73,20 @@ atlas:ObjectiveShape a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:minLength 1 ;
-            sh:path atlas:label ],
+            sh:path atlas:summary ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:minLength 1 ;
-            sh:path atlas:summary ] ;
+            sh:path atlas:label ] ;
     sh:targetClass atlas:Objective .
 
 atlas:PaperShape a sh:NodeShape ;
     sh:property [ sh:datatype xsd:string ;
-            sh:minCount 1 ;
-            sh:path atlas:author ],
-        [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:minLength 1 ;
             sh:path atlas:label ],
-        [ sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:path atlas:url ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -100,7 +94,13 @@ atlas:PaperShape a sh:NodeShape ;
             sh:path atlas:summary ],
         [ sh:datatype xsd:integer ;
             sh:minCount 1 ;
-            sh:path atlas:reference_year ] ;
+            sh:path atlas:reference_year ],
+        [ sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path atlas:url ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path atlas:author ] ;
     sh:targetClass atlas:Paper .
 
 atlas:TaskShape a sh:NodeShape ;
