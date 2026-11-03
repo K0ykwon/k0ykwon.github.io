@@ -105,7 +105,7 @@ export function connectionLayout(result,id) {
   }
   const layers=new Map(), placements=new Map();
   for(const [nodeId,levels] of copies)for(const level of levels){
-    const item={key:nodeId+'@'+level,node:byId.get(nodeId),level,x:level*350,y:0,duplicate:levels.length>1};
+    const item={key:nodeId+'@'+level,node:byId.get(nodeId),level,x:-level*350,y:0,duplicate:levels.length>1};
     if(!layers.has(level))layers.set(level,[]);layers.get(level).push(item);placements.set(item.key,item);
   }
   for(const [level,items] of layers){
@@ -134,11 +134,13 @@ export function connectionLayout(result,id) {
     }
     return {edge,source:edge.source+'@'+source,target:edge.target+'@'+target};
   });
-  const guides=[{x:-350,y:-Math.max(1,layers.get(-1)?.length??0)*ROW/2-15,label:'들어오는 연결',side:'incoming'},
+  // Display dependency flow: referenced foundations left, models that use this item right.
+  // Keep source/target identities unchanged so relation inspection remains accurate.
+  const guides=[{x:-350,y:-Math.max(1,layers.get(1)?.length??0)*ROW/2-15,label:'기반 · 구성',side:'incoming'},
     {x:0,y:-86,label:'선택한 항목',side:'center'},
-    {x:350,y:-Math.max(1,layers.get(1)?.length??0)*ROW/2-15,label:'나가는 연결',side:'outgoing'}];
-  for(const [level,items]of layers)if(Math.abs(level)>1)guides.push({x:level*350,y:-items.length*ROW/2-15,label:Math.abs(level)+'단계 연결',side:level<0?'incoming':'outgoing'});
-  return {...bounds([...placements.values()],[],edges,guides),uniqueCount:byId.size,incomingCount:incoming.size,outgoingCount:outgoing.size};
+    {x:350,y:-Math.max(1,layers.get(-1)?.length??0)*ROW/2-15,label:'활용 · 확장',side:'outgoing'}];
+  for(const [level,items]of layers)if(Math.abs(level)>1)guides.push({x:-level*350,y:-items.length*ROW/2-15,label:Math.abs(level)+'단계 연결',side:level>0?'incoming':'outgoing'});
+  return {...bounds([...placements.values()],[],edges,guides),uniqueCount:byId.size,incomingCount:outgoing.size,outgoingCount:incoming.size};
 }
 
 export function edgePath(a,b,offset=0) {

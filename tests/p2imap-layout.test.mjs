@@ -17,12 +17,12 @@ test('all catalog models appear once, stable tidy trees, including every new fam
  assert.deepEqual(mindmap(graph),layout);
  for(const family of new Set(graph.nodes.filter(n=>n.kind==='model').map(n=>n.family))){const filtered=mindmap(graph,family);valid(filtered);assert.ok(filtered.items.filter(n=>n.node.kind==='model').every(n=>n.node.family===family));}
 });
-test('each catalog node: every direct incoming edge starts on left and outgoing edge ends on right',()=>{
+test('dependency view: referenced foundations on left, users and extensions on right',()=>{
  for(const node of graph.nodes){const result=neighborhood(graph,node.id),layout=connectionLayout(result,node.id);valid(layout);
   const points=new Map(layout.items.map(n=>[n.key,n]));assert.equal(layout.edges.length,result.edges.length);
   for(const {edge,source,target}of layout.edges){if(edge.source===edge.target)continue;
-   if(edge.target===node.id)assert.ok(points.get(source).x<points.get(target).x);
-   if(edge.source===node.id)assert.ok(points.get(source).x<points.get(target).x);
+   if(edge.target===node.id)assert.ok(points.get(source).x>points.get(target).x);
+   if(edge.source===node.id)assert.ok(points.get(source).x>points.get(target).x);
   }
  }
 });

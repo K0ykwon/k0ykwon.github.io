@@ -1,4 +1,4 @@
-import {mindmap,neighborhood,connectionLayout,edgePath,NODE_WIDTH,NODE_HEIGHT} from './layout.js?v=20261103-mindmap';
+import {mindmap,neighborhood,connectionLayout,edgePath,NODE_WIDTH,NODE_HEIGHT} from './layout.js?v=20261103-dependency-flow';
 import {read,hosted} from './catalog-client.js?v=bd97c3376ea85849';
 const $=selector=>document.querySelector(selector);
 const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
@@ -67,9 +67,9 @@ async function renderMap(reset=true){
   }
   $('#map').innerHTML=svg;$('#map').classList.toggle('mindmap',mode==='overview');if(reset)fit();else applyCamera();
   $('#global-error').textContent='';
-  $('#map-message').textContent=mode==='overview'?`${layout.modelCount}개 모델 · 계열별 마인드맵 · 선택한 모델의 실제 관계를 화살표로 표시`:`${result.nodes.length}개 노드 · ${result.edges.length}개 관계 · 들어옴 ${layout.incomingCount} / 나감 ${layout.outgoingCount} · ${hops}단계 전체 표시`;
-  $('#canvas-hint').textContent=mode==='overview'?'계열을 눌러 집중 보기 · 드래그 이동 · 휠 / 두 손가락 확대':'왼쪽 → 선택한 항목 → 오른쪽 · 연결선에 올리면 관계 표시';
-  $('#family-legend').innerHTML=mode==='overview'?Object.entries(families).filter(([key])=>(family==='all'||family===key)&&graph.nodes.some(n=>n.kind==='model'&&n.family===key)).map(([,value])=>`<span><i style="--node-accent:${value[1]}"></i>${value[0]}</span>`).join(''):'← 들어오는 연결 · 선택한 항목 · 나가는 연결 →';
+  $('#map-message').textContent=mode==='overview'?`${layout.modelCount}개 모델 · 계열별 마인드맵 · 선택한 모델의 실제 관계를 화살표로 표시`:`${result.nodes.length}개 노드 · ${result.edges.length}개 관계 · 기반·구성 ${layout.incomingCount} / 활용·확장 ${layout.outgoingCount} · ${hops}단계 전체 표시`;
+  $('#canvas-hint').textContent=mode==='overview'?'계열을 눌러 집중 보기 · 드래그 이동 · 휠 / 두 손가락 확대':'기반·구성은 왼쪽 · 활용·확장은 오른쪽 · 화살표는 저장된 관계 방향';
+  $('#family-legend').innerHTML=mode==='overview'?Object.entries(families).filter(([key])=>(family==='all'||family===key)&&graph.nodes.some(n=>n.kind==='model'&&n.family===key)).map(([,value])=>`<span><i style="--node-accent:${value[1]}"></i>${value[0]}</span>`).join(''):'기반 · 구성 / 선택한 항목 / 활용 · 확장';
  }catch(error){if(request===mapRequest)$('#global-error').textContent=error.message}
 }
 
