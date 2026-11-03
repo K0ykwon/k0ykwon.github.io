@@ -74,6 +74,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#concept/separable_convolution> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/convolution> .
 
+<https://github.com/PtwoI/p2i-kg#claim/0227d66b035787505aaafb15> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:explanation "세 가지 PDE solution operator 실험의 근거입니다." ;
+    atlas:locator "§4" ;
+    atlas:relation atlas:documented_in ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#task/pde_operator_learning> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#paper/fno> .
+
 <https://github.com/PtwoI/p2i-kg#claim/027773043db1feda4ed396fa> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/simclr> ;
     atlas:basis "documented" ;
@@ -300,6 +310,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/moco> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#objective/info_nce> .
 
+<https://github.com/PtwoI/p2i-kg#claim/0d9a08490aab4456f4fc5e6c> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:explanation "RWKV의 병렬·순환 표현과 공식 구현의 근거입니다." ;
+    atlas:locator "Abstract; §3; BlinkDL/RWKV-LM" ;
+    atlas:relation atlas:documented_in ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/rwkv> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#paper/rwkv> .
+
 <https://github.com/PtwoI/p2i-kg#claim/0d9c55fe37803bce14a3d006> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/t5> ;
     atlas:basis "documented" ;
@@ -329,6 +349,16 @@
     atlas:relation atlas:applied_to ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/clip> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#task/classification> .
+
+<https://github.com/PtwoI/p2i-kg#claim/0f10b56c617788ddf3464da7> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:explanation "dynamics 함수가 상태 미분을 매개변수화합니다." ;
+    atlas:locator "§2, Eq.1" ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/neuralode> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/neural_vector_field> .
 
 <https://github.com/PtwoI/p2i-kg#claim/0f77d5e37fbdb68776a9dc76> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/nerf> ;
@@ -626,6 +656,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/t5> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/relative_position> .
 
+<https://github.com/PtwoI/p2i-kg#claim/1ceba9073520a97cf881cc77> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:basis "structural" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:explanation "hidden state를 다음-token logits로 투영합니다." ;
+    atlas:locator "§4" ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/rwkv> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/language_head> .
+
 <https://github.com/PtwoI/p2i-kg#claim/1cff34a7b93b31c34ecedf72> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/mixer> ;
     atlas:basis "documented" ;
@@ -666,6 +706,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/mamba2> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/state_space> .
 
+<https://github.com/PtwoI/p2i-kg#claim/1dfe3b988881a5bc84d8d7d7> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:explanation "저주파 mode에 학습된 Fourier multiplier를 적용합니다." ;
+    atlas:locator "§3.2, Eq.4" ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/fno> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/spectral_convolution> .
+
 <https://github.com/PtwoI/p2i-kg#claim/1e3ee8ce5998c358f85a2a08> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/gat> ;
     atlas:basis "documented" ;
@@ -705,6 +755,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#concept/radiance_field> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#paper/nerf> .
 
+<https://github.com/PtwoI/p2i-kg#claim/1f4118285858b5e5021f9376> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:explanation "함수 공간 사이의 solution operator를 학습합니다." ;
+    atlas:locator "§1–2" ;
+    atlas:relation atlas:uses ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/fno> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/neural_operator> .
+
 <https://github.com/PtwoI/p2i-kg#claim/1f9b3322b8a8bb05a85cfc03> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/deepsets> ;
     atlas:basis "structural" ;
@@ -725,6 +785,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/detr> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#component/object_queries> .
 
+<https://github.com/PtwoI/p2i-kg#claim/201b0a4eb780227f8d0a05d2> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:explanation "대규모 자기회귀 언어 모델링에 평가합니다." ;
+    atlas:locator "Abstract; §4" ;
+    atlas:relation atlas:applied_to ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/rwkv> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#task/language_modeling> .
+
 <https://github.com/PtwoI/p2i-kg#claim/204005ed7ecfcb72715c0528> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/mamba2> ;
     atlas:basis "structural" ;
@@ -734,6 +804,16 @@
     atlas:relation atlas:has_component ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/mamba2> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#component/ssd_core> .
+
+<https://github.com/PtwoI/p2i-kg#claim/204a1170860b978caab99ab7> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:explanation "Fourier domain kernel을 사용하는 neural operator입니다." ;
+    atlas:locator "§3.2" ;
+    atlas:relation atlas:subconcept_of ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#concept/fourier_operator> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/neural_operator> .
 
 <https://github.com/PtwoI/p2i-kg#claim/20a33556cc87928b8b3afd4d> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/mamba2> ;
@@ -774,6 +854,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/mixer> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#component/channel_mixer> .
 
+<https://github.com/PtwoI/p2i-kg#claim/212d95cf0d6e30a26d573efa> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:explanation "숨은 representation을 출력 함수 차원으로 투영합니다." ;
+    atlas:locator "§3.1, Fig.2" ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/fno> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/fno_projection> .
+
 <https://github.com/PtwoI/p2i-kg#claim/213f0eaf2810b6831fd1087e> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/gcn> ;
     atlas:basis "documented" ;
@@ -803,6 +893,16 @@
     atlas:relation atlas:uses ;
     atlas:source <https://github.com/PtwoI/p2i-kg#component/token_mixer> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/token_mixing> .
+
+<https://github.com/PtwoI/p2i-kg#claim/234f2e2e22da0060e2f58ff2> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:explanation "FNO와 공식 neuraloperator 구현의 원논문입니다." ;
+    atlas:locator "Abstract; §3; neuraloperator/neuraloperator" ;
+    atlas:relation atlas:documented_in ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/fno> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#paper/fno> .
 
 <https://github.com/PtwoI/p2i-kg#claim/238a1457181a8100fc11e326> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/transformer> ;
@@ -981,6 +1081,16 @@
     atlas:relation atlas:documented_in ;
     atlas:source <https://github.com/PtwoI/p2i-kg#component/detection_heads> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#paper/detr> .
+
+<https://github.com/PtwoI/p2i-kg#claim/2b98186bfb2e8afd39898f8f> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:explanation "Burgers, Darcy, Navier–Stokes solution operator를 학습합니다." ;
+    atlas:locator "§4" ;
+    atlas:relation atlas:applied_to ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/fno> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#task/pde_operator_learning> .
 
 <https://github.com/PtwoI/p2i-kg#claim/2bf3b1242a1e8e8fb22f214c> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/dino> ;
@@ -1161,6 +1271,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#concept/rotary_position> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/position> .
 
+<https://github.com/PtwoI/p2i-kg#claim/30d5cb25d99c3a2fb22c21ca> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:explanation "수치 PDE 해와 예측장 사이의 오차를 최소화합니다." ;
+    atlas:locator "§4" ;
+    atlas:relation atlas:trained_with ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/fno> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#objective/supervised> .
+
 <https://github.com/PtwoI/p2i-kg#claim/311f9d5786d6ba8b44d208e0> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/bert> ;
     atlas:basis "documented" ;
@@ -1191,6 +1311,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/llama> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/swiglu> .
 
+<https://github.com/PtwoI/p2i-kg#claim/313bc051b38cac3310777ef9> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:explanation "local linear transform을 spectral path와 더합니다." ;
+    atlas:locator "§3.1, Eq.1" ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/fno> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/fno_local_path> .
+
 <https://github.com/PtwoI/p2i-kg#claim/32006b6e16dcde9c1787689a> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/resnet> ;
     atlas:basis "structural" ;
@@ -1209,6 +1339,16 @@
     atlas:relation atlas:trained_with ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/retnet> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#objective/autoregressive> .
+
+<https://github.com/PtwoI/p2i-kg#claim/323e4dba424f4aa3eff14c2e> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:explanation "receptance와 WKV recurrence를 계산합니다." ;
+    atlas:locator "§3.1" ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/rwkv> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/rwkv_time_mix> .
 
 <https://github.com/PtwoI/p2i-kg#claim/323ec45e89ed752dabd14dc5> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/graphsage> ;
@@ -1278,6 +1418,16 @@
     atlas:relation atlas:uses ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/lstm> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/backprop> .
+
+<https://github.com/PtwoI/p2i-kg#claim/34565c931d362392573134d3> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:explanation "time-mix block이 과거 token 정보를 혼합합니다." ;
+    atlas:locator "§3.1" ;
+    atlas:relation atlas:uses ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/rwkv> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/time_mixing> .
 
 <https://github.com/PtwoI/p2i-kg#claim/34dec9ff1b51d8bad17f1052> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/s4> ;
@@ -1399,6 +1549,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/detr> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#component/detr_decoder> .
 
+<https://github.com/PtwoI/p2i-kg#claim/38b0ed0bdd82449ee47c908d> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:explanation "연속 깊이 dynamics와 adjoint 학습을 제안한 원논문 및 저자 구현입니다." ;
+    atlas:locator "Abstract; §2; rtqichen/torchdiffeq" ;
+    atlas:relation atlas:documented_in ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/neuralode> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#paper/neuralode> .
+
 <https://github.com/PtwoI/p2i-kg#claim/38b640774bf84894ef60d0f3> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/gat> ;
     atlas:basis "structural" ;
@@ -1426,6 +1586,16 @@
     atlas:relation atlas:has_component ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/ldm> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#component/first_stage_decoder> .
+
+<https://github.com/PtwoI/p2i-kg#claim/3a414f393c6529261bca03bf> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:explanation "gated channel projection을 수행합니다." ;
+    atlas:locator "§3.2" ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/rwkv> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/rwkv_channel_mix> .
 
 <https://github.com/PtwoI/p2i-kg#claim/3a847954ce955061fe1cf74f> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/deepsets> ;
@@ -2048,6 +2218,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/transformer> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/ffn> .
 
+<https://github.com/PtwoI/p2i-kg#claim/4c33d998be6c9122a8842f24> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:basis "structural" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:explanation "RNN의 고정 상태 순환 추론을 병렬 학습 가능한 WKV 형태로 확장합니다." ;
+    atlas:locator "§3" ;
+    atlas:relation atlas:extends ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/rwkv> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#model/rnn> .
+
 <https://github.com/PtwoI/p2i-kg#claim/4c547cfd96ea61839e276c9f> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/perceiver> ;
     atlas:basis "documented" ;
@@ -2207,6 +2387,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/gru> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#model/rnn> .
 
+<https://github.com/PtwoI/p2i-kg#claim/52ad58aecd906966bf5fac79> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:explanation "서로 다른 이산화 해상도에 같은 operator를 적용합니다." ;
+    atlas:locator "Abstract; §3" ;
+    atlas:relation atlas:uses ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/fno> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/resolution_invariance> .
+
 <https://github.com/PtwoI/p2i-kg#claim/532fdddcdfb25f50d08b5bae> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/vit> ;
     atlas:basis "structural" ;
@@ -2363,6 +2553,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#component/s4_state_kernel> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/structured_state_space> .
 
+<https://github.com/PtwoI/p2i-kg#claim/59c6ae5e9208ae1ff27ba70d> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:explanation "다음 token 예측으로 언어 모델을 학습합니다." ;
+    atlas:locator "§4" ;
+    atlas:relation atlas:trained_with ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/rwkv> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#objective/autoregressive> .
+
 <https://github.com/PtwoI/p2i-kg#claim/5a0c733f7fc8b457b15a9409> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/detr> ;
     atlas:basis "documented" ;
@@ -2453,6 +2653,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/dit> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#task/conditional_image_generation> .
 
+<https://github.com/PtwoI/p2i-kg#claim/5d96dc02aa878910625bf308> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:basis "structural" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:explanation "residual layer의 이산 update를 연속시간 미분방정식으로 일반화합니다." ;
+    atlas:locator "§1–2" ;
+    atlas:relation atlas:extends ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/neuralode> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#model/resnet> .
+
 <https://github.com/PtwoI/p2i-kg#claim/5ded8eb826851c5c94701e4f> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/mamba2> ;
     atlas:basis "structural" ;
@@ -2501,6 +2711,16 @@
     atlas:relation atlas:extends ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/ldm> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#model/ddpm> .
+
+<https://github.com/PtwoI/p2i-kg#claim/5e8e181bfc0e036771d49c1b> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:explanation "감쇠 key-value 통계를 순환 갱신합니다." ;
+    atlas:locator "§3.1" ;
+    atlas:relation atlas:uses ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#component/rwkv_time_mix> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/weighted_key_value> .
 
 <https://github.com/PtwoI/p2i-kg#claim/5f6171d6405d63ab3c27593b> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/vgg> ;
@@ -3241,6 +3461,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#concept/depthwise> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/convolution> .
 
+<https://github.com/PtwoI/p2i-kg#claim/7b5aa2a559e75b93257d448f> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:basis "structural" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:explanation "관측 입력을 ODE 상태로 변환합니다." ;
+    atlas:locator "§3.1 ODENet" ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/neuralode> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/ode_input_projection> .
+
 <https://github.com/PtwoI/p2i-kg#claim/7c01fd2c8f718ababe28ee55> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/senet> ;
     atlas:basis "documented" ;
@@ -3270,6 +3500,16 @@
     atlas:relation atlas:uses ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/llama> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/ffn> .
+
+<https://github.com/PtwoI/p2i-kg#claim/7d179f6360b9d26738cbfe09> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:explanation "black-box ODE solver를 end-to-end 모델에 포함합니다." ;
+    atlas:locator "Abstract; §2" ;
+    atlas:relation atlas:uses ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/neuralode> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/differentiable_ode_solve> .
 
 <https://github.com/PtwoI/p2i-kg#claim/7d2492b83a9752203bcd3595> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/graphsage> ;
@@ -3310,6 +3550,46 @@
     atlas:relation atlas:has_component ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/mamba2> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#component/mamba2_input_projection> .
+
+<https://github.com/PtwoI/p2i-kg#claim/7e682e0aa0b452a62038a246> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:explanation "은닉 상태를 연속시간 ODE의 해로 정의합니다." ;
+    atlas:locator "§1–2" ;
+    atlas:relation atlas:uses ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/neuralode> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/continuous_depth> .
+
+<https://github.com/PtwoI/p2i-kg#claim/7e8f6de3e7f208d81f0887b6> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:explanation "연속 깊이 ODENet을 이미지 분류에 평가합니다." ;
+    atlas:locator "§3.1" ;
+    atlas:relation atlas:applied_to ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/neuralode> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#task/classification> .
+
+<https://github.com/PtwoI/p2i-kg#claim/7ef9c21ba77defb43e45e86b> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:explanation "quadratic attention 없이 선형시간·상수상태 추론을 목표로 합니다." ;
+    atlas:locator "Abstract; §1" ;
+    atlas:relation atlas:alternative_to ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/rwkv> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#model/transformer> .
+
+<https://github.com/PtwoI/p2i-kg#claim/7f343fe2d61450aeadac8729> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:basis "structural" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:explanation "공간적으로 local한 convolution을 Fourier 전역 operator로 일반화합니다." ;
+    atlas:locator "§3" ;
+    atlas:relation atlas:extends ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/fno> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#model/cnn> .
 
 <https://github.com/PtwoI/p2i-kg#claim/7f4cf76cdfa7c60d0726e715> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/dit> ;
@@ -3538,6 +3818,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/dino> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/teacher_centering> .
 
+<https://github.com/PtwoI/p2i-kg#claim/8998f1aba30c91a8bcdd5c5e> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:explanation "시간 감쇠 weighted key-value 누산으로 문맥을 유지합니다." ;
+    atlas:locator "§3.1" ;
+    atlas:relation atlas:uses ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/rwkv> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/weighted_key_value> .
+
 <https://github.com/PtwoI/p2i-kg#claim/8a312fdfb7b00e6e46cc98c1> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/vgg> ;
     atlas:basis "documented" ;
@@ -3576,6 +3866,16 @@
     atlas:relation atlas:has_component ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/vit> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#component/patches> .
+
+<https://github.com/PtwoI/p2i-kg#claim/8b12cc72d66315348d0f81ff> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:explanation "연속 깊이 dynamics를 수치적으로 평가합니다." ;
+    atlas:locator "§2" ;
+    atlas:relation atlas:subconcept_of ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#concept/differentiable_ode_solve> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/continuous_depth> .
 
 <https://github.com/PtwoI/p2i-kg#claim/8b8b7f9a1778c46e8d8f8098> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/dino> ;
@@ -3625,6 +3925,26 @@
     atlas:relation atlas:uses ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/detr> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/object_queries> .
+
+<https://github.com/PtwoI/p2i-kg#claim/8d1f19b20e9249239f7166e7> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:explanation "MNIST 분류에서 지도 목적을 최적화합니다." ;
+    atlas:locator "§3.1" ;
+    atlas:relation atlas:trained_with ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/neuralode> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#objective/supervised> .
+
+<https://github.com/PtwoI/p2i-kg#claim/8d7c18ac634ef1679651b459> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:explanation "학습된 derivative function을 구현합니다." ;
+    atlas:locator "§2" ;
+    atlas:relation atlas:uses ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#component/neural_vector_field> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/neural_vector_field> .
 
 <https://github.com/PtwoI/p2i-kg#claim/8d87541774f377d2cb09a692> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/graphsage> ;
@@ -4236,6 +4556,16 @@
     atlas:relation atlas:documented_in ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/transformer> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#paper/transformer> .
+
+<https://github.com/PtwoI/p2i-kg#claim/9f0fbb74776103e904efd6ad> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:explanation "선택된 Fourier mode를 전역적으로 변환합니다." ;
+    atlas:locator "§3.2" ;
+    atlas:relation atlas:uses ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#component/spectral_convolution> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/fourier_operator> .
 
 <https://github.com/PtwoI/p2i-kg#claim/9f99e2fea9cc60d090c3f32a> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/s4> ;
@@ -4931,6 +5261,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/pointnet> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#component/shared_point_mlp> .
 
+<https://github.com/PtwoI/p2i-kg#claim/bdb7110fe0a3032d8c8e1965> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:explanation "시점별 feature channel을 gated MLP로 변환합니다." ;
+    atlas:locator "§3.2" ;
+    atlas:relation atlas:uses ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#component/rwkv_channel_mix> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/channel_mixing> .
+
 <https://github.com/PtwoI/p2i-kg#claim/bdd34c074fe35cfd562d4ff1> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/mobilenet> ;
     atlas:basis "documented" ;
@@ -4969,6 +5309,16 @@
     atlas:relation atlas:uses ;
     atlas:source <https://github.com/PtwoI/p2i-kg#component/convolution> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/convolution> .
+
+<https://github.com/PtwoI/p2i-kg#claim/c03b7374534ca5e6528ab19c> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:explanation "solver가 초기 상태에서 종료 상태까지 적분합니다." ;
+    atlas:locator "§2, Algorithm 1" ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/neuralode> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/differentiable_ode_solver> .
 
 <https://github.com/PtwoI/p2i-kg#claim/c080ca0c8d3f6196142f7284> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/nerf> ;
@@ -5109,6 +5459,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/mlp> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/backprop> .
 
+<https://github.com/PtwoI/p2i-kg#claim/c3e6332c23898d95337e2408> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:basis "structural" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:explanation "token ID를 연속 feature로 바꿉니다." ;
+    atlas:locator "§3" ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/rwkv> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/token_embedding> .
+
 <https://github.com/PtwoI/p2i-kg#claim/c48934a908e6c58d0cbedba7> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/mae> ;
     atlas:basis "documented" ;
@@ -5215,6 +5575,16 @@
     atlas:relation atlas:documented_in ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/dino> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#paper/dino> .
+
+<https://github.com/PtwoI/p2i-kg#claim/c7d52e96510e1d7153083b97> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:explanation "신경망이 은닉 상태의 미분을 출력합니다." ;
+    atlas:locator "§2, Eq.1" ;
+    atlas:relation atlas:uses ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/neuralode> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/neural_vector_field> .
 
 <https://github.com/PtwoI/p2i-kg#claim/c835524be22b14ca7577ae54> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/t5> ;
@@ -5502,6 +5872,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/clip> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#task/image_text> .
 
+<https://github.com/PtwoI/p2i-kg#claim/d12719cef9b87846a68c7656> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:explanation "학습은 병렬화하고 추론은 고정 상태 recurrence로 계산합니다." ;
+    atlas:locator "Abstract; §3" ;
+    atlas:relation atlas:uses ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/rwkv> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/parallel_recurrent_equivalence> .
+
 <https://github.com/PtwoI/p2i-kg#claim/d1492da7c16ebec825db876a> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/mae> ;
     atlas:basis "documented" ;
@@ -5770,6 +6150,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/byol> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#component/target_projector> .
 
+<https://github.com/PtwoI/p2i-kg#claim/dbffd08ae3f5a654cff32e5b> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:explanation "입력 함수와 위치를 높은 채널 표현으로 올립니다." ;
+    atlas:locator "§3.1, Fig.2" ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/fno> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/fno_lifting> .
+
 <https://github.com/PtwoI/p2i-kg#claim/dc1f1b69f6696b71c5d9510a> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/convnext> ;
     atlas:basis "documented" ;
@@ -5798,6 +6188,16 @@
     atlas:relation atlas:extends ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/inception> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#model/cnn> .
+
+<https://github.com/PtwoI/p2i-kg#claim/dd806276025d82bf40c8fcf2> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:explanation "residual block의 표현을 정규화합니다." ;
+    atlas:locator "§3" ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/rwkv> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/rwkv_normalization> .
 
 <https://github.com/PtwoI/p2i-kg#claim/dd98978fd6eed699d5236a2d> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/roformer> ;
@@ -5868,6 +6268,16 @@
     atlas:relation atlas:extends ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/simclr> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#model/resnet> .
+
+<https://github.com/PtwoI/p2i-kg#claim/e092c648fe519668c00d4630> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:explanation "channel-mix block이 시점별 feature를 비선형 변환합니다." ;
+    atlas:locator "§3.2" ;
+    atlas:relation atlas:uses ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/rwkv> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/channel_mixing> .
 
 <https://github.com/PtwoI/p2i-kg#claim/e0aa3025c5e30e73c1fd8c8d> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/graphsage> ;
@@ -6042,6 +6452,16 @@
     atlas:relation atlas:applied_to ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/vae> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#task/generation> .
+
+<https://github.com/PtwoI/p2i-kg#claim/e6cbea15bf6864eb95fc756b> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:explanation "Fourier 공간에서 kernel integral operator를 매개변수화합니다." ;
+    atlas:locator "§3.2" ;
+    atlas:relation atlas:uses ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/fno> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/fourier_operator> .
 
 <https://github.com/PtwoI/p2i-kg#claim/e74b68c52803b7d4b5c0d03c> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/simclr> ;
@@ -6459,6 +6879,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/mae> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/patch_embedding> .
 
+<https://github.com/PtwoI/p2i-kg#claim/f3914be89cc40e7fcfcf5fdb> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:basis "structural" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:explanation "최종 ODE 상태를 task prediction으로 읽습니다." ;
+    atlas:locator "§3.1" ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/neuralode> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/ode_classifier> .
+
 <https://github.com/PtwoI/p2i-kg#claim/f397652ceb5fd214d6efb3a9> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/graphsage> ;
     atlas:basis "documented" ;
@@ -6536,6 +6966,16 @@
     atlas:relation atlas:uses ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/unet> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/encoder_decoder> .
+
+<https://github.com/PtwoI/p2i-kg#claim/f74ae3fd08248dcc3375f5d0> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:explanation "시간축 문맥과 receptance를 결합합니다." ;
+    atlas:locator "§3.1" ;
+    atlas:relation atlas:uses ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#component/rwkv_time_mix> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/time_mixing> .
 
 <https://github.com/PtwoI/p2i-kg#claim/f774aeadf3d4d114ffa3f445> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/perceiver> ;
@@ -6647,6 +7087,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#component/detr_decoder> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/cross_attention> .
 
+<https://github.com/PtwoI/p2i-kg#claim/fbb14924565083a79144c45f> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:explanation "연속 깊이 상태의 미분을 정의합니다." ;
+    atlas:locator "§2" ;
+    atlas:relation atlas:subconcept_of ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#concept/neural_vector_field> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/continuous_depth> .
+
 <https://github.com/PtwoI/p2i-kg#claim/fc26fdac968be7e46cd9bf1a> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/retnet> ;
     atlas:basis "documented" ;
@@ -6707,6 +7157,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#concept/sum_decomposition> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#paper/deepsets> .
 
+<https://github.com/PtwoI/p2i-kg#claim/fef8feafa7c2bc65a7451111> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:explanation "초기값 문제를 계산 그래프 안에서 풉니다." ;
+    atlas:locator "Algorithm 1" ;
+    atlas:relation atlas:uses ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#component/differentiable_ode_solver> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/differentiable_ode_solve> .
+
 atlas:ontology a owl:Ontology ;
     owl:versionInfo "0.2" .
 
@@ -6714,6 +7174,21 @@ atlas:ontology a owl:Ontology ;
     rdfs:label "Channel scale" ;
     atlas:label "Channel scale" ;
     atlas:summary "학습된 채널 gate를 원 특징 맵에 곱합니다." .
+
+<https://github.com/PtwoI/p2i-kg#component/fno_lifting> a atlas:Component ;
+    rdfs:label "FNO lifting layer" ;
+    atlas:label "FNO lifting layer" ;
+    atlas:summary "입력 함수와 좌표를 높은 채널 폭으로 올립니다." .
+
+<https://github.com/PtwoI/p2i-kg#component/fno_local_path> a atlas:Component ;
+    rdfs:label "FNO local path" ;
+    atlas:label "FNO local path" ;
+    atlas:summary "spectral 전역 경로와 결합되는 pointwise 선형 변환입니다." .
+
+<https://github.com/PtwoI/p2i-kg#component/fno_projection> a atlas:Component ;
+    rdfs:label "FNO projection layer" ;
+    atlas:label "FNO projection layer" ;
+    atlas:summary "숨은 함수 표현을 목표 출력장으로 투영합니다." .
 
 <https://github.com/PtwoI/p2i-kg#component/graph_classifier> a atlas:Component ;
     rdfs:label "Graph classifier" ;
@@ -6725,6 +7200,11 @@ atlas:ontology a owl:Ontology ;
     atlas:label "MoCo key projector" ;
     atlas:summary "key 표현을 동일한 대조 임베딩 공간으로 투영합니다." .
 
+<https://github.com/PtwoI/p2i-kg#component/language_head> a atlas:Component ;
+    rdfs:label "Language-model head" ;
+    atlas:label "Language-model head" ;
+    atlas:summary "시퀀스 hidden state를 다음-token vocabulary logits로 투영합니다." .
+
 <https://github.com/PtwoI/p2i-kg#component/mamba2_output_gate> a atlas:Component ;
     rdfs:label "Mamba-2 output gate" ;
     atlas:label "Mamba-2 output gate" ;
@@ -6734,6 +7214,16 @@ atlas:ontology a owl:Ontology ;
     rdfs:label "Mamba-2 output projection" ;
     atlas:label "Mamba-2 output projection" ;
     atlas:summary "gated SSD 표현을 모델 폭으로 되돌립니다." .
+
+<https://github.com/PtwoI/p2i-kg#component/ode_classifier> a atlas:Component ;
+    rdfs:label "ODE readout" ;
+    atlas:label "ODE readout" ;
+    atlas:summary "적분된 최종 상태를 예측으로 변환합니다." .
+
+<https://github.com/PtwoI/p2i-kg#component/ode_input_projection> a atlas:Component ;
+    rdfs:label "ODE input projection" ;
+    atlas:label "ODE input projection" ;
+    atlas:summary "입력을 연속 dynamics의 상태 폭으로 투영합니다." .
 
 <https://github.com/PtwoI/p2i-kg#component/query_projector> a atlas:Component ;
     rdfs:label "MoCo query projector" ;
@@ -6755,6 +7245,11 @@ atlas:ontology a owl:Ontology ;
     atlas:label "Retention QKV projection" ;
     atlas:summary "retention의 query, key, value 표현을 생성합니다." .
 
+<https://github.com/PtwoI/p2i-kg#component/rwkv_normalization> a atlas:Component ;
+    rdfs:label "RWKV normalization" ;
+    atlas:label "RWKV normalization" ;
+    atlas:summary "time/channel mixing residual 표현을 정규화합니다." .
+
 <https://github.com/PtwoI/p2i-kg#component/s4_input_projection> a atlas:Component ;
     rdfs:label "S4 input projection" ;
     atlas:label "S4 input projection" ;
@@ -6774,6 +7269,11 @@ atlas:ontology a owl:Ontology ;
     rdfs:label "DINO teacher head" ;
     atlas:label "DINO teacher head" ;
     atlas:summary "중심화·sharpening 전 교사 logits를 생성합니다." .
+
+<https://github.com/PtwoI/p2i-kg#component/token_embedding> a atlas:Component ;
+    rdfs:label "Token embedding" ;
+    atlas:label "Token embedding" ;
+    atlas:summary "이산 token ID를 학습 가능한 연속 feature로 변환합니다." .
 
 <https://github.com/PtwoI/p2i-kg#concept/bidirectional_context> a atlas:Concept ;
     rdfs:label "양방향 문맥" ;
@@ -6824,6 +7324,11 @@ atlas:ontology a owl:Ontology ;
     rdfs:label "재매개화" ;
     atlas:label "재매개화" ;
     atlas:summary "확률 표본을 매개변수와 외부 잡음의 미분 가능한 함수로 표현합니다." .
+
+<https://github.com/PtwoI/p2i-kg#concept/resolution_invariance> a atlas:Concept ;
+    rdfs:label "Resolution invariance" ;
+    atlas:label "Resolution invariance" ;
+    atlas:summary "같은 연산자 매개변수를 서로 다른 공간 이산화 해상도에 적용합니다." .
 
 <https://github.com/PtwoI/p2i-kg#concept/rms_norm> a atlas:Concept ;
     rdfs:label "RMSNorm" ;
@@ -6951,6 +7456,12 @@ atlas:ontology a owl:Ontology ;
     atlas:label "Set detection heads" ;
     atlas:summary "각 질의별 클래스 로짓과 정규화 상자를 예측합니다." .
 
+<https://github.com/PtwoI/p2i-kg#component/differentiable_ode_solver> a atlas:Component ;
+    rdfs:label "Differentiable ODE solver" ;
+    atlas:label "Differentiable ODE solver" ;
+    atlas:summary "벡터장을 수치 적분해 종료 시점의 상태를 계산합니다." ;
+    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/differentiable_ode_solve> .
+
 <https://github.com/PtwoI/p2i-kg#component/diffusion_output_head> a atlas:Component ;
     rdfs:label "Diffusion patch output head" ;
     atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/dit> ;
@@ -7059,6 +7570,12 @@ atlas:ontology a owl:Ontology ;
     atlas:label "GraphSAGE neighbor projection" ;
     atlas:summary "집계한 이웃 특징을 공유 가중치로 변환합니다." .
 
+<https://github.com/PtwoI/p2i-kg#component/neural_vector_field> a atlas:Component ;
+    rdfs:label "Neural vector field module" ;
+    atlas:label "Neural vector field module" ;
+    atlas:summary "현재 상태에서 시간 미분을 계산하는 학습 가능한 함수입니다." ;
+    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/neural_vector_field> .
+
 <https://github.com/PtwoI/p2i-kg#component/node_classifier> a atlas:Component ;
     rdfs:label "Node classifier" ;
     atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/graphsage> ;
@@ -7107,6 +7624,12 @@ atlas:ontology a owl:Ontology ;
     atlas:summary "입력 토큰별 전문가를 선택." ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/routing> .
 
+<https://github.com/PtwoI/p2i-kg#component/rwkv_channel_mix> a atlas:Component ;
+    rdfs:label "RWKV channel-mix" ;
+    atlas:label "RWKV channel-mix" ;
+    atlas:summary "gated squared-ReLU projection으로 채널을 혼합합니다." ;
+    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/channel_mixing> .
+
 <https://github.com/PtwoI/p2i-kg#component/se_residual_block> a atlas:Component ;
     rdfs:label "SE residual block" ;
     atlas:label "SE residual block" ;
@@ -7130,6 +7653,12 @@ atlas:ontology a owl:Ontology ;
     atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/pointnet> ;
     atlas:label "Shape classifier" ;
     atlas:summary "전역 점구름 표현을 물체 범주 로짓으로 변환합니다." .
+
+<https://github.com/PtwoI/p2i-kg#component/spectral_convolution> a atlas:Component ;
+    rdfs:label "Spectral convolution" ;
+    atlas:label "Spectral convolution" ;
+    atlas:summary "선택된 Fourier mode에 학습된 복소 선형 변환을 적용합니다." ;
+    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/fourier_operator> .
 
 <https://github.com/PtwoI/p2i-kg#component/squeeze_pool> a atlas:Component ;
     rdfs:label "Squeeze pooling" ;
@@ -7172,12 +7701,6 @@ atlas:ontology a owl:Ontology ;
     atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/detr> ;
     atlas:label "Bipartite matching" ;
     atlas:summary "예측 슬롯과 정답 객체 사이의 일대일 최소 비용 대응을 선택합니다." .
-
-<https://github.com/PtwoI/p2i-kg#concept/channel_mixing> a atlas:Concept ;
-    rdfs:label "Channel mixing MLP" ;
-    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/mixer> ;
-    atlas:label "Channel mixing MLP" ;
-    atlas:summary "각 패치에 같은 MLP를 적용하여 채널 정보를 혼합합니다." .
 
 <https://github.com/PtwoI/p2i-kg#concept/dense_connections> a atlas:Concept ;
     rdfs:label "Dense 연결" ;
@@ -7310,6 +7833,12 @@ atlas:ontology a owl:Ontology ;
     atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/detr> ;
     atlas:label "Object detection" ;
     atlas:summary "영상 안 객체의 종류와 경계 상자를 예측합니다." .
+
+<https://github.com/PtwoI/p2i-kg#task/pde_operator_learning> a atlas:Task ;
+    rdfs:label "PDE solution operator learning" ;
+    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:label "PDE solution operator learning" ;
+    atlas:summary "PDE의 계수·초기조건 함수에서 해 함수로 가는 연산자를 학습합니다." .
 
 <https://github.com/PtwoI/p2i-kg#task/point_cloud_classification> a atlas:Task ;
     rdfs:label "Point-cloud classification" ;
@@ -7453,6 +7982,13 @@ atlas:ontology a owl:Ontology ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/parallel_recurrent_equivalence>,
         <https://github.com/PtwoI/p2i-kg#concept/retention> .
 
+<https://github.com/PtwoI/p2i-kg#component/rwkv_time_mix> a atlas:Component ;
+    rdfs:label "RWKV time-mix" ;
+    atlas:label "RWKV time-mix" ;
+    atlas:summary "receptance와 감쇠 weighted key-value 상태로 과거를 혼합합니다." ;
+    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/time_mixing>,
+        <https://github.com/PtwoI/p2i-kg#concept/weighted_key_value> .
+
 <https://github.com/PtwoI/p2i-kg#component/s4_state_kernel> a atlas:Component ;
     rdfs:label "S4 state-space kernel" ;
     atlas:label "S4 state-space kernel" ;
@@ -7526,15 +8062,20 @@ atlas:ontology a owl:Ontology ;
     atlas:subconcept_of <https://github.com/PtwoI/p2i-kg#concept/contrastive> ;
     atlas:summary "같은 미니배치의 다른 표본 시점을 대조 목적의 음성 쌍으로 사용합니다." .
 
-<https://github.com/PtwoI/p2i-kg#concept/parallel_recurrent_equivalence> a atlas:Concept ;
-    rdfs:label "Parallel–recurrent equivalence" ;
-    atlas:label "Parallel–recurrent equivalence" ;
-    atlas:summary "동일한 시퀀스 변환을 병렬 학습식과 고정 상태 순환 추론식으로 계산합니다." .
+<https://github.com/PtwoI/p2i-kg#concept/neural_operator> a atlas:Concept ;
+    rdfs:label "Neural operator" ;
+    atlas:label "Neural operator" ;
+    atlas:summary "유한 차원 벡터가 아니라 함수 공간 사이의 사상을 학습합니다." .
 
 <https://github.com/PtwoI/p2i-kg#concept/routing> a atlas:Concept ;
     rdfs:label "전문가 라우팅" ;
     atlas:label "전문가 라우팅" ;
     atlas:summary "토큰을 처리할 전문가를 선택합니다." .
+
+<https://github.com/PtwoI/p2i-kg#concept/time_mixing> a atlas:Concept ;
+    rdfs:label "Time mixing" ;
+    atlas:label "Time mixing" ;
+    atlas:summary "시퀀스 축의 과거 정보를 학습된 감쇠와 receptance gate로 결합합니다." .
 
 <https://github.com/PtwoI/p2i-kg#concept/transformer_denoiser> a atlas:Concept ;
     rdfs:label "Transformer denoiser" ;
@@ -7542,6 +8083,11 @@ atlas:ontology a owl:Ontology ;
     atlas:label "Transformer denoiser" ;
     atlas:subconcept_of <https://github.com/PtwoI/p2i-kg#concept/denoising> ;
     atlas:summary "합성곱 U-Net 대신 잠재 패치 토큰의 Transformer가 확산 예측을 수행합니다." .
+
+<https://github.com/PtwoI/p2i-kg#concept/weighted_key_value> a atlas:Concept ;
+    rdfs:label "Weighted key-value recurrence" ;
+    atlas:label "Weighted key-value recurrence" ;
+    atlas:summary "시간 감쇠가 적용된 key-weighted value 통계를 순환 상태로 누적합니다." .
 
 <https://github.com/PtwoI/p2i-kg#concept/weighted_sum> a atlas:Concept ;
     rdfs:label "가중합" ;
@@ -7641,6 +8187,18 @@ atlas:ontology a owl:Ontology ;
     atlas:label "Cross-attention conditioning" ;
     atlas:summary "텍스트·배치·의미 지도 같은 조건 표현을 교차 어텐션으로 확산 네트워크에 주입합니다." .
 
+<https://github.com/PtwoI/p2i-kg#concept/differentiable_ode_solve> a atlas:Concept ;
+    rdfs:label "Differentiable ODE solve" ;
+    atlas:label "Differentiable ODE solve" ;
+    atlas:subconcept_of <https://github.com/PtwoI/p2i-kg#concept/continuous_depth> ;
+    atlas:summary "수치 ODE 해법을 모델 계산 그래프에 포함해 매개변수를 학습합니다." .
+
+<https://github.com/PtwoI/p2i-kg#concept/fourier_operator> a atlas:Concept ;
+    rdfs:label "Fourier operator learning" ;
+    atlas:label "Fourier operator learning" ;
+    atlas:subconcept_of <https://github.com/PtwoI/p2i-kg#concept/neural_operator> ;
+    atlas:summary "Fourier mode의 학습된 multiplier로 전역 함수 변환을 근사합니다." .
+
 <https://github.com/PtwoI/p2i-kg#concept/input_alignment> a atlas:Concept ;
     rdfs:label "Learned input alignment" ;
     atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/pointnet> ;
@@ -7652,6 +8210,12 @@ atlas:ontology a owl:Ontology ;
     atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/graphsage> ;
     atlas:label "Neighborhood sampling" ;
     atlas:summary "각 계층에서 고정 수의 이웃을 표본화해 계산 범위를 제한합니다." .
+
+<https://github.com/PtwoI/p2i-kg#concept/neural_vector_field> a atlas:Concept ;
+    rdfs:label "Neural vector field" ;
+    atlas:label "Neural vector field" ;
+    atlas:subconcept_of <https://github.com/PtwoI/p2i-kg#concept/continuous_depth> ;
+    atlas:summary "상태의 시간 미분을 학습 가능한 신경망으로 매개변수화합니다." .
 
 <https://github.com/PtwoI/p2i-kg#concept/object_queries> a atlas:Concept ;
     rdfs:label "Learned object queries" ;
@@ -7768,6 +8332,11 @@ atlas:ontology a owl:Ontology ;
     atlas:label "Channel recalibration" ;
     atlas:summary "입력 특징의 전역 문맥으로 채널별 중요도를 추정해 응답을 재가중합니다." .
 
+<https://github.com/PtwoI/p2i-kg#concept/continuous_depth> a atlas:Concept ;
+    rdfs:label "Continuous depth" ;
+    atlas:label "Continuous depth" ;
+    atlas:summary "층 번호 대신 연속시간 변수로 은닉 상태의 변화를 정의합니다." .
+
 <https://github.com/PtwoI/p2i-kg#concept/critical_point_selection> a atlas:Concept ;
     rdfs:label "Critical-point selection" ;
     atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/pointnet> ;
@@ -7798,6 +8367,11 @@ atlas:ontology a owl:Ontology ;
     atlas:label "Mean neighborhood aggregation" ;
     atlas:subconcept_of <https://github.com/PtwoI/p2i-kg#concept/sample_and_aggregate> ;
     atlas:summary "이웃 특징을 순서 불변 평균으로 결합합니다." .
+
+<https://github.com/PtwoI/p2i-kg#concept/parallel_recurrent_equivalence> a atlas:Concept ;
+    rdfs:label "Parallel–recurrent equivalence" ;
+    atlas:label "Parallel–recurrent equivalence" ;
+    atlas:summary "동일한 시퀀스 변환을 병렬 학습식과 고정 상태 순환 추론식으로 계산합니다." .
 
 <https://github.com/PtwoI/p2i-kg#concept/retention> a atlas:Concept ;
     rdfs:label "Retention mechanism" ;
@@ -7855,11 +8429,6 @@ atlas:ontology a owl:Ontology ;
     atlas:label "노드 분류" ;
     atlas:summary "그래프의 노드에 범주를 할당합니다." .
 
-atlas:alternative_to a owl:ObjectProperty,
-        owl:SymmetricProperty ;
-    rdfs:domain atlas:Model ;
-    rdfs:range atlas:Model .
-
 <https://github.com/PtwoI/p2i-kg#component/recurrent> a atlas:Component ;
     rdfs:label "순환 셀" ;
     atlas:label "순환 셀" ;
@@ -7871,6 +8440,12 @@ atlas:alternative_to a owl:ObjectProperty,
     atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/dit> ;
     atlas:label "Adaptive layer normalization" ;
     atlas:summary "시간과 클래스 조건에서 정규화의 이동·크기와 잔차 게이트를 생성합니다." .
+
+<https://github.com/PtwoI/p2i-kg#concept/channel_mixing> a atlas:Concept ;
+    rdfs:label "Channel mixing MLP" ;
+    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/mixer> ;
+    atlas:label "Channel mixing MLP" ;
+    atlas:summary "각 패치에 같은 MLP를 적용하여 채널 정보를 혼합합니다." .
 
 <https://github.com/PtwoI/p2i-kg#concept/depthwise> a atlas:Concept ;
     rdfs:label "Depthwise 합성곱" ;
@@ -7997,6 +8572,11 @@ atlas:alternative_to a owl:ObjectProperty,
         <https://github.com/PtwoI/p2i-kg#concept/gating>,
         <https://github.com/PtwoI/p2i-kg#concept/memory_cell>,
         <https://github.com/PtwoI/p2i-kg#concept/recurrence> .
+
+atlas:alternative_to a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:domain atlas:Model ;
+    rdfs:range atlas:Model .
 
 <https://github.com/PtwoI/p2i-kg#concept/latent_diffusion> a atlas:Concept ;
     rdfs:label "Latent-space diffusion" ;
@@ -8350,16 +8930,6 @@ atlas:alternative_to a owl:ObjectProperty,
         <https://github.com/PtwoI/p2i-kg#concept/latent_variable>,
         <https://github.com/PtwoI/p2i-kg#concept/reparameterization> .
 
-<https://github.com/PtwoI/p2i-kg#objective/autoregressive> a atlas:Objective ;
-    rdfs:label "자기회귀 예측" ;
-    atlas:label "자기회귀 예측" ;
-    atlas:summary "이전 토큰을 조건으로 다음 토큰의 우도를 최적화합니다." .
-
-<https://github.com/PtwoI/p2i-kg#task/language_modeling> a atlas:Task ;
-    rdfs:label "언어 모델링" ;
-    atlas:label "언어 모델링" ;
-    atlas:summary "토큰 시퀀스의 확률이나 다음 토큰을 예측합니다." .
-
 <https://github.com/PtwoI/p2i-kg#component/ffn> a atlas:Component ;
     rdfs:label "Feed-forward 블록" ;
     atlas:label "Feed-forward 블록" ;
@@ -8371,6 +8941,27 @@ atlas:alternative_to a owl:ObjectProperty,
     atlas:label "Cross-Attention" ;
     atlas:subconcept_of <https://github.com/PtwoI/p2i-kg#concept/attention> ;
     atlas:summary "질의와 key/value가 서로 다른 시퀀스에서 주어지는 어텐션." .
+
+<https://github.com/PtwoI/p2i-kg#model/fno> a atlas:Model ;
+    rdfs:label "Fourier Neural Operator" ;
+    skos:altLabel "FNO" ;
+    atlas:applied_to <https://github.com/PtwoI/p2i-kg#task/pde_operator_learning> ;
+    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:extends <https://github.com/PtwoI/p2i-kg#model/cnn> ;
+    atlas:family "neural-operator" ;
+    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/fno_lifting>,
+        <https://github.com/PtwoI/p2i-kg#component/fno_local_path>,
+        <https://github.com/PtwoI/p2i-kg#component/fno_projection>,
+        <https://github.com/PtwoI/p2i-kg#component/spectral_convolution> ;
+    atlas:label "Fourier Neural Operator" ;
+    atlas:reference_year 2021 ;
+    atlas:runtime_id "fno" ;
+    atlas:runtime_note "길이 32의 1차원 scalar field와 좌표를 폭 8로 lifting하고 6개 Fourier mode의 spectral convolution과 pointwise local path를 결합해 출력장을 예측합니다. 원논문의 2D/3D PDE 데이터, 여러 FNO block, resolution transfer 학습과 production neuraloperator 구현은 포함하지 않습니다." ;
+    atlas:summary "저주파 Fourier mode의 학습된 전역 convolution으로 함수 공간 사이의 해 연산자를 근사합니다." ;
+    atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
+    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/fourier_operator>,
+        <https://github.com/PtwoI/p2i-kg#concept/neural_operator>,
+        <https://github.com/PtwoI/p2i-kg#concept/resolution_invariance> .
 
 <https://github.com/PtwoI/p2i-kg#model/mae> a atlas:Model ;
     rdfs:label "Masked Autoencoder (MAE)" ;
@@ -8413,6 +9004,27 @@ atlas:alternative_to a owl:ObjectProperty,
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/contrastive>,
         <https://github.com/PtwoI/p2i-kg#concept/dynamic_dictionary>,
         <https://github.com/PtwoI/p2i-kg#concept/queue_negatives> .
+
+<https://github.com/PtwoI/p2i-kg#model/neuralode> a atlas:Model ;
+    rdfs:label "Neural ODE" ;
+    skos:altLabel "Neural Ordinary Differential Equation" ;
+    atlas:applied_to <https://github.com/PtwoI/p2i-kg#task/classification> ;
+    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
+    atlas:extends <https://github.com/PtwoI/p2i-kg#model/resnet> ;
+    atlas:family "continuous-depth" ;
+    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/differentiable_ode_solver>,
+        <https://github.com/PtwoI/p2i-kg#component/neural_vector_field>,
+        <https://github.com/PtwoI/p2i-kg#component/ode_classifier>,
+        <https://github.com/PtwoI/p2i-kg#component/ode_input_projection> ;
+    atlas:label "Neural ODE" ;
+    atlas:reference_year 2018 ;
+    atlas:runtime_id "neuralode" ;
+    atlas:runtime_note "6차원 특징을 폭 12로 투영한 뒤 작은 자율 벡터장을 4회의 explicit Euler step으로 적분하고 분류합니다. adaptive solver, adjoint O(1)-memory 역전파, event handling과 continuous normalizing flow는 포함하지 않으며 solver 경계와 벡터장 학습을 보여주는 고정 예제입니다." ;
+    atlas:summary "이산 층 대신 신경망 벡터장을 적분해 연속 깊이의 은닉 상태 변환을 정의하는 구조입니다." ;
+    atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
+    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/continuous_depth>,
+        <https://github.com/PtwoI/p2i-kg#concept/differentiable_ode_solve>,
+        <https://github.com/PtwoI/p2i-kg#concept/neural_vector_field> .
 
 <https://github.com/PtwoI/p2i-kg#model/perceiver> a atlas:Model ;
     rdfs:label "Perceiver" ;
@@ -8656,6 +9268,11 @@ atlas:alternative_to a owl:ObjectProperty,
         <https://github.com/PtwoI/p2i-kg#concept/shifted_windows>,
         <https://github.com/PtwoI/p2i-kg#concept/window_attention> .
 
+<https://github.com/PtwoI/p2i-kg#objective/autoregressive> a atlas:Objective ;
+    rdfs:label "자기회귀 예측" ;
+    atlas:label "자기회귀 예측" ;
+    atlas:summary "이전 토큰을 조건으로 다음 토큰의 우도를 최적화합니다." .
+
 <https://github.com/PtwoI/p2i-kg#paper/backprop> a atlas:Paper ;
     rdfs:label "Learning representations by back-propagating errors" ;
     atlas:author "David E. Rumelhart",
@@ -8665,6 +9282,11 @@ atlas:alternative_to a owl:ObjectProperty,
     atlas:reference_year 1986 ;
     atlas:summary "모델과 개념을 설명하는 대표 문헌입니다. 원문에서 해당 구조와 주장 범위를 확인할 수 있습니다." ;
     atlas:url <https://www.cs.toronto.edu/~hinton/absps/naturebp.pdf> .
+
+<https://github.com/PtwoI/p2i-kg#task/language_modeling> a atlas:Task ;
+    rdfs:label "언어 모델링" ;
+    atlas:label "언어 모델링" ;
+    atlas:summary "토큰 시퀀스의 확률이나 다음 토큰을 예측합니다." .
 
 <https://github.com/PtwoI/p2i-kg#component/encoder> a atlas:Component ;
     rdfs:label "Transformer 인코더 블록" ;
@@ -8774,35 +9396,29 @@ atlas:alternative_to a owl:ObjectProperty,
         <https://github.com/PtwoI/p2i-kg#concept/shared_element_encoding>,
         <https://github.com/PtwoI/p2i-kg#concept/symmetric_reduction> .
 
-<https://github.com/PtwoI/p2i-kg#model/resnet> a atlas:Model ;
-    rdfs:label "ResNet" ;
-    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/resnet> ;
-    atlas:extends <https://github.com/PtwoI/p2i-kg#model/cnn> ;
-    atlas:family "vision" ;
-    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/convolution> ;
-    atlas:label "ResNet" ;
-    atlas:reference_year 2015 ;
-    atlas:runtime_id "resnet18" ;
-    atlas:runtime_note "TorchVision ResNet18을 무작위 가중치로 실행합니다. vision 추가 의존성이 필요하며 모델 가중치를 다운로드하지 않습니다." ;
-    atlas:summary "합성곱 변환에 입력 경로를 더하는 잔차 블록을 이용합니다. 내부 채널 폭과 잔차 출력 폭을 나눠 살펴볼 수 있습니다." ;
-    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/backprop>,
-        <https://github.com/PtwoI/p2i-kg#concept/convolution>,
-        <https://github.com/PtwoI/p2i-kg#concept/residual> .
-
-<https://github.com/PtwoI/p2i-kg#model/rnn> a atlas:Model ;
-    rdfs:label "RNN · Elman 계열" ;
-    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/elman> ;
-    atlas:family "sequence" ;
-    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/recurrent> ;
-    atlas:label "RNN · Elman 계열" ;
-    atlas:reference_year 1990 ;
-    atlas:runtime_id "rnn" ;
-    atlas:runtime_note "작은 교육용 구현입니다. 원 논문의 학습 결과를 재현한 사전학습 모델은 아닙니다." ;
-    atlas:summary "같은 순환 연산과 이전 상태를 반복해 시퀀스의 문맥을 표현합니다. 실행 예제에서 출력과 숨은 상태를 함께 관찰할 수 있습니다." ;
-    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/activation>,
-        <https://github.com/PtwoI/p2i-kg#concept/backprop>,
-        <https://github.com/PtwoI/p2i-kg#concept/recurrence>,
-        <https://github.com/PtwoI/p2i-kg#concept/weight_sharing> .
+<https://github.com/PtwoI/p2i-kg#model/rwkv> a atlas:Model ;
+    rdfs:label "RWKV" ;
+    skos:altLabel "Receptance Weighted Key Value" ;
+    atlas:alternative_to <https://github.com/PtwoI/p2i-kg#model/transformer> ;
+    atlas:applied_to <https://github.com/PtwoI/p2i-kg#task/language_modeling> ;
+    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/rwkv> ;
+    atlas:extends <https://github.com/PtwoI/p2i-kg#model/rnn> ;
+    atlas:family "recurrent-language" ;
+    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/language_head>,
+        <https://github.com/PtwoI/p2i-kg#component/rwkv_channel_mix>,
+        <https://github.com/PtwoI/p2i-kg#component/rwkv_normalization>,
+        <https://github.com/PtwoI/p2i-kg#component/rwkv_time_mix>,
+        <https://github.com/PtwoI/p2i-kg#component/token_embedding> ;
+    atlas:label "RWKV" ;
+    atlas:reference_year 2023 ;
+    atlas:runtime_id "rwkv" ;
+    atlas:runtime_note "어휘 32·폭 12·길이 10의 작은 RWKV-4-inspired recurrent 예제로 token embedding, 안정화된 time-mix 누산, gated channel-mix, normalization과 LM head를 실행합니다. 공식 CUDA WKV kernel, 병렬 training form, time-shift 보간, 깊은 residual stack과 사전학습 가중치는 포함하지 않습니다." ;
+    atlas:summary "receptance와 시간 감쇠 weighted key-value 누산을 결합해 Transformer식 병렬 학습과 RNN식 선형 추론을 연결하는 언어 모델 구조입니다." ;
+    atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/autoregressive> ;
+    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/channel_mixing>,
+        <https://github.com/PtwoI/p2i-kg#concept/parallel_recurrent_equivalence>,
+        <https://github.com/PtwoI/p2i-kg#concept/time_mixing>,
+        <https://github.com/PtwoI/p2i-kg#concept/weighted_key_value> .
 
 <https://github.com/PtwoI/p2i-kg#model/switch> a atlas:Model ;
     rdfs:label "Switch Transformer" ;
@@ -8939,6 +9555,36 @@ atlas:alternative_to a owl:ObjectProperty,
         <https://github.com/PtwoI/p2i-kg#concept/diffusion>,
         <https://github.com/PtwoI/p2i-kg#concept/latent_diffusion>,
         <https://github.com/PtwoI/p2i-kg#concept/perceptual_compression> .
+
+<https://github.com/PtwoI/p2i-kg#model/resnet> a atlas:Model ;
+    rdfs:label "ResNet" ;
+    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/resnet> ;
+    atlas:extends <https://github.com/PtwoI/p2i-kg#model/cnn> ;
+    atlas:family "vision" ;
+    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/convolution> ;
+    atlas:label "ResNet" ;
+    atlas:reference_year 2015 ;
+    atlas:runtime_id "resnet18" ;
+    atlas:runtime_note "TorchVision ResNet18을 무작위 가중치로 실행합니다. vision 추가 의존성이 필요하며 모델 가중치를 다운로드하지 않습니다." ;
+    atlas:summary "합성곱 변환에 입력 경로를 더하는 잔차 블록을 이용합니다. 내부 채널 폭과 잔차 출력 폭을 나눠 살펴볼 수 있습니다." ;
+    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/backprop>,
+        <https://github.com/PtwoI/p2i-kg#concept/convolution>,
+        <https://github.com/PtwoI/p2i-kg#concept/residual> .
+
+<https://github.com/PtwoI/p2i-kg#model/rnn> a atlas:Model ;
+    rdfs:label "RNN · Elman 계열" ;
+    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/elman> ;
+    atlas:family "sequence" ;
+    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/recurrent> ;
+    atlas:label "RNN · Elman 계열" ;
+    atlas:reference_year 1990 ;
+    atlas:runtime_id "rnn" ;
+    atlas:runtime_note "작은 교육용 구현입니다. 원 논문의 학습 결과를 재현한 사전학습 모델은 아닙니다." ;
+    atlas:summary "같은 순환 연산과 이전 상태를 반복해 시퀀스의 문맥을 표현합니다. 실행 예제에서 출력과 숨은 상태를 함께 관찰할 수 있습니다." ;
+    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/activation>,
+        <https://github.com/PtwoI/p2i-kg#concept/backprop>,
+        <https://github.com/PtwoI/p2i-kg#concept/recurrence>,
+        <https://github.com/PtwoI/p2i-kg#concept/weight_sharing> .
 
 <https://github.com/PtwoI/p2i-kg#paper/elman> a atlas:Paper ;
     rdfs:label "Finding Structure in Time" ;
@@ -9093,28 +9739,10 @@ atlas:Objective a owl:Class ;
     atlas:summary "국소 커널의 가중치를 공간에서 공유." ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/convolution> .
 
-atlas:Task a owl:Class ;
-    rdfs:label "Task" .
-
 <https://github.com/PtwoI/p2i-kg#concept/ffn> a atlas:Concept ;
     rdfs:label "위치별 FFN" ;
     atlas:label "위치별 FFN" ;
     atlas:summary "각 위치의 표현에 동일한 피드포워드 변환을 적용합니다." .
-
-<https://github.com/PtwoI/p2i-kg#model/cnn> a atlas:Model ;
-    rdfs:label "CNN · LeNet 계열" ;
-    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/lenet> ;
-    atlas:family "vision" ;
-    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/convolution> ;
-    atlas:label "CNN · LeNet 계열" ;
-    atlas:reference_year 1998 ;
-    atlas:runtime_id "cnn" ;
-    atlas:runtime_note "작은 교육용 구현입니다. 원 논문의 학습 결과를 재현한 사전학습 모델은 아닙니다." ;
-    atlas:summary "지역적 필터와 가중치 공유를 이용해 영상의 패턴을 추출합니다. 대표 문헌은 LeNet 계열이며 실행 예제는 P2I의 작은 CNN입니다." ;
-    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/activation>,
-        <https://github.com/PtwoI/p2i-kg#concept/backprop>,
-        <https://github.com/PtwoI/p2i-kg#concept/convolution>,
-        <https://github.com/PtwoI/p2i-kg#concept/weight_sharing> .
 
 <https://github.com/PtwoI/p2i-kg#model/vit> a atlas:Model ;
     rdfs:label "Vision Transformer" ;
@@ -9184,6 +9812,24 @@ atlas:Task a owl:Class ;
     atlas:reference_year 2017 ;
     atlas:summary "이 모델의 구조와 학습 구성을 설명하는 대표 원문." ;
     atlas:url <https://arxiv.org/abs/1710.10903> .
+
+atlas:Task a owl:Class ;
+    rdfs:label "Task" .
+
+<https://github.com/PtwoI/p2i-kg#model/cnn> a atlas:Model ;
+    rdfs:label "CNN · LeNet 계열" ;
+    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/lenet> ;
+    atlas:family "vision" ;
+    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/convolution> ;
+    atlas:label "CNN · LeNet 계열" ;
+    atlas:reference_year 1998 ;
+    atlas:runtime_id "cnn" ;
+    atlas:runtime_note "작은 교육용 구현입니다. 원 논문의 학습 결과를 재현한 사전학습 모델은 아닙니다." ;
+    atlas:summary "지역적 필터와 가중치 공유를 이용해 영상의 패턴을 추출합니다. 대표 문헌은 LeNet 계열이며 실행 예제는 P2I의 작은 CNN입니다." ;
+    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/activation>,
+        <https://github.com/PtwoI/p2i-kg#concept/backprop>,
+        <https://github.com/PtwoI/p2i-kg#concept/convolution>,
+        <https://github.com/PtwoI/p2i-kg#concept/weight_sharing> .
 
 <https://github.com/PtwoI/p2i-kg#paper/mamba> a atlas:Paper ;
     rdfs:label "Mamba: Linear-Time Sequence Modeling with Selective State Spaces" ;
@@ -9316,31 +9962,6 @@ atlas:Task a owl:Class ;
     atlas:summary "이 모델의 구조와 학습 구성을 설명하는 대표 원문." ;
     atlas:url <https://arxiv.org/abs/2010.11929> .
 
-atlas:subconcept_of a owl:ObjectProperty,
-        owl:TransitiveProperty ;
-    rdfs:domain atlas:Concept ;
-    rdfs:range atlas:Concept ;
-    rdfs:subPropertyOf skos:broaderTransitive .
-
-<https://github.com/PtwoI/p2i-kg#model/transformer> a atlas:Model ;
-    rdfs:label "Transformer" ;
-    atlas:alternative_to <https://github.com/PtwoI/p2i-kg#model/rnn> ;
-    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/transformer> ;
-    atlas:family "attention" ;
-    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/decoder>,
-        <https://github.com/PtwoI/p2i-kg#component/encoder>,
-        <https://github.com/PtwoI/p2i-kg#component/positions> ;
-    atlas:label "Transformer" ;
-    atlas:reference_year 2017 ;
-    atlas:runtime_id "seq2seq" ;
-    atlas:runtime_note "작은 인코더–디코더 예제: 정현파 위치 인코딩, 인과적 디코더 마스크, 교차 어텐션을 포함합니다. 임의 초기화와 teacher forcing을 사용하며 번역 학습이나 사전학습 가중치는 포함하지 않습니다." ;
-    atlas:summary "Self-Attention과 FFN, 잔차 연결로 시퀀스 표현을 갱신합니다. 실행 예제는 위치 인코딩·인과적 마스크·교차 어텐션을 포함하는 작은 인코더–디코더이며, 논문의 학습된 전체 모델 재현은 아닙니다." ;
-    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/backprop>,
-        <https://github.com/PtwoI/p2i-kg#concept/ffn>,
-        <https://github.com/PtwoI/p2i-kg#concept/position>,
-        <https://github.com/PtwoI/p2i-kg#concept/residual>,
-        <https://github.com/PtwoI/p2i-kg#concept/self_attention> .
-
 <https://github.com/PtwoI/p2i-kg#paper/dino> a atlas:Paper ;
     rdfs:label "Emerging Properties in Self-Supervised Vision Transformers" ;
     atlas:author "Armand Joulin",
@@ -9381,9 +10002,55 @@ atlas:subconcept_of a owl:ObjectProperty,
     atlas:summary "이 모델의 구조와 학습 구성을 설명하는 대표 원문." ;
     atlas:url <https://arxiv.org/abs/2103.14030> .
 
-atlas:extends a owl:ObjectProperty ;
-    rdfs:domain atlas:Model ;
-    rdfs:range atlas:Model .
+atlas:subconcept_of a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:domain atlas:Concept ;
+    rdfs:range atlas:Concept ;
+    rdfs:subPropertyOf skos:broaderTransitive .
+
+<https://github.com/PtwoI/p2i-kg#model/transformer> a atlas:Model ;
+    rdfs:label "Transformer" ;
+    atlas:alternative_to <https://github.com/PtwoI/p2i-kg#model/rnn> ;
+    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/transformer> ;
+    atlas:family "attention" ;
+    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/decoder>,
+        <https://github.com/PtwoI/p2i-kg#component/encoder>,
+        <https://github.com/PtwoI/p2i-kg#component/positions> ;
+    atlas:label "Transformer" ;
+    atlas:reference_year 2017 ;
+    atlas:runtime_id "seq2seq" ;
+    atlas:runtime_note "작은 인코더–디코더 예제: 정현파 위치 인코딩, 인과적 디코더 마스크, 교차 어텐션을 포함합니다. 임의 초기화와 teacher forcing을 사용하며 번역 학습이나 사전학습 가중치는 포함하지 않습니다." ;
+    atlas:summary "Self-Attention과 FFN, 잔차 연결로 시퀀스 표현을 갱신합니다. 실행 예제는 위치 인코딩·인과적 마스크·교차 어텐션을 포함하는 작은 인코더–디코더이며, 논문의 학습된 전체 모델 재현은 아닙니다." ;
+    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/backprop>,
+        <https://github.com/PtwoI/p2i-kg#concept/ffn>,
+        <https://github.com/PtwoI/p2i-kg#concept/position>,
+        <https://github.com/PtwoI/p2i-kg#concept/residual>,
+        <https://github.com/PtwoI/p2i-kg#concept/self_attention> .
+
+<https://github.com/PtwoI/p2i-kg#paper/fno> a atlas:Paper ;
+    rdfs:label "Fourier Neural Operator for Parametric Partial Differential Equations" ;
+    atlas:author "Andrew Stuart",
+        "Anima Anandkumar",
+        "Burigede Liu",
+        "Kamyar Azizzadenesheli",
+        "Kaushik Bhattacharya",
+        "Nikola Kovachki",
+        "Zongyi Li" ;
+    atlas:label "Fourier Neural Operator for Parametric Partial Differential Equations" ;
+    atlas:reference_year 2021 ;
+    atlas:summary "함수 공간 사이의 연산자를 Fourier 영역에서 학습하는 FNO 원논문이며 neuraloperator/neuraloperator가 공식 구현입니다." ;
+    atlas:url <https://openreview.net/forum?id=c8P9NQVtmnO> .
+
+<https://github.com/PtwoI/p2i-kg#paper/neuralode> a atlas:Paper ;
+    rdfs:label "Neural Ordinary Differential Equations" ;
+    atlas:author "David Duvenaud",
+        "Jesse Bettencourt",
+        "Ricky T. Q. Chen",
+        "Yulia Rubanova" ;
+    atlas:label "Neural Ordinary Differential Equations" ;
+    atlas:reference_year 2018 ;
+    atlas:summary "은닉 상태의 연속시간 미분을 신경망으로 매개변수화하고 미분방정식 solver로 출력을 계산하는 Neural ODE 원논문이며 rtqichen/torchdiffeq가 저자 공식 구현입니다." ;
+    atlas:url <https://papers.neurips.cc/paper/7892-neural-ordinary-differential-equations> .
 
 <https://github.com/PtwoI/p2i-kg#paper/retnet> a atlas:Paper ;
     rdfs:label "Retentive Network: A Successor to Transformer for Large Language Models" ;
@@ -9399,6 +10066,10 @@ atlas:extends a owl:ObjectProperty ;
     atlas:reference_year 2023 ;
     atlas:summary "병렬·순환·chunkwise 순환 계산이 가능한 retention을 제안한 원논문이며 microsoft/torchscale이 공식 구현입니다." ;
     atlas:url <https://arxiv.org/abs/2307.08621> .
+
+atlas:extends a owl:ObjectProperty ;
+    rdfs:domain atlas:Model ;
+    rdfs:range atlas:Model .
 
 <https://github.com/PtwoI/p2i-kg#paper/mamba2> a atlas:Paper ;
     rdfs:label "Transformers are SSMs: Generalized Models and Efficient Algorithms Through Structured State Space Duality" ;
@@ -9431,11 +10102,6 @@ atlas:extends a owl:ObjectProperty ;
     atlas:summary "이 모델의 구조와 학습 구성을 설명하는 대표 원문." ;
     atlas:url <https://arxiv.org/abs/2101.03961> .
 
-<https://github.com/PtwoI/p2i-kg#task/classification> a atlas:Task ;
-    rdfs:label "영상 분류" ;
-    atlas:label "영상 분류" ;
-    atlas:summary "영상 입력에 범주를 할당합니다." .
-
 <https://github.com/PtwoI/p2i-kg#paper/moco> a atlas:Paper ;
     rdfs:label "Momentum Contrast for Unsupervised Visual Representation Learning" ;
     atlas:author "Haoqi Fan",
@@ -9448,10 +10114,49 @@ atlas:extends a owl:ObjectProperty ;
     atlas:summary "동적 사전, 모멘텀 키 인코더와 큐를 결합한 MoCo 원논문이며 facebookresearch/moco가 공식 PyTorch 구현입니다." ;
     atlas:url <https://openaccess.thecvf.com/content_CVPR_2020/html/He_Momentum_Contrast_for_Unsupervised_Visual_Representation_Learning_CVPR_2020_paper.html> .
 
-<https://github.com/PtwoI/p2i-kg#objective/supervised> a atlas:Objective ;
-    rdfs:label "지도 분류 목적" ;
-    atlas:label "지도 분류 목적" ;
-    atlas:summary "표지된 자료의 분류 오차를 최적화합니다." .
+<https://github.com/PtwoI/p2i-kg#paper/rwkv> a atlas:Paper ;
+    rdfs:label "RWKV: Reinventing RNNs for the Transformer Era" ;
+    atlas:author "Alon Albalak",
+        "Bartlomiej Koptyra",
+        "Bo Peng",
+        "Eric Alcaide",
+        "Eugene Qian",
+        "Faming Liang",
+        "Guo Tang",
+        "Hao Li",
+        "Haowen Hou",
+        "Huanqi Cao",
+        "Jan Kocon",
+        "Jiaming Kong",
+        "Jian Zhu",
+        "Johan Z. Wind",
+        "Kranthi Gv",
+        "Leonard Derczynski",
+        "Louis S. Lovern",
+        "Matteo Grella",
+        "Michael Chung",
+        "Piotr Ponizy",
+        "Przemyslaw Kazienko",
+        "Qinghua Zhou",
+        "Quentin Anthony",
+        "Rui-Jie Zhu",
+        "Ruijie Zhang",
+        "Ruipeng Pan",
+        "Samuel Arcadinho",
+        "Stanislaw Wozniak",
+        "Xin Cheng",
+        "Xingjian Du",
+        "Xuzheng He",
+        "Zhenyuan Zhang" ;
+    atlas:label "RWKV: Reinventing RNNs for the Transformer Era" ;
+    atlas:reference_year 2023 ;
+    atlas:summary "병렬 학습과 순환 추론이 가능한 receptance weighted key-value 구조를 제안한 원논문이며 BlinkDL/RWKV-LM이 공식 구현입니다." ;
+    atlas:url <https://aclanthology.org/2023.findings-emnlp.936/> .
+
+<https://github.com/PtwoI/p2i-kg#task/classification> a atlas:Task ;
+    rdfs:label "영상 분류" ;
+    atlas:label "영상 분류" ;
+    atlas:summary "영상 입력에 범주를 할당합니다." .
 
 <https://github.com/PtwoI/p2i-kg#paper/mixer> a atlas:Paper ;
     rdfs:label "MLP-Mixer: An all-MLP Architecture for Vision" ;
@@ -9488,16 +10193,14 @@ atlas:extends a owl:ObjectProperty ;
     atlas:subconcept_of <https://github.com/PtwoI/p2i-kg#concept/attention> ;
     atlas:summary "같은 입력 시퀀스에서 만든 query, key, value를 이용해 위치 사이의 정보를 결합합니다." .
 
+<https://github.com/PtwoI/p2i-kg#objective/supervised> a atlas:Objective ;
+    rdfs:label "지도 분류 목적" ;
+    atlas:label "지도 분류 목적" ;
+    atlas:summary "표지된 자료의 분류 오차를 최적화합니다." .
+
 atlas:trained_with a owl:ObjectProperty ;
     rdfs:domain atlas:Model ;
     rdfs:range atlas:Objective .
-
-atlas:applied_to a owl:ObjectProperty ;
-    rdfs:domain atlas:Model ;
-    rdfs:range atlas:Task .
-
-atlas:Paper a owl:Class ;
-    rdfs:label "Paper" .
 
 <https://github.com/PtwoI/p2i-kg#paper/transformer> a atlas:Paper ;
     rdfs:label "Attention Is All You Need" ;
@@ -9514,6 +10217,10 @@ atlas:Paper a owl:Class ;
     atlas:summary "모델과 개념을 설명하는 대표 문헌입니다. 원문에서 해당 구조와 주장 범위를 확인할 수 있습니다." ;
     atlas:url <https://arxiv.org/abs/1706.03762> .
 
+atlas:applied_to a owl:ObjectProperty ;
+    rdfs:domain atlas:Model ;
+    rdfs:range atlas:Task .
+
 <https://github.com/PtwoI/p2i-kg#paper/simclr> a atlas:Paper ;
     rdfs:label "A Simple Framework for Contrastive Learning of Visual Representations" ;
     atlas:author "Geoffrey Hinton",
@@ -9524,6 +10231,9 @@ atlas:Paper a owl:Class ;
     atlas:reference_year 2020 ;
     atlas:summary "강한 두 시점 증강, 공유 인코더, 비선형 투영 헤드와 NT-Xent를 결합한 SimCLR 원논문." ;
     atlas:url <https://proceedings.mlr.press/v119/chen20j.html> .
+
+atlas:Paper a owl:Class ;
+    rdfs:label "Paper" .
 
 <https://github.com/PtwoI/p2i-kg#paper/deepsets> a atlas:Paper ;
     rdfs:label "Deep Sets" ;
@@ -9656,11 +10366,11 @@ atlas:Model a owl:Class ;
     atlas:summary "정렬되지 않은 원시 점 집합을 공유 점 특징과 대칭 함수로 직접 처리하는 3D 분류·분할 아키텍처 원논문." ;
     atlas:url <https://openaccess.thecvf.com/content_cvpr_2017/html/Qi_PointNet_Deep_Learning_CVPR_2017_paper.html> .
 
-atlas:Component a owl:Class ;
-    rdfs:label "Component" .
-
 atlas:Concept a owl:Class ;
     rdfs:label "Concept" .
+
+atlas:Component a owl:Class ;
+    rdfs:label "Component" .
 
 atlas:has_component a owl:ObjectProperty ;
     rdfs:domain [ a owl:Class ;
