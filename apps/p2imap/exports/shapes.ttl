@@ -4,25 +4,25 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 atlas:ClaimShape a sh:NodeShape ;
-    sh:property [ sh:class atlas:Paper ;
+    sh:property [ sh:in ( "documented" "structural" "pedagogical" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path atlas:basis ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path atlas:relation ],
+        [ sh:class atlas:Paper ;
             sh:minCount 1 ;
             sh:path atlas:evidence ],
         [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:path atlas:target ],
-        [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:path atlas:relation ],
-        [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
             sh:path atlas:source ],
-        [ sh:in ( "documented" "structural" "pedagogical" ) ;
-            sh:maxCount 1 ;
+        [ sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:path atlas:basis ],
+            sh:nodeKind sh:IRI ;
+            sh:path atlas:target ],
         [ sh:datatype xsd:string ;
             sh:minCount 1 ;
             sh:minLength 1 ;
@@ -47,12 +47,12 @@ atlas:ConceptShape a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:minLength 1 ;
-            sh:path atlas:summary ],
+            sh:path atlas:label ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:minLength 1 ;
-            sh:path atlas:label ] ;
+            sh:path atlas:summary ] ;
     sh:targetClass atlas:Concept .
 
 atlas:ModelShape a sh:NodeShape ;
@@ -82,12 +82,9 @@ atlas:ObjectiveShape a sh:NodeShape ;
     sh:targetClass atlas:Objective .
 
 atlas:PaperShape a sh:NodeShape ;
-    sh:property [ sh:datatype xsd:integer ;
+    sh:property [ sh:datatype xsd:string ;
             sh:minCount 1 ;
-            sh:path atlas:reference_year ],
-        [ sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:path atlas:url ],
+            sh:path atlas:author ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -98,9 +95,12 @@ atlas:PaperShape a sh:NodeShape ;
             sh:minCount 1 ;
             sh:minLength 1 ;
             sh:path atlas:summary ],
-        [ sh:datatype xsd:string ;
+        [ sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path atlas:url ],
+        [ sh:datatype xsd:integer ;
             sh:minCount 1 ;
-            sh:path atlas:author ] ;
+            sh:path atlas:reference_year ] ;
     sh:targetClass atlas:Paper .
 
 atlas:TaskShape a sh:NodeShape ;
