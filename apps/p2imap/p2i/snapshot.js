@@ -3,7 +3,7 @@ const nativeFetch=globalThis.fetch.bind(globalThis);
 const id=new URLSearchParams(location.search).get('model');
 try{
  if(!id||!/^[a-z0-9_-]+$/.test(id))throw Error('지도에서 모델을 선택하세요.');
- const response=await nativeFetch(new URL('../snapshots/'+id+'.json?v='+(new URLSearchParams(location.search).get('v')??'6feb24e989a01689'),import.meta.url));
+ const response=await nativeFetch(new URL('../snapshots/'+id+'.json?v='+(new URLSearchParams(location.search).get('v')??'ca1927a6ffc53c9d'),import.meta.url));
  if(!response.ok)throw Error('모델 관측 결과를 불러오지 못했습니다.');
  const snapshot=await response.json();if(!snapshot.observed?.modules?.length)throw Error('P2I 관측 결과가 없는 모델입니다.');
  const ir=snapshot.observed;
