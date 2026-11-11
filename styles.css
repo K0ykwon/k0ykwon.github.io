@@ -192,4 +192,4 @@ html.theme-ready{transition:--paper .6s ease-in-out,--surface .6s ease-in-out,--
 .software-links{display:flex;flex-wrap:wrap;gap:12px 20px}
 
 /* Lift the night skyline independently of the room illumination. */
-.window-landscape .scene-image[data-scene^="night-"]{filter:brightness(1.8)!important}
+.window-landscape .scene-image[data-scene^="night-"]{filter:brightness(1.65)!important}
