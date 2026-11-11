@@ -20,5 +20,5 @@ export function lightingAt(minute,{sunrise=420,sunset=1080,weather='clear'}={}){
  const scenes=Object.fromEntries(SCENE_TIMES.flatMap(time=>SCENE_WEATHERS.map(kind=>[`${time}-${kind}`,kind===condition?weights[time]:0])));
  const rgb=[255,Math.round(244-49*golden),Math.round(224-72*golden)];
  return {color:`rgb(${rgb.join(' ')})`,opacity:.035+external*.24+golden*.16,brightness:1,saturation:1,warmth:0,
-  weatherInk:`rgb(${Math.round(32+195*(1-daylight))} ${Math.round(36+192*(1-daylight))} ${Math.round(33+191*(1-daylight))})`,roomDarkness:.1+.61*lamp,lamp,lampShade:.055-.025*lamp,lampRadius:28+32*lamp,lampRadiusY:48+46*lamp,lampTint:.4*lamp,weights,scenes};
+  weatherInk:`rgb(${Math.round(32+195*(1-daylight))} ${Math.round(36+192*(1-daylight))} ${Math.round(33+191*(1-daylight))})`,roomDarkness:.1+.30*lamp,lamp,lampShade:.055-.025*lamp,lampRadius:28+75*lamp,lampRadiusY:48+76*lamp,lampTint:.20*lamp,weights,scenes};
 }

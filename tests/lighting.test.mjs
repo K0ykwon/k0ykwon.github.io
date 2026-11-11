@@ -23,7 +23,7 @@ test('Solar timestamps parse in Seoul local time, invalid metadata uses fallback
 
 test('Night has a darker room and a stronger, wider lamp pool than noon',()=>{
  const day=lightingAt(720),night=lightingAt(1320);
- assert.ok(night.roomDarkness>day.roomDarkness+.6);
+ assert.ok(night.roomDarkness>day.roomDarkness+.25);
  assert.ok(night.lamp>day.lamp+.8);assert.ok(night.lampRadius>day.lampRadius+20);
 });
 test('Solar phases and weather image weights are bounded and normalised',()=>{
