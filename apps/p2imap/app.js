@@ -1,5 +1,5 @@
 import {mindmap,neighborhood,connectionLayout,edgePath,NODE_WIDTH,NODE_HEIGHT} from './layout.js?v=20261103-dependency-flow';
-import {read,hosted} from './catalog-client.js?v=c294f58880c0f31e';
+import {read,hosted} from './catalog-client.js?v=c1f65583c01369fb';
 const $=selector=>document.querySelector(selector);
 const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 let graph,nodes,selected='model:transformer',zoom=1,searchTimer,mode='overview',world={width:1400,height:720},camera={x:0,y:0,width:1400,height:720},pan=null;
