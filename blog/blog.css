@@ -60,6 +60,20 @@
 .article-toc summary{font-size:12px;cursor:pointer;font-weight:500}
 .article-toc nav{display:flex;flex-direction:column;gap:12px;margin-top:20px}
 .article-toc button{border:0;padding:0;text-align:left;font-size:11px;line-height:1.7;color:var(--muted)}
+.blog-category-list button,.blog-filters button,.blog-card h3,.blog-card-arrow,.post-meta>a,.article-toc summary,.article-toc button{
+  transition:color .16s ease,border-color .16s ease,background-color .16s ease;
+}
+.article-toc summary:focus-visible{outline:2px solid var(--accent);outline-offset:5px}
+.blog-category-list button:active,.article-toc :is(summary,button):active{color:var(--accent)}
+.blog-filters button:active{border-color:var(--accent)}
+@media(hover:hover) and (pointer:fine){
+  .blog-category-list button:hover{color:var(--accent);border-color:var(--accent)}
+  .blog-filters button:hover{border-color:var(--accent)}
+  .blog-filters button[aria-pressed=false]:hover{color:var(--accent);background-color:var(--soft)}
+  .blog-card:hover :is(h3,.blog-card-arrow),.post-meta>a:hover,.article-toc :is(summary,button):hover{
+    color:var(--accent);
+  }
+}
 .article-demo{border:1px solid var(--line);padding:26px;background:var(--surface);border-radius:3px}
 .demo-kicker{font-size:9px;letter-spacing:1.5px;color:var(--muted);margin-bottom:9px}
 .article-demo p,.article-demo small{font-size:12px;line-height:1.9;color:var(--muted)}
