@@ -1,5 +1,5 @@
 import {mindmap,neighborhood,connectionLayout,edgePath,NODE_WIDTH,NODE_HEIGHT} from './layout.js?v=20261103-dependency-flow';
-import {read,hosted} from './catalog-client.js?v=neon-v1';
+import {read,hosted} from './catalog-client.js?v=bc5ac2ce07a5ef65';
 const $=selector=>document.querySelector(selector);
 const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 let graph,nodes,selected='model:transformer',zoom=1,searchTimer,mode='overview',world={width:1400,height:720},camera={x:0,y:0,width:1400,height:720},pan=null;
@@ -9,7 +9,7 @@ let mapRequest=0;
 const relations={extends:'확장',alternative_to:'대안',documented_in:'대표 문헌',uses:'사용 개념',has_component:'구성 요소',subconcept_of:'상위 개념',trained_with:'학습 목적',applied_to:'적용 과제'};
 const kinds={model:'모델',concept:'개념',paper:'논문',component:'구성 요소',objective:'학습 목적',task:'과제'};
 const bases={documented:'문헌 관계',structural:'구조적 관계',pedagogical:'교육적 연결'};
-const families={feedforward:['Feedforward','#c6ff6b'],sequence:['Sequence','#b99aff'],vision:['Vision','#5ccfff'],attention:['Attention','#39f6cf'],generative:['Generative','#ffba69'],graph:['Graph','#d8ec6a'],multimodal:['Multimodal','#ff87ca'],set:['Set models','#73d9c7'],'3d':['3D vision','#8db9ff'],'self-supervised':['Self-supervised','#e8a3ff'],'state-space':['State space','#d5b6ff']};
+const families={feedforward:['Feedforward','#c6ff6b'],sequence:['Sequence','#b99aff'],vision:['Vision','#5ccfff'],attention:['Attention','#39f6cf'],generative:['Generative','#ffba69'],graph:['Graph','#d8ec6a'],multimodal:['Multimodal','#ff87ca'],set:['Set models','#73d9c7'],'3d':['3D vision','#8db9ff'],'self-supervised':['Self-supervised','#e8a3ff'],'state-space':['State space','#d5b6ff'],'reinforcement-learning':['Reinforcement learning','#ffcf70']};
 function select(id,{closePanels=true}={}){
  if(!nodes.has(id))return;selected=id;
  const previousMode=mode;if(nodes.get(id).kind!=='model')mode='neighborhood';
