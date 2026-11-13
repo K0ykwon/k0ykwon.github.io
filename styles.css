@@ -98,7 +98,7 @@ html.theme-ready{transition:--paper .6s ease-in-out,--surface .6s ease-in-out,--
 .timeline-entry p,.award-entry p,.cv-entry p{font-size:13px;line-height:1.8;color:var(--muted);margin:0 0 12px}
 .timeline-entry strong{color:var(--ink);font-weight:500}
 .timeline-entry a,.cv-entry a{display:inline-flex;gap:20px;font-size:12px;border-bottom:1px solid var(--line);padding-bottom:4px}
-.honors-section{position:sticky;top:30px}
+.honors-section{position:static}
 .award-entry{padding:0 0 24px;margin-bottom:24px;border-bottom:1px solid var(--line)}
 .award-entry .entry-meta{display:block;margin-bottom:10px}.cv-entry{grid-column:1/-1;margin-top:12px;padding:24px 0 0;border-top:1px solid var(--line)}.cv-downloads{display:flex;flex-wrap:wrap;gap:16px 30px}.cv-entry h3{font-size:18px;font-weight:500;margin:10px 0}
 @media(max-width:900px){.experience-overview{grid-template-columns:minmax(0,1fr);gap:42px}.honors-section{position:static}.timeline-item{grid-template-columns:125px minmax(0,1fr);gap:18px}.honors-section{display:grid;grid-template-columns:1fr 1fr;gap:0 30px}.honors-section .experience-section-heading{grid-column:1/-1}}

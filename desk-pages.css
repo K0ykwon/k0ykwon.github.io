@@ -54,7 +54,6 @@ body { background: var(--desk-surface); }
 .page-view[data-section=about] .page-heading,
 .page-view[data-section=research][data-post=""] .page-heading { column-gap: 6%; }
 .page-view[data-section=about] .profile-photo { padding: 5px; background: var(--surface); border: 1px solid var(--line); box-shadow: 2px 3px 0 var(--soft); }
-.page-view .honors-section { top: calc(var(--header-height) + 20px); }
 .page-view .timeline-entry p { font-size: 14px; }
 .page-view .publication h3 { font-size: clamp(21px, 2vw, 26px); }
 .page-view .publication { padding-top: 25px; padding-bottom: 25px; }
