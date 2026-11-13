@@ -85,8 +85,7 @@ body { background: var(--desk-surface); }
 .project-featured h3 { font-size: 30px !important; margin-top: 10px; }
 .project-preview { margin: 0; }
 .project-preview img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 6px; }
-.project-preview figcaption { display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between; gap: 0 12px; margin-top: 8px; color: var(--muted); font-size: 13px; }
-.project-preview figcaption a { color: var(--ink); }
+.project-preview figcaption { margin-top: 8px; color: var(--muted); font-size: 13px; }
 .page-view[data-section=software] .software-more { grid-column: 1/-1; background: none; border: 0; padding: 0; }
 .page-view[data-section=contact] { max-width: 1660px; border-radius: 3px; padding-left: 48px; border-top: 3px solid var(--accent); }
 .page-view[data-section=contact]::before { display: none; }
@@ -149,4 +148,94 @@ body { background: var(--desk-surface); }
 .panel-entry a > span::after, .profile-links a > span::after, .blog-card-arrow::after {
   content: ''; position: absolute; left: 1px; top: 7px; width: 12px; height: 1px;
   background: currentColor; transform: rotate(-45deg);
+}
+
+/* The side sheets sit behind the active document on wide screens. */
+.document-neighbors { display: none; }
+
+@media (min-width: 1700px) {
+  .document-stack {
+    position: relative;
+    display: flow-root;
+    width: calc(100% - 320px);
+    max-width: 1660px;
+    margin-inline: auto;
+  }
+
+  .document-stack .page-view { width: 100%; z-index: 1; }
+
+  .document-neighbors:not([hidden]) {
+    display: block;
+    position: absolute;
+    inset: 60px 0 76px;
+    pointer-events: none;
+  }
+
+  .document-neighbor-sheets {
+    position: sticky;
+    top: calc(var(--header-height) + 44px);
+    height: min(404px, 100%, calc(100dvh - var(--header-height) - 64px));
+  }
+
+  .document-neighbor {
+    --peek: 133px;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: flex-start;
+    width: calc(var(--peek) + 92px);
+    height: calc(100% - 14px);
+    padding: 36px 18px;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    background: color-mix(in srgb, var(--paper) 66%, transparent);
+    box-shadow: 0 5px 18px #0000000e;
+    color: var(--ink);
+    pointer-events: auto;
+    transition: translate 180ms ease, background-color 180ms ease, border-color 180ms ease;
+  }
+
+  .document-neighbor::after {
+    content: '';
+    position: absolute;
+    inset: 88px 18px 26px;
+    border-top: 1px solid var(--line);
+    background: repeating-linear-gradient(to bottom, transparent 0 23px, var(--line) 23px 24px);
+    opacity: .43;
+    pointer-events: none;
+  }
+
+  .document-neighbor-prev {
+    right: calc(100% - 92px);
+    rotate: -3deg;
+  }
+
+  .document-neighbor-next {
+    left: calc(100% - 92px);
+    top: 14px;
+    justify-content: flex-end;
+    rotate: 3deg;
+  }
+
+  .document-neighbor-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .document-neighbor-label > [aria-hidden] { color: var(--accent); font-size: 17px; }
+
+  .document-neighbor:is(:hover, :focus-visible) {
+    border-color: var(--accent);
+    background: var(--paper);
+  }
+
+  .document-neighbor-prev:is(:hover, :focus-visible) { translate: -8px 0; }
+  .document-neighbor-next:is(:hover, :focus-visible) { translate: 8px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .document-neighbor { transition: none; }
 }

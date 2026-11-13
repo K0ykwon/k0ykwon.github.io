@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <meta name="site-version" content="20261113-content-review">
+  <meta name="site-version" content="20261113-document-stack">
   <meta name="theme-color" content="#f8f7f3">
   <meta name="description" content="Youngkwon Ko — AI, quantum algorithms, and software. Explore a desk of research, projects, and ideas, with a window onto Seoul.">
   <meta property="og:title" content="Youngkwon Ko">
@@ -18,10 +18,10 @@
   <link rel="stylesheet" href="blog/blog.css?v=20261112-control-hover">
   <link rel="stylesheet" href="content/research/historical-battle-records/demo.css?v=20261031-research-posts">
   <link rel="stylesheet" href="content/research/articles.css?v=20261031-research-posts">
-  <link rel="stylesheet" href="desk-pages.css?v=20261113-content-review">
+  <link rel="stylesheet" href="desk-pages.css?v=20261113-document-stack">
   <title>Youngkwon Ko</title>
   <script>try{if(!localStorage.getItem("desk-language"))localStorage.setItem("desk-language","en")}catch{}</script>
-  <script type="module" src="app.js?v=20261113-content-review"></script>
+  <script type="module" src="app.js?v=20261113-document-stack"></script>
 </head>
 <body>
   <a class="skip-link" href="#about" data-section="about">Skip to content</a>
@@ -51,11 +51,23 @@
 <button class="hotspot hotspot-lamp" id="lamp-toggle" aria-label="Toggle site theme" aria-pressed="false"></button>
       </div>
     </section>
-    <section id="page-view" class="page-view" aria-labelledby="page-title" hidden>
-      <div class="page-toolbar"><a class="document-parent" id="document-parent" href="#about" data-section="about">Notebook / About</a><button class="back-to-desk" data-home>Back to the desk ↑</button></div>
-      <div class="page-layout"><header class="page-heading"><span id="page-kicker" class="entry-meta"></span><span id="page-index" class="page-index"></span><h1 id="page-title" tabindex="-1"></h1><p id="page-intro" class="page-intro" data-content-localized></p></header><div id="page-content" class="page-content"></div></div>
-      <div class="page-bottom"><button class="back-to-desk" data-home>Back to the desk ↑</button></div>
-    </section>
+    <div class="document-stack">
+      <nav class="document-neighbors" aria-label="Adjacent sections" hidden>
+        <div class="document-neighbor-sheets">
+          <a class="document-neighbor document-neighbor-prev">
+            <span class="document-neighbor-label"><span aria-hidden="true">←</span><span data-neighbor-label></span></span>
+          </a>
+          <a class="document-neighbor document-neighbor-next">
+            <span class="document-neighbor-label"><span data-neighbor-label></span><span aria-hidden="true">→</span></span>
+          </a>
+        </div>
+      </nav>
+      <section id="page-view" class="page-view" aria-labelledby="page-title" hidden>
+        <div class="page-toolbar"><a class="document-parent" id="document-parent" href="#about" data-section="about">Notebook / About</a><button class="back-to-desk" data-home>Back to the desk ↑</button></div>
+        <div class="page-layout"><header class="page-heading"><span id="page-kicker" class="entry-meta"></span><span id="page-index" class="page-index"></span><h1 id="page-title" tabindex="-1"></h1><p id="page-intro" class="page-intro" data-content-localized></p></header><div id="page-content" class="page-content"></div></div>
+        <div class="page-bottom"><button class="back-to-desk" data-home>Back to the desk ↑</button></div>
+      </section>
+    </div>
   </main>
   <footer class="site-footer"><span>© <span id="year">2026</span> Youngkwon Ko</span><a href="https://github.com/K0ykwon" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer>
   <noscript><div class="no-script">Explore my projects at <a href="https://github.com/K0ykwon">github.com/K0ykwon</a> or write to <a href="mailto:yko081524@yonsei.ac.kr">yko081524@yonsei.ac.kr</a>. Interactive desk navigation needs JavaScript.</div></noscript>
