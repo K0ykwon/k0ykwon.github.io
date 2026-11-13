@@ -1,6 +1,6 @@
 import {getResearchPost,renderResearchArticle} from './content/research/articles.js?v=20261113-content-review';
 import {activateResearch} from './content/research/interactions.js?v=20261031-research-posts';
-import {getSection,hasSection} from './content/index.js?v=20261113-content-review';
+import {getSection,hasSection} from './content/index.js?v=20261113-document-stack';
 import {localizePost} from './blog/localization.js?v=20261113-content-review';
 import {getLanguage,setLanguage,t,english,translateDOM,observeLanguage} from './i18n.js?v=20261031-content-folders';
 import {getBlogPost,renderBlogIndex,renderBlogArticle,activateBlog} from './blog/ui.js?v=20261113-content-review';
@@ -10,6 +10,26 @@ const root=document.documentElement;
 const pageView=document.getElementById('page-view');
 const content=document.getElementById('page-content');
 const siteHeader=document.querySelector('.site-header');
+const sectionLinks = [...siteHeader.querySelectorAll('.main-nav a[data-section]')];
+const documentNeighbors = document.querySelector('.document-neighbors');
+const neighborLinks = [...documentNeighbors.querySelectorAll('.document-neighbor')];
+
+function updateDocumentNeighbors(key) {
+  const index = sectionLinks.findIndex(link => link.dataset.section === key);
+  if (index === -1) {
+    documentNeighbors.hidden = true;
+    return;
+  }
+  const count = sectionLinks.length;
+  neighborLinks.forEach((neighbor, position) => {
+    const direction = position === 0 ? -1 : 1;
+    const destination = sectionLinks[(index + direction + count) % count];
+    neighbor.href = destination.hash;
+    neighbor.dataset.section = destination.dataset.section;
+    neighbor.querySelector('[data-neighbor-label]').textContent = destination.textContent.trim();
+  });
+  documentNeighbors.hidden = false;
+}
 const measureHeader=()=>root.style.setProperty('--header-height',`${Math.ceil(siteHeader.getBoundingClientRect().height)}px`);
 measureHeader();
 if('ResizeObserver' in window)new ResizeObserver(measureHeader).observe(siteHeader);
@@ -64,6 +84,7 @@ function renderSection(key,{scroll=true,postSlug='',force=false,animate=true,com
   for(const id of ['page-kicker','page-index','page-title','page-intro']){const el=document.getElementById(id);el.classList.remove('section-rise');el.style.removeProperty('--entrance-delay');}
   // Commit the cleared animation styles before reusing the heading elements.
   if(!pageView.hidden)void pageView.offsetWidth;
+  updateDocumentNeighbors(key);
   pageView.dataset.section=key;pageView.dataset.post=activePost;
   document.title=(post||researchPost)?`${page.title} — Youngkwon Ko`:key==='blog'?'Blog — Youngkwon Ko':'Youngkwon Ko';
   document.getElementById('page-kicker').textContent=page.object;
