@@ -1,6 +1,6 @@
 export default {
   "index": "02",
-  "object": "RIGHT NOTEBOOK PAGE",
+  "object": "PUBLICATIONS & ONGOING WORK",
   "title": "Research.",
   "intro": {
     "en": "Selected publications in applied AI and information representation, followed by a short overview of ongoing work.",

@@ -1,6 +1,6 @@
 export default {
   "index": "04",
-  "object": "BETWEEN THE BOOKS",
+  "object": "PAPER REVIEWS & ALGORITHMS",
   "title": "Blog.",
   "intro": {
     "en": "Paper reviews and algorithm solutions.",

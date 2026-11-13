@@ -1,6 +1,6 @@
 export default {
   "index": "01",
-  "object": "LEFT NOTEBOOK PAGE",
+  "object": "PROFILE",
   "title": "Hello, I’m Youngkwon Ko.",
   "intro": {
     "en": "I’m an Artificial Intelligence undergraduate at Yonsei University, currently on leave while serving as an AI Specialist in the Republic of Korea Navy. I work across applied AI research and software development.",

@@ -1,14 +1,18 @@
 import {getResearchPost,renderResearchArticle} from './content/research/articles.js?v=20261031-research-posts';
 import {activateResearch} from './content/research/interactions.js?v=20261031-research-posts';
-import {getSection,hasSection} from './content/index.js?v=20261102-review';
-import {localizePost} from './blog/localization.js?v=20261031-content-folders';
+import {getSection,hasSection} from './content/index.js?v=20261113-desk-documents';
+import {localizePost} from './blog/localization.js?v=20261113-desk-documents';
 import {getLanguage,setLanguage,t,english,translateDOM,observeLanguage} from './i18n.js?v=20261031-content-folders';
-import {getBlogPost,renderBlogIndex,renderBlogArticle,activateBlog} from './blog/ui.js?v=20261031-content-folders';
+import {getBlogPost,renderBlogIndex,renderBlogArticle,activateBlog} from './blog/ui.js?v=20261113-desk-documents';
 import {lightingAt,solarMinute} from './lighting.js?v=20261111-subtle-shadows';
 import {seoulParts,seasonFor,outsideFor,parseWeather,cachedScene} from './weather.js?v=20261029-scene-start';
 const root=document.documentElement;
 const pageView=document.getElementById('page-view');
 const content=document.getElementById('page-content');
+const siteHeader=document.querySelector('.site-header');
+const measureHeader=()=>root.style.setProperty('--header-height',`${Math.ceil(siteHeader.getBoundingClientRect().height)}px`);
+measureHeader();
+if('ResizeObserver' in window)new ResizeObserver(measureHeader).observe(siteHeader);
 const reducedMotion=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 let sectionObserver;let entranceFrame;let blogCleanup;let researchCleanup;
@@ -63,7 +67,10 @@ function renderSection(key,{scroll=true,postSlug='',force=false,animate=true,com
   pageView.dataset.section=key;pageView.dataset.post=activePost;
   document.title=(post||researchPost)?`${page.title} — Youngkwon Ko`:key==='blog'?'Blog — Youngkwon Ko':'Youngkwon Ko — A desk of ideas';
   document.getElementById('page-kicker').textContent=page.object;
-  document.getElementById('page-index').textContent=`${page.index} / From the desk`;
+  document.getElementById('page-index').textContent=page.index;
+  const parent=document.getElementById('document-parent');
+  parent.href=`#${key}`;parent.dataset.section=key;
+  parent.textContent=({about:'Notebook / About',research:'Notebook / Research',software:'Laptop / Software',blog:'Papers / Blog',contact:'Card / Contact'})[key];
   document.getElementById('page-title').textContent=english(page.title);
   document.getElementById('page-intro').textContent=page.intro;
   content.innerHTML=page.body;
