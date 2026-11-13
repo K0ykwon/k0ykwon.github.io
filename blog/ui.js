@@ -1,14 +1,16 @@
 import {getLanguage,t,english} from '../i18n.js?v=20261031-content-folders';
-import {localizePost} from './localization.js?v=20261031-content-folders';
-import {mountComments} from './comments.js?v=20261031-content-folders';
-import {POSTS} from './posts.js?v=20261031-content-folders';
+import {localizePost} from './localization.js?v=20261113-desk-documents';
+import {mountComments} from './comments.js?v=20261113-desk-documents';
+import {POSTS} from './posts.js?v=20261113-desk-documents';
 import {mountDemo} from './demos.js?v=20261031-content-folders';
 import {renderMath} from './math.js?v=20261031-content-folders';
 export const escapeHTML=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const getBlogPost=slug=>POSTS.find(post=>post.slug===slug);
 const link=post=>`#blog/${post.slug}`;
 const date=value=>value.replaceAll('-','.');
-let selectedCategory='알고리즘';
+let selectedCategory='전체';
+export const blogCategories=()=>['전체',...['알고리즘','Devlog','연구노트','Paper review'].filter(category=>POSTS.some(post=>post.category===category))];
+export const matchesCategory=(post,category)=>category==='전체'||post.category===category;
 export function getPostDemos(post){
  return post.demos??(post.demo?[{id:'demo',type:post.demo,title:post.demoTitle,after:post.demoAfter??post.sections[1]?.id}]:[]);
 }
@@ -19,7 +21,7 @@ function highlightPython(code){
  return result+escapeHTML(code.slice(offset));
 }
 export function renderBlogIndex(){
- return `<div class="blog-index"><div class="blog-tools"><label class="blog-search"><span>글 찾기</span><input type="search" data-blog-search placeholder="제목, 주제, 문제 번호" autocomplete="off"></label><div class="blog-categories"><div class="blog-category-list" role="group" aria-label="글 분류">${['알고리즘','Devlog','연구노트','Paper review'].map(category=>`<button type="button" data-blog-category="${category}" aria-pressed="${category==='알고리즘'}">${category}<span>${POSTS.filter(post=>post.category===category).length}</span></button>`).join('')}</div><div class="blog-filters" role="group" aria-label="알고리즘 소분류">${['전체','비트마스크','DP','수론'].map((tag,i)=>`<button type="button" data-blog-filter="${tag}" aria-pressed="${i===0}">${tag}</button>`).join('')}</div></div><div class="blog-list-meta"><span data-blog-count role="status">${POSTS.length}개의 글</span></div></div><ol class="blog-list">${POSTS.map((original,index)=>{const post=localizePost(original,getLanguage());return `<li data-post-card="${post.slug}"><a href="${link(post)}" data-section="blog" data-post="${post.slug}" class="blog-card"><span class="blog-card-number">${String(POSTS.slice(0,index+1).filter(item=>item.category===post.category).length).padStart(2,'0')}</span><div><div class="blog-card-meta"><time datetime="${post.published}">${date(post.published)}</time><span>${post.kind==='review'?escapeHTML(post.paper.venue):'Python'}</span></div><h3>${escapeHTML(post.title)}</h3><p>${escapeHTML(post.summary)}</p><div class="blog-tags">${post.tags.map(tag=>`<span>${tag}</span>`).join('')}</div></div><span class="blog-card-arrow" aria-hidden="true">↗</span></a></li>`;}).join('')}</ol><p class="blog-no-results" data-blog-empty hidden>검색 결과가 없습니다.</p></div>`;
+ return `<div class="blog-index"><div class="blog-tools"><label class="blog-search"><span>글 찾기</span><input type="search" data-blog-search placeholder="제목, 주제, 문제 번호" autocomplete="off"></label><div class="blog-categories"><div class="blog-category-list" role="group" aria-label="글 분류">${blogCategories().map(category=>`<button type="button" data-blog-category="${category}" aria-pressed="${category===selectedCategory}">${category}<span>${POSTS.filter(post=>matchesCategory(post,category)).length}</span></button>`).join('')}</div><div class="blog-filters" role="group" aria-label="알고리즘 소분류">${['전체','비트마스크','DP','수론'].map((tag,i)=>`<button type="button" data-blog-filter="${tag}" aria-pressed="${i===0}">${tag}</button>`).join('')}</div></div><div class="blog-list-meta"><span data-blog-count role="status">${POSTS.length}개의 글</span></div></div><ol class="blog-list">${POSTS.map((original,index)=>{const post=localizePost(original,getLanguage());return `<li data-post-card="${post.slug}"><a href="${link(post)}" data-section="blog" data-post="${post.slug}" class="blog-card"><span class="blog-card-number">${String(index+1).padStart(2,'0')}</span><div><div class="blog-card-meta"><time datetime="${post.published}">${date(post.published)}</time><span>${post.kind==='review'?escapeHTML(post.paper.venue):'Python'}</span></div><h3>${escapeHTML(post.title)}</h3><p>${escapeHTML(post.summary)}</p><div class="blog-tags">${post.tags.map(tag=>`<span>${tag}</span>`).join('')}</div></div><span class="blog-card-arrow" aria-hidden="true">↗</span></a></li>`;}).join('')}</ol><p class="blog-no-results" data-blog-empty hidden>검색 결과가 없습니다.</p></div>`;
 }
 export function renderBlogArticle(original){
  const post=localizePost(original,getLanguage());
@@ -45,8 +47,8 @@ export function activateBlog(container,post){
  if(!post){
   let category=selectedCategory,filter='전체';
   const refresh=()=>{container.querySelectorAll('[data-blog-category]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.blogCategory===category)));container.querySelector('.blog-filters').hidden=category!=='알고리즘';const query=container.querySelector('[data-blog-search]').value.trim().toLocaleLowerCase();let count=0;
-   for(const card of container.querySelectorAll('[data-post-card]')){const item=getBlogPost(card.dataset.postCard);const match=item.category===category&&(filter==='전체'||item.subcategory===filter)&&[item.title,item.summary,item.id,item.category,item.subcategory,...item.tags,localizePost(item,getLanguage()).title,localizePost(item,getLanguage()).summary].join(' ').toLocaleLowerCase().includes(query);card.hidden=!match;if(match)count++;}
-   container.querySelector('[data-blog-count]').textContent=`${count}개의 글`;const empty=container.querySelector('[data-blog-empty]');empty.hidden=count!==0;empty.textContent=POSTS.some(item=>item.category===category)?'검색 결과가 없습니다.':'아직 작성한 글이 없습니다.';
+   for(const card of container.querySelectorAll('[data-post-card]')){const item=getBlogPost(card.dataset.postCard);const match=matchesCategory(item,category)&&(filter==='전체'||item.subcategory===filter)&&[item.title,item.summary,item.id,item.category,item.subcategory,...item.tags,localizePost(item,getLanguage()).title,localizePost(item,getLanguage()).summary].join(' ').toLocaleLowerCase().includes(query);card.hidden=!match;if(match)count++;}
+   container.querySelector('[data-blog-count]').textContent=`${count}개의 글`;const empty=container.querySelector('[data-blog-empty]');empty.hidden=count!==0;empty.textContent=POSTS.some(item=>matchesCategory(item,category))?'검색 결과가 없습니다.':'아직 작성한 글이 없습니다.';
   };
   refresh();
   container.addEventListener('input',e=>{if(e.target.matches('[data-blog-search]'))refresh();},{signal});

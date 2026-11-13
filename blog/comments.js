@@ -6,7 +6,9 @@ export function commentAttributes(post,config=COMMENTS_CONFIG){
 }
 export function mountComments(root,post,signal){
  const attributes=commentAttributes(post);
- if(!attributes){root.querySelector('[data-comments-status]').textContent=t('Comments are not available yet.');return;}
+ if(!root)return;
+ if(!attributes){root.hidden=true;return;}
+ root.hidden=false;
  root.querySelector('[data-comments-status]').textContent='';
  const script=document.createElement('script');script.src='https://giscus.app/client.js';script.crossOrigin='anonymous';script.async=true;
  for(const [key,value] of Object.entries(attributes))script.setAttribute(key,value);

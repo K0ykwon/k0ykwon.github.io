@@ -11,7 +11,7 @@ export default {
     "Efficient AI"
   ],
   "published": "2026-10-30",
-  "updated": "2026-10-30",
+  "updated": "2026-11-13",
   "paper": {
     "title": "TinyViT: Fast Pretraining Distillation for Small Vision Transformers",
     "authors": "Kan Wu, Jinnian Zhang, Houwen Peng, Mengchen Liu, Bin Xiao, Jianlong Fu, Lu Yuan",

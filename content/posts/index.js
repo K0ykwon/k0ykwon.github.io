@@ -1,5 +1,5 @@
 import post0 from './attention-is-all-you-need/index.js?v=20261031-content-folders';
-import post1 from './tinyvit/index.js?v=20261031-content-folders';
+import post1 from './tinyvit/index.js?v=20261113-desk-documents';
 import post2 from './calm-continuous-autoregressive-language-models/index.js?v=20261031-content-folders';
 import post3 from './nested-learning/index.js?v=20261031-content-folders';
 import post4 from './cv-qaoa-continuous-problems/index.js?v=20261031-content-folders';
@@ -9,7 +9,7 @@ import post7 from './boj-python-1126-equal-towers/index.js?v=20261031-content-fo
 import post8 from './boj-python-1799-bishops/index.js?v=20261031-content-folders';
 import post9 from './boj-python-9663-n-queens/index.js?v=20261031-content-folders';
 import {en as en0} from './attention-is-all-you-need/index.js?v=20261031-content-folders';
-import {en as en1} from './tinyvit/index.js?v=20261031-content-folders';
+import {en as en1} from './tinyvit/index.js?v=20261113-desk-documents';
 import {en as en2} from './calm-continuous-autoregressive-language-models/index.js?v=20261031-content-folders';
 import {en as en3} from './nested-learning/index.js?v=20261031-content-folders';
 import {en as en4} from './cv-qaoa-continuous-problems/index.js?v=20261031-content-folders';
