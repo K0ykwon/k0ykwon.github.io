@@ -11,7 +11,7 @@ export default {
     "Continuous variables"
   ],
   "published": "2026-10-30",
-  "updated": "2026-10-30",
+  "updated": "2026-11-13",
   "paper": {
     "title": "A Quantum Approximate Optimization Algorithm for continuous problems",
     "authors": "Guillaume Verdon, Juan Miguel Arrazola, Kamil Brádler, Nathan Killoran",

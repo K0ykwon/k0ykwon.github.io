@@ -1,5 +1,5 @@
 export default {
-  "summary": "모델을 줄이는 일과 사전학습 비용을 줄이는 일을 함께 다룬다. sparse soft label, 데이터 증강 재현, 해상도에 따른 정확도·연산량 변화를 정리한다.",
+  "summary": "학습 이미지의 크롭이 매번 달라질 때, 작은 모델은 교사 모델의 예측을 어떻게 재사용할까요? 캐시에 저장한 예측과 증강 정보를 살펴봅니다.",
   "sections": [
     {
       "id": "abstract",
@@ -29,7 +29,7 @@ export default {
     {
       "id": "experiments",
       "title": "5. Experiments",
-      "html": "<p>5.1은 구현 조건, 5.2는 ablation, 5.3은 ImageNet, 5.4는 transfer learning 결과다. 캐시와 구조 설계의 효과를 분리한 뒤 이미지 분류와 전이 과제를 평가한다.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup></p><p>아래는 공식 Model Zoo에서 고른 설정이다. 모두 ImageNet-22k(21,841개 클래스) 사전학습 뒤 ImageNet-1k로 미세조정한 모델이다. 정확도는 ImageNet-1k top-1, MACs는 입력 1장 기준의 multiply–accumulate 수다.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\" aria-label=\"참고문헌 2\">[2]</a></sup></p><div class=\"review-table-wrap\"><table><thead><tr><th>모델</th><th>입력</th><th>Acc@1</th><th>MACs</th></tr></thead><tbody><tr><td>TinyViT-5M</td><td>224²</td><td>80.7%</td><td>1.3G</td></tr><tr><td>TinyViT-21M</td><td>224²</td><td>84.8%</td><td>4.3G</td></tr><tr><td>TinyViT-21M-512</td><td>512²</td><td>86.5%</td><td>27.0G</td></tr></tbody></table></div><p>21M 모델의 해상도를 224에서 512로 높이면 정확도는 1.7%p 높아지지만 MACs는 약 6.3배다. 이는 위 숫자로 계산한 비교이며, 실제 지연시간의 배수와 같지는 않다. 처리 장치와 배치 크기까지 맞춰야 속도 차이를 판단할 수 있다.</p>"
+      "html": "<p>아래는 공식 Model Zoo에서 고른 설정이다. 모두 ImageNet-22k(21,841개 클래스) 사전학습 뒤 ImageNet-1k로 미세조정한 모델이다. 정확도는 ImageNet-1k top-1, MACs는 입력 1장 기준의 multiply–accumulate 수다.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\" aria-label=\"참고문헌 2\">[2]</a></sup></p><div class=\"review-table-wrap\"><table><thead><tr><th>모델</th><th>입력</th><th>Acc@1</th><th>MACs</th></tr></thead><tbody><tr><td>TinyViT-5M</td><td>224²</td><td>80.7%</td><td>1.3G</td></tr><tr><td>TinyViT-21M</td><td>224²</td><td>84.8%</td><td>4.3G</td></tr><tr><td>TinyViT-21M-512</td><td>512²</td><td>86.5%</td><td>27.0G</td></tr></tbody></table></div><p>21M 모델의 해상도를 224에서 512로 높이면 정확도는 1.7%p 높아지지만 MACs는 약 6.3배다. 이는 위 숫자로 계산한 비교이며, 실제 지연시간의 배수와 같지는 않다. 처리 장치와 배치 크기까지 맞춰야 속도 차이를 판단할 수 있다.</p>"
     },
     {
       "id": "conclusions",

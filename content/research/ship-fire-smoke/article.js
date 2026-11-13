@@ -1,6 +1,6 @@
 import {renderCCTVDemo} from './demo.js?v=20261031-research-posts';
 const approach={
-  "ko": "공개 화재·연기 자료와 함정 유사 배경으로 실험 환경을 구성하고, 여러 카메라의 탐지 결과를 시간축에서 확인합니다. 검증된 후보를 경보와 근거 프레임으로 연결하는 시스템 흐름을 다룹니다.",
-  "en": "Public fire and smoke data and ship-like backgrounds form the experimental environment, where candidate detections are checked across time. The system connects verified candidates to alerts and supporting frames."
+  "ko": "탐지 후보가 여러 프레임에서 지속되는지 확인한 뒤 경보를 내고 근거 프레임을 함께 저장합니다. 아래 예시는 지속적으로 보이는 후보와 짧게 나타나는 반사를 비교해 시간축 검증이 경보에 미치는 영향을 보여줍니다.",
+  "en": "The pipeline checks whether a candidate persists across frames before raising an alert, then stores the evidence with the alert. The illustration compares a persistent candidate with a brief reflection to show how the temporal check affects the decision."
 };
 export default {topic:"MULTI-CAMERA FIRE AND SMOKE DETECTION",approach,renderDemo:renderCCTVDemo};

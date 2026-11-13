@@ -11,7 +11,7 @@ export default {
     "NLP"
   ],
   "published": "2026-10-30",
-  "updated": "2026-10-30",
+  "updated": "2026-11-13",
   "paper": {
     "title": "Attention Is All You Need",
     "authors": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, Illia Polosukhin",

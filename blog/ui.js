@@ -1,7 +1,7 @@
 import {getLanguage,t,english} from '../i18n.js?v=20261031-content-folders';
-import {localizePost} from './localization.js?v=20261113-desk-documents';
+import {localizePost} from './localization.js?v=20261113-content-review';
 import {mountComments} from './comments.js?v=20261113-desk-documents';
-import {POSTS} from './posts.js?v=20261113-desk-documents';
+import {POSTS} from './posts.js?v=20261113-content-review';
 import {mountDemo} from './demos.js?v=20261031-content-folders';
 import {renderMath} from './math.js?v=20261031-content-folders';
 export const escapeHTML=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -40,7 +40,7 @@ export function renderBlogArticle(original){
  const references=post.sources?`<section class="article-section review-sources" id="${id('references')}"><h2>References</h2><ol>${post.sources.map((source,index)=>`<li id="${id('source-'+(index+1))}"><a href="${escapeHTML(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(source.title)} ↗</a><p>${escapeHTML(source.detail)}</p></li>`).join('')}</ol></section>`:'';
  if(post.sources)toc.push(['references','References']);
  const paper=post.paper?`<div class="paper-details"><span class="entry-meta">${escapeHTML(post.paper.venue)} · ${post.paper.year}</span><p>${escapeHTML(post.paper.authors)}</p></div>`:'';
- return `<article class="blog-article" lang="${post.language}" aria-labelledby="page-title"><div class="post-meta"><a href="#blog" data-section="blog" data-post="">← 글 목록</a><span>Youngkwon Ko</span><span>${escapeHTML(english(post.category))} / ${escapeHTML(english(post.subcategory))}</span><time datetime="${post.published}">작성 ${date(post.published)}</time><span>수정 ${date(post.updated)}</span></div>${paper}<div class="article-columns"><div class="article-prose">${body}${references}<footer class="article-footer"><div>${post.kind==='review'?'':`<a href="https://www.acmicpc.net/problem/${post.id}" target="_blank" rel="noopener noreferrer">BOJ ${post.id} ↗</a>`}<a href="#blog" data-section="blog" data-post="">모든 글 보기 →</a></div></footer><section class="article-comments" aria-labelledby="comments-title"><h2 id="comments-title">Comments</h2><p role="status" data-comments-status></p><div class="giscus"></div></section></div><aside class="article-aside"><details class="article-toc" open><summary>목차</summary><nav aria-label="글 목차">${toc.map(([target,title])=>`<button type="button" data-scroll-to="${id(target)}">${title}</button>`).join('')}</nav></details></aside></div></article>`;
+ return `<article class="blog-article" lang="${post.language}" aria-labelledby="page-title"><div class="post-meta"><a href="#blog" data-section="blog" data-post="">← 글 목록</a><span>Youngkwon Ko</span><span>${escapeHTML(english(post.category))} / ${escapeHTML(english(post.subcategory))}</span><time datetime="${post.published}">작성 ${date(post.published)}</time><span>수정 ${date(post.updated)}</span></div>${paper}<div class="article-columns"><div class="article-prose">${body}${references}<footer class="article-footer"><div><a href="#blog" data-section="blog" data-post="">모든 글 보기 →</a></div></footer><section class="article-comments" aria-labelledby="comments-title"><h2 id="comments-title">Comments</h2><p role="status" data-comments-status></p><div class="giscus"></div></section></div><aside class="article-aside"><details class="article-toc" open><summary>목차</summary><nav aria-label="글 목차">${toc.map(([target,title])=>`<button type="button" data-scroll-to="${id(target)}">${title}</button>`).join('')}</nav></details></aside></div></article>`;
 }
 export function activateBlog(container,post){
  const controller=new AbortController(),signal=controller.signal;

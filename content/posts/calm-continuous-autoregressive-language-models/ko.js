@@ -1,5 +1,5 @@
 export default {
-  "summary": "토큰 묶음의 autoencoder, energy score로 학습하는 생성 head, 이산 토큰을 거쳐 돌아오는 입력 경로를 연결한다. 복원 정확도와 생성 품질은 따로 읽는다.",
+  "summary": "자기회귀 모델이 한 단계에서 여러 토큰을 담은 벡터를 예측하면 무엇이 달라질까요? 오토인코더, 에너지 점수, 토큰 피드백 경로를 살펴봅니다.",
   "sections": [
     {
       "id": "abstract",
@@ -14,7 +14,7 @@ export default {
     {
       "id": "autoencoder",
       "title": "2. Autoencoder",
-      "html": "<div data-math=\"display\">\\begin{aligned}z_i&amp;=\\operatorname{Enc}(x_{(i-1)K+1:iK})\\\\\\widehat x_{(i-1)K+1:iK}&amp;=\\operatorname{Dec}(z_i)\\end{aligned}</div><p>autoencoder의 역할은 토큰 묶음의 정보를 보존하는 것이다. 저자 해설의 최종 설정은 K=4를 128차원 잠재 벡터로 옮기며, 토큰 단위 복원 정확도가 99.9%를 넘는다. 변분 정규화와 dropout으로 잠재 표현을 부드럽게 만들어, 작은 교란에도 복원 결과가 쉽게 무너지지 않도록 한다.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\" aria-label=\"참고문헌 2\">[2]</a></sup></p><p>복원이 거의 정확해도 다음 벡터를 예측하기 쉬운 공간이라고 단정할 수는 없다. 예를 들어 토큰 묶음마다 아주 멀리 떨어진 임의의 점을 부여하면, 점에서 토큰을 되찾는 것은 가능해도 문맥에 맞는 다음 점을 생성하는 문제는 어려워진다. 이 예에서 복원 성능과 생성 공간의 구조는 별개의 설계 목표다.</p><p>2.1은 복원 정확도, 2.2는 잡음에 강한 표현을 다룬다. 원 토큰을 되찾는 능력과 잠재 공간에서 안정적으로 생성할 수 있는 성질을 함께 확보하려는 설계다.</p><h3>복원과 생성에 필요한 공간</h3><div data-math=\"display\">\\mathcal L_{\\rm ae}=-\\sum_{j=1}^{K}\\log p_{\\rm dec}(x_j\\mid z)</div><p>한 chunk의 K개 위치에서 원래 토큰을 복원하는 cross-entropy다. encoder는 위치별 특징을 만든 뒤 합쳐 잠재 벡터로 압축하고, decoder는 이를 다시 K개 위치로 펼친다. 각 chunk는 주변 문맥 없이 독립적으로 압축되므로 chunk 간 의존성은 뒤의 언어 모델이 담당한다.</p><p>원문은 복원만 고려하면 K=4에서 10차원으로도 높은 정확도를 얻지만, 생성에 적합한 최종 표현에는 128차원과 변분 정규화·dropout을 사용한다. 차원을 많이 줄였다는 사실보다 예측 오차가 있는 벡터에서도 토큰이 안정적으로 복원되는지가 중요하다. dropout은 autoencoder 학습에 사용하며 이후 언어 모델 학습·추론에서는 끈다.</p>"
+      "html": "<div data-math=\"display\">\\begin{aligned}z_i&amp;=\\operatorname{Enc}(x_{(i-1)K+1:iK})\\\\\\widehat x_{(i-1)K+1:iK}&amp;=\\operatorname{Dec}(z_i)\\end{aligned}</div><p>autoencoder의 역할은 토큰 묶음의 정보를 보존하는 것이다. 저자 해설의 최종 설정은 K=4를 128차원 잠재 벡터로 옮기며, 토큰 단위 복원 정확도가 99.9%를 넘는다. 변분 정규화와 dropout으로 잠재 표현을 부드럽게 만들어, 작은 교란에도 복원 결과가 쉽게 무너지지 않도록 한다.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\" aria-label=\"참고문헌 2\">[2]</a></sup></p><p>복원이 거의 정확해도 다음 벡터를 예측하기 쉬운 공간이라고 단정할 수는 없다. 예를 들어 토큰 묶음마다 아주 멀리 떨어진 임의의 점을 부여하면, 점에서 토큰을 되찾는 것은 가능해도 문맥에 맞는 다음 점을 생성하는 문제는 어려워진다. 이 예에서 복원 성능과 생성 공간의 구조는 별개의 설계 목표다.</p><h3>복원과 생성에 필요한 공간</h3><div data-math=\"display\">\\mathcal L_{\\rm ae}=-\\sum_{j=1}^{K}\\log p_{\\rm dec}(x_j\\mid z)</div><p>한 chunk의 K개 위치에서 원래 토큰을 복원하는 cross-entropy다. encoder는 위치별 특징을 만든 뒤 합쳐 잠재 벡터로 압축하고, decoder는 이를 다시 K개 위치로 펼친다. 각 chunk는 주변 문맥 없이 독립적으로 압축되므로 chunk 간 의존성은 뒤의 언어 모델이 담당한다.</p><p>원문은 복원만 고려하면 K=4에서 10차원으로도 높은 정확도를 얻지만, 생성에 적합한 최종 표현에는 128차원과 변분 정규화·dropout을 사용한다. 차원을 많이 줄였다는 사실보다 예측 오차가 있는 벡터에서도 토큰이 안정적으로 복원되는지가 중요하다. dropout은 autoencoder 학습에 사용하며 이후 언어 모델 학습·추론에서는 끈다.</p>"
     },
     {
       "id": "model",
@@ -39,7 +39,7 @@ export default {
     {
       "id": "experiments",
       "title": "7. Experiments",
-      "html": "<p>7.1 학습 설정, 7.2 주요 결과, 7.3 autoencoder, 7.4 모델 구조, 7.5 온도 샘플링의 순서다. 주요 비교 축은 성능 대비 계산량이며, 잠재 차원·정규화·생성 head·입력 경로·샘플링 설정을 나눠 분석한다.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup></p><p>Autoencoder의 토큰 복원율은 언어 모델의 문장 생성 품질과 다른 지표다. 구조 ablation은 같은 복원율이어도 latent의 규칙성이나 입력 구성에 따라 다음 벡터 학습이 달라짐을 확인한다. 비교 그림에서 한 점의 우위보다, 같은 계산 예산에서 어떤 품질을 얻는지와 여러 예산에 걸친 곡선을 함께 읽는 것이 유용하다.</p>"
+      "html": "<p>7.1 학습 설정, 7.2 주요 결과, 7.3 autoencoder, 7.4 모델 구조, 7.5 온도 샘플링의 순서다. 주요 비교 축은 성능 대비 계산량이며, 잠재 차원·정규화·생성 head·입력 경로·샘플링 설정을 나눠 분석한다.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup></p><p>같은 계산 예산에서 모델 품질을 비교한다. Ablation에서는 잠재 차원, 정규화, 생성 헤드, 피드백 경로를 각각 바꾼다.</p>"
     },
     {
       "id": "conclusion",

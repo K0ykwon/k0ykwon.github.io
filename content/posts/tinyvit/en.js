@@ -1,6 +1,6 @@
 export default {
   "title": "TinyViT: Fast Pretraining Distillation for Small Vision Transformers",
-  "summary": "How sparse soft labels, reproducible augmentation and compact architectures work together, with accuracy and compute compared across input resolutions.",
+  "summary": "How can a small model reuse teacher predictions when its training images are randomly cropped? Trace the cached labels and augmentation parameters.",
   "sections": [
     {
       "id": "abstract",
@@ -30,7 +30,7 @@ export default {
     {
       "id": "experiments",
       "title": "5. Experiments",
-      "html": "<p>Sections 5.1–5.4 cover implementation, ablations, ImageNet results and transfer learning. The evaluations separate pipeline and architectural choices before considering classification and transfer tasks.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup></p><p>These configurations come from the official Model Zoo. Each is pretrained on ImageNet-22k (21,841 classes), then fine-tuned on ImageNet-1k. Accuracy is ImageNet-1k top-1; MACs count multiply–accumulate operations per image.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\" aria-label=\"Reference 2\">[2]</a></sup></p><div class=\"review-table-wrap\"><table><thead><tr><th>Model</th><th>Input</th><th>Acc@1</th><th>MACs</th></tr></thead><tbody><tr><td>TinyViT-5M</td><td>224²</td><td>80.7%</td><td>1.3G</td></tr><tr><td>TinyViT-21M</td><td>224²</td><td>84.8%</td><td>4.3G</td></tr><tr><td>TinyViT-21M-512</td><td>512²</td><td>86.5%</td><td>27.0G</td></tr></tbody></table></div><p>Raising the 21M model’s input from 224 to 512 improves accuracy by 1.7 percentage points while increasing MACs by about 6.3 times. That arithmetic does not imply an identical latency ratio: hardware and batch size also affect measured speed.</p>"
+      "html": "<p>These configurations come from the official Model Zoo. Each is pretrained on ImageNet-22k (21,841 classes), then fine-tuned on ImageNet-1k. Accuracy is ImageNet-1k top-1; MACs count multiply–accumulate operations per image.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\" aria-label=\"Reference 2\">[2]</a></sup></p><div class=\"review-table-wrap\"><table><thead><tr><th>Model</th><th>Input</th><th>Acc@1</th><th>MACs</th></tr></thead><tbody><tr><td>TinyViT-5M</td><td>224²</td><td>80.7%</td><td>1.3G</td></tr><tr><td>TinyViT-21M</td><td>224²</td><td>84.8%</td><td>4.3G</td></tr><tr><td>TinyViT-21M-512</td><td>512²</td><td>86.5%</td><td>27.0G</td></tr></tbody></table></div><p>Raising the 21M model’s input from 224 to 512 improves accuracy by 1.7 percentage points while increasing MACs by about 6.3 times. That arithmetic does not imply an identical latency ratio: hardware and batch size also affect measured speed.</p>"
     },
     {
       "id": "conclusions",

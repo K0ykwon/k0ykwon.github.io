@@ -16,7 +16,7 @@ export default {
     {
       "id": "search",
       "title": "3. Place a bishop or skip the diagonal",
-      "html": "<p>In <code>dfs(index, used)</code>, used records occupied diagonals in the opposite direction. At most one bishop can be placed on the current diagonal.</p><ul><li>Leave it empty and move to the next diagonal.</li><li>Choose a candidate from <code>choices[index] &amp; ~used</code>, place a bishop and continue.</li></ul><p>Unlike N-Queens, a placement is not required at every stage. The skip transition is essential. The remaining optimum depends only on (index, used), allowing memoization.</p><p>The <a href=\"#blog/boj-python-9663-n-queens\" data-section=\"blog\" data-post=\"boj-python-9663-n-queens\">N-Queens solution</a> must place one queen in every row; this search also needs to consider leaving a diagonal empty.</p>"
+      "html": "<p>In <code>dfs(index, used)</code>, used records occupied diagonals in the opposite direction. At most one bishop can be placed on the current diagonal.</p><ul><li>Leave it empty and move to the next diagonal.</li><li>Choose a candidate from <code>choices[index] &amp; ~used</code>, place a bishop and continue.</li></ul><p>Unlike N-Queens, a placement is not required at every stage. The skip transition is essential. The remaining optimum depends only on (index, used), allowing memoization.</p><p>Related solution: <a href=\"#blog/boj-python-9663-n-queens\" data-section=\"blog\" data-post=\"boj-python-9663-n-queens\">N-Queens solution</a></p>"
     },
     {
       "id": "complexity",

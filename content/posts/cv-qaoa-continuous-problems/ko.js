@@ -1,5 +1,5 @@
 export default {
-  "summary": "CV-QAOA의 원 제안 논문을 본문 절 순서대로 읽는다. 비용·운동 에너지 진화, 제약과 이산 문제의 표현, 복잡도 및 수치 예제를 설명한다.",
+  "summary": "비용 연산이 만든 위상은 어떻게 비용이 낮은 위치 쪽으로의 이동에 관여할까요? CV-QAOA 한 층의 계산을 따라간 뒤 문제 표현과 수치 예제를 봅니다.",
   "sections": [
     {
       "id": "abstract",
@@ -39,7 +39,7 @@ export default {
     {
       "id": "conclusion",
       "title": "Conclusion",
-      "html": "<p>중첩 상태에서의 gradient descent라는 해석과 제약·이산 문제로의 확장을 정리한다.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup></p><p>원문의 기여는 연속 목적함수를 번갈아 작용하는 양자 진화로 옮기고 그 한 단계를 momentum 기반 gradient 이동으로 해석한 데 있다. 실제 적용에서는 cost 연산의 구현, 초기 상태, 파라미터 선택과 측정 비용을 하나의 알고리즘 비용으로 함께 평가해야 한다.</p>"
+      "html": "<p>실제 적용 비용을 추산하려면 비용 유니터리 구현, 초기 상태 준비, 파라미터 탐색, 낮은 함수값을 찾는 데 필요한 표본 수를 함께 계산해야 한다.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup></p>"
     },
     {
       "id": "summary",

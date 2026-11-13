@@ -11,7 +11,7 @@ export default {
     "Efficient AI"
   ],
   "published": "2026-10-30",
-  "updated": "2026-10-30",
+  "updated": "2026-11-13",
   "paper": {
     "title": "Continuous Autoregressive Language Models",
     "authors": "Chenze Shao, Darren Li, Fandong Meng, Jie Zhou",

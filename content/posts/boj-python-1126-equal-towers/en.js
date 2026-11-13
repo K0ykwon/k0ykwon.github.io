@@ -6,7 +6,7 @@ export default {
     {
       "id": "problem",
       "title": "1. From exhaustive search to DP",
-      "html": "<p>Each block can go on the taller tower, on the shorter tower, or remain unused. With up to 50 blocks, enumerating all <var>3<sup>N</sup></var> choices is impractical.</p><p>If the two current heights match, the remaining blocks permit the same future outcomes. Instead of storing both heights as a state key, merge states with the same height difference.</p>"
+      "html": "<p>Each of the up to 50 blocks can go on the taller tower, on the shorter tower, or remain unused. Enumerating all assignments is impractical. The next section shows how to merge states by height difference.</p>"
     },
     {
       "id": "idea",

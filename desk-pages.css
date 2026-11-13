@@ -81,12 +81,12 @@ body { background: var(--desk-surface); }
 .page-view[data-section=software] .page-intro { max-width: 660px; }
 .page-view[data-section=software] .page-content { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .page-view[data-section=software] .panel-entry { background: var(--surface); border: 1px solid var(--line); border-radius: 5px; padding: 24px; }
-.page-view[data-section=software] .project-featured { grid-column: 1 / -1; border-top: 3px solid var(--accent); display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 32px; }
+.page-view[data-section=software] .project-featured { grid-column: 1 / -1; border-top: 3px solid var(--accent); display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: clamp(18px, 3vw, 40px); align-items: start; }
 .project-featured h3 { font-size: 30px !important; margin-top: 10px; }
-.project-features { margin: 0; padding: 0; list-style: none; align-self: center; }
-.project-features li { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14px; line-height: 1.65; }
-.project-features li:last-child { border-bottom: 0; }
-.project-features span { color: var(--accent); margin-right: 12px; font: 12px ui-monospace, monospace; }
+.project-preview { margin: 0; }
+.project-preview img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 6px; }
+.project-preview figcaption { display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between; gap: 0 12px; margin-top: 8px; color: var(--muted); font-size: 13px; }
+.project-preview figcaption a { color: var(--ink); }
 .page-view[data-section=software] .software-more { grid-column: 1/-1; background: none; border: 0; padding: 0; }
 .page-view[data-section=contact] { max-width: 1660px; border-radius: 3px; padding-left: 48px; border-top: 3px solid var(--accent); }
 .page-view[data-section=contact]::before { display: none; }

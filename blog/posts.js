@@ -1,1 +1,1 @@
-export {POSTS} from '../content/posts/index.js?v=20261113-desk-documents';
+export {POSTS} from '../content/posts/index.js?v=20261113-content-review';

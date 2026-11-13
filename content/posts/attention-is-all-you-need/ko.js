@@ -1,5 +1,5 @@
 export default {
-  "summary": "Q·K·V와 causal mask의 계산을 따라가며, Transformer가 학습을 병렬화한 방법과 여전히 순차적인 생성 과정을 구분한다.",
+  "summary": "Transformer는 어떻게 모든 정답 위치를 병렬로 학습하면서도 토큰을 하나씩 생성할까요? Q·K·V와 인과 마스크를 따라가 봅니다.",
   "sections": [
     {
       "id": "abstract",
@@ -14,7 +14,7 @@ export default {
     {
       "id": "background",
       "title": "2. Background",
-      "html": "<p>RNN은 위치 순서에 따라 상태를 전달하고, CNN은 여러 층을 거쳐 먼 위치를 연결한다. 이 절은 두 방식의 계산 경로를 비교하며, 반복이나 합성곱 없이 위치들을 연결하는 self-attention으로 이어진다.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\">[2]</a></sup></p><p>여기서 비교할 것은 한 층의 연산량과 순차 계산 길이, 두 위치 사이의 최단 경로다. RNN에서는 먼 토큰의 정보가 여러 상태를 거쳐 전달되지만, self-attention에서는 한 층 안에서 직접 가중합에 참여한다. 이 경로의 차이가 긴 의존 관계를 학습하려는 동기와 연결된다.</p>"
+      "html": "<p>RNN은 위치를 하나씩 거쳐 정보를 전달하고, CNN은 여러 층을 거쳐 먼 위치를 연결한다. Self-attention은 한 층에서 두 위치를 직접 연결할 수 있다. 경로 길이와 함께 층당 연산량과 순차 연산 횟수를 비교해야 한다.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\">[2]</a></sup></p>"
     },
     {
       "id": "model",
