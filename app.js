@@ -65,7 +65,7 @@ function renderSection(key,{scroll=true,postSlug='',force=false,animate=true,com
   // Commit the cleared animation styles before reusing the heading elements.
   if(!pageView.hidden)void pageView.offsetWidth;
   pageView.dataset.section=key;pageView.dataset.post=activePost;
-  document.title=(post||researchPost)?`${page.title} — Youngkwon Ko`:key==='blog'?'Blog — Youngkwon Ko':'Youngkwon Ko — A desk of ideas';
+  document.title=(post||researchPost)?`${page.title} — Youngkwon Ko`:key==='blog'?'Blog — Youngkwon Ko':'Youngkwon Ko';
   document.getElementById('page-kicker').textContent=page.object;
   document.getElementById('page-index').textContent=page.index;
   const parent=document.getElementById('document-parent');

@@ -22,7 +22,7 @@ body { background: var(--desk-surface); }
 .skip-link { z-index: 30; }
 .desk-section { border-bottom: 1px solid var(--line); }
 .page-view {
-  position: relative; width: calc(100% - 64px); max-width: 1280px;
+  position: relative; width: calc(100% - 32px); max-width: 1660px;
   margin: 36px auto 48px; padding: 0 48px 24px 64px;
   border: 1px solid var(--line); border-radius: 3px 8px 8px 3px;
   background: var(--paper); box-shadow: var(--sheet-shadow); min-height: 0;
@@ -60,7 +60,8 @@ body { background: var(--desk-surface); }
 .page-view .publication { padding-top: 25px; padding-bottom: 25px; }
 .page-view[data-section=research]:not([data-post=""]) #page-title,
 .page-view[data-section=blog] #page-title { font-size: clamp(30px, 3.2vw, 42px); line-height: 1.35; letter-spacing: -.8px; }
-.page-view .article-columns { grid-template-columns: minmax(0, 1fr) 190px; gap: 40px; padding-top: 30px; }
+.page-view .article-columns { grid-template-columns: minmax(0, 1fr) 190px; gap: 40px; padding-top: 30px; max-width: 1190px; }
+.page-view .blog-index { max-width: none; }
 .page-view .article-prose { max-width: 760px; }
 .page-view .article-prose p, .page-view .article-prose li { font-size: 16px; line-height: 1.95; }
 .page-view .article-aside { top: calc(var(--header-height) + 20px); }
@@ -87,9 +88,9 @@ body { background: var(--desk-surface); }
 .project-features li:last-child { border-bottom: 0; }
 .project-features span { color: var(--accent); margin-right: 12px; font: 12px ui-monospace, monospace; }
 .page-view[data-section=software] .software-more { grid-column: 1/-1; background: none; border: 0; padding: 0; }
-.page-view[data-section=contact] { max-width: 940px; border-radius: 3px; padding-left: 48px; border-top: 3px solid var(--accent); }
+.page-view[data-section=contact] { max-width: 1660px; border-radius: 3px; padding-left: 48px; border-top: 3px solid var(--accent); }
 .page-view[data-section=contact]::before { display: none; }
-.page-view[data-section=contact] .page-layout { display: block; }
+.page-view[data-section=contact] .page-layout { display: block; max-width: 1040px; margin-inline: auto; }
 .page-view[data-section=contact] .page-intro { max-width: 620px; }
 .page-view[data-section=contact] .page-content { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
 .page-view[data-section=contact] .panel-entry:first-child { grid-column: 1/-1; padding-bottom: 20px; }
