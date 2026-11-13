@@ -1,5 +1,5 @@
 import about from './about/index.js?v=20261113-desk-documents';
-import research from './research/page.js?v=20261113-content-review';
+import research from './research/page.js?v=20261113-research-honors';
 import software from './software/index.js?v=20261113-document-stack';
 import contact from './contact/index.js?v=20261113-desk-documents';
 import blog from './posts/page.js?v=20261113-desk-documents';
