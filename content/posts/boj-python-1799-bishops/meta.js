@@ -10,7 +10,7 @@ export default {
   ],
   "demo": "bishops",
   "published": "2026-04-20",
-  "updated": "2026-10-30",
+  "updated": "2026-11-13",
   "subcategory": "비트마스크",
   "codePath": "content/posts/boj-python-1799-bishops/solution.py"
 };

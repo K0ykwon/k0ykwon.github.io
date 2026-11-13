@@ -1,6 +1,6 @@
 export default {
   "title": "A Quantum Approximate Optimization Algorithm for continuous problems",
-  "summary": "Read the original CV-QAOA proposal in its body-section order: cost and kinetic evolution, constraint and discrete encodings, complexity and numerical examples.",
+  "summary": "How does a cost phase turn into motion toward lower-cost positions? Follow one CV-QAOA layer, then examine the paper’s encodings and numerical example.",
   "tags": [
     "CV-QAOA",
     "Quantum optimization",
@@ -51,7 +51,7 @@ export default {
     {
       "id": "conclusion",
       "title": "Conclusion",
-      "html": "<p>The conclusion brings together the gradient-descent-in-superposition interpretation and extensions to constrained and discrete problems.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup></p><p>The contribution is a continuous-objective alternating quantum evolution and its interpretation through momentum and gradient updates. Practical assessment must account jointly for cost-unitary implementation, state preparation, parameter selection and measurement.</p>"
+      "html": "<p>To estimate the cost of applying the algorithm, count the cost unitary, initial-state preparation, parameter search, and the samples needed to find a low-cost point.<sup><a href=\"#SOURCE1\" data-review-ref=\"1\">[1]</a></sup></p>"
     },
     {
       "id": "summary",

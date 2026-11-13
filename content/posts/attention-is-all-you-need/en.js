@@ -1,6 +1,6 @@
 export default {
   "title": "Attention Is All You Need",
-  "summary": "Work through Q, K, V and causal masking to separate parallel training from sequential generation in the Transformer.",
+  "summary": "How can a Transformer train on all target positions in parallel and still generate one token at a time? Follow Q, K, V and the causal mask.",
   "sections": [
     {
       "id": "abstract",
@@ -15,7 +15,7 @@ export default {
     {
       "id": "background",
       "title": "2. Background",
-      "html": "<p>RNNs pass states along sequence order; CNNs connect distant positions through multiple layers. This section compares those paths and motivates self-attention without recurrence or convolution.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\">[2]</a></sup></p><p>Three quantities matter here: work per layer, the number of sequential operations, and the shortest path between two positions. An RNN passes information through intervening states; self-attention lets a distant position contribute directly within one layer. This shorter path motivates its use for long-range dependencies.</p>"
+      "html": "<p>RNNs transmit information one step at a time, and CNNs connect distant positions through several layers. Self-attention connects any two positions directly within one layer. Compare that path length with work per layer and the number of sequential operations.<sup><a href=\"#SOURCE2\" data-review-ref=\"2\">[2]</a></sup></p>"
     },
     {
       "id": "model",

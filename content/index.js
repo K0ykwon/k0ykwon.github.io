@@ -1,6 +1,6 @@
 import about from './about/index.js?v=20261113-desk-documents';
-import research from './research/page.js?v=20261113-desk-documents';
-import software from './software/index.js?v=20261113-desk-documents';
+import research from './research/page.js?v=20261113-content-review';
+import software from './software/index.js?v=20261113-content-review';
 import contact from './contact/index.js?v=20261113-desk-documents';
 import blog from './posts/page.js?v=20261113-desk-documents';
 const sections={about,research,software,contact,blog:language=>({...blog,intro:blog.intro[language],body:''})};

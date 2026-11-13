@@ -1,9 +1,9 @@
-import {publications} from './index.js?v=20261031-research-posts';
+import {publications} from './index.js?v=20261113-content-review';
 const escape=value=>String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 export function getResearchPost(slug,language='en'){
  const entry=publications.find(item=>item.slug===slug);if(!entry?.article)return undefined;
  language=language==='ko'?'ko':'en';const html=entry.html[language];
- return {...entry,...entry.article,language,summary:html.match(/<p class="publication-summary">([\s\S]*?)<\/p>/)?.[1]??'',authors:html.match(/<p class="publication-authors">[\s\S]*?<\/p>/)?.[0]??'',venue:html.match(/<p class="publication-venue"[^>]*>[\s\S]*?<\/p>/)?.[0]??''};
+ return {...entry,...entry.article,language,summary:html.match(/<p class="publication-summary">([\s\S]*?)<\/p>/)?.[1]??'',authors:html.match(/<p class="publication-authors">[\s\S]*?<\/p>/)?.[0]??'',venue:html.match(/<p class="publication-(?:venue|translated-title)"[^>]*>[\s\S]*?<\/p>/)?.[0]??''};
 }
 export function renderResearchArticle(post){
  const approach=`${post.slug}-approach`,illustration=`${post.slug}-illustration`;

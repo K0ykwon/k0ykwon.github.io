@@ -11,7 +11,7 @@ export default {
     "Optimization"
   ],
   "published": "2026-10-30",
-  "updated": "2026-10-30",
+  "updated": "2026-11-13",
   "paper": {
     "title": "Nested Learning: The Illusion of Deep Learning Architectures",
     "authors": "Ali Behrouz, Meisam Razaviyayn, Peilin Zhong, Vahab Mirrokni",

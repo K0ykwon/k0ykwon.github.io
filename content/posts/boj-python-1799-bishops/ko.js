@@ -14,7 +14,7 @@ export default {
     {
       "id": "search",
       "title": "3. 놓는 경우와 건너뛰는 경우",
-      "html": "<p><code>dfs(index, used)</code>에서 <code>used</code>는 이미 사용한 반대 방향 대각선의 비트마스크다. 현재 대각선에서는 비숍을 최대 하나만 놓을 수 있다.</p><ul><li>아무것도 놓지 않고 다음 대각선으로 이동한다.</li><li><code>choices[index] &amp; ~used</code>에서 가능한 칸을 하나 골라 비숍을 놓고 이동한다.</li></ul><p>N-Queens처럼 매 단계 반드시 하나를 놓는 문제가 아니므로 <strong>건너뛰는 전이</strong>를 빼면 안 된다. 같은 <code>(index, used)</code>에서 남은 최댓값은 같으므로 메모이제이션으로 중복 탐색도 줄일 수 있다.</p><p><a href=\"#blog/boj-python-9663-n-queens\" data-section=\"blog\" data-post=\"boj-python-9663-n-queens\">N-Queens 풀이</a>에서는 매 행에 퀸을 반드시 하나 놓는다. 비숍은 해당 대각선을 건너뛰는 경우도 탐색해야 한다.</p>"
+      "html": "<p><code>dfs(index, used)</code>에서 <code>used</code>는 이미 사용한 반대 방향 대각선의 비트마스크다. 현재 대각선에서는 비숍을 최대 하나만 놓을 수 있다.</p><ul><li>아무것도 놓지 않고 다음 대각선으로 이동한다.</li><li><code>choices[index] &amp; ~used</code>에서 가능한 칸을 하나 골라 비숍을 놓고 이동한다.</li></ul><p>N-Queens처럼 매 단계 반드시 하나를 놓는 문제가 아니므로 <strong>건너뛰는 전이</strong>를 빼면 안 된다. 같은 <code>(index, used)</code>에서 남은 최댓값은 같으므로 메모이제이션으로 중복 탐색도 줄일 수 있다.</p><p>관련 풀이 <a href=\"#blog/boj-python-9663-n-queens\" data-section=\"blog\" data-post=\"boj-python-9663-n-queens\">N-Queens 풀이</a></p>"
     },
     {
       "id": "complexity",
