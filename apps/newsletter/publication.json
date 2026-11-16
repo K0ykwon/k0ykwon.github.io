@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "source_repository": "K0ykwon/newsletter",
+  "articles": [
+    {
+      "slug": "2026-11-15-ai",
+      "category": "AI",
+      "date": "2026-11-15",
+      "title": "자기평가의 한계와 기계 검증"
+    },
+    {
+      "slug": "2026-11-15-dev",
+      "category": "DEV",
+      "date": "2026-11-15",
+      "title": "자동화 검증과 재현 가능한 빌드"
+    },
+    {
+      "slug": "2026-11-15-qpu",
+      "category": "QPU",
+      "date": "2026-11-15",
+      "title": "오류 완화와 잡음 외삽의 신뢰도"
+    }
+  ]
+}
