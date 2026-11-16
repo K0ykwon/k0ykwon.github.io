@@ -3,6 +3,24 @@
   "source_repository": "K0ykwon/newsletter",
   "articles": [
     {
+      "slug": "2026-11-16-ai",
+      "category": "AI",
+      "date": "2026-11-16",
+      "title": "세계 모델의 기억과 로봇 시뮬레이션"
+    },
+    {
+      "slug": "2026-11-16-dev",
+      "category": "DEV",
+      "date": "2026-11-16",
+      "title": "Rust never 타입과 상태를 표현하는 타입 설계"
+    },
+    {
+      "slug": "2026-11-16-qpu",
+      "category": "QPU",
+      "date": "2026-11-16",
+      "title": "실시간 오류 정정과 디코더의 시간표"
+    },
+    {
       "slug": "2026-11-15-ai",
       "category": "AI",
       "date": "2026-11-15",
