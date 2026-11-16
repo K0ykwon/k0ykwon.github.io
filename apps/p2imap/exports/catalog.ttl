@@ -122,6 +122,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#objective/nt_xent> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#paper/simclr> .
 
+<https://github.com/PtwoI/p2i-kg#claim/029923abc00a8574ad440630> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/deeponet> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/deeponet> ;
+    atlas:explanation "함수 간 비선형 연산자를 학습합니다." ;
+    atlas:locator "원 논문 및 공식 구현" ;
+    atlas:relation atlas:applied_to ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/deeponet> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#task/operator_learning> .
+
 <https://github.com/PtwoI/p2i-kg#claim/02aae526d94db05601bd3cb6> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/ldm> ;
     atlas:basis "documented" ;
@@ -216,6 +226,16 @@
     atlas:relation atlas:documented_in ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/swin> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#paper/swin> .
+
+<https://github.com/PtwoI/p2i-kg#claim/049abb43c37cd26c9bf1ab78> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/nafnet> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/nafnet> ;
+    atlas:explanation "원 논문에서 해당 과제에 적용합니다." ;
+    atlas:locator "원 논문 및 공식 구현" ;
+    atlas:relation atlas:applied_to ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/nafnet> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#task/image_restoration> .
 
 <https://github.com/PtwoI/p2i-kg#claim/04bd14abccd75cadcbecd966> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/byol> ;
@@ -693,6 +713,16 @@
     atlas:relation atlas:documented_in ;
     atlas:source <https://github.com/PtwoI/p2i-kg#component/online_encoder> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#paper/byol> .
+
+<https://github.com/PtwoI/p2i-kg#claim/1265939d340f251ab6a615e3> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/nafnet> ;
+    atlas:basis "structural" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/nafnet> ;
+    atlas:explanation "채널 분할 후 원소별 곱을 수행합니다." ;
+    atlas:locator "원 논문 및 공식 구현" ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/nafnet> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/naf_gate> .
 
 <https://github.com/PtwoI/p2i-kg#claim/128822c11c6ab6bb5972ebd2> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/option_critic> ;
@@ -1189,6 +1219,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#concept/fourier_operator> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/neural_operator> .
 
+<https://github.com/PtwoI/p2i-kg#claim/208dd6fe800af0583f440c97> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/siren> ;
+    atlas:basis "pedagogical" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/siren> ;
+    atlas:explanation "동일하거나 관련된 문제 영역에 서로 다른 구조를 적용합니다." ;
+    atlas:locator "원 논문 및 공식 구현" ;
+    atlas:relation atlas:alternative_to ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/siren> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#model/mlp> .
+
 <https://github.com/PtwoI/p2i-kg#claim/20a33556cc87928b8b3afd4d> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/mamba2> ;
     atlas:basis "structural" ;
@@ -1287,6 +1327,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/kan> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#task/function_approximation> .
 
+<https://github.com/PtwoI/p2i-kg#claim/230216cb45aef11c46262a03> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/nafnet> ;
+    atlas:basis "structural" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/nafnet> ;
+    atlas:explanation "전역 풀링으로 채널별 변조를 만듭니다." ;
+    atlas:locator "원 논문 및 공식 구현" ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/nafnet> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/naf_sca> .
+
 <https://github.com/PtwoI/p2i-kg#claim/230d3139195dc5bd6cec510c> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/ddpg> ;
     atlas:basis "documented" ;
@@ -1345,6 +1395,16 @@
     atlas:relation atlas:uses ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/llama> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/rotary_position> .
+
+<https://github.com/PtwoI/p2i-kg#claim/24055caf28609d35f03a971d> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/deeponet> ;
+    atlas:basis "structural" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/deeponet> ;
+    atlas:explanation "출력 질의 좌표를 부호화합니다." ;
+    atlas:locator "원 논문 및 공식 구현" ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/deeponet> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/deeponet_trunk> .
 
 <https://github.com/PtwoI/p2i-kg#claim/25778b914e33bc44bdbfe838> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/pointnet> ;
@@ -2182,6 +2242,16 @@
     atlas:relation atlas:subconcept_of ;
     atlas:source <https://github.com/PtwoI/p2i-kg#concept/graph_attention> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/attention> .
+
+<https://github.com/PtwoI/p2i-kg#claim/38fffaba22a382eedacda69e> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/siren> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/siren> ;
+    atlas:explanation "사인 함수를 활성화로 사용해 신호와 도함수를 표현합니다." ;
+    atlas:locator "원 논문 및 공식 구현" ;
+    atlas:relation atlas:uses ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/siren> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/siren_concept> .
 
 <https://github.com/PtwoI/p2i-kg#claim/396dca5780679f4e0de6769b> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/resnet> ;
@@ -3218,6 +3288,16 @@
     atlas:relation atlas:uses ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/fno> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/resolution_invariance> .
+
+<https://github.com/PtwoI/p2i-kg#claim/52c93caef6d8994d7681d6a2> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/siren> ;
+    atlas:basis "structural" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/siren> ;
+    atlas:explanation "첫 좌표 투영과 사인 활성화" ;
+    atlas:locator "원 논문 및 공식 구현" ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/siren> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/siren_first> .
 
 <https://github.com/PtwoI/p2i-kg#claim/532215d792f58b183caabe9f> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/dreamerv3> ;
@@ -5075,6 +5155,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#component/key_encoder> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#paper/moco> .
 
+<https://github.com/PtwoI/p2i-kg#claim/86f06c9682ced9da2625fde6> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/nafnet> ;
+    atlas:basis "structural" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/nafnet> ;
+    atlas:explanation "게이트와 채널 어텐션을 가진 잔차 블록입니다." ;
+    atlas:locator "원 논문 및 공식 구현" ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/nafnet> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/naf_block> .
+
 <https://github.com/PtwoI/p2i-kg#claim/87038db815f5376ec1031fa9> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/mixer> ;
     atlas:basis "documented" ;
@@ -5084,6 +5174,16 @@
     atlas:relation atlas:documented_in ;
     atlas:source <https://github.com/PtwoI/p2i-kg#component/token_mixer> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#paper/mixer> .
+
+<https://github.com/PtwoI/p2i-kg#claim/87243c629f09a000a4d7dbac> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/nafnet> ;
+    atlas:basis "pedagogical" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/nafnet> ;
+    atlas:explanation "동일하거나 관련된 문제 영역에 서로 다른 구조를 적용합니다." ;
+    atlas:locator "원 논문 및 공식 구현" ;
+    atlas:relation atlas:alternative_to ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/nafnet> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#model/unet> .
 
 <https://github.com/PtwoI/p2i-kg#claim/8727f52b020b4455e3f784f2> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/detr> ;
@@ -5338,6 +5438,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/neuralode> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#objective/supervised> .
 
+<https://github.com/PtwoI/p2i-kg#claim/8d1f624de64a78ec8e5db444> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/siren> ;
+    atlas:basis "structural" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/siren> ;
+    atlas:explanation "연속 신호 출력" ;
+    atlas:locator "원 논문 및 공식 구현" ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/siren> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/siren_output> .
+
 <https://github.com/PtwoI/p2i-kg#claim/8d7c18ac634ef1679651b459> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
     atlas:basis "documented" ;
@@ -5367,6 +5477,16 @@
     atlas:relation atlas:uses ;
     atlas:source <https://github.com/PtwoI/p2i-kg#component/coordinate_encoder> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/fourier_features> .
+
+<https://github.com/PtwoI/p2i-kg#claim/8dbbfda5732e281b547f5f95> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/nafnet> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/nafnet> ;
+    atlas:explanation "채널을 둘로 나누어 곱하는 비선형 게이트입니다." ;
+    atlas:locator "원 논문 및 공식 구현" ;
+    atlas:relation atlas:uses ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/nafnet> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/nafnet_concept> .
 
 <https://github.com/PtwoI/p2i-kg#claim/8dd118c987657c4e8d72b292> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/deepsets> ;
@@ -5406,6 +5526,16 @@
     atlas:relation atlas:uses ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/pointnet> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/permutation_invariance> .
+
+<https://github.com/PtwoI/p2i-kg#claim/8e5bb5eac215a0c507a543bd> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/deeponet> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/deeponet> ;
+    atlas:explanation "함수 표본과 질의 좌표의 표현을 결합해 출력 함수를 예측합니다." ;
+    atlas:locator "원 논문 및 공식 구현" ;
+    atlas:relation atlas:uses ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/deeponet> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/deeponet_concept> .
 
 <https://github.com/PtwoI/p2i-kg#claim/8e61753d75405fd44a2b5971> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/detr> ;
@@ -5681,6 +5811,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/planet> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#objective/rl_return> .
 
+<https://github.com/PtwoI/p2i-kg#claim/941ea030f7d523e4bba4a3fa> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/nafnet> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/nafnet> ;
+    atlas:explanation "원 논문에서 구조를 제안합니다." ;
+    atlas:locator "원 논문 및 공식 구현" ;
+    atlas:relation atlas:documented_in ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/nafnet> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#paper/nafnet> .
+
 <https://github.com/PtwoI/p2i-kg#claim/943cbdd7b911c9e6fb4ff62f> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/mae> ;
     atlas:basis "documented" ;
@@ -5845,6 +5985,16 @@
     atlas:relation atlas:documented_in ;
     atlas:source <https://github.com/PtwoI/p2i-kg#concept/transformer_denoiser> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#paper/dit> .
+
+<https://github.com/PtwoI/p2i-kg#claim/98ff0bb97a15f5b4048517ff> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/deeponet> ;
+    atlas:basis "pedagogical" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/deeponet> ;
+    atlas:explanation "동일하거나 관련된 문제 영역에 서로 다른 구조를 적용합니다." ;
+    atlas:locator "원 논문 및 공식 구현" ;
+    atlas:relation atlas:alternative_to ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/deeponet> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#model/fno> .
 
 <https://github.com/PtwoI/p2i-kg#claim/993b943445c1e01f2ecefc0f> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/diayn> ;
@@ -6484,6 +6634,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/perceptron> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/weighted_sum> .
 
+<https://github.com/PtwoI/p2i-kg#claim/a7b3b9dfa7c2c0d3e4942736> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/siren> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/siren> ;
+    atlas:explanation "원 논문에서 해당 목적을 사용하는 설정을 제시합니다." ;
+    atlas:locator "원 논문 및 공식 구현" ;
+    atlas:relation atlas:trained_with ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/siren> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#objective/function_fitting_mse> .
+
 <https://github.com/PtwoI/p2i-kg#claim/a7bb68de1b1565539ac936a1> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/densenet> ;
     atlas:basis "documented" ;
@@ -6609,6 +6769,16 @@
     atlas:relation atlas:documented_in ;
     atlas:source <https://github.com/PtwoI/p2i-kg#concept/channel_mixing> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#paper/mixer> .
+
+<https://github.com/PtwoI/p2i-kg#claim/abf43b9d8fcac23950916d87> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/deeponet> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/deeponet> ;
+    atlas:explanation "원 논문에서 구조를 제안합니다." ;
+    atlas:locator "원 논문 및 공식 구현" ;
+    atlas:relation atlas:documented_in ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/deeponet> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#paper/deeponet> .
 
 <https://github.com/PtwoI/p2i-kg#claim/abfbad0f6aa18d3db4eaeffa> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/resnet> ;
@@ -6866,6 +7036,16 @@
     atlas:relation atlas:documented_in ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/cnn> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#paper/lenet> .
+
+<https://github.com/PtwoI/p2i-kg#claim/b317585796e0ecb75b1e89d0> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/siren> ;
+    atlas:basis "structural" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/siren> ;
+    atlas:explanation "은닉 사인 활성화" ;
+    atlas:locator "원 논문 및 공식 구현" ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/siren> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/siren_hidden> .
 
 <https://github.com/PtwoI/p2i-kg#claim/b34e2e09758c832fa7b71289> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/ldm> ;
@@ -7694,6 +7874,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#concept/shared_element_encoding> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#paper/deepsets> .
 
+<https://github.com/PtwoI/p2i-kg#claim/c9f23750adc989196a7f111b> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/siren> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/siren> ;
+    atlas:explanation "원 논문에서 해당 과제에 적용합니다." ;
+    atlas:locator "원 논문 및 공식 구현" ;
+    atlas:relation atlas:applied_to ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/siren> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#task/function_approximation> .
+
 <https://github.com/PtwoI/p2i-kg#claim/ca4579272fa88b0f01552c57> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/swin> ;
     atlas:basis "structural" ;
@@ -7809,6 +7999,16 @@
     atlas:relation atlas:applied_to ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/bert> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#task/understanding> .
+
+<https://github.com/PtwoI/p2i-kg#claim/cd6ecdff486d6a3f7aa63dfa> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/nafnet> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/nafnet> ;
+    atlas:explanation "원 논문에서 해당 목적을 사용하는 설정을 제시합니다." ;
+    atlas:locator "원 논문 및 공식 구현" ;
+    atlas:relation atlas:trained_with ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/nafnet> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#objective/image_restoration_l1> .
 
 <https://github.com/PtwoI/p2i-kg#claim/cddd6950108d8d935329d5a9> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/nbeats> ;
@@ -8229,6 +8429,16 @@
     atlas:relation atlas:uses ;
     atlas:source <https://github.com/PtwoI/p2i-kg#component/state_space> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/selective_state_space> .
+
+<https://github.com/PtwoI/p2i-kg#claim/d9bb3cbdd6880d1552888e3d> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/deeponet> ;
+    atlas:basis "structural" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/deeponet> ;
+    atlas:explanation "입력 함수 표본을 부호화합니다." ;
+    atlas:locator "원 논문 및 공식 구현" ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/deeponet> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/deeponet_branch> .
 
 <https://github.com/PtwoI/p2i-kg#claim/da254f208124b429fd125818> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/mae> ;
@@ -8930,6 +9140,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/ddpm> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#paper/ddpm> .
 
+<https://github.com/PtwoI/p2i-kg#claim/eb924a6c780b27de154508a5> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/deeponet> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/deeponet> ;
+    atlas:explanation "원 논문에서 해당 목적을 사용하는 설정을 제시합니다." ;
+    atlas:locator "원 논문 및 공식 구현" ;
+    atlas:relation atlas:trained_with ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/deeponet> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#objective/function_fitting_mse> .
+
 <https://github.com/PtwoI/p2i-kg#claim/eccbd1d991a0fff934142b4c> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/switch> ;
     atlas:basis "documented" ;
@@ -9613,6 +9833,16 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/muzero> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#model/alphazero> .
 
+<https://github.com/PtwoI/p2i-kg#claim/fd7deb2e95c352b4e082363b> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/siren> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/siren> ;
+    atlas:explanation "원 논문에서 구조를 제안합니다." ;
+    atlas:locator "원 논문 및 공식 구현" ;
+    atlas:relation atlas:documented_in ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/siren> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#paper/siren> .
+
 <https://github.com/PtwoI/p2i-kg#claim/fed9d6384ce6f6c12c791a30> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/deepsets> ;
     atlas:basis "documented" ;
@@ -9664,6 +9894,16 @@ atlas:ontology a owl:Ontology ;
     rdfs:label "TabNet decision aggregation" ;
     atlas:label "TabNet decision aggregation" ;
     atlas:summary "여러 step에서 얻은 decision representation을 최종 출력으로 결합합니다." .
+
+<https://github.com/PtwoI/p2i-kg#component/deeponet_branch> a atlas:Component ;
+    rdfs:label "Branch network" ;
+    atlas:label "Branch network" ;
+    atlas:summary "입력 함수 표본을 부호화합니다." .
+
+<https://github.com/PtwoI/p2i-kg#component/deeponet_trunk> a atlas:Component ;
+    rdfs:label "Trunk network" ;
+    atlas:label "Trunk network" ;
+    atlas:summary "출력 질의 좌표를 부호화합니다." .
 
 <https://github.com/PtwoI/p2i-kg#component/dilated_causal_convolution> a atlas:Component ;
     rdfs:label "Dilated causal convolution module" ;
@@ -9724,6 +9964,21 @@ atlas:ontology a owl:Ontology ;
     rdfs:label "Mamba-2 output projection" ;
     atlas:label "Mamba-2 output projection" ;
     atlas:summary "gated SSD 표현을 모델 폭으로 되돌립니다." .
+
+<https://github.com/PtwoI/p2i-kg#component/naf_block> a atlas:Component ;
+    rdfs:label "NAF block" ;
+    atlas:label "NAF block" ;
+    atlas:summary "게이트와 채널 어텐션을 가진 잔차 블록입니다." .
+
+<https://github.com/PtwoI/p2i-kg#component/naf_gate> a atlas:Component ;
+    rdfs:label "SimpleGate" ;
+    atlas:label "SimpleGate" ;
+    atlas:summary "채널 분할 후 원소별 곱을 수행합니다." .
+
+<https://github.com/PtwoI/p2i-kg#component/naf_sca> a atlas:Component ;
+    rdfs:label "Simplified channel attention" ;
+    atlas:label "Simplified channel attention" ;
+    atlas:summary "전역 풀링으로 채널별 변조를 만듭니다." .
 
 <https://github.com/PtwoI/p2i-kg#component/nbeats_block_mlp> a atlas:Component ;
     rdfs:label "N-BEATS block MLP" ;
@@ -9825,6 +10080,21 @@ atlas:ontology a owl:Ontology ;
     atlas:label "S4 residual normalization" ;
     atlas:summary "상태공간 출력과 residual 경로를 결합해 정규화합니다." .
 
+<https://github.com/PtwoI/p2i-kg#component/siren_first> a atlas:Component ;
+    rdfs:label "First sinusoidal layer" ;
+    atlas:label "First sinusoidal layer" ;
+    atlas:summary "첫 좌표 투영과 사인 활성화" .
+
+<https://github.com/PtwoI/p2i-kg#component/siren_hidden> a atlas:Component ;
+    rdfs:label "Hidden sinusoidal layer" ;
+    atlas:label "Hidden sinusoidal layer" ;
+    atlas:summary "은닉 사인 활성화" .
+
+<https://github.com/PtwoI/p2i-kg#component/siren_output> a atlas:Component ;
+    rdfs:label "Signal readout" ;
+    atlas:label "Signal readout" ;
+    atlas:summary "연속 신호 출력" .
+
 <https://github.com/PtwoI/p2i-kg#component/student_head> a atlas:Component ;
     rdfs:label "DINO student head" ;
     atlas:label "DINO student head" ;
@@ -9920,6 +10190,11 @@ atlas:ontology a owl:Ontology ;
     atlas:label "Decision-step aggregation" ;
     atlas:summary "각 step의 decision representation을 합쳐 최종 예측을 만듭니다." .
 
+<https://github.com/PtwoI/p2i-kg#concept/deeponet_concept> a atlas:Concept ;
+    rdfs:label "Branch–trunk operator learning" ;
+    atlas:label "Branch–trunk operator learning" ;
+    atlas:summary "함수 표본과 질의 좌표의 표현을 결합해 출력 함수를 예측합니다." .
+
 <https://github.com/PtwoI/p2i-kg#concept/dilated_causal_convolution> a atlas:Concept ;
     rdfs:label "Dilated causal convolution" ;
     atlas:label "Dilated causal convolution" ;
@@ -9979,6 +10254,11 @@ atlas:ontology a owl:Ontology ;
     rdfs:label "Decomposable multiscale mixing" ;
     atlas:label "Decomposable multiscale mixing" ;
     atlas:summary "다중 해상도의 계절 및 추세 성분을 서로 반대 방향으로 혼합합니다." .
+
+<https://github.com/PtwoI/p2i-kg#concept/nafnet_concept> a atlas:Concept ;
+    rdfs:label "Multiplicative simple gate" ;
+    atlas:label "Multiplicative simple gate" ;
+    atlas:summary "채널을 둘로 나누어 곱하는 비선형 게이트입니다." .
 
 <https://github.com/PtwoI/p2i-kg#concept/queue_negatives> a atlas:Concept ;
     rdfs:label "Queued negatives" ;
@@ -10065,6 +10345,11 @@ atlas:ontology a owl:Ontology ;
     atlas:label "Sequential feature attention" ;
     atlas:summary "여러 decision step이 이전 선택을 반영해 다음 표 특성 mask를 계산합니다." .
 
+<https://github.com/PtwoI/p2i-kg#concept/siren_concept> a atlas:Concept ;
+    rdfs:label "Periodic activation" ;
+    atlas:label "Periodic activation" ;
+    atlas:summary "사인 함수를 활성화로 사용해 신호와 도함수를 표현합니다." .
+
 <https://github.com/PtwoI/p2i-kg#concept/sparse_experts> a atlas:Concept ;
     rdfs:label "희소 전문가" ;
     atlas:label "희소 전문가" ;
@@ -10125,10 +10410,10 @@ atlas:ontology a owl:Ontology ;
     atlas:label "변분 하한" ;
     atlas:summary "잠재 변수 모델의 증거 하한을 최적화합니다." .
 
-<https://github.com/PtwoI/p2i-kg#objective/function_fitting_mse> a atlas:Objective ;
-    rdfs:label "Function fitting mean squared error" ;
-    atlas:label "Function fitting mean squared error" ;
-    atlas:summary "예측 함수와 목표 함수의 제곱 오차를 최소화합니다." .
+<https://github.com/PtwoI/p2i-kg#objective/image_restoration_l1> a atlas:Objective ;
+    rdfs:label "Image restoration L1 loss" ;
+    atlas:label "Image restoration L1 loss" ;
+    atlas:summary "복원 영상과 정답 영상의 절대 오차를 최소화합니다." .
 
 <https://github.com/PtwoI/p2i-kg#objective/info_nce> a atlas:Objective ;
     rdfs:label "InfoNCE dictionary loss" ;
@@ -10145,20 +10430,25 @@ atlas:ontology a owl:Ontology ;
     atlas:label "Return-conditioned action prediction" ;
     atlas:summary "목표 return과 관측 이력에 조건부로 데이터셋의 행동을 예측합니다." .
 
-<https://github.com/PtwoI/p2i-kg#task/function_approximation> a atlas:Task ;
-    rdfs:label "Function approximation" ;
-    atlas:label "Function approximation" ;
-    atlas:summary "표본으로부터 연속 함수를 근사합니다." .
-
 <https://github.com/PtwoI/p2i-kg#task/graph_classification> a atlas:Task ;
     rdfs:label "Graph classification" ;
     atlas:label "Graph classification" ;
     atlas:summary "전체 그래프를 하나의 범주로 분류합니다." .
 
+<https://github.com/PtwoI/p2i-kg#task/image_restoration> a atlas:Task ;
+    rdfs:label "Image restoration" ;
+    atlas:label "Image restoration" ;
+    atlas:summary "손상된 영상에서 원래 영상을 추정합니다." .
+
 <https://github.com/PtwoI/p2i-kg#task/image_text> a atlas:Task ;
     rdfs:label "영상–텍스트 연결" ;
     atlas:label "영상–텍스트 연결" ;
     atlas:summary "영상과 자연어 표현의 의미적 대응을 학습합니다." .
+
+<https://github.com/PtwoI/p2i-kg#task/operator_learning> a atlas:Task ;
+    rdfs:label "Operator learning" ;
+    atlas:label "Operator learning" ;
+    atlas:summary "입력 함수에서 출력 함수로의 사상을 학습합니다." .
 
 <https://github.com/PtwoI/p2i-kg#task/sequence_modeling> a atlas:Task ;
     rdfs:label "Generic sequence modeling" ;
@@ -10884,6 +11174,11 @@ atlas:ontology a owl:Ontology ;
     atlas:label "Span corruption" ;
     atlas:summary "손상된 연속 토큰 구간을 복원합니다." .
 
+<https://github.com/PtwoI/p2i-kg#task/function_approximation> a atlas:Task ;
+    rdfs:label "Function approximation" ;
+    atlas:label "Function approximation" ;
+    atlas:summary "표본으로부터 연속 함수를 근사합니다." .
+
 <https://github.com/PtwoI/p2i-kg#task/segmentation> a atlas:Task ;
     rdfs:label "영상 분할" ;
     atlas:label "영상 분할" ;
@@ -11230,6 +11525,11 @@ atlas:ontology a owl:Ontology ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/rl_return> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/rl_policy_gradient> .
 
+<https://github.com/PtwoI/p2i-kg#objective/function_fitting_mse> a atlas:Objective ;
+    rdfs:label "Function fitting mean squared error" ;
+    atlas:label "Function fitting mean squared error" ;
+    atlas:summary "예측 함수와 목표 함수의 제곱 오차를 최소화합니다." .
+
 <https://github.com/PtwoI/p2i-kg#objective/rl_skill_diversity> a atlas:Objective ;
     rdfs:label "Skill diversity objective" ;
     atlas:label "Skill diversity objective" ;
@@ -11326,6 +11626,22 @@ atlas:ontology a owl:Ontology ;
     atlas:summary "영상과 텍스트 인코더를 대조 목적을 이용해 공동 표현 공간으로 연결합니다." ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/contrastive> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/contrastive> .
+
+<https://github.com/PtwoI/p2i-kg#model/deeponet> a atlas:Model ;
+    rdfs:label "DeepONet" ;
+    atlas:alternative_to <https://github.com/PtwoI/p2i-kg#model/fno> ;
+    atlas:applied_to <https://github.com/PtwoI/p2i-kg#task/operator_learning> ;
+    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/deeponet> ;
+    atlas:family "neural-operator" ;
+    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/deeponet_branch>,
+        <https://github.com/PtwoI/p2i-kg#component/deeponet_trunk> ;
+    atlas:label "DeepONet" ;
+    atlas:reference_year 2021 ;
+    atlas:runtime_id "deeponet" ;
+    atlas:runtime_note "8개 입력 표본의 branch와 하나의 질의 좌표 trunk를 내적하는 작은 unstacked 예제입니다. 무작위 가중치이며 연산자 학습은 포함하지 않습니다." ;
+    atlas:summary "입력 함수의 표본과 출력 좌표를 별도 신경망으로 부호화해 연산자를 근사합니다." ;
+    atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/function_fitting_mse> ;
+    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/deeponet_concept> .
 
 <https://github.com/PtwoI/p2i-kg#model/densenet> a atlas:Model ;
     rdfs:label "DenseNet" ;
@@ -11531,6 +11847,23 @@ atlas:ontology a owl:Ontology ;
         <https://github.com/PtwoI/p2i-kg#concept/depthwise>,
         <https://github.com/PtwoI/p2i-kg#concept/separable_convolution> .
 
+<https://github.com/PtwoI/p2i-kg#model/nafnet> a atlas:Model ;
+    rdfs:label "NAFNet" ;
+    atlas:alternative_to <https://github.com/PtwoI/p2i-kg#model/unet> ;
+    atlas:applied_to <https://github.com/PtwoI/p2i-kg#task/image_restoration> ;
+    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/nafnet> ;
+    atlas:family "vision" ;
+    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/naf_block>,
+        <https://github.com/PtwoI/p2i-kg#component/naf_gate>,
+        <https://github.com/PtwoI/p2i-kg#component/naf_sca> ;
+    atlas:label "NAFNet" ;
+    atlas:reference_year 2022 ;
+    atlas:runtime_id "nafnet" ;
+    atlas:runtime_note "단일 축소 블록의 depthwise convolution, SimpleGate, 채널 attention 및 잔차를 실행합니다. 원본의 채널별 LayerNorm 대신 GroupNorm을 사용하며 인코더·디코더와 두 번째 FFN 경로 및 학습은 생략합니다." ;
+    atlas:summary "SimpleGate와 단순화 채널 어텐션을 이용한 영상 복원 신경망입니다." ;
+    atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/image_restoration_l1> ;
+    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/nafnet_concept> .
+
 <https://github.com/PtwoI/p2i-kg#model/option_critic> a atlas:Model ;
     rdfs:label "Option-Critic" ;
     atlas:applied_to <https://github.com/PtwoI/p2i-kg#task/rl_control> ;
@@ -11582,23 +11915,22 @@ atlas:ontology a owl:Ontology ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/rl_actor_critic>,
         <https://github.com/PtwoI/p2i-kg#concept/rl_max_entropy> .
 
-<https://github.com/PtwoI/p2i-kg#model/unet> a atlas:Model ;
-    rdfs:label "U-Net" ;
-    skos:altLabel "UNET" ;
-    atlas:applied_to <https://github.com/PtwoI/p2i-kg#task/segmentation> ;
-    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/unet> ;
-    atlas:extends <https://github.com/PtwoI/p2i-kg#model/cnn> ;
-    atlas:family "vision" ;
-    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/convolution> ;
-    atlas:label "U-Net" ;
-    atlas:reference_year 2015 ;
-    atlas:runtime_id "unet" ;
-    atlas:runtime_note "2단계 U-Net 축소 예제. encoder–decoder와 skip concatenation을 포함하며 padding으로 공간 크기를 보존합니다. 모든 가중치는 무작위 초기화이며 학습된 모델이 아닙니다." ;
-    atlas:summary "축소 경로와 확장 경로 사이 특징 연결을 이용한 영상 분할 모델." ;
-    atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
-    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/convolution>,
-        <https://github.com/PtwoI/p2i-kg#concept/encoder_decoder>,
-        <https://github.com/PtwoI/p2i-kg#concept/skip_connections> .
+<https://github.com/PtwoI/p2i-kg#model/siren> a atlas:Model ;
+    rdfs:label "SIREN" ;
+    atlas:alternative_to <https://github.com/PtwoI/p2i-kg#model/mlp> ;
+    atlas:applied_to <https://github.com/PtwoI/p2i-kg#task/function_approximation> ;
+    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/siren> ;
+    atlas:family "feedforward" ;
+    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/siren_first>,
+        <https://github.com/PtwoI/p2i-kg#component/siren_hidden>,
+        <https://github.com/PtwoI/p2i-kg#component/siren_output> ;
+    atlas:label "SIREN" ;
+    atlas:reference_year 2020 ;
+    atlas:runtime_id "siren" ;
+    atlas:runtime_note "두 개의 작은 sinusoidal layer와 선형 출력으로 좌표를 처리합니다. 무작위 초기화이며 원 논문의 신호별 학습과 미분방정식 최적화는 포함하지 않습니다." ;
+    atlas:summary "좌표를 주기적 활성화 함수로 연속 신호에 대응시킵니다." ;
+    atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/function_fitting_mse> ;
+    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/siren_concept> .
 
 <https://github.com/PtwoI/p2i-kg#model/vgg> a atlas:Model ;
     rdfs:label "VGG" ;
@@ -12029,6 +12361,24 @@ atlas:ontology a owl:Ontology ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/rl_return> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/rl_value_learning> .
 
+<https://github.com/PtwoI/p2i-kg#model/unet> a atlas:Model ;
+    rdfs:label "U-Net" ;
+    skos:altLabel "UNET" ;
+    atlas:applied_to <https://github.com/PtwoI/p2i-kg#task/segmentation> ;
+    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/unet> ;
+    atlas:extends <https://github.com/PtwoI/p2i-kg#model/cnn> ;
+    atlas:family "vision" ;
+    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/convolution> ;
+    atlas:label "U-Net" ;
+    atlas:reference_year 2015 ;
+    atlas:runtime_id "unet" ;
+    atlas:runtime_note "2단계 U-Net 축소 예제. encoder–decoder와 skip concatenation을 포함하며 padding으로 공간 크기를 보존합니다. 모든 가중치는 무작위 초기화이며 학습된 모델이 아닙니다." ;
+    atlas:summary "축소 경로와 확장 경로 사이 특징 연결을 이용한 영상 분할 모델." ;
+    atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
+    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/convolution>,
+        <https://github.com/PtwoI/p2i-kg#concept/encoder_decoder>,
+        <https://github.com/PtwoI/p2i-kg#concept/skip_connections> .
+
 <https://github.com/PtwoI/p2i-kg#model/vae> a atlas:Model ;
     rdfs:label "Variational Autoencoder" ;
     skos:altLabel "VAE" ;
@@ -12092,27 +12442,6 @@ atlas:ontology a owl:Ontology ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/rl_skill_diversity> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/rl_skill_discovery> .
 
-<https://github.com/PtwoI/p2i-kg#model/fno> a atlas:Model ;
-    rdfs:label "Fourier Neural Operator" ;
-    skos:altLabel "FNO" ;
-    atlas:applied_to <https://github.com/PtwoI/p2i-kg#task/pde_operator_learning> ;
-    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/fno> ;
-    atlas:extends <https://github.com/PtwoI/p2i-kg#model/cnn> ;
-    atlas:family "neural-operator" ;
-    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/fno_lifting>,
-        <https://github.com/PtwoI/p2i-kg#component/fno_local_path>,
-        <https://github.com/PtwoI/p2i-kg#component/fno_projection>,
-        <https://github.com/PtwoI/p2i-kg#component/spectral_convolution> ;
-    atlas:label "Fourier Neural Operator" ;
-    atlas:reference_year 2021 ;
-    atlas:runtime_id "fno" ;
-    atlas:runtime_note "길이 32의 1차원 scalar field와 좌표를 폭 8로 lifting하고 6개 Fourier mode의 spectral convolution과 pointwise local path를 결합해 출력장을 예측합니다. 원논문의 2D/3D PDE 데이터, 여러 FNO block, resolution transfer 학습과 production neuraloperator 구현은 포함하지 않습니다." ;
-    atlas:summary "저주파 Fourier mode의 학습된 전역 convolution으로 함수 공간 사이의 해 연산자를 근사합니다." ;
-    atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
-    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/fourier_operator>,
-        <https://github.com/PtwoI/p2i-kg#concept/neural_operator>,
-        <https://github.com/PtwoI/p2i-kg#concept/resolution_invariance> .
-
 <https://github.com/PtwoI/p2i-kg#model/mae> a atlas:Model ;
     rdfs:label "Masked Autoencoder (MAE)" ;
     skos:altLabel "Masked Autoencoders" ;
@@ -12133,20 +12462,6 @@ atlas:ontology a owl:Ontology ;
         <https://github.com/PtwoI/p2i-kg#concept/masked_pixel_reconstruction>,
         <https://github.com/PtwoI/p2i-kg#concept/patch_embedding>,
         <https://github.com/PtwoI/p2i-kg#concept/visible_patch_encoding> .
-
-<https://github.com/PtwoI/p2i-kg#model/mlp> a atlas:Model ;
-    rdfs:label "MLP" ;
-    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/backprop> ;
-    atlas:extends <https://github.com/PtwoI/p2i-kg#model/perceptron> ;
-    atlas:family "feedforward" ;
-    atlas:label "MLP" ;
-    atlas:reference_year 1986 ;
-    atlas:runtime_id "mlp" ;
-    atlas:runtime_note "작은 교육용 구현입니다. 원 논문의 학습 결과를 재현한 사전학습 모델은 아닙니다." ;
-    atlas:summary "여러 선형 층과 비선형 활성화를 쌓아 입력 표현을 바꿉니다. 1986년 문헌은 대표적인 역전파 학습 설명에 연결됩니다." ;
-    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/activation>,
-        <https://github.com/PtwoI/p2i-kg#concept/backprop>,
-        <https://github.com/PtwoI/p2i-kg#concept/weighted_sum> .
 
 <https://github.com/PtwoI/p2i-kg#model/moco> a atlas:Model ;
     rdfs:label "MoCo" ;
@@ -12597,6 +12912,27 @@ atlas:ontology a owl:Ontology ;
         <https://github.com/PtwoI/p2i-kg#concept/encoder_decoder>,
         <https://github.com/PtwoI/p2i-kg#concept/object_queries> .
 
+<https://github.com/PtwoI/p2i-kg#model/fno> a atlas:Model ;
+    rdfs:label "Fourier Neural Operator" ;
+    skos:altLabel "FNO" ;
+    atlas:applied_to <https://github.com/PtwoI/p2i-kg#task/pde_operator_learning> ;
+    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/fno> ;
+    atlas:extends <https://github.com/PtwoI/p2i-kg#model/cnn> ;
+    atlas:family "neural-operator" ;
+    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/fno_lifting>,
+        <https://github.com/PtwoI/p2i-kg#component/fno_local_path>,
+        <https://github.com/PtwoI/p2i-kg#component/fno_projection>,
+        <https://github.com/PtwoI/p2i-kg#component/spectral_convolution> ;
+    atlas:label "Fourier Neural Operator" ;
+    atlas:reference_year 2021 ;
+    atlas:runtime_id "fno" ;
+    atlas:runtime_note "길이 32의 1차원 scalar field와 좌표를 폭 8로 lifting하고 6개 Fourier mode의 spectral convolution과 pointwise local path를 결합해 출력장을 예측합니다. 원논문의 2D/3D PDE 데이터, 여러 FNO block, resolution transfer 학습과 production neuraloperator 구현은 포함하지 않습니다." ;
+    atlas:summary "저주파 Fourier mode의 학습된 전역 convolution으로 함수 공간 사이의 해 연산자를 근사합니다." ;
+    atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
+    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/fourier_operator>,
+        <https://github.com/PtwoI/p2i-kg#concept/neural_operator>,
+        <https://github.com/PtwoI/p2i-kg#concept/resolution_invariance> .
+
 <https://github.com/PtwoI/p2i-kg#model/gpt2> a atlas:Model ;
     rdfs:label "GPT-2" ;
     skos:altLabel "GPT2" ;
@@ -12620,6 +12956,20 @@ atlas:ontology a owl:Ontology ;
         <https://github.com/PtwoI/p2i-kg#concept/residual>,
         <https://github.com/PtwoI/p2i-kg#concept/self_attention> .
 
+<https://github.com/PtwoI/p2i-kg#model/mlp> a atlas:Model ;
+    rdfs:label "MLP" ;
+    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/backprop> ;
+    atlas:extends <https://github.com/PtwoI/p2i-kg#model/perceptron> ;
+    atlas:family "feedforward" ;
+    atlas:label "MLP" ;
+    atlas:reference_year 1986 ;
+    atlas:runtime_id "mlp" ;
+    atlas:runtime_note "작은 교육용 구현입니다. 원 논문의 학습 결과를 재현한 사전학습 모델은 아닙니다." ;
+    atlas:summary "여러 선형 층과 비선형 활성화를 쌓아 입력 표현을 바꿉니다. 1986년 문헌은 대표적인 역전파 학습 설명에 연결됩니다." ;
+    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/activation>,
+        <https://github.com/PtwoI/p2i-kg#concept/backprop>,
+        <https://github.com/PtwoI/p2i-kg#concept/weighted_sum> .
+
 <https://github.com/PtwoI/p2i-kg#model/nbeats> a atlas:Model ;
     rdfs:label "N-BEATS" ;
     skos:altLabel "Neural Basis Expansion Analysis" ;
@@ -12640,11 +12990,6 @@ atlas:ontology a owl:Ontology ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/backcast_forecast_decomposition>,
         <https://github.com/PtwoI/p2i-kg#concept/basis_expansion>,
         <https://github.com/PtwoI/p2i-kg#concept/doubly_residual_stacking> .
-
-atlas:alternative_to a owl:ObjectProperty,
-        owl:SymmetricProperty ;
-    rdfs:domain atlas:Model ;
-    rdfs:range atlas:Model .
 
 <https://github.com/PtwoI/p2i-kg#concept/backprop> a atlas:Concept ;
     rdfs:label "역전파" ;
@@ -13038,6 +13383,18 @@ atlas:alternative_to a owl:ObjectProperty,
     atlas:summary "DDPG의 대표 논문입니다." ;
     atlas:url <https://arxiv.org/abs/1509.02971> .
 
+<https://github.com/PtwoI/p2i-kg#paper/deeponet> a atlas:Paper ;
+    rdfs:label "Learning nonlinear operators via DeepONet based on the universal approximation theorem of operators" ;
+    atlas:author "George Em Karniadakis",
+        "Guofei Pang",
+        "Lu Lu",
+        "Pengzhan Jin",
+        "Zhiping Zhang" ;
+    atlas:label "Learning nonlinear operators via DeepONet based on the universal approximation theorem of operators" ;
+    atlas:reference_year 2021 ;
+    atlas:summary "공식 구현: https://github.com/lululxvi/deeponet" ;
+    atlas:url <https://doi.org/10.1038/s42256-021-00302-5> .
+
 <https://github.com/PtwoI/p2i-kg#paper/double_dqn> a atlas:Paper ;
     rdfs:label "Deep Reinforcement Learning with Double Q-learning" ;
     atlas:author "Arthur Guez",
@@ -13102,6 +13459,11 @@ atlas:alternative_to a owl:ObjectProperty,
     atlas:reference_year 2015 ;
     atlas:summary "모델과 개념을 설명하는 대표 문헌입니다. 원문에서 해당 구조와 주장 범위를 확인할 수 있습니다." ;
     atlas:url <https://arxiv.org/abs/1512.03385> .
+
+atlas:alternative_to a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:domain atlas:Model ;
+    rdfs:range atlas:Model .
 
 <https://github.com/PtwoI/p2i-kg#model/dit> a atlas:Model ;
     rdfs:label "Diffusion Transformer" ;
@@ -13233,6 +13595,17 @@ atlas:alternative_to a owl:ObjectProperty,
     atlas:summary "이 모델의 구조와 학습 구성을 설명하는 대표 원문." ;
     atlas:url <https://arxiv.org/abs/1905.11946> .
 
+<https://github.com/PtwoI/p2i-kg#paper/nafnet> a atlas:Paper ;
+    rdfs:label "Simple Baselines for Image Restoration" ;
+    atlas:author "Jian Sun",
+        "Liangyu Chen",
+        "Xiangyu Zhang",
+        "Xiaojie Chu" ;
+    atlas:label "Simple Baselines for Image Restoration" ;
+    atlas:reference_year 2022 ;
+    atlas:summary "공식 구현: https://github.com/megvii-research/NAFNet" ;
+    atlas:url <https://arxiv.org/abs/2204.04676> .
+
 <https://github.com/PtwoI/p2i-kg#paper/option_critic> a atlas:Paper ;
     rdfs:label "The Option-Critic Architecture" ;
     atlas:author "Doina Precup",
@@ -13265,6 +13638,18 @@ atlas:alternative_to a owl:ObjectProperty,
     atlas:reference_year 2018 ;
     atlas:summary "최대 엔트로피 off-policy actor–critic을 제안합니다." ;
     atlas:url <https://proceedings.mlr.press/v80/haarnoja18b.html> .
+
+<https://github.com/PtwoI/p2i-kg#paper/siren> a atlas:Paper ;
+    rdfs:label "Implicit Neural Representations with Periodic Activation Functions" ;
+    atlas:author "Alexander Bergman",
+        "David Lindell",
+        "Gordon Wetzstein",
+        "Julien Martel",
+        "Vincent Sitzmann" ;
+    atlas:label "Implicit Neural Representations with Periodic Activation Functions" ;
+    atlas:reference_year 2020 ;
+    atlas:summary "공식 구현: https://github.com/vsitzmann/siren" ;
+    atlas:url <https://arxiv.org/abs/2006.09661> .
 
 <https://github.com/PtwoI/p2i-kg#paper/td3> a atlas:Paper ;
     rdfs:label "Addressing Function Approximation Error in Actor-Critic Methods" ;
@@ -13534,9 +13919,6 @@ atlas:alternative_to a owl:ObjectProperty,
     atlas:summary "이 모델의 구조와 학습 구성을 설명하는 대표 원문." ;
     atlas:url <https://arxiv.org/abs/1312.6114> .
 
-atlas:Objective a owl:Class ;
-    rdfs:label "Objective" .
-
 <https://github.com/PtwoI/p2i-kg#model/cnn> a atlas:Model ;
     rdfs:label "CNN · LeNet 계열" ;
     atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/lenet> ;
@@ -13584,6 +13966,9 @@ atlas:Objective a owl:Class ;
     atlas:reference_year 2021 ;
     atlas:summary "순차 attention mask로 각 decision step에서 사용할 표 특성을 선택하는 TabNet 원논문이며 google-research/tabnet이 저자 공식 구현입니다." ;
     atlas:url <https://ojs.aaai.org/index.php/AAAI/article/view/16826> .
+
+atlas:Objective a owl:Class ;
+    rdfs:label "Objective" .
 
 <https://github.com/PtwoI/p2i-kg#paper/bert> a atlas:Paper ;
     rdfs:label "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding" ;
@@ -13653,9 +14038,6 @@ atlas:Objective a owl:Class ;
     atlas:summary "팽창 인과 합성곱과 residual block으로 구성한 generic TCN을 순환 모델과 비교한 원논문이며 locuslab/TCN이 저자 공식 구현입니다." ;
     atlas:url <https://arxiv.org/abs/1803.01271> .
 
-atlas:Task a owl:Class ;
-    rdfs:label "Task" .
-
 <https://github.com/PtwoI/p2i-kg#concept/convolution> a atlas:Concept ;
     rdfs:label "합성곱" ;
     atlas:label "합성곱" ;
@@ -13714,6 +14096,9 @@ atlas:Task a owl:Class ;
     atlas:reference_year 2020 ;
     atlas:summary "이 모델의 구조와 학습 구성을 설명하는 대표 원문." ;
     atlas:url <https://arxiv.org/abs/2010.11929> .
+
+atlas:Task a owl:Class ;
+    rdfs:label "Task" .
 
 <https://github.com/PtwoI/p2i-kg#paper/dino> a atlas:Paper ;
     rdfs:label "Emerging Properties in Self-Supervised Vision Transformers" ;
@@ -14059,10 +14444,6 @@ atlas:extends a owl:ObjectProperty ;
     atlas:summary "지각 압축 잠재공간에서 조건부 확산을 수행해 계산량과 충실도를 조절하는 LDM 원논문." ;
     atlas:url <https://openaccess.thecvf.com/content/CVPR2022/html/Rombach_High-Resolution_Image_Synthesis_With_Latent_Diffusion_Models_CVPR_2022_paper.html> .
 
-atlas:trained_with a owl:ObjectProperty ;
-    rdfs:domain atlas:Model ;
-    rdfs:range atlas:Objective .
-
 <https://github.com/PtwoI/p2i-kg#paper/byol> a atlas:Paper ;
     rdfs:label "Bootstrap Your Own Latent: A New Approach to Self-Supervised Learning" ;
     atlas:author "Bernardo Avila Pires",
@@ -14093,6 +14474,10 @@ atlas:trained_with a owl:ObjectProperty ;
     atlas:summary "잠재 확산의 U-Net을 조건부 Transformer로 교체하고 계산량에 따른 확장성을 분석한 DiT 원논문." ;
     atlas:url <https://openaccess.thecvf.com/content/ICCV2023/html/Peebles_Scalable_Diffusion_Models_with_Transformers_ICCV_2023_paper.html> .
 
+atlas:trained_with a owl:ObjectProperty ;
+    rdfs:domain atlas:Model ;
+    rdfs:range atlas:Objective .
+
 <https://github.com/PtwoI/p2i-kg#paper/detr> a atlas:Paper ;
     rdfs:label "End-to-End Object Detection with Transformers" ;
     atlas:author "Alexander Kirillov",
@@ -14115,10 +14500,6 @@ atlas:trained_with a owl:ObjectProperty ;
     atlas:reference_year 2017 ;
     atlas:summary "이웃 특징을 표본화하고 집계하는 함수로 보지 못한 노드의 표현을 생성하는 GraphSAGE 원논문." ;
     atlas:url <https://arxiv.org/abs/1706.02216> .
-
-atlas:applied_to a owl:ObjectProperty ;
-    rdfs:domain atlas:Model ;
-    rdfs:range atlas:Task .
 
 <https://github.com/PtwoI/p2i-kg#paper/nerf> a atlas:Paper ;
     rdfs:label "NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis" ;
@@ -14143,6 +14524,10 @@ atlas:applied_to a owl:ObjectProperty ;
     atlas:reference_year 2017 ;
     atlas:summary "정렬되지 않은 원시 점 집합을 공유 점 특징과 대칭 함수로 직접 처리하는 3D 분류·분할 아키텍처 원논문." ;
     atlas:url <https://openaccess.thecvf.com/content_cvpr_2017/html/Qi_PointNet_Deep_Learning_CVPR_2017_paper.html> .
+
+atlas:applied_to a owl:ObjectProperty ;
+    rdfs:domain atlas:Model ;
+    rdfs:range atlas:Task .
 
 atlas:Paper a owl:Class ;
     rdfs:label "Paper" .
