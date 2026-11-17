@@ -3,6 +3,24 @@
   "source_repository": "K0ykwon/newsletter",
   "articles": [
     {
+      "slug": "2026-11-17-ai",
+      "category": "AI",
+      "date": "2026-11-17",
+      "title": "원문 추출과 문맥 기여도 및 확률 보정"
+    },
+    {
+      "slug": "2026-11-17-dev",
+      "category": "DEV",
+      "date": "2026-11-17",
+      "title": "API 교체와 의미 패치 자동화"
+    },
+    {
+      "slug": "2026-11-17-qpu",
+      "category": "QPU",
+      "date": "2026-11-17",
+      "title": "데이터 인코딩과 측정 비용"
+    },
+    {
       "slug": "2026-11-16-ai",
       "category": "AI",
       "date": "2026-11-16",
