@@ -2,7 +2,7 @@
 export const hosted=document.documentElement.dataset.mode==='static';
 let snapshot;
 export async function catalog(){
- if(!snapshot){const response=await fetch(new URL('./catalog.json?v='+(document.documentElement.dataset.build??document.documentElement.dataset.revision??'400af9f926b70fcb'),import.meta.url));if(!response.ok)throw Error('카탈로그를 불러오지 못했습니다.');snapshot=await response.json();}
+ if(!snapshot){const response=await fetch(new URL('./catalog.json?v='+(document.documentElement.dataset.build??document.documentElement.dataset.revision??'42c2107f7b52754c'),import.meta.url));if(!response.ok)throw Error('카탈로그를 불러오지 못했습니다.');snapshot=await response.json();}
  return snapshot;
 }
 function effective(graph,id){
