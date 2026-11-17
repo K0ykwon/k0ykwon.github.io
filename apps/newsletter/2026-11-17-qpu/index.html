@@ -1,0 +1,55 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>데이터 인코딩과 측정 비용 · Newsletter</title><meta name="description" content="고전 데이터를 양자컴퓨터에 넣는 일은 양자 알고리즘의 준비 단계처럼 보이지만, 실제 비용을 지배할 수 있습니다. 오늘은 데이터를 큐비트에 담는 방법과 읽어내는 비용을 먼저 이해한 뒤, 11월 13일 공개된 Tessa 연구를 살펴봅니다. 많은 값을 인코딩했다는 결과와 그 값을 빠르고 정확하게 활용했다는 결과는 구분해야 합니다."><link rel="canonical" href="https://k0ykwon.github.io/apps/newsletter/2026-11-17-qpu/"><meta property="og:title" content="데이터 인코딩과 측정 비용"><meta property="og:description" content="고전 데이터를 양자컴퓨터에 넣는 일은 양자 알고리즘의 준비 단계처럼 보이지만, 실제 비용을 지배할 수 있습니다. 오늘은 데이터를 큐비트에 담는 방법과 읽어내는 비용을 먼저 이해한 뒤, 11월 13일 공개된 Tessa 연구를 살펴봅니다. 많은 값을 인코딩했다는 결과와 그 값을 빠르고 정확하게 활용했다는 결과는 구분해야 합니다."><meta property="og:type" content="article"><link rel="stylesheet" href="../style.css"></head><body><a class="skip" href="#main">본문으로 건너뛰기</a><header class="masthead"><a class="brand" href="../" aria-label="뉴스레터 홈">NEWSLETTER<span>Dev / AI / QPU</span></a><a class="back" href="https://k0ykwon.github.io/">Youngkwon Ko ↗</a></header><main id="main" class="reading"><nav class="breadcrumb"><a href="../">모든 글</a><span>/ QPU</span></nav><div class="article-heading"><div class="card-meta"><span class="tag qpu">QPU</span><time datetime="2026-11-17">2026.11.17</time><span>약 5분</span></div><h1>데이터 인코딩과 측정 비용</h1><p>고전 데이터를 양자컴퓨터에 넣는 일은 양자 알고리즘의 준비 단계처럼 보이지만, 실제 비용을 지배할 수 있습니다. 오늘은 데이터를 큐비트에 담는 방법과 읽어내는 비용을 먼저 이해한 뒤, 11월 13일 공개된 Tessa 연구를 살펴봅니다. 많은 값을 인코딩했다는 결과와 그 값을 빠르고 정확하게 활용했다는 결과는 구분해야 합니다.</p></div><div class="article-grid"><aside><details open><summary>이 글의 흐름</summary><nav aria-label="목차"><a href="#section-1">오늘의 QPU 개념 데이터 인코딩과 측정</a><a href="#section-3">주목할 논문 Tessa</a><a href="#section-5">구체적인 예제 반복 횟수의 의미</a><a href="#section-6">일반적인 활용 가능성과 남은 질문</a></nav></details></aside><article class="prose"><p>고전 데이터를 양자컴퓨터에 넣는 일은 양자 알고리즘의 준비 단계처럼 보이지만, 실제 비용을 지배할 수 있습니다. 오늘은 데이터를 큐비트에 담는 방법과 읽어내는 비용을 먼저 이해한 뒤, 11월 13일 공개된 Tessa 연구를 살펴봅니다. <strong>많은 값을 인코딩했다는 결과와 그 값을 빠르고 정확하게 활용했다는 결과는 구분해야 합니다.</strong></p>
+<h2 id="section-1">오늘의 QPU 개념 데이터 인코딩과 측정</h2>
+<h3 id="section-2">연속적인 양자 상태를 한 번에 모두 읽을 수는 없다</h3>
+<p>큐비트 상태는 복소수 성분을 가진 벡터로 표현되고, 측정은 그 상태에서 고전적 결과를 얻는 과정입니다. 상태를 기술하는 숫자가 여러 개라는 사실만으로 그 숫자를 한 번의 측정에서 모두 알아낼 수 있는 것은 아닙니다. 양자 상태와 측정, 유니터리 연산은 서로 다른 역할을 합니다. <a href="https://quantum.cloud.ibm.com/learning/en/courses/basics-of-quantum-information/single-systems/introduction">IBM Quantum 기본 개념</a></p>
+<p>가장 간단한 설명용 예를 생각해 봅시다. 어떤 회로를 반복 실행했을 때 1이 나오는 확률에 데이터 값을 대응시키는 방식입니다. 한 번 측정해 1이 나왔다고 확률이 100%라는 뜻은 아닙니다. 동전을 던져 앞면이 나왔다는 사실과 동전의 앞면 확률을 안다는 사실이 다른 것과 같습니다. 여러 번 준비하고 측정해야 그 비율을 추정할 수 있습니다.</p>
+<p>주소 큐비트는 여러 값 중 어떤 위치를 읽었는지 구별하는 데 사용될 수 있습니다. 주소가 많아지면 한 회로에 더 많은 값을 표현할 수 있지만, 정해진 반복 횟수 안에서 각 주소가 관측되는 횟수는 줄어듭니다. 저장 가능한 항목 수, 각 항목의 정밀도, 회로 실행 수 사이에 교환 관계가 생기는 이유입니다.</p>
+<h2 id="section-3">주목할 논문 Tessa</h2>
+<h3 id="section-4">장치의 연결 구조를 데이터 배치에 맞춘다</h3>
+<p>Daniel Bultrini의 Tessa 프리프린트는 주소 큐비트와 데이터 큐비트를 이분 그래프 형태로 배치하고, 데이터 큐비트가 가까운 주소 큐비트에만 제어되도록 합니다. 실제 장치의 연결 구조를 사용하면 먼 큐비트 사이를 잇기 위한 SWAP과 라우팅을 피할 수 있습니다. IBM Phoenix와 Fez에서 데이터를 넣고 복원하는 실험을 수행했습니다. <a href="https://arxiv.org/abs/2611.18440">논문, 11월 13일</a></p>
+<p>저자가 보고한 Phoenix 실험의 일부 수치는 다음과 같습니다. 표의 오차는 0부터 1 범위에서의 값 채널 평균절대오차이며, 모든 값을 완벽히 복원했다는 의미가 아닙니다.</p>
+<table>
+<thead>
+<tr>
+<th>Phoenix 설정</th>
+<th align="right">실수 값 수</th>
+<th align="right">CZ 게이트</th>
+<th align="right">원시 값 MAE</th>
+<th align="right">후처리 후 MAE</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>단일 값 인코딩</td>
+<td align="right">784</td>
+<td align="right">728</td>
+<td align="right">0.130</td>
+<td align="right">0.075</td>
+</tr>
+<tr>
+<td>쌍 인코딩</td>
+<td align="right">1568</td>
+<td align="right">1456</td>
+<td align="right">0.152</td>
+<td align="right">0.154</td>
+</tr>
+</tbody></table>
+<p>각 측정 기저당 8192 shots를 사용했습니다. 쌍 인코딩은 용량을 늘렸지만 값 채널의 입력과의 상관계수가 0.96에서 0.69로 낮아졌습니다. 후처리 DRR은 입력의 요약 통계를 이용한 범위 복원이며, 두 설정에서 같은 개선을 주지 않았습니다. 연구의 성과는 전체 칩 규모의 인코딩·복원 시연입니다. 양자 우위나 범용 고전 메모리 대체를 입증한 것은 아닙니다. <a href="https://arxiv.org/html/2611.18440v1">원문 표 1과 실험 설명</a></p>
+<h2 id="section-5">구체적인 예제 반복 횟수의 의미</h2>
+<p>주소 네 개의 비트 조합을 쓰는 한 지역 블록에는 16개 주소가 있습니다. 주소들이 균등하게 관측된다는 단순한 예에서 총 8192회 측정하면 주소 하나에 평균 512회가 배정됩니다. 한 값에 8192회가 전부 사용되는 것이 아닙니다. 이는 정수로 정확히 512회씩 나온다는 뜻도 아니며, 실제 빈도는 흔들립니다.</p>
+<p>설명용 이항모형에서 확률이 0.5라면 512회로 추정한 확률의 표준오차는 대략 0.022입니다. 여기에는 하드웨어 잡음이 포함되지 않았습니다. 반복 횟수를 네 배로 늘리면 이 모형의 통계오차는 약 절반이 되지만, 지속적인 장치 편향까지 절반으로 줄어드는 것은 아닙니다. 또한 확률을 원래 데이터 값으로 변환하는 과정에서 오차 크기도 달라질 수 있습니다.</p>
+<p>이 예제가 보여주는 것은 측정 비용을 생략한 용량 비교가 불완전하다는 점입니다. 데이터가 많아졌다는 주장에는 복원 정밀도와 전체 실행 비용이 함께 붙어야 의미가 생깁니다.</p>
+<h2 id="section-6">일반적인 활용 가능성과 남은 질문</h2>
+<p>하드웨어 구조를 따르는 인코딩은 고전 데이터를 이용하는 양자 학습이나 신호 처리의 입력 회로를 설계할 때 연구할 가치가 있습니다. 다만 모든 원소를 다시 읽어내는 일이 목적이라면 고전 저장 장치와 비교해 이점이 있는지 먼저 물어야 합니다. 양자 알고리즘의 출력이 데이터 전체가 아니라 작은 수의 유용한 통계량일 때는 다른 비용 구조가 가능하지만, 그것 역시 후속 계산을 포함해 입증해야 합니다.</p>
+<p>검토할 질문은 네 가지입니다.</p>
+<ol>
+<li><p>고전 데이터를 회로 매개변수로 바꾸는 준비 비용까지 포함했는가.</p>
+</li>
+<li><p>논리 게이트 수가 아니라 장치에 맞춘 실제 회로 비용을 비교했는가.</p>
+</li>
+<li><p>복원 정밀도를 같게 맞췄을 때 필요한 shots와 시간이 얼마인가.</p>
+</li>
+<li><p>입력 통계를 이용한 후처리가 필요한 경우 그 정보도 비용과 가정에 포함했는가.</p>
+</li>
+</ol>
+<p>오늘의 결론은 ‘큐비트에 숫자를 많이 넣었다’보다 <strong>장치 연결성에 맞춘 표현과 읽기 비용을 함께 설계했다</strong>는 관점으로 연구를 읽는 것이 유익하다는 것입니다.</p>
+<div class="article-end"><span>끝까지 읽어 주셔서 감사합니다.</span><a href="../">다른 글 읽기 →</a></div></article></div></main><footer><span>Dev · AI · QPU<br>뉴스, 논문, 개념을 연결하는 기술 읽기</span><div><a href="https://github.com/K0ykwon/newsletter">Source ↗</a><a href="../">모든 글 ↑</a></div></footer><script src="../app.js" defer></script></body></html>

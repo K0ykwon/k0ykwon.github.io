@@ -1,0 +1,28 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>원문 추출과 문맥 기여도 및 확률 보정 · Newsletter</title><meta name="description" content="AI가 긴 답변을 잘 쓰는 것과 문서에서 정확한 항목을 골라내는 것은 다른 능력입니다. 오늘은 최근 Decider v1.3의 원문 구간 추출 기능, 문맥 영향도를 빠르게 추정하는 연구, 확률 보정의 원리를 연결합니다. 핵심은 무엇을 선택했는지, 어디에서 가져왔는지, 그 선택을 얼마나 믿어야 하는지를 분리하는 것입니다."><link rel="canonical" href="https://k0ykwon.github.io/apps/newsletter/2026-11-17-ai/"><meta property="og:title" content="원문 추출과 문맥 기여도 및 확률 보정"><meta property="og:description" content="AI가 긴 답변을 잘 쓰는 것과 문서에서 정확한 항목을 골라내는 것은 다른 능력입니다. 오늘은 최근 Decider v1.3의 원문 구간 추출 기능, 문맥 영향도를 빠르게 추정하는 연구, 확률 보정의 원리를 연결합니다. 핵심은 무엇을 선택했는지, 어디에서 가져왔는지, 그 선택을 얼마나 믿어야 하는지를 분리하는 것입니다."><meta property="og:type" content="article"><link rel="stylesheet" href="../style.css"></head><body><a class="skip" href="#main">본문으로 건너뛰기</a><header class="masthead"><a class="brand" href="../" aria-label="뉴스레터 홈">NEWSLETTER<span>Dev / AI / QPU</span></a><a class="back" href="https://k0ykwon.github.io/">Youngkwon Ko ↗</a></header><main id="main" class="reading"><nav class="breadcrumb"><a href="../">모든 글</a><span>/ AI</span></nav><div class="article-heading"><div class="card-meta"><span class="tag ai">AI</span><time datetime="2026-11-17">2026.11.17</time><span>약 5분</span></div><h1>원문 추출과 문맥 기여도 및 확률 보정</h1><p>AI가 긴 답변을 잘 쓰는 것과 문서에서 정확한 항목을 골라내는 것은 다른 능력입니다. 오늘은 최근 Decider v1.3의 원문 구간 추출 기능, 문맥 영향도를 빠르게 추정하는 연구, 확률 보정의 원리를 연결합니다. 핵심은 무엇을 선택했는지, 어디에서 가져왔는지, 그 선택을 얼마나 믿어야 하는지를 분리하는 것입니다.</p></div><div class="article-grid"><aside><details open><summary>이 글의 흐름</summary><nav aria-label="목차"><a href="#section-1">최신 AI 소식</a><a href="#section-3">주목할 논문</a><a href="#section-5">오늘의 AI 개념 확률 보정</a><a href="#section-7">활용과 한계</a></nav></details></aside><article class="prose"><p>AI가 긴 답변을 잘 쓰는 것과 문서에서 정확한 항목을 골라내는 것은 다른 능력입니다. 오늘은 최근 Decider v1.3의 원문 구간 추출 기능, 문맥 영향도를 빠르게 추정하는 연구, 확률 보정의 원리를 연결합니다. 핵심은 <strong>무엇을 선택했는지, 어디에서 가져왔는지, 그 선택을 얼마나 믿어야 하는지를 분리하는 것</strong>입니다.</p>
+<h2 id="section-1">최신 AI 소식</h2>
+<h3 id="section-2">Decider v1.3는 답변 생성보다 선택과 추출에 초점</h3>
+<p>Perplexity는 11월 12일 Decider v1.3와 Decider Flash v1.3를 발표했습니다. 새 Locate 기능은 지시한 조건에 맞는 원문 구간을 찾아 문자 위치와 점수를 반환합니다. 이것은 자유롭게 문장을 다시 쓰는 요약과 다른 출력 계약입니다. <a href="https://community.perplexity.ai/t/were-rolling-out-pplx-decider-v1-3-and-pplx-decider-flash-v1-3-the-latest-version-of-our-open-weight-decision-models/6606">공식 발표</a></p>
+<p>공식 모델 카드의 Locate 결과는 시작 위치, 끝 위치, 텍스트, 점수로 구성되며, 해당 범위를 원문에서 잘랐을 때 반환 텍스트와 같아야 합니다. Locate는 텍스트 입력을 대상으로 하고, 분류와 추출을 섞으면 별도 forward pass가 필요합니다. 따라서 ‘한 요청’이 곧 ‘한 번의 계산’이라는 뜻은 아닙니다. 모델 카드는 확률값에 의존하는 서비스라면 자체 데이터로 보정할 것을 권고합니다. <a href="https://huggingface.co/perplexity-ai/pplx-decider-v1.3">공식 모델 카드</a></p>
+<p>예를 들어 배송 문의에서 ‘누락된 상품’을 찾는 시스템은 상품명을 새로 생성하는 대신 원문 위치를 표시할 수 있습니다. 검토자는 바로 주변 문맥을 확인할 수 있고, 원문과 다른 이름을 생성했는지도 기계적으로 검사할 수 있습니다. 그러나 원문에 존재하는 문자열을 골랐다고 해서 올바른 상품을 선택했다는 의미는 아닙니다. 추출의 충실성과 의미 판단의 정확도는 별도로 평가해야 합니다.</p>
+<h2 id="section-3">주목할 논문</h2>
+<h3 id="section-4">어떤 문맥이 답에 영향을 줬는가</h3>
+<p>Christopher Liaw 등의 11월 12일 프리프린트는 leave one out 문맥 기여도를 다룹니다. 입력 일부를 제거했을 때 정해진 출력 측정값이 얼마나 달라지는지 묻는 방법입니다. n개 토큰을 하나씩 제외해 직접 계산하면 n회 평가가 필요합니다. 연구는 안정성 가정 아래, 요청 오차에 따른 평가 횟수로 모든 기여도를 근사하는 스케치 알고리즘과 oracle 모델의 대응 하한을 제시합니다. 실험은 작은 언어 모델 검색 과제와 안정성에 관련된 계수 감소 관찰입니다. 대규모 서비스의 보편적인 속도 향상을 입증한 결과로 확대해서는 안 됩니다. <a href="https://arxiv.org/abs/2611.17313">논문 원문</a></p>
+<p>직관적 예를 들어, 문서 A에는 상품 가격이 있고 문서 B에는 배송일이 있다고 합시다. 답이 ‘배송은 금요일’일 때 B를 제거하면 해당 답의 점수가 크게 줄고 A를 제거하면 거의 그대로일 수 있습니다. 이 변화는 모델이 어떤 문맥에 의존했는지의 단서입니다. 하지만 현실의 배송일이 정말 금요일인지는 별도의 사실 확인 문제입니다.</p>
+<p>또한 문서 A와 B가 같은 내용을 중복해서 담으면 하나만 제거해도 답이 유지될 수 있습니다. 개별 제거 효과가 작다고 두 문서 모두 쓸모없다는 결론을 내릴 수는 없습니다. 문맥의 상호작용과 선택한 측정값을 함께 해석해야 합니다.</p>
+<h2 id="section-5">오늘의 AI 개념 확률 보정</h2>
+<h3 id="section-6">정확도와 신뢰도는 왜 다른가</h3>
+<p>가령 두 분류기가 100개 중 80개를 맞혔다고 합시다. 하나는 모든 답에 99% 확신을 주고, 다른 하나는 평균 80% 정도의 확신을 줍니다. 정답률은 같지만 사용자에게 전달하는 위험 정보는 다릅니다. 확률 보정은 ‘90%라고 예측한 사례들을 모았을 때 실제로 약 90%가 맞는가’를 묻습니다. 단일 답이 맞는지를 보증하는 인증서가 아니라, 사례 집합에 대한 통계적 성질입니다.</p>
+<p>Guo 등의 ICML 2017 논문은 현대 신경망의 보정 문제를 연구하고 temperature scaling이라는 간단한 후처리가 여러 분류 데이터에서 효과적임을 보였습니다. 로짓을 양의 온도 T로 나누고 softmax를 적용하는 방식입니다. 후보의 순서는 유지하면서 분포의 뾰족함을 바꾸므로, 보정이 좋아져도 최상위 분류 정확도가 올라가는 것은 아닙니다. <a href="https://proceedings.mlr.press/v70/guo17a.html">논문</a></p>
+<p>온도와 처리 임계값을 정하는 데이터와 최종 성능을 보고할 데이터는 분리해야 합니다. 시험 데이터에 맞춰 임계값을 조정하고 같은 데이터에서 성능을 자랑하면 실제 운영 성능을 과대평가하기 쉽습니다. 언어, 문서 길이, 질문 유형이 달라지면 한 온도로 모든 하위 집단을 잘 보정하기도 어렵습니다.</p>
+<h2 id="section-7">활용과 한계</h2>
+<p>문서 분류, 문의 라우팅, 정보 추출에서는 다음 세 결과를 따로 보관하면 실패 원인을 찾기 쉽습니다.</p>
+<ul>
+<li><p><strong>판단</strong>: 어떤 범주를 선택했는가.</p>
+</li>
+<li><p><strong>근거 위치</strong>: 어떤 원문 구간을 선택했는가.</p>
+</li>
+<li><p><strong>보정된 위험</strong>: 이 종류의 판단이 실제로 얼마나 자주 틀리는가.</p>
+</li>
+</ul>
+<p>원문 위치는 검토를 돕고, 문맥 기여도는 모델 행동의 분석을 돕고, 확률 보정은 자동 처리 범위를 정하는 데 도움을 줍니다. 세 가지를 함께 쓴다고 오류가 사라지는 것은 아닙니다. 낮은 확신에서는 보류할 수 있어야 하고, 높은 확신에서 틀린 사례도 따로 모아야 합니다. 자동화 품질은 얼마나 많은 답을 냈는지가 아니라, <strong>어떤 오류를 발견하고 사람에게 넘길 수 있었는가</strong>까지 포함합니다.</p>
+<div class="article-end"><span>끝까지 읽어 주셔서 감사합니다.</span><a href="../">다른 글 읽기 →</a></div></article></div></main><footer><span>Dev · AI · QPU<br>뉴스, 논문, 개념을 연결하는 기술 읽기</span><div><a href="https://github.com/K0ykwon/newsletter">Source ↗</a><a href="../">모든 글 ↑</a></div></footer><script src="../app.js" defer></script></body></html>
