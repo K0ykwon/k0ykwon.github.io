@@ -955,6 +955,15 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/rainbow> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/rl_value_learning> .
 
+<https://github.com/PtwoI/p2i-kg#claim/1a38f80e8b28e09047496d61> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/poolformer> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/poolformer> ;
+    atlas:explanation "패치 표현을 혼합하고 전역 평균으로 영상 범주를 예측합니다." ;
+    atlas:relation atlas:applied_to ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/poolformer> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#task/classification> .
+
 <https://github.com/PtwoI/p2i-kg#claim/1a577a832487f1dd3772d9c9> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/elman> ;
     atlas:basis "structural" ;
@@ -1554,6 +1563,15 @@
     atlas:relation atlas:extends ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/rainbow> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#model/dueling_dqn> .
+
+<https://github.com/PtwoI/p2i-kg#claim/298d59ec02748933cf6b47fe> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/poolformer> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/poolformer> ;
+    atlas:explanation "학습 가능한 attention 없이 국소 평균과 입력 차이를 계산합니다." ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/poolformer> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/poolformer_pool> .
 
 <https://github.com/PtwoI/p2i-kg#claim/29da3458c98ea0ea0b5407ad> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/mamba> ;
@@ -4085,6 +4103,15 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/diayn> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/rl_skill_discovery> .
 
+<https://github.com/PtwoI/p2i-kg#claim/665bed7532f40bd851fa85cf> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/convmixer> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/convmixer> ;
+    atlas:explanation "채널별 공간 합성곱 뒤에 GELU와 BatchNorm을 두고 입력을 더합니다." ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/convmixer> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/convmixer_spatial> .
+
 <https://github.com/PtwoI/p2i-kg#claim/666cd26dfb93b7d1cee52b90> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/u2net> ;
     atlas:basis "documented" ;
@@ -4713,6 +4740,15 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#component/query_encoder> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#paper/moco> .
 
+<https://github.com/PtwoI/p2i-kg#claim/76d2afb5e68cf763db233183> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/resmlp> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/resmlp> ;
+    atlas:explanation "영상 분류 로짓과 정답 범주의 교차 엔트로피로 학습합니다." ;
+    atlas:relation atlas:trained_with ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/resmlp> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#objective/supervised> .
+
 <https://github.com/PtwoI/p2i-kg#claim/7751c199ffe454b40f792206> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/gin> ;
     atlas:basis "documented" ;
@@ -4810,6 +4846,24 @@
     atlas:relation atlas:documented_in ;
     atlas:source <https://github.com/PtwoI/p2i-kg#component/channel_mixer> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#paper/mixer> .
+
+<https://github.com/PtwoI/p2i-kg#claim/798c04602cba88da19e9b5e6> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/resmlp> ;
+    atlas:basis "structural" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/resmlp> ;
+    atlas:explanation "MLP 기반 패치 혼합에서 단일 공유 선형 변환과 통계 없는 affine을 사용합니다." ;
+    atlas:relation atlas:alternative_to ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/resmlp> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#model/mixer> .
+
+<https://github.com/PtwoI/p2i-kg#claim/79c1bd9df20943647cdb3ab5> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/poolformer> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/poolformer> ;
+    atlas:explanation "영상 분류 로짓과 정답 범주의 교차 엔트로피로 학습합니다." ;
+    atlas:relation atlas:trained_with ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/poolformer> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#objective/supervised> .
 
 <https://github.com/PtwoI/p2i-kg#claim/7b1b15c0ed00c537d01dc096> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/mobilenet> ;
@@ -4956,6 +5010,15 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/tcn> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/dilated_causal_convolution> .
 
+<https://github.com/PtwoI/p2i-kg#claim/7dab90702910ecf0b1857af1> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/poolformer> ;
+    atlas:basis "structural" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/poolformer> ;
+    atlas:explanation "동일한 영상 분류 문제에서 평균 풀링을 토큰 혼합 연산자로 사용합니다." ;
+    atlas:relation atlas:alternative_to ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/poolformer> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#model/vit> .
+
 <https://github.com/PtwoI/p2i-kg#claim/7e682e0aa0b452a62038a246> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
     atlas:basis "documented" ;
@@ -5091,6 +5154,15 @@
     atlas:relation atlas:has_component ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/decision_transformer> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#component/rl_action_embedding> .
+
+<https://github.com/PtwoI/p2i-kg#claim/820c8372938485679ab0e0a5> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/poolformer> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/poolformer> ;
+    atlas:explanation "주변 평균에서 입력을 빼는 공간 혼합을 정규화와 잔차 경로 사이에 둡니다." ;
+    atlas:relation atlas:uses ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/poolformer> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/poolformer> .
 
 <https://github.com/PtwoI/p2i-kg#claim/82df9ad7d08ce17d3c41a126> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/graphsage> ;
@@ -5382,6 +5454,15 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/vgg> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#paper/vgg> .
 
+<https://github.com/PtwoI/p2i-kg#claim/8ab19d2e583babb3ecf6f50f> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/resmlp> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/resmlp> ;
+    atlas:explanation "표본 통계 계산 없이 채널별 학습 가능한 스케일과 편향을 적용합니다." ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/resmlp> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/resmlp_affine> .
+
 <https://github.com/PtwoI/p2i-kg#claim/8ac7edd54257f81b362f7a09> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/graphsage> ;
     atlas:basis "documented" ;
@@ -5655,6 +5736,15 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/rainbow> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#component/rl_advantage_stream> .
 
+<https://github.com/PtwoI/p2i-kg#claim/8e8fa209bcdea38e109031e8> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/convmixer> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/convmixer> ;
+    atlas:explanation "원논문에서 해당 구조를 제안합니다." ;
+    atlas:relation atlas:documented_in ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/convmixer> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#paper/convmixer> .
+
 <https://github.com/PtwoI/p2i-kg#claim/8f1db79a05cf13fa0f1b8240> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/vit> ;
     atlas:basis "documented" ;
@@ -5684,6 +5774,15 @@
     atlas:relation atlas:documented_in ;
     atlas:source <https://github.com/PtwoI/p2i-kg#component/set_readout> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#paper/deepsets> .
+
+<https://github.com/PtwoI/p2i-kg#claim/8f8b73d7c95238d2982c7472> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/convmixer> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/convmixer> ;
+    atlas:explanation "1×1 합성곱으로 채널을 섞고 GELU 및 BatchNorm을 적용합니다." ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/convmixer> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/convmixer_channel> .
 
 <https://github.com/PtwoI/p2i-kg#claim/8fce96c30ef37b6942c1e01d> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/dreamer> ;
@@ -6045,6 +6144,15 @@
     atlas:relation atlas:documented_in ;
     atlas:source <https://github.com/PtwoI/p2i-kg#concept/sample_and_aggregate> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#paper/graphsage> .
+
+<https://github.com/PtwoI/p2i-kg#claim/97bdceabeeb25d77df43c7d0> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/convmixer> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/convmixer> ;
+    atlas:explanation "영상 분류 로짓과 정답 범주의 교차 엔트로피로 학습합니다." ;
+    atlas:relation atlas:trained_with ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/convmixer> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#objective/supervised> .
 
 <https://github.com/PtwoI/p2i-kg#claim/983bc8f99fa11b96934c8744> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/byol> ;
@@ -6818,6 +6926,15 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/gcn> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#paper/gcn> .
 
+<https://github.com/PtwoI/p2i-kg#claim/a970b488c901d47eb3d4de2b> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/convmixer> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/convmixer> ;
+    atlas:explanation "패치 격자의 해상도를 유지하면서 공간 혼합과 채널 혼합을 분리합니다." ;
+    atlas:relation atlas:uses ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/convmixer> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/convmixer> .
+
 <https://github.com/PtwoI/p2i-kg#claim/a9ab05077c859172627f441d> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/world_models> ;
     atlas:basis "structural" ;
@@ -6924,6 +7041,15 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/resnet> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/convolution> .
 
+<https://github.com/PtwoI/p2i-kg#claim/ac31f12465959c2a86594e7b> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/poolformer> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/poolformer> ;
+    atlas:explanation "1×1 합성곱 두 개 사이의 GELU로 채널을 혼합합니다." ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/poolformer> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/poolformer_mlp> .
+
 <https://github.com/PtwoI/p2i-kg#claim/ac5109e577f1fec25b84b502> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/llama> ;
     atlas:basis "structural" ;
@@ -6960,6 +7086,15 @@
     atlas:relation atlas:uses ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/cnn> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/backprop> .
+
+<https://github.com/PtwoI/p2i-kg#claim/ad319e0ee5730be59d33112e> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/poolformer> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/poolformer> ;
+    atlas:explanation "원논문에서 해당 구조를 제안합니다." ;
+    atlas:relation atlas:documented_in ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/poolformer> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#paper/poolformer> .
 
 <https://github.com/PtwoI/p2i-kg#claim/ad5e29bd03e235572f9e527a> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/actor_critic> ;
@@ -7710,6 +7845,15 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/deepsets> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#component/element_encoder> .
 
+<https://github.com/PtwoI/p2i-kg#claim/c23caa479df7e12ca08e3e76> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/resmlp> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/resmlp> ;
+    atlas:explanation "패치별로 동일한 2층 채널 MLP를 적용합니다." ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/resmlp> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/resmlp_channel> .
+
 <https://github.com/PtwoI/p2i-kg#claim/c261d0b49fbd9023e04eb28c> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/moco> ;
     atlas:basis "structural" ;
@@ -7729,6 +7873,15 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/sac> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/rl_actor_critic> .
 
+<https://github.com/PtwoI/p2i-kg#claim/c28fbdbc27ba24310508083e> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/convmixer> ;
+    atlas:basis "structural" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/convmixer> ;
+    atlas:explanation "패치의 공간축과 채널축을 분리해 혼합하는 구조에서 합성곱을 사용합니다." ;
+    atlas:relation atlas:alternative_to ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/convmixer> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#model/mixer> .
+
 <https://github.com/PtwoI/p2i-kg#claim/c2a71e4fddd6680ed3285e18> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/bert> ;
     atlas:basis "documented" ;
@@ -7738,6 +7891,15 @@
     atlas:relation atlas:trained_with ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/bert> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#objective/masked_lm> .
+
+<https://github.com/PtwoI/p2i-kg#claim/c3622bfa75cac2ba62a102fe> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/resmlp> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/resmlp> ;
+    atlas:explanation "패치 표현을 혼합하고 전역 평균으로 영상 범주를 예측합니다." ;
+    atlas:relation atlas:applied_to ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/resmlp> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#task/classification> .
 
 <https://github.com/PtwoI/p2i-kg#claim/c372901deeaa3979c9bcf97c> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/dit> ;
@@ -8006,6 +8168,15 @@
     atlas:relation atlas:documented_in ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/planet> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#paper/planet> .
+
+<https://github.com/PtwoI/p2i-kg#claim/c8dc653a2468cd00a91e00c1> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/resmlp> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/resmlp> ;
+    atlas:explanation "원논문에서 해당 구조를 제안합니다." ;
+    atlas:relation atlas:documented_in ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/resmlp> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#paper/resmlp> .
 
 <https://github.com/PtwoI/p2i-kg#claim/c94e74a4de3ff4d62ef1a568> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/transformer> ;
@@ -8540,6 +8711,15 @@
     atlas:relation atlas:extends ;
     atlas:source <https://github.com/PtwoI/p2i-kg#model/bert> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#model/transformer> .
+
+<https://github.com/PtwoI/p2i-kg#claim/d6764938ad1aed5860459a39> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/resmlp> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/resmlp> ;
+    atlas:explanation "채널별 affine과 작은 학습 가능한 잔차 스케일로 패치 및 채널 혼합을 조절합니다." ;
+    atlas:relation atlas:uses ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/resmlp> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#concept/resmlp> .
 
 <https://github.com/PtwoI/p2i-kg#claim/d67ee691cc41e778780af6f8> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/ldm> ;
@@ -9669,6 +9849,15 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/mae> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#concept/patch_embedding> .
 
+<https://github.com/PtwoI/p2i-kg#claim/f359c6af6caf8d18002c9eb3> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/convmixer> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/convmixer> ;
+    atlas:explanation "패치 표현을 혼합하고 전역 평균으로 영상 범주를 예측합니다." ;
+    atlas:relation atlas:applied_to ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/convmixer> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#task/classification> .
+
 <https://github.com/PtwoI/p2i-kg#claim/f3914be89cc40e7fcfcf5fdb> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/neuralode> ;
     atlas:basis "structural" ;
@@ -9990,6 +10179,15 @@
     atlas:source <https://github.com/PtwoI/p2i-kg#model/retnet> ;
     atlas:target <https://github.com/PtwoI/p2i-kg#task/language_modeling> .
 
+<https://github.com/PtwoI/p2i-kg#claim/fc59d5eaa679e8231d7e2d8a> a atlas:Claim ;
+    prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/resmlp> ;
+    atlas:basis "documented" ;
+    atlas:evidence <https://github.com/PtwoI/p2i-kg#paper/resmlp> ;
+    atlas:explanation "모든 채널에 같은 선형 변환을 패치축으로 적용합니다." ;
+    atlas:relation atlas:has_component ;
+    atlas:source <https://github.com/PtwoI/p2i-kg#model/resmlp> ;
+    atlas:target <https://github.com/PtwoI/p2i-kg#component/resmlp_token> .
+
 <https://github.com/PtwoI/p2i-kg#claim/fc7eb570611beb05d9cf1ccd> a atlas:Claim ;
     prov:wasDerivedFrom <https://github.com/PtwoI/p2i-kg#paper/xlstm> ;
     atlas:basis "documented" ;
@@ -10105,6 +10303,16 @@ atlas:ontology a owl:Ontology ;
     rdfs:label "Channel scale" ;
     atlas:label "Channel scale" ;
     atlas:summary "학습된 채널 gate를 원 특징 맵에 곱합니다." .
+
+<https://github.com/PtwoI/p2i-kg#component/convmixer_channel> a atlas:Component ;
+    rdfs:label "Pointwise channel mixer" ;
+    atlas:label "Pointwise channel mixer" ;
+    atlas:summary "1×1 합성곱으로 채널을 섞고 GELU 및 BatchNorm을 적용합니다." .
+
+<https://github.com/PtwoI/p2i-kg#component/convmixer_spatial> a atlas:Component ;
+    rdfs:label "Depthwise residual spatial mixer" ;
+    atlas:label "Depthwise residual spatial mixer" ;
+    atlas:summary "채널별 공간 합성곱 뒤에 GELU와 BatchNorm을 두고 입력을 더합니다." .
 
 <https://github.com/PtwoI/p2i-kg#component/cyclegan_discriminators> a atlas:Component ;
     rdfs:label "Domain-specific patch discriminators" ;
@@ -10236,10 +10444,35 @@ atlas:ontology a owl:Ontology ;
     atlas:label "Conditional PatchGAN" ;
     atlas:summary "입력과 출력 영상 쌍의 국소 패치마다 실제 여부를 판별합니다." .
 
+<https://github.com/PtwoI/p2i-kg#component/poolformer_mlp> a atlas:Component ;
+    rdfs:label "PoolFormer channel MLP" ;
+    atlas:label "PoolFormer channel MLP" ;
+    atlas:summary "1×1 합성곱 두 개 사이의 GELU로 채널을 혼합합니다." .
+
+<https://github.com/PtwoI/p2i-kg#component/poolformer_pool> a atlas:Component ;
+    rdfs:label "Pooling token mixer" ;
+    atlas:label "Pooling token mixer" ;
+    atlas:summary "학습 가능한 attention 없이 국소 평균과 입력 차이를 계산합니다." .
+
 <https://github.com/PtwoI/p2i-kg#component/query_projector> a atlas:Component ;
     rdfs:label "MoCo query projector" ;
     atlas:label "MoCo query projector" ;
     atlas:summary "query 표현을 대조 임베딩 공간으로 투영합니다." .
+
+<https://github.com/PtwoI/p2i-kg#component/resmlp_affine> a atlas:Component ;
+    rdfs:label "Channel-wise affine transform" ;
+    atlas:label "Channel-wise affine transform" ;
+    atlas:summary "표본 통계 계산 없이 채널별 학습 가능한 스케일과 편향을 적용합니다." .
+
+<https://github.com/PtwoI/p2i-kg#component/resmlp_channel> a atlas:Component ;
+    rdfs:label "ResMLP channel feedforward" ;
+    atlas:label "ResMLP channel feedforward" ;
+    atlas:summary "패치별로 동일한 2층 채널 MLP를 적용합니다." .
+
+<https://github.com/PtwoI/p2i-kg#component/resmlp_token> a atlas:Component ;
+    rdfs:label "Shared linear patch mixer" ;
+    atlas:label "Shared linear patch mixer" ;
+    atlas:summary "모든 채널에 같은 선형 변환을 패치축으로 적용합니다." .
 
 <https://github.com/PtwoI/p2i-kg#component/retention_gate> a atlas:Component ;
     rdfs:label "Retention output gate" ;
@@ -10431,6 +10664,11 @@ atlas:ontology a owl:Ontology ;
     atlas:label "복합 스케일링" ;
     atlas:summary "모델 깊이·너비·입력 해상도를 함께 조절합니다." .
 
+<https://github.com/PtwoI/p2i-kg#concept/convmixer> a atlas:Concept ;
+    rdfs:label "Isotropic convolutional patch mixing" ;
+    atlas:label "Isotropic convolutional patch mixing" ;
+    atlas:summary "패치 격자의 해상도를 유지하면서 공간 혼합과 채널 혼합을 분리합니다." .
+
 <https://github.com/PtwoI/p2i-kg#concept/cyclegan> a atlas:Concept ;
     rdfs:label "Cycle-consistent translation" ;
     atlas:label "Cycle-consistent translation" ;
@@ -10516,6 +10754,11 @@ atlas:ontology a owl:Ontology ;
     atlas:label "Input-conditioned adversarial translation" ;
     atlas:summary "판별기는 원본 영상과 후보 출력 영상을 함께 받아 쌍의 타당성을 평가합니다." .
 
+<https://github.com/PtwoI/p2i-kg#concept/poolformer> a atlas:Concept ;
+    rdfs:label "Pooling token mixing" ;
+    atlas:label "Pooling token mixing" ;
+    atlas:summary "주변 평균에서 입력을 빼는 공간 혼합을 정규화와 잔차 경로 사이에 둡니다." .
+
 <https://github.com/PtwoI/p2i-kg#concept/queue_negatives> a atlas:Concept ;
     rdfs:label "Queued negatives" ;
     atlas:label "Queued negatives" ;
@@ -10530,6 +10773,11 @@ atlas:ontology a owl:Ontology ;
     rdfs:label "Residual temporal stack" ;
     atlas:label "Residual temporal stack" ;
     atlas:summary "temporal block의 변환과 입력 경로를 더해 깊은 sequence model을 안정화합니다." .
+
+<https://github.com/PtwoI/p2i-kg#concept/resmlp> a atlas:Concept ;
+    rdfs:label "Affine residual patch mixing" ;
+    atlas:label "Affine residual patch mixing" ;
+    atlas:summary "채널별 affine과 작은 학습 가능한 잔차 스케일로 패치 및 채널 혼합을 조절합니다." .
 
 <https://github.com/PtwoI/p2i-kg#concept/resolution_invariance> a atlas:Concept ;
     rdfs:label "Resolution invariance" ;
@@ -11919,6 +12167,22 @@ atlas:ontology a owl:Ontology ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/contrastive> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/contrastive> .
 
+<https://github.com/PtwoI/p2i-kg#model/convmixer> a atlas:Model ;
+    rdfs:label "ConvMixer" ;
+    atlas:alternative_to <https://github.com/PtwoI/p2i-kg#model/mixer> ;
+    atlas:applied_to <https://github.com/PtwoI/p2i-kg#task/classification> ;
+    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/convmixer> ;
+    atlas:family "vision" ;
+    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/convmixer_channel>,
+        <https://github.com/PtwoI/p2i-kg#component/convmixer_spatial> ;
+    atlas:label "ConvMixer" ;
+    atlas:reference_year 2022 ;
+    atlas:runtime_id "convmixer" ;
+    atlas:runtime_note "2×2 패치 임베딩과 8채널 단일 블록에서 depthwise 잔차 경로·pointwise 혼합·GELU·BatchNorm을 실행합니다. 임의 초기화이며 논문의 큰 커널·깊이·학습은 생략합니다." ;
+    atlas:summary "고정 해상도의 패치 표현에 depthwise 및 pointwise 합성곱을 순차 적용합니다." ;
+    atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
+    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/convmixer> .
+
 <https://github.com/PtwoI/p2i-kg#model/cyclegan> a atlas:Model ;
     rdfs:label "CycleGAN" ;
     atlas:alternative_to <https://github.com/PtwoI/p2i-kg#model/pix2pix> ;
@@ -11984,6 +12248,22 @@ atlas:ontology a owl:Ontology ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/convolution>,
         <https://github.com/PtwoI/p2i-kg#concept/multiscale> .
+
+<https://github.com/PtwoI/p2i-kg#model/poolformer> a atlas:Model ;
+    rdfs:label "PoolFormer" ;
+    atlas:alternative_to <https://github.com/PtwoI/p2i-kg#model/vit> ;
+    atlas:applied_to <https://github.com/PtwoI/p2i-kg#task/classification> ;
+    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/poolformer> ;
+    atlas:family "vision" ;
+    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/poolformer_mlp>,
+        <https://github.com/PtwoI/p2i-kg#component/poolformer_pool> ;
+    atlas:label "PoolFormer" ;
+    atlas:reference_year 2021 ;
+    atlas:runtime_id "poolformer" ;
+    atlas:runtime_note "8채널 단일 스테이지에서 GroupNorm, average-pool-minus-input, LayerScale, 채널 MLP와 분류 헤드를 실행합니다. 원본의 전체 해상도 계층·깊이와 학습은 생략합니다." ;
+    atlas:summary "평균 풀링 기반 토큰 혼합과 채널 MLP를 잔차 블록으로 구성합니다." ;
+    atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
+    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/poolformer> .
 
 <https://github.com/PtwoI/p2i-kg#model/u2net> a atlas:Model ;
     rdfs:label "U²-Net" ;
@@ -12123,24 +12403,6 @@ atlas:ontology a owl:Ontology ;
         <https://github.com/PtwoI/p2i-kg#concept/graph_attention>,
         <https://github.com/PtwoI/p2i-kg#concept/message_passing> .
 
-<https://github.com/PtwoI/p2i-kg#model/mixer> a atlas:Model ;
-    rdfs:label "MLP-Mixer" ;
-    skos:altLabel "MLP Mixer" ;
-    atlas:alternative_to <https://github.com/PtwoI/p2i-kg#model/vit> ;
-    atlas:applied_to <https://github.com/PtwoI/p2i-kg#task/classification> ;
-    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/mixer> ;
-    atlas:family "vision" ;
-    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/channel_mixer>,
-        <https://github.com/PtwoI/p2i-kg#component/token_mixer> ;
-    atlas:label "MLP-Mixer" ;
-    atlas:reference_year 2021 ;
-    atlas:runtime_id "mixer" ;
-    atlas:runtime_note "16×16 이미지, 4×4 패치, 한 Mixer 블록. 무작위 초기화이며 공식 JAX 구현의 작은 PyTorch 구조 예제입니다." ;
-    atlas:summary "패치 축과 채널 축을 별도 MLP로 혼합하는 이미지 분류 구조." ;
-    atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
-    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/patch_embedding>,
-        <https://github.com/PtwoI/p2i-kg#concept/residual> .
-
 <https://github.com/PtwoI/p2i-kg#model/mobilenet> a atlas:Model ;
     rdfs:label "MobileNet" ;
     skos:altLabel "MOBILENET" ;
@@ -12209,6 +12471,23 @@ atlas:ontology a owl:Ontology ;
     atlas:summary "제한된 정책 갱신을 사용하는 정책 최적화 알고리즘입니다." ;
     atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/rl_return> ;
     atlas:uses <https://github.com/PtwoI/p2i-kg#concept/rl_actor_critic> .
+
+<https://github.com/PtwoI/p2i-kg#model/resmlp> a atlas:Model ;
+    rdfs:label "ResMLP" ;
+    atlas:alternative_to <https://github.com/PtwoI/p2i-kg#model/mixer> ;
+    atlas:applied_to <https://github.com/PtwoI/p2i-kg#task/classification> ;
+    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/resmlp> ;
+    atlas:family "vision" ;
+    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/resmlp_affine>,
+        <https://github.com/PtwoI/p2i-kg#component/resmlp_channel>,
+        <https://github.com/PtwoI/p2i-kg#component/resmlp_token> ;
+    atlas:label "ResMLP" ;
+    atlas:reference_year 2021 ;
+    atlas:runtime_id "resmlp" ;
+    atlas:runtime_note "8×8 영상의 16개 패치를 처리하는 8차원 단일 블록입니다. 통계 없는 affine 변환·공유 패치 선형 혼합·채널 MLP를 실행하며 원본의 전체 깊이·증류·학습은 생략합니다." ;
+    atlas:summary "패치축의 공유 선형 변환과 채널 MLP를 affine 변환 및 LayerScale 잔차로 결합합니다." ;
+    atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
+    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/resmlp> .
 
 <https://github.com/PtwoI/p2i-kg#model/sac> a atlas:Model ;
     rdfs:label "Soft Actor-Critic" ;
@@ -13012,6 +13291,24 @@ atlas:ontology a owl:Ontology ;
         <https://github.com/PtwoI/p2i-kg#concept/state_space>,
         <https://github.com/PtwoI/p2i-kg#concept/state_space_duality> .
 
+<https://github.com/PtwoI/p2i-kg#model/mixer> a atlas:Model ;
+    rdfs:label "MLP-Mixer" ;
+    skos:altLabel "MLP Mixer" ;
+    atlas:alternative_to <https://github.com/PtwoI/p2i-kg#model/vit> ;
+    atlas:applied_to <https://github.com/PtwoI/p2i-kg#task/classification> ;
+    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/mixer> ;
+    atlas:family "vision" ;
+    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/channel_mixer>,
+        <https://github.com/PtwoI/p2i-kg#component/token_mixer> ;
+    atlas:label "MLP-Mixer" ;
+    atlas:reference_year 2021 ;
+    atlas:runtime_id "mixer" ;
+    atlas:runtime_note "16×16 이미지, 4×4 패치, 한 Mixer 블록. 무작위 초기화이며 공식 JAX 구현의 작은 PyTorch 구조 예제입니다." ;
+    atlas:summary "패치 축과 채널 축을 별도 MLP로 혼합하는 이미지 분류 구조." ;
+    atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
+    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/patch_embedding>,
+        <https://github.com/PtwoI/p2i-kg#concept/residual> .
+
 <https://github.com/PtwoI/p2i-kg#model/nerf> a atlas:Model ;
     rdfs:label "NeRF" ;
     skos:altLabel "Neural Radiance Fields" ;
@@ -13715,6 +14012,15 @@ atlas:ontology a owl:Ontology ;
     atlas:summary "AlphaZero의 대표 논문입니다." ;
     atlas:url <https://arxiv.org/abs/1712.01815> .
 
+<https://github.com/PtwoI/p2i-kg#paper/convmixer> a atlas:Paper ;
+    rdfs:label "Patches Are All You Need?" ;
+    atlas:author "Asher Trockman",
+        "J. Zico Kolter" ;
+    atlas:label "Patches Are All You Need?" ;
+    atlas:reference_year 2022 ;
+    atlas:summary "공식 구현: https://github.com/locuslab/convmixer/blob/main/convmixer.py" ;
+    atlas:url <https://arxiv.org/abs/2201.09792> .
+
 <https://github.com/PtwoI/p2i-kg#paper/cyclegan> a atlas:Paper ;
     rdfs:label "Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks" ;
     atlas:author "Alexei A. Efros",
@@ -13807,6 +14113,21 @@ atlas:ontology a owl:Ontology ;
     atlas:summary "모델과 개념을 설명하는 대표 문헌입니다. 원문에서 해당 구조와 주장 범위를 확인할 수 있습니다." ;
     atlas:url <https://doi.org/10.1162/neco.1997.9.8.1735> .
 
+<https://github.com/PtwoI/p2i-kg#paper/poolformer> a atlas:Paper ;
+    rdfs:label "MetaFormer Is Actually What You Need for Vision" ;
+    atlas:author "Chenyang Si",
+        "Jiashi Feng",
+        "Mi Luo",
+        "Pan Zhou",
+        "Shuicheng Yan",
+        "Weihao Yu",
+        "Xinchao Wang",
+        "Yichen Zhou" ;
+    atlas:label "MetaFormer Is Actually What You Need for Vision" ;
+    atlas:reference_year 2021 ;
+    atlas:summary "공식 구현: https://github.com/sail-sg/poolformer/blob/main/models/poolformer.py" ;
+    atlas:url <https://arxiv.org/abs/2111.11418> .
+
 <https://github.com/PtwoI/p2i-kg#paper/resnet> a atlas:Paper ;
     rdfs:label "Deep Residual Learning for Image Recognition" ;
     atlas:author "Jian Sun",
@@ -13857,11 +14178,6 @@ atlas:ontology a owl:Ontology ;
         <https://github.com/PtwoI/p2i-kg#concept/patch_embedding>,
         <https://github.com/PtwoI/p2i-kg#concept/self_attention>,
         <https://github.com/PtwoI/p2i-kg#concept/transformer_denoiser> .
-
-atlas:alternative_to a owl:ObjectProperty,
-        owl:SymmetricProperty ;
-    rdfs:domain atlas:Model ;
-    rdfs:range atlas:Model .
 
 <https://github.com/PtwoI/p2i-kg#component/rl_critic> a atlas:Component ;
     rdfs:label "Value network" ;
@@ -14010,6 +14326,24 @@ atlas:alternative_to a owl:ObjectProperty,
     atlas:summary "clipped surrogate objective를 이용하는 정책 최적화 알고리즘입니다." ;
     atlas:url <https://arxiv.org/abs/1707.06347> .
 
+<https://github.com/PtwoI/p2i-kg#paper/resmlp> a atlas:Paper ;
+    rdfs:label "ResMLP: Feedforward networks for image classification with data-efficient training" ;
+    atlas:author "Alaaeldin El-Nouby",
+        "Armand Joulin",
+        "Edouard Grave",
+        "Gabriel Synnaeve",
+        "Gautier Izacard",
+        "Hervé Jégou",
+        "Hugo Touvron",
+        "Jakob Verbeek",
+        "Mathilde Caron",
+        "Matthieu Cord",
+        "Piotr Bojanowski" ;
+    atlas:label "ResMLP: Feedforward networks for image classification with data-efficient training" ;
+    atlas:reference_year 2021 ;
+    atlas:summary "공식 구현: https://github.com/facebookresearch/deit/blob/main/resmlp_models.py" ;
+    atlas:url <https://arxiv.org/abs/2105.03404> .
+
 <https://github.com/PtwoI/p2i-kg#paper/sac> a atlas:Paper ;
     rdfs:label "Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor" ;
     atlas:author "Aurick Zhou",
@@ -14098,28 +14432,6 @@ atlas:alternative_to a owl:ObjectProperty,
     atlas:label "위치별 FFN" ;
     atlas:summary "각 위치의 표현에 동일한 피드포워드 변환을 적용합니다." .
 
-<https://github.com/PtwoI/p2i-kg#model/vit> a atlas:Model ;
-    rdfs:label "Vision Transformer" ;
-    skos:altLabel "VIT" ;
-    atlas:applied_to <https://github.com/PtwoI/p2i-kg#task/classification> ;
-    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/vit> ;
-    atlas:extends <https://github.com/PtwoI/p2i-kg#model/transformer> ;
-    atlas:family "vision" ;
-    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/encoder>,
-        <https://github.com/PtwoI/p2i-kg#component/patches>,
-        <https://github.com/PtwoI/p2i-kg#component/positions> ;
-    atlas:label "Vision Transformer" ;
-    atlas:reference_year 2020 ;
-    atlas:runtime_id "vit" ;
-    atlas:runtime_note "작은 실제 TorchVision ViT 구성. 패치·위치 임베딩을 포함하며 임의 초기화입니다." ;
-    atlas:summary "영상 패치를 토큰으로 변환하여 Transformer 인코더로 처리합니다." ;
-    atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
-    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/ffn>,
-        <https://github.com/PtwoI/p2i-kg#concept/multihead>,
-        <https://github.com/PtwoI/p2i-kg#concept/patch_embedding>,
-        <https://github.com/PtwoI/p2i-kg#concept/position>,
-        <https://github.com/PtwoI/p2i-kg#concept/self_attention> .
-
 <https://github.com/PtwoI/p2i-kg#paper/aps> a atlas:Paper ;
     rdfs:label "APS: Active Pretraining with Successor Features" ;
     atlas:author "Hao Liu",
@@ -14201,6 +14513,33 @@ atlas:alternative_to a owl:ObjectProperty,
     atlas:reference_year 2024 ;
     atlas:summary "원 논문과 공식 구현 kwuking/TimeMixer" ;
     atlas:url <https://arxiv.org/abs/2405.14616> .
+
+atlas:alternative_to a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:domain atlas:Model ;
+    rdfs:range atlas:Model .
+
+<https://github.com/PtwoI/p2i-kg#model/vit> a atlas:Model ;
+    rdfs:label "Vision Transformer" ;
+    skos:altLabel "VIT" ;
+    atlas:applied_to <https://github.com/PtwoI/p2i-kg#task/classification> ;
+    atlas:documented_in <https://github.com/PtwoI/p2i-kg#paper/vit> ;
+    atlas:extends <https://github.com/PtwoI/p2i-kg#model/transformer> ;
+    atlas:family "vision" ;
+    atlas:has_component <https://github.com/PtwoI/p2i-kg#component/encoder>,
+        <https://github.com/PtwoI/p2i-kg#component/patches>,
+        <https://github.com/PtwoI/p2i-kg#component/positions> ;
+    atlas:label "Vision Transformer" ;
+    atlas:reference_year 2020 ;
+    atlas:runtime_id "vit" ;
+    atlas:runtime_note "작은 실제 TorchVision ViT 구성. 패치·위치 임베딩을 포함하며 임의 초기화입니다." ;
+    atlas:summary "영상 패치를 토큰으로 변환하여 Transformer 인코더로 처리합니다." ;
+    atlas:trained_with <https://github.com/PtwoI/p2i-kg#objective/supervised> ;
+    atlas:uses <https://github.com/PtwoI/p2i-kg#concept/ffn>,
+        <https://github.com/PtwoI/p2i-kg#concept/multihead>,
+        <https://github.com/PtwoI/p2i-kg#concept/patch_embedding>,
+        <https://github.com/PtwoI/p2i-kg#concept/position>,
+        <https://github.com/PtwoI/p2i-kg#concept/self_attention> .
 
 <https://github.com/PtwoI/p2i-kg#paper/decision_transformer> a atlas:Paper ;
     rdfs:label "Decision Transformer: Reinforcement Learning via Sequence Modeling" ;
@@ -14690,11 +15029,6 @@ atlas:Task a owl:Class ;
     atlas:summary "병렬 학습과 순환 추론이 가능한 receptance weighted key-value 구조를 제안한 원논문이며 BlinkDL/RWKV-LM이 공식 구현입니다." ;
     atlas:url <https://aclanthology.org/2023.findings-emnlp.936/> .
 
-<https://github.com/PtwoI/p2i-kg#task/classification> a atlas:Task ;
-    rdfs:label "영상 분류" ;
-    atlas:label "영상 분류" ;
-    atlas:summary "영상 입력에 범주를 할당합니다." .
-
 <https://github.com/PtwoI/p2i-kg#paper/mixer> a atlas:Paper ;
     rdfs:label "MLP-Mixer: An all-MLP Architecture for Vision" ;
     atlas:author "Alexander Kolesnikov",
@@ -14735,15 +15069,15 @@ atlas:Task a owl:Class ;
     atlas:label "Expected return maximization" ;
     atlas:summary "누적 보상의 기댓값을 높이는 정책을 학습합니다." .
 
+<https://github.com/PtwoI/p2i-kg#task/classification> a atlas:Task ;
+    rdfs:label "영상 분류" ;
+    atlas:label "영상 분류" ;
+    atlas:summary "영상 입력에 범주를 할당합니다." .
+
 <https://github.com/PtwoI/p2i-kg#task/rl_control> a atlas:Task ;
     rdfs:label "Sequential control" ;
     atlas:label "Sequential control" ;
     atlas:summary "환경과 상호작용하며 행동을 선택합니다." .
-
-<https://github.com/PtwoI/p2i-kg#objective/supervised> a atlas:Objective ;
-    rdfs:label "지도 분류 목적" ;
-    atlas:label "지도 분류 목적" ;
-    atlas:summary "표지된 자료의 분류 오차를 최적화합니다." .
 
 <https://github.com/PtwoI/p2i-kg#paper/transformer> a atlas:Paper ;
     rdfs:label "Attention Is All You Need" ;
@@ -14759,6 +15093,11 @@ atlas:Task a owl:Class ;
     atlas:reference_year 2017 ;
     atlas:summary "모델과 개념을 설명하는 대표 문헌입니다. 원문에서 해당 구조와 주장 범위를 확인할 수 있습니다." ;
     atlas:url <https://arxiv.org/abs/1706.03762> .
+
+<https://github.com/PtwoI/p2i-kg#objective/supervised> a atlas:Objective ;
+    rdfs:label "지도 분류 목적" ;
+    atlas:label "지도 분류 목적" ;
+    atlas:summary "표지된 자료의 분류 오차를 최적화합니다." .
 
 <https://github.com/PtwoI/p2i-kg#paper/simclr> a atlas:Paper ;
     rdfs:label "A Simple Framework for Contrastive Learning of Visual Representations" ;
@@ -14879,10 +15218,6 @@ atlas:extends a owl:ObjectProperty ;
     atlas:summary "이웃 특징을 표본화하고 집계하는 함수로 보지 못한 노드의 표현을 생성하는 GraphSAGE 원논문." ;
     atlas:url <https://arxiv.org/abs/1706.02216> .
 
-atlas:trained_with a owl:ObjectProperty ;
-    rdfs:domain atlas:Model ;
-    rdfs:range atlas:Objective .
-
 <https://github.com/PtwoI/p2i-kg#paper/nerf> a atlas:Paper ;
     rdfs:label "NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis" ;
     atlas:author "Ben Mildenhall",
@@ -14906,6 +15241,10 @@ atlas:trained_with a owl:ObjectProperty ;
     atlas:reference_year 2017 ;
     atlas:summary "정렬되지 않은 원시 점 집합을 공유 점 특징과 대칭 함수로 직접 처리하는 3D 분류·분할 아키텍처 원논문." ;
     atlas:url <https://openaccess.thecvf.com/content_cvpr_2017/html/Qi_PointNet_Deep_Learning_CVPR_2017_paper.html> .
+
+atlas:trained_with a owl:ObjectProperty ;
+    rdfs:domain atlas:Model ;
+    rdfs:range atlas:Objective .
 
 atlas:applied_to a owl:ObjectProperty ;
     rdfs:domain atlas:Model ;
