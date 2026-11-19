@@ -1,9 +1,9 @@
 import {getResearchPost,renderResearchArticle} from './content/research/articles.js?v=20261113-dbpia';
 import {activateResearch} from './content/research/interactions.js?v=20261031-research-posts';
 import {getSection,hasSection} from './content/index.js?v=20261113-dbpia';
-import {localizePost} from './blog/localization.js?v=20261113-content-review';
+import {localizePost} from './blog/localization.js?v=20261119-wsp';
 import {getLanguage,setLanguage,t,english,translateDOM,observeLanguage} from './i18n.js?v=20261031-content-folders';
-import {getBlogPost,renderBlogIndex,renderBlogArticle,activateBlog} from './blog/ui.js?v=20261113-content-review';
+import {getBlogPost,renderBlogIndex,renderBlogArticle,activateBlog} from './blog/ui.js?v=20261119-wsp';
 import {lightingAt,solarMinute} from './lighting.js?v=20261111-subtle-shadows';
 import {seoulParts,seasonFor,outsideFor,parseWeather,cachedScene} from './weather.js?v=20261029-scene-start';
 const root=document.documentElement;
