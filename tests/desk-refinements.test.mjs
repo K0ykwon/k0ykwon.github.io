@@ -31,7 +31,7 @@ test('Section entrances never hide rendered content and retain reduced-motion sc
  assert.match(app,/scrollIntoView\(\{behavior:reducedMotion\(\)\?'instant':'smooth'/);
 });
 
-test('Entrance is a non-blocking first-visit outline pass with staggered object reveals',()=>{
+test('Entrance is a non-blocking first-visit outline pass with a separate artwork dissolve',()=>{
  const html=read('index.html'), css=read('styles.css'), app=read('app.js');
  assert.match(html,/if\(!location.hash\)document\.documentElement\.dataset\.deskEntry="ink"/);
  assert.doesNotMatch(app,/deskEntry|desk-ink/);
@@ -40,8 +40,15 @@ test('Entrance is a non-blocking first-visit outline pass with staggered object 
    assert.match(html,new RegExp(`id="ink-${id}" pathLength="1"`));
    assert.match(html,new RegExp(`href="#ink-${id}"`));
  }
- assert.match(html,/mask="url\(#desk-ink-reveal\)"/);
+ assert.match(html,/<rect class="desk-ink-paper" width="950" height="416"\/>/);
+ assert.doesNotMatch(html,/desk-ink-reveal/);
  assert.match(css,/\.desk-ink-entry\{display:none\}/);
- assert.match(css,/@media\(prefers-reduced-motion:no-preference\)\{\s+html\[data-desk-entry=ink\] \.desk-ink-entry\s*\{[^}]*pointer-events:none[^}]*650ms/);
+ assert.match(css,/@media\(prefers-reduced-motion:no-preference\)\{\s+html\[data-desk-entry=ink\] \.desk-ink-entry\s*\{[^}]*pointer-events:none[^}]*700ms/);
  assert.match(css,/stroke-dasharray:1;stroke-dashoffset:1/);
+ const paper=css.match(/\.desk-ink-paper \{fill:var\(--paper\);animation:desk-ink-dissolve (\d+)ms (\d+)ms ease-in-out both\}/);
+ assert.ok(paper);
+ const latestStroke=Math.max(240+10,290+110,250+135);
+ assert.ok(Number(paper[2])-latestStroke>=50,'Leave a visible pause after every outline has finished');
+ assert.ok(Number(paper[1])+Number(paper[2])<=700,'Complete the art reveal before the overlay is removed');
+ assert.match(css,/@keyframes desk-ink-dissolve \{from \{opacity:1\}to \{opacity:0\}\}/);
 });
