@@ -30,3 +30,18 @@ test('Section entrances never hide rendered content and retain reduced-motion sc
  assert.match(app,/content\.innerHTML=page\.body/);
  assert.match(app,/scrollIntoView\(\{behavior:reducedMotion\(\)\?'instant':'smooth'/);
 });
+
+test('Entrance is a non-blocking first-visit outline pass with staggered object reveals',()=>{
+ const html=read('index.html'), css=read('styles.css'), app=read('app.js');
+ assert.match(html,/if\(!location.hash\)document\.documentElement\.dataset\.deskEntry="ink"/);
+ assert.doesNotMatch(app,/deskEntry|desk-ink/);
+ assert.match(html,/class="desk-ink-entry"[^>]+aria-hidden="true"\s+focusable="false"/);
+ for(const id of ['lamp-shade','window','laptop','notebook','papers']){
+   assert.match(html,new RegExp(`id="ink-${id}" pathLength="1"`));
+   assert.match(html,new RegExp(`href="#ink-${id}"`));
+ }
+ assert.match(html,/mask="url\(#desk-ink-reveal\)"/);
+ assert.match(css,/\.desk-ink-entry\{display:none\}/);
+ assert.match(css,/@media\(prefers-reduced-motion:no-preference\)\{\s+html\[data-desk-entry=ink\] \.desk-ink-entry\s*\{[^}]*pointer-events:none[^}]*650ms/);
+ assert.match(css,/stroke-dasharray:1;stroke-dashoffset:1/);
+});
