@@ -881,7 +881,7 @@ export function translateDOM(scope=document.body){
  // Article prose is supplied by explicit locale variants; generated controls use this dictionary.
  const walker=document.createTreeWalker(scope,NodeFilter.SHOW_TEXT);let node;
  while(node=walker.nextNode()){
-  if(node.parentElement?.closest('script,style,pre,code,.stream-char,.article-section,[data-content-localized],.localized-demo,.language-switch'))continue;
+  if(node.parentElement?.closest('script,style,pre,code,.article-section,[data-content-localized],.localized-demo,.language-switch'))continue;
   let entry=sources.get(node);if(!entry||node.textContent!==entry.last)entry={original:node.textContent,last:node.textContent};
   const parent=node.parentElement;
   const fixed=parent?.closest('h1,h2,h3,h4,h5,h6,a,button,label,select,option,th,nav,.timeline-entry p>strong,.panel-entry p>strong,.entry-meta,.entry-tags,.blog-tags,.post-meta,.blog-card-meta,.paper-details,.page-index,.profile-mark,.timeline-date,.timeline-status,.publication-authors,.publication-venue,.code-toolbar,.site-header,.site-footer,.page-bottom,.blog-tools');

@@ -95,6 +95,15 @@ body { background: var(--desk-surface); }
 .page-view[data-section=contact] .contact-link { font-size: clamp(18px, 2.7vw, 28px) !important; }
 .page-view[data-section=contact] .panel-entry a { overflow-wrap: anywhere; }
 .site-footer { font-size: 11px; }
+/* Fit the entire desk above the About heading on short desktop viewports.
+   Scale the scene and its percentage-positioned hotspots as one unit. */
+@media (min-width: 801px) and (max-height: 820px) {
+  .desk-section { background: var(--desk-surface); }
+  .desk { width: min(100%, calc(max(220px, 100svh - var(--header-height) - 278px) * 2.28313253)); }
+  .document-stack .page-view { margin-top: 26px; }
+  .document-stack .page-view .page-layout { padding-top: 23px; }
+}
+
 @media(max-width: 900px) {
   .page-view { width: calc(100% - 36px); padding-left: 42px; padding-right: 28px; }
   .page-view::before { left: 20px; }
