@@ -5,8 +5,8 @@ import {renderBlogArticle,getBlogPost,getPostDemos} from '../blog/ui.js';
 import {positionalEncoding,twoModeEnergy,costMixerExample} from '../blog/extra-review-models.js';
 import {attentionExample,sparseDistribution,chunkBudget,memorySchedule} from '../blog/review-models.js';
 const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-10,`${a} != ${b}`);
-test('Five paper reviews render references and valid related articles without BOJ/code-only controls',()=>{
- const reviews=POSTS.filter(post=>post.kind==='review');assert.equal(reviews.length,5);
+test('Six paper reviews render references and valid related articles without BOJ/code-only controls',()=>{
+ const reviews=POSTS.filter(post=>post.kind==='review');assert.equal(reviews.length,6);
  for(const post of reviews){assert.equal(post.category,'Paper review');assert.ok(post.paper.authors);assert.equal(post.title,post.paper.title);assert.equal(localizePost(post,'en').title,post.paper.title);assert.equal(post.sections.at(-1).id,'summary');assert.ok(post.sections.length>=5);assert.ok(post.sources.length);const html=renderBlogArticle(post);assert.doesNotMatch(html,/undefined|acmicpc\.net|data-copy-code|#SOURCE/);const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size);for(const match of html.matchAll(/data-scroll-to="([^"]+)"/g))assert.ok(ids.includes(match[1]),match[1]);for(const section of post.sections)for(const match of section.html.matchAll(/data-post="([^"]+)"/g))assert.ok(getBlogPost(match[1]));}
 });
 test('Attention weights normalize, respect the causal mask and produce the stated weighted sum',()=>{
@@ -89,7 +89,7 @@ test('Math rendering decodes HTML safely and leaves code and ordinary text uncha
  assert.match(renderMath('<div data-math="display">\\begin{aligned}a&amp;=b\\\\c&amp;=d\\end{aligned}</div>'),/katex-display/);
  assert.throws(()=>renderMath('<span data-math="inline">\\notARealCommand</span>'));
 });
-test('All ten articles have complete English counterparts with stable sections, code and references',()=>{
- assert.equal(POSTS.length,10);assert.equal(Object.keys(ENGLISH_POSTS).length,10);
+test('All eleven articles have complete English counterparts with stable sections, code and references',()=>{
+ assert.equal(POSTS.length,11);assert.equal(Object.keys(ENGLISH_POSTS).length,11);
  for(const original of POSTS){const en=localizePost(original,'en'),ko=localizePost(original,'ko');assert.equal(en.language,'en');assert.equal(ko.language,'ko');for(const key of ['id','slug','category','subcategory','code','codePath'])assert.equal(en[key],original[key]);assert.deepEqual(en.sections.map(s=>s.id),ko.sections.map(s=>s.id));assert.deepEqual(en.sources?.map(s=>s.url),ko.sources?.map(s=>s.url));for(const text of [en.title,en.summary,...(original.demo?[en.demoTitle]:[]),...en.sections.flatMap(s=>[s.title,s.html]),...(en.sources||[]).flatMap(s=>[s.title,s.detail])]){assert.ok(text);assert.doesNotMatch(text,/[가-힣]|undefined/);}}
 });

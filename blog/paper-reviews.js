@@ -1,1 +1,1 @@
-export {PAPER_REVIEWS} from '../content/posts/index.js?v=20261113-content-review';
+export {PAPER_REVIEWS} from '../content/posts/index.js?v=20261119-wsp';

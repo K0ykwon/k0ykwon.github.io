@@ -1,7 +1,7 @@
 import {getLanguage,t,english} from '../i18n.js?v=20261031-content-folders';
-import {localizePost} from './localization.js?v=20261113-content-review';
+import {localizePost} from './localization.js?v=20261119-wsp';
 import {mountComments} from './comments.js?v=20261113-desk-documents';
-import {POSTS} from './posts.js?v=20261113-content-review';
+import {POSTS} from './posts.js?v=20261119-wsp';
 import {mountDemo} from './demos.js?v=20261031-content-folders';
 import {renderMath} from './math.js?v=20261031-content-folders';
 export const escapeHTML=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
