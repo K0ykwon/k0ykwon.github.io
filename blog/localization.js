@@ -1,4 +1,4 @@
-import {ENGLISH_POSTS} from './posts-en.js?v=20261119-wsp';
+import {ENGLISH_POSTS} from './posts-en.js?v=20261119-geo';
 export function preserveEnglishHeadings(html,englishHTML){
  const headings=[...englishHTML.matchAll(/<(h[2-6]|th)\b[^>]*>[\s\S]*?<\/\1>/g)].map(match=>match[0]);
  let index=0;
