@@ -1,5 +1,11 @@
 # Youngkwon Ko portfolio
 
+## Editorial preview
+
+Run `npm run dev` and open `http://localhost:3000`. The home masthead and work index replace the illustrated desk on this design branch. Existing About, Research, Software, Blog, Contact, CV, newsletter, and app content is unchanged. Article hash URLs still work. The desk assets remain tracked for reference, but the editorial page does not load them. This branch is not the production GitHub Pages source.
+
+## Illustrated desk design history
+
 GitHub Pages portfolio based on the supplied image(3).png. The transparent foreground retains the desk, handwritten labels, window frame and overlapping plants. A separately generated Seoul/Han River illustration sits behind its true alpha window opening. Site theme does not change the foreground illustration. Incoming light follows Seoul time and weather.
 
 Assets: `assets/desk-cutout-v3.webp` (transparent foreground), `assets/seoul-window-v3.webp` (new outdoor illustration). Built-in image generation/editing was used. Foreground prompt: retain the supplied top-left desk panel and its wording, remove outdoor sky/city/river to transparency while preserving foreground leaves and window frame, remove the baked weather widget. Landscape prompt: a calm painterly panorama across Han River toward Seoul, bridge, mountains and N Seoul Tower, soft blue sky and clouds, detailed watercolor/gouache with fine pencil detail, no window, room, foreground plants or text.
