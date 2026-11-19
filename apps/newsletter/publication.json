@@ -3,6 +3,42 @@
   "source_repository": "K0ykwon/newsletter",
   "articles": [
     {
+      "slug": "2026-11-19-ai",
+      "category": "AI",
+      "date": "2026-11-19",
+      "title": "모델 응답 속도와 투기적 디코딩"
+    },
+    {
+      "slug": "2026-11-19-dev",
+      "category": "DEV",
+      "date": "2026-11-19",
+      "title": "이벤트 기반 자동화와 회귀 테스트"
+    },
+    {
+      "slug": "2026-11-19-qpu",
+      "category": "QPU",
+      "date": "2026-11-19",
+      "title": "격자 수술과 논리 큐비트 순간이동"
+    },
+    {
+      "slug": "2026-11-18-ai",
+      "category": "AI",
+      "date": "2026-11-18",
+      "title": "코딩 모델의 진화와 학생 경로 증류"
+    },
+    {
+      "slug": "2026-11-18-dev",
+      "category": "DEV",
+      "date": "2026-11-18",
+      "title": "실행 환경 비교와 캐시 비용"
+    },
+    {
+      "slug": "2026-11-18-qpu",
+      "category": "QPU",
+      "date": "2026-11-18",
+      "title": "위상 추정과 원자 에너지 분광"
+    },
+    {
       "slug": "2026-11-17-ai",
       "category": "AI",
       "date": "2026-11-17",
@@ -55,6 +91,24 @@
       "category": "QPU",
       "date": "2026-11-15",
       "title": "오류 완화와 잡음 외삽의 신뢰도"
+    },
+    {
+      "slug": "2026-11-14-ai",
+      "category": "AI",
+      "date": "2026-11-14",
+      "title": "검증 가능한 에이전트와 가중치 생성"
+    },
+    {
+      "slug": "2026-11-14-dev",
+      "category": "DEV",
+      "date": "2026-11-14",
+      "title": "브라우저 추론과 Local first 설계"
+    },
+    {
+      "slug": "2026-11-14-qpu",
+      "category": "QPU",
+      "date": "2026-11-14",
+      "title": "모듈형 프로세서와 양자 연결"
     }
   ]
 }
