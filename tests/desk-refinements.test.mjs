@@ -43,12 +43,24 @@ test('Entrance is a non-blocking first-visit outline pass with a separate artwor
  assert.match(html,/<rect class="desk-ink-paper" width="950" height="416"\/>/);
  assert.doesNotMatch(html,/desk-ink-reveal/);
  assert.match(css,/\.desk-ink-entry\{display:none\}/);
- assert.match(css,/@media\(prefers-reduced-motion:no-preference\)\{\s+html\[data-desk-entry=ink\] \.desk-ink-entry\s*\{[^}]*pointer-events:none[^}]*700ms/);
+ assert.match(css,/@media\(prefers-reduced-motion:no-preference\)\{\s+html\[data-desk-entry=ink\] \.desk-ink-entry\s*\{[^}]*pointer-events:none[^}]*1500ms/);
  assert.match(css,/stroke-dasharray:1;stroke-dashoffset:1/);
  const paper=css.match(/\.desk-ink-paper \{fill:var\(--paper\);animation:desk-ink-dissolve (\d+)ms (\d+)ms ease-in-out both\}/);
  assert.ok(paper);
- const latestStroke=Math.max(240+10,290+110,250+135);
- assert.ok(Number(paper[2])-latestStroke>=50,'Leave a visible pause after every outline has finished');
- assert.ok(Number(paper[1])+Number(paper[2])<=700,'Complete the art reveal before the overlay is removed');
+ const strokeRules=[...css.matchAll(/animation:desk-ink-stroke (\d+)ms (\d+)ms/g)];
+ const extraObjectDelays=[...css.matchAll(/\.ink-objects use:nth-child[^{}]*\{animation-delay:(\d+)ms/g)];
+ assert.equal(strokeRules.length,3);
+ assert.equal(extraObjectDelays.length,2);
+ const latestStroke=Math.max(
+   ...strokeRules.map(([,duration,delay])=>Number(duration)+Number(delay)),
+   Number(strokeRules[1][1])+Math.max(...extraObjectDelays.map(([,delay])=>Number(delay)))
+ );
+ assert.ok(Number(paper[2])-latestStroke>=100,'Leave a visible pause after every outline has finished');
+ assert.ok(Number(paper[1])+Number(paper[2])<=1500,'Complete the art reveal before the overlay is removed');
+ const inkFade=css.match(/animation:desk-ink-dissolve (\d+)ms (\d+)ms ease-out both/);
+ assert.ok(inkFade);
+ assert.ok(Number(inkFade[2])>=Number(paper[2]),'Hold outline ink while the original artwork starts to emerge');
+ assert.equal(Number(inkFade[1])+Number(inkFade[2]),1500,'Finish the sequence in exactly 1.5 seconds');
+ assert.match(html,/<link rel="preload" as="image" href="assets\/desk-wide-v9\.webp" fetchpriority="high">/);
  assert.match(css,/@keyframes desk-ink-dissolve \{from \{opacity:1\}to \{opacity:0\}\}/);
 });
