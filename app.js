@@ -1,9 +1,9 @@
 import {getResearchPost,renderResearchArticle} from './content/research/articles.js?v=20261113-dbpia';
 import {activateResearch} from './content/research/interactions.js?v=20261031-research-posts';
 import {getSection,hasSection} from './content/index.js?v=20261113-dbpia';
-import {localizePost} from './blog/localization.js?v=20261119-wsp';
+import {localizePost} from './blog/localization.js?v=20261119-geo';
 import {getLanguage,setLanguage,t,english,translateDOM,observeLanguage} from './i18n.js?v=20261031-content-folders';
-import {getBlogPost,renderBlogIndex,renderBlogArticle,activateBlog} from './blog/ui.js?v=20261119-wsp';
+import {getBlogPost,renderBlogIndex,renderBlogArticle,activateBlog} from './blog/ui.js?v=20261119-geo';
 import {lightingAt,solarMinute} from './lighting.js?v=20261111-subtle-shadows';
 import {seoulParts,seasonFor,outsideFor,parseWeather,cachedScene} from './weather.js?v=20261029-scene-start';
 const root=document.documentElement;
@@ -76,7 +76,7 @@ function renderSection(key,{scroll=true,postSlug='',force=false,animate=true,com
   const post=key==='blog'?localizePost(getBlogPost(postSlug),getLanguage()):undefined;
   const researchPost=key==='research'?getResearchPost(postSlug,getLanguage()):undefined;
   const activePost=post?.slug||researchPost?.slug||'';
-  const page=post?{...base,object:post.kind==='review'?`PAPER REVIEW / ${post.paper.year}`:`${english(post.category)} / ${english(post.subcategory)} / BOJ ${post.id}`,title:post.title,intro:post.summary,body:renderBlogArticle(post)}:researchPost?{...base,object:`RESEARCH / ${researchPost.topic}`,title:researchPost.title,intro:researchPost.summary,body:renderResearchArticle(researchPost)}:key==='blog'?{...base,body:renderBlogIndex()}:base;
+  const page=post?{...base,object:post.kind==='review'?`PAPER REVIEW / ${post.paper.year}`:`${english(post.category)} / ${english(post.subcategory)}${post.code?` / BOJ ${post.id}`:''}`,title:post.title,intro:post.summary,body:renderBlogArticle(post)}:researchPost?{...base,object:`RESEARCH / ${researchPost.topic}`,title:researchPost.title,intro:researchPost.summary,body:renderResearchArticle(researchPost)}:key==='blog'?{...base,body:renderBlogIndex()}:base;
   if(!force&&pageView.dataset.section===key&&pageView.dataset.post===activePost&&!pageView.hidden){if(scroll)scrollToSection();return;}
   blogCleanup?.();blogCleanup=undefined;researchCleanup?.();researchCleanup=undefined;
   sectionObserver?.disconnect();cancelAnimationFrame(entranceFrame);pageView.classList.remove('section-enter','section-playing');

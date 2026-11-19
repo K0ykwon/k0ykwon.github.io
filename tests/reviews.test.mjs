@@ -89,7 +89,20 @@ test('Math rendering decodes HTML safely and leaves code and ordinary text uncha
  assert.match(renderMath('<div data-math="display">\\begin{aligned}a&amp;=b\\\\c&amp;=d\\end{aligned}</div>'),/katex-display/);
  assert.throws(()=>renderMath('<span data-math="inline">\\notARealCommand</span>'));
 });
-test('All eleven articles have complete English counterparts with stable sections, code and references',()=>{
- assert.equal(POSTS.length,11);assert.equal(Object.keys(ENGLISH_POSTS).length,11);
+test('All twelve articles have complete English counterparts with stable sections, code and references',()=>{
+ assert.equal(POSTS.length,12);assert.equal(Object.keys(ENGLISH_POSTS).length,12);
  for(const original of POSTS){const en=localizePost(original,'en'),ko=localizePost(original,'ko');assert.equal(en.language,'en');assert.equal(ko.language,'ko');for(const key of ['id','slug','category','subcategory','code','codePath'])assert.equal(en[key],original[key]);assert.deepEqual(en.sections.map(s=>s.id),ko.sections.map(s=>s.id));assert.deepEqual(en.sources?.map(s=>s.url),ko.sources?.map(s=>s.url));for(const text of [en.title,en.summary,...(original.demo?[en.demoTitle]:[]),...en.sections.flatMap(s=>[s.title,s.html]),...(en.sources||[]).flatMap(s=>[s.title,s.detail])]){assert.ok(text);assert.doesNotMatch(text,/[가-힣]|undefined/);}}
+});
+
+test('GEO appears in Devlog with references and no programming-solution controls',async()=>{
+ const {blogCategories,renderBlogIndex}=await import('../blog/ui.js');
+ const post=getBlogPost('geo-harness');
+ assert.equal(post.kind,'devlog');
+ assert.equal(post.category,'Devlog');
+ assert.ok(blogCategories().includes('Devlog'));
+ assert.match(renderBlogIndex(),/href="#blog\/geo-harness"/);
+ for(const lang of ['ko','en'])assert.equal(localizePost(post,lang).sources.length,5);
+ const html=renderBlogArticle(post);
+ assert.match(html,/Four Observation Channels/);
+ assert.doesNotMatch(html,/data-copy-code|undefined|BOJ geo-harness/);
 });

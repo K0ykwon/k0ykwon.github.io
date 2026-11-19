@@ -1,1 +1,1 @@
-export {POSTS} from '../content/posts/index.js?v=20261119-wsp';
+export {POSTS} from '../content/posts/index.js?v=20261119-geo';
