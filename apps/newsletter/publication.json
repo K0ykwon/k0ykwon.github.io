@@ -3,6 +3,78 @@
   "source_repository": "K0ykwon/newsletter",
   "articles": [
     {
+      "slug": "2026-11-23-ai",
+      "category": "AI",
+      "date": "2026-11-23",
+      "title": "모델 비용과 작업 완료 기준"
+    },
+    {
+      "slug": "2026-11-23-dev",
+      "category": "DEV",
+      "date": "2026-11-23",
+      "title": "자체 호스팅과 테스트 검증"
+    },
+    {
+      "slug": "2026-11-23-qpu",
+      "category": "QPU",
+      "date": "2026-11-23",
+      "title": "블록 경계와 양자 회로 합성"
+    },
+    {
+      "slug": "2026-11-22-ai",
+      "category": "AI",
+      "date": "2026-11-22",
+      "title": "인터랙티브 월드 모델과 재방문 일관성"
+    },
+    {
+      "slug": "2026-11-22-dev",
+      "category": "DEV",
+      "date": "2026-11-22",
+      "title": "호환성 계약과 설명 가능한 빌드"
+    },
+    {
+      "slug": "2026-11-22-qpu",
+      "category": "QPU",
+      "date": "2026-11-22",
+      "title": "위치별 잡음과 양자 오류 디코딩"
+    },
+    {
+      "slug": "2026-11-21-ai",
+      "category": "AI",
+      "date": "2026-11-21",
+      "title": "편집 가능한 이미지와 생성 결과의 표현"
+    },
+    {
+      "slug": "2026-11-21-dev",
+      "category": "DEV",
+      "date": "2026-11-21",
+      "title": "예약 에이전트의 권한과 실행 검증"
+    },
+    {
+      "slug": "2026-11-21-qpu",
+      "category": "QPU",
+      "date": "2026-11-21",
+      "title": "가역 정수 연산과 보조 큐비트"
+    },
+    {
+      "slug": "2026-11-20-ai",
+      "category": "AI",
+      "date": "2026-11-20",
+      "title": "도구 지연 로딩과 모델 간 KV 캐시 전달"
+    },
+    {
+      "slug": "2026-11-20-dev",
+      "category": "DEV",
+      "date": "2026-11-20",
+      "title": "PostgreSQL 19와 실행 계획"
+    },
+    {
+      "slug": "2026-11-20-qpu",
+      "category": "QPU",
+      "date": "2026-11-20",
+      "title": "알고리즘 오류 정정의 손익분기점"
+    },
+    {
       "slug": "2026-11-19-ai",
       "category": "AI",
       "date": "2026-11-19",
