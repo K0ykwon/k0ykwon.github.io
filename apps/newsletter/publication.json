@@ -3,6 +3,12 @@
   "source_repository": "K0ykwon/newsletter",
   "articles": [
     {
+      "slug": "2026-11-24-ai",
+      "category": "AI",
+      "date": "2026-11-24",
+      "title": "AI가 파인튜닝을 맡으면, 누가 성능을 검증하나?"
+    },
+    {
       "slug": "2026-11-23-ai",
       "category": "AI",
       "date": "2026-11-23",
