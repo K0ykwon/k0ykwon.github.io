@@ -3,10 +3,76 @@
   "source_repository": "K0ykwon/newsletter",
   "articles": [
     {
+      "slug": "2026-11-27-ai",
+      "category": "AI",
+      "date": "2026-11-27",
+      "title": "Gemini 4 Neon과 추론 예산 배분"
+    },
+    {
+      "slug": "2026-11-27-dev",
+      "category": "DEV",
+      "date": "2026-11-27",
+      "title": "Lambda 실행 시간과 재시도 설계"
+    },
+    {
+      "slug": "2026-11-27-qpu",
+      "category": "QPU",
+      "date": "2026-11-27",
+      "title": "양자 게이트 보정과 드리프트 추적"
+    },
+    {
+      "slug": "2026-11-26-ai",
+      "category": "AI",
+      "date": "2026-11-26",
+      "title": "의료 근거 검색과 저정밀 잠재 추론"
+    },
+    {
+      "slug": "2026-11-26-dev",
+      "category": "DEV",
+      "date": "2026-11-26",
+      "title": "GitHub 이슈 상태와 변경 이력"
+    },
+    {
+      "slug": "2026-11-26-qpu",
+      "category": "QPU",
+      "date": "2026-11-26",
+      "title": "표면 부호의 큐비트 손실 교정"
+    },
+    {
+      "slug": "2026-11-25-ai",
+      "category": "AI",
+      "date": "2026-11-25",
+      "title": "Claude 모델 이전과 사실 검증"
+    },
+    {
+      "slug": "2026-11-25-dev",
+      "category": "DEV",
+      "date": "2026-11-25",
+      "title": "GitHub 커버리지와 결함 탐지"
+    },
+    {
+      "slug": "2026-11-25-qpu",
+      "category": "QPU",
+      "date": "2026-11-25",
+      "title": "양자 LDPC와 논리 큐비트 선택 연산"
+    },
+    {
       "slug": "2026-11-24-ai",
       "category": "AI",
       "date": "2026-11-24",
       "title": "AI가 파인튜닝을 맡으면, 누가 성능을 검증하나?"
+    },
+    {
+      "slug": "2026-11-24-dev",
+      "category": "DEV",
+      "date": "2026-11-24",
+      "title": "Node.js 27 알파와 런타임 호환성"
+    },
+    {
+      "slug": "2026-11-24-qpu",
+      "category": "QPU",
+      "date": "2026-11-24",
+      "title": "Willow와 시간 방향 오류 정정"
     },
     {
       "slug": "2026-11-23-ai",
